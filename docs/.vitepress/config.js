@@ -63,6 +63,10 @@ module.exports = {
             text: "其余配置信息",
             link: "/page/",
           },
+          {
+            text:"博主链接",
+            link:"/contact/"
+          }
         ],
       },
     ],
