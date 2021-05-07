@@ -1,4 +1,7 @@
 module.exports = {
+  title: "react-ant-admin",
+  base: "/doc-react-ant-admin/",
+  dest: "public",
   head: [
     [
       "meta",
@@ -22,56 +25,52 @@ module.exports = {
     ],
     ["link", { rel: "icon", href: "/favicon.ico" }],
   ],
-  title: "react-ant-admin",
-  base: "/doc-react-ant-admin/",
+
   themeConfig: {
-    search: true,
-    sidebar: [
-      {
-        text: "文档",
-        children: [
-          { text: "如何使用", link: "/" },
-          {
-            text: "权限配置",
-            link: "/power/",
-            children: [
-              {
-                text: "菜单权限",
-                link: "/power/menu",
-              },
-              {
-                text: "用户权限",
-                link: "/power/user",
-              },
-            ],
-          },
-          {
-            text: "菜单配置",
-            link: "/menu/",
-            children: [
-              {
-                text: "创建一个菜单",
-                link: "/menu/createMenu",
-              },
-              {
-                text: "创建一个对应页面",
-                link: "/menu/createPage",
-              },
-            ],
-          },
-          {
-            text: "其余配置信息",
-            link: "/page/",
-          },
-          {
-            text:"博主链接",
-            link:"/contact/"
-          }
-        ],
-      },
-    ],
+    sidebar: {
+      "/": getSidebar(),
+    },
     author: "kongyijilafumi",
-    // nav: [],
+    nav: [
+      { text: "介绍", link: "/", activeMatch: "^/$|^/guide/" },
+      {
+        text: "预览地址",
+        link: "https://azhengpersonalblog.top/react-ant-admin/",
+      },
+      {
+        text:"更多地址",
+        link:"/contact/"
+      }
+    ],
   },
-  dest: "public",
 };
+
+function getSidebar() {
+  return [
+    {
+      text: "介绍",
+      children: [
+        { text: "什么是react-ant-admin？", link: "/" },
+        { text: "开始使用", link: "/guide/start" },
+        { text: "文件配置", link: "/guide/configuration" },
+        { text: "路径配置", link: "/guide/path" },
+      ],
+    },
+    {
+      text: "菜单信息配置",
+      children: [
+        { text: "菜单配置", link: "/menu/" },
+        { text: "创建一个路由", link: "/menu/createMenu" },
+        { text: "创建一个页面", link: "/menu/createPage" },
+      ],
+    },
+    {
+      text: "用户权限信息配置",
+      children: [
+        { text: "权限类别配置", link: "/power/" },
+        { text: "用户权限配置", link: "/power/user" },
+        { text: "菜单如何关联用户权限", link: "/power/menu" },
+      ],
+    },
+  ];
+}

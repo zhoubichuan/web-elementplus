@@ -1,10 +1,21 @@
-### 用户权限设置
+# 用户权限配置
 
-用户权限仅需要拥有一个*type*值即可。
+用户信息中仅需要拥有一个*type*值即可。
+
+```json{3}
+{
+  "user_id":1,
+  "username": "xxxx",
+  "type": "1",
+  "account":"admin",
+  "pswd":"admin123"
+  //............
+}
+```
 
 用户信息配置的数据库设计可以参考以下结构
 
-```sql
+```sql{6}
 CREATE TABLE `user_info` (
   `user_id` int(8) NOT NULL AUTO_INCREMENT COMMENT '用户id',
   `username` varchar(255) NOT NULL COMMENT '用户名',
