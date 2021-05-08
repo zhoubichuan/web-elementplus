@@ -1,3 +1,14 @@
+--- 
+title: react-ant-admin 文件配置
+head:
+  - - meta
+    - name: description
+      content: react-ant-admin 文件配置，详细讲解此框架的文件部署，教你如何掌握框架的工作流程，快速上手。
+  - - meta
+    - name: keywords
+      content: react react-ant react-admin react-ant-admin.
+---
+
 # 文件配置
 
 使用一个框架，首先熟悉他的项目文件结构，废话不多说，开始往下讲解。

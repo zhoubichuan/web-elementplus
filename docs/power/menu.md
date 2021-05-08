@@ -1,3 +1,13 @@
+--- 
+title: 菜单如何关联用户权限 react-ant-admin 
+head:
+  - - meta
+    - name: description
+      content: react-ant-admin 菜单如何关联用户权限，详细讲解此框架的文件部署，教你如何掌握框架的工作流程，快速上手。
+  - - meta
+    - name: keywords
+      content: react react-ant react-admin react-ant-admin 菜单如何关联用户权限
+---
 # 菜单如何关联用户权限
 
 看完用菜单配置之后，就知道`type`这属性是来控制菜单显示，页面加载。因为`type`属性值为数组类型*Array*，所以只要用户信息的`type`值包含在此，代表有权限访问。

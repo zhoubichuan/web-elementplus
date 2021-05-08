@@ -2,6 +2,7 @@ module.exports = {
   title: "react-ant-admin",
   base: "/doc-react-ant-admin/",
   dest: "public",
+  lang: "zh-CN",
   head: [
     [
       "meta",
@@ -38,9 +39,9 @@ module.exports = {
         link: "https://azhengpersonalblog.top/react-ant-admin/",
       },
       {
-        text:"更多地址",
-        link:"/contact/"
-      }
+        text: "更多地址",
+        link: "/contact/",
+      },
     ],
   },
 };

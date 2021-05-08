@@ -1,3 +1,13 @@
+--- 
+title: 用户权限配置 react-ant-admin 
+head:
+  - - meta
+    - name: description
+      content: react-ant-admin 用户权限配置，详细讲解此框架的文件部署，教你如何掌握框架的工作流程，快速上手。
+  - - meta
+    - name: keywords
+      content: react react-ant react-admin react-ant-admin 用户权限配置
+---
 # 用户权限配置
 
 用户信息中仅需要拥有一个*type*值即可。

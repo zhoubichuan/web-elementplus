@@ -1,3 +1,13 @@
+--- 
+title: 创建一个菜单栏 react-ant-admin 
+head:
+  - - meta
+    - name: description
+      content: react-ant-admin 创建一个菜单栏，详细讲解此框架的文件部署，教你如何掌握框架的工作流程，快速上手。
+  - - meta
+    - name: keywords
+      content: react react-ant react-admin react-ant-admin 创建一个菜单栏
+---
 # 创建一个菜单栏
 
 使用`npm run "start mock" `启动的项目

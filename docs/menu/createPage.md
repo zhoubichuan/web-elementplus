@@ -1,3 +1,13 @@
+--- 
+title: 创建一个页面 react-ant-admin 
+head:
+  - - meta
+    - name: description
+      content: react-ant-admin 创建一个页面，详细讲解此框架的文件部署，教你如何掌握框架的工作流程，快速上手。
+  - - meta
+    - name: keywords
+      content: react react-ant react-admin react-ant-admin 创建一个页面
+---
 # 创建一个页面
 
 在`src/pages`文件夹下创建一个`test.js`文件,代码如下

@@ -1,3 +1,13 @@
+--- 
+title: 开始使用 react-ant-admin 
+head:
+  - - meta
+    - name: description
+      content: react-ant-admin 开始使用，详细讲解此框架的文件部署，教你如何掌握框架的工作流程，快速上手。
+  - - meta
+    - name: keywords
+      content: react react-ant react-admin react-ant-admin 开始使用
+---
 # 开始使用
 
 一开始我们使用git代码管理工具，拉取[react-ant-admin](https://github.com/kongyijilafumi/react-ant-admin)代码，然后安装依赖，最后开始启动项目，下面会按照顺序来进行。
