@@ -25,6 +25,11 @@ module.exports = {
       },
     ],
     ["link", { rel: "icon", href: "/favicon.ico" }],
+    // 统计代码
+    [
+      "script",
+      { src: "https://hm.baidu.com/hm.js?3a995a34b126c8652c75166fa2690df9" },
+    ],
   ],
 
   themeConfig: {
