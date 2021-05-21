@@ -78,5 +78,9 @@ function getSidebar() {
         { text: "菜单如何关联用户权限", link: "/power/menu" },
       ],
     },
+    {
+      text: "主题色配置",
+      link: "/color/",
+    },
   ];
 }

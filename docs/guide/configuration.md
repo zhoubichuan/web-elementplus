@@ -22,6 +22,9 @@ head:
 ├─ .editorconfig      编辑配置文件      文件
 ├─ .env.mock          环境变量配置文件   文件
 ├─ .gitignore         git忽略配置文件   文件
+├─ color.config.js    主题色启用文件    文件
+├─ color.js           主题色脚本文件    文件
+├─ README.md          使用文档         文件
 └─ package.json       包管理文件        文件
 ```
 
