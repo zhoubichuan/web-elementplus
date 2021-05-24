@@ -1,5 +1,5 @@
---- 
-title: 创建一个菜单栏 react-ant-admin 
+---
+title: 创建一个菜单栏 react-ant-admin
 head:
   - - meta
     - name: description
@@ -8,6 +8,7 @@ head:
     - name: keywords
       content: react react-ant react-admin react-ant-admin 创建一个菜单栏
 ---
+
 # 创建一个菜单栏
 
 使用`npm run "start mock" `启动的项目
@@ -28,6 +29,7 @@ let menu = [
     parentKey: "",
     icon: "icon_edit",
     type: "1,0",
+    order: 1,
   },
   {
     title: "个人中心",
@@ -36,6 +38,7 @@ let menu = [
     parentKey: "details",
     icon: "icon_infopersonal",
     type: "0,1",
+    order: 2,
   },
   // .... 开始添加菜单信息 ....
   {
@@ -45,6 +48,7 @@ let menu = [
     parentKey: "", // 空表示 为主菜单而非子菜单 必要
     icon: "icon_infopersonal", // 菜单图标 非必要
     type: "0,1", // 访问权限,自定义,当前项目 0为管理员,1为普通用户.原始数据为字符串形式,会中途进行转化为数组形式["0","1"] 必要
+    order: 3, // 菜单排序 越小越靠前
   },
   // .....
 ];
@@ -55,5 +59,5 @@ let menu = [
 打开之后,会发现菜单会多出一个`test`栏目,这样就完成了菜单的添加.
 
 ::: tip
-若是npm run start 启动模式，后台直接返回添加的菜单栏列表即可
+若是 npm run start 启动模式，后台直接返回添加的菜单栏列表即可
 :::
