@@ -3,6 +3,7 @@ module.exports = {
   base: "/doc-react-ant-admin/",
   dest: "public",
   lang: "zh-CN",
+  hmr: { overlay: false },
   head: [
     [
       "meta",
@@ -31,7 +32,7 @@ module.exports = {
       { src: "https://hm.baidu.com/hm.js?3a995a34b126c8652c75166fa2690df9" },
     ],
   ],
-
+ 
   themeConfig: {
     sidebar: {
       "/": getSidebar(),
@@ -81,6 +82,10 @@ function getSidebar() {
     {
       text: "主题色配置",
       link: "/color/",
+    },
+    {
+      text: "留言",
+      link: "/feedback/",
     },
   ];
 }
