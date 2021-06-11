@@ -32,23 +32,13 @@ module.exports = {
       { src: "https://hm.baidu.com/hm.js?3a995a34b126c8652c75166fa2690df9" },
     ],
   ],
- 
+
   themeConfig: {
     sidebar: {
       "/": getSidebar(),
     },
     author: "kongyijilafumi",
-    nav: [
-      { text: "介绍", link: "/", activeMatch: "^/$|^/guide/" },
-      {
-        text: "预览地址",
-        link: "https://azhengpersonalblog.top/react-ant-admin/",
-      },
-      {
-        text: "更多地址",
-        link: "/contact/",
-      },
-    ],
+    nav: getNav(),
   },
 };
 
@@ -65,16 +55,16 @@ function getSidebar() {
     },
     {
       text: "菜单信息配置",
+      link: "/menu/",
       children: [
-        { text: "菜单配置", link: "/menu/" },
         { text: "创建一个路由", link: "/menu/createMenu" },
         { text: "创建一个页面", link: "/menu/createPage" },
       ],
     },
     {
-      text: "用户权限信息配置",
+      text: "权限信息配置",
+      link: "/power/",
       children: [
-        { text: "权限类别配置", link: "/power/" },
         { text: "用户权限配置", link: "/power/user" },
         { text: "菜单如何关联用户权限", link: "/power/menu" },
       ],
@@ -86,6 +76,30 @@ function getSidebar() {
     {
       text: "留言",
       link: "/feedback/",
+    },
+  ];
+}
+
+function getNav() {
+  return [
+    { text: "介绍", link: "/", activeMatch: "^/$|^/guide/" },
+    {
+      text: "菜单信息配置",
+      link: "/menu/",
+    },
+    { text: "权限信息配置", link: "/power/" },
+    {
+      text: "留言",
+      link: "/feedback/",
+      ctiveMatch: "/feedback/",
+    },
+    {
+      text: "预览地址",
+      link: "https://azhengpersonalblog.top/react-ant-admin/",
+    },
+    {
+      text: "更多地址",
+      link: "/contact/",
     },
   ];
 }

@@ -30,6 +30,7 @@ let menu = [
     icon: "icon_edit",
     type: "1,0",
     order: 1,
+    keepAlive: "true",
   },
   {
     title: "个人中心",
@@ -39,6 +40,7 @@ let menu = [
     icon: "icon_infopersonal",
     type: "0,1",
     order: 2,
+    keepAlive: "false",
   },
   // .... 开始添加菜单信息 ....
   {
@@ -49,6 +51,7 @@ let menu = [
     icon: "icon_infopersonal", // 菜单图标 非必要
     type: "0,1", // 访问权限,自定义,当前项目 0为管理员,1为普通用户.原始数据为字符串形式,会中途进行转化为数组形式["0","1"] 必要
     order: 3, // 菜单排序 越小越靠前
+    keepAlive: "false", // 该页面是否缓存，切换页面时候保存状态
   },
   // .....
 ];

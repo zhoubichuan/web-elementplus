@@ -24,6 +24,7 @@ head:
 ├─ .gitignore         git忽略配置文件   文件
 ├─ color.config.js    主题色启用文件    文件
 ├─ color.js           主题色脚本文件    文件
+├─ LICENSE            项目开源协议      文件
 ├─ README.md          使用文档         文件
 └─ package.json       包管理文件        文件
 ```
@@ -34,29 +35,36 @@ head:
 src
  ├─ api
  │   └─ index.js    网络API接口文件
+ │ 
  ├─ asset           静态文件资源
+ │ 
  ├─ common          配置信息
  │    ├─ index.js   主要信息配置文件
  │    └─ ajax.js    网络请求库配置文件
+ │ 
  ├─ components      组件库
+ │ 
  ├─ layout          项目页面布局
  │    ├─ footer.js  项目页面底部布局
  │    ├─ header.js  项目页面头部布局
  │    ├─ index.js   项目页面主题布局
  │    ├─ siderMenu.js 项目页面侧边栏菜单布局
  │    └─ topMenu.js  项目页面顶部栏菜单布局
+ │ 
  ├─ mock
  │   └─ index.js    本地模拟数据文件
+ │ 
  ├─ pages           项目页面文件夹
- ├─ router             项目路由
- │    ├─ intercept     路由拦截
- │    │    └─ index.js
- │    ├─ route         页面路由列表
- │    │    └─ index.js
+ │ 
+ ├─ router             项目路由文件夹
  │    ├─ appRouter.js  项目App主要路由
- │    └─ index.js      项目页面信息，菜单信息组成渲染
+ │    ├─ index.js      项目页面信息，菜单信息组成渲染
+ │    ├─ intercept.js  路由权限拦截文件
+ │    └─ list.js       页面路由列表
+ │  
  ├─ store           redux全局数据管理
  ├─ utils           工具库
  ├─ App.js          项目渲染主入口
- └─ index.js        项目启动主入口
+ ├─ index.js        项目启动主入口
+ └─ setupProxy.js   跨域转发配置文件
 ```

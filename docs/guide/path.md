@@ -12,20 +12,29 @@ head:
 
 ## 如何设置指定某地址为默认打开地址
 
-在项目启动后，默认打开的地址是`/`，若要设置为其他路由地址，可以在`src/router/route/index.js`文件中配置`routerList`变量即可
+在项目启动后，默认打开的地址是`/`，若要设置为其他路由地址，可以在`src/router/list.js`文件中配置`routerList`变量即可
 
 ```js
+// ./src/router/list.js
+import auto from "./auto";
 import loadable from "@loadable/component";
 import { Redirect } from "react-router-dom";
-const routerList = [
+const Error = loadable(() => import("@pages/err"));
+
+const defaultArr = [
   {
-    path: "/", // 首页地址
-    key: "index", // 唯一值，不能重复
-    to: "/details/person", // 跳转到指定的地址
-    components: Redirect, // 使用 重定向组件进行跳转
+    path: "/", // 访问地址
+    key: "index",
+    to: "/details/person", // 重定向到 ....
+    components: Redirect, // 重定向组件
   },
+  // ....... 
 ];
-/// ....  下面其余信息省略
+const list = auto.map((c) => ({ ...c, components: loadable(c.components) }));
+
+list.push(...defaultArr);
+
+export default list;
 ```
 
 ## 修改项目 base 路由前缀

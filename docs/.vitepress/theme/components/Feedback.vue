@@ -38,8 +38,8 @@ import { ElMessage } from "element-plus";
 import "element-plus/lib/theme-chalk/el-message.css";
 import "element-plus/lib/theme-chalk/el-icon.css";
 
-const postUrl = "//localhost:8081/api/react-ant-admin/feedback";
-const getListUrl = "//localhost:8081/api/react-ant-admin/getfeedback";
+const postUrl = "/api/react-ant-admin/feedback";
+const getListUrl = "/api/react-ant-admin/getfeedback";
 
 const txt = ref("");
 const email = ref("");
