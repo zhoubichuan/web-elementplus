@@ -21,59 +21,41 @@ head:
 
 ![暗黑主题](https://gitee.com/kong_yiji_and_lavmi/my-image/raw/master/doc-theme02.png)
 
-## 是否启用主题色配置
-
-你可以在项目根目录下修改`color.config.js`文件来配置是否启用主题色动态配置。
-
-```js
-/**
- *
- * 是否主题可配置
- * true 会执行一些主题色脚本 会增加打包体积
- * false 走原来的webpack 不会增加打包体积
- */
-const showColorSet = true;
-module.exports = showColorSet;
-```
-
-## 主题色打包运行配置
-
-package.json 运行脚本配置
-
-先走主题配置，再走 webpack
+## 根据项目启动脚本显示主题
 
 ```json
 {
   "scripts": {
     "start": "node color && node scripts/start.js",
-    "start mock": "node color && env-cmd -f .env.mock node scripts/start.js",
-    "build": "node color && node scripts/build.js"
+    "start color": "cross-env COLOR=true node color && cross-env COLOR=true node scripts/start.js",
+    "start mock": "node color && cross-env REACT_APP_MOCK=1 node scripts/start.js",
+    "start mock color": "cross-env COLOR=true node color && cross-env REACT_APP_MOCK=1 COLOR=true node scripts/start.js",
+    "build": "node color && node scripts/build.js",
+    "build color": "cross-env COLOR=true node color && cross-env COLOR=true node scripts/build.js"
   }
 }
 ```
 
-若你完全不需要主题色动态配置可以自行去掉`package.json script项`里的`node color &&`而且请在`color.config.js`修改成 `const showColorSet = false;`
+- npm run start
 
-```json
-{
-  "scripts": {
-    "start": "node scripts/start.js",
-    "start mock": "env-cmd -f .env.mock node scripts/start.js",
-    "build": "node scripts/build.js"
-  }
-}
-```
+请求接口数据，通过后台返回数据显示项目信息
 
-你可以在项目根目录下修改`color.js`文件来配置主题色打包使用。前提 **启用主题**
+- npm run "start color"
 
-```js
-// ..........
-// 变量文件夹
-const varFile = path.join(__dirname, "./src/assets/theme/var.less");
-const varJsonPath = path.join(__dirname, "./color.json.js");
-const outputFilePath = path.join(__dirname, "./public/color.less");
-// antd 默认主题 json 文件
-const defaultPath = path.join(__dirname, "./src/assets/theme/default.json");
-const darkPath = path.join(__dirname, "./src/assets/theme/dark.json");
-// ...........
-```
+请求接口数据，通过后台返回数据显示项目信息，并且开启主题色配置。
+
+- npm run "start mock"
+
+本地模拟数据，假数据来显示项目信息
+
+- npm run "start mock color"
+
+本地模拟数据，假数据来显示项目信息，并且开启主题色配置。
+
+- npm run build
+
+普通打包模式。
+
+- npm run "build color"
+
+打包主题色。项目体积会有所增加。

@@ -12,7 +12,9 @@ head:
 
 一开始我们使用git代码管理工具，拉取[react-ant-admin](https://github.com/kongyijilafumi/react-ant-admin)代码，然后安装依赖，最后开始启动项目，下面会按照顺序来进行。
 
-- **1.** 下载
+- 使用**TypeSrcip**t开发请[往这里看](https://gitee.com/kong_yiji_and_lavmi/react-ant-admin-ts#react-ant-admintypescript-%E7%89%88) 
+
+## **1.** 下载
 
 在需要安装的文件夹下，打开 DOS 窗口(cmd)，输入一下内容并回车
 
@@ -26,19 +28,20 @@ git clone https://github.com/kongyijilafumi/react-ant-admin.git
 git clone https://gitee.com/kong_yiji_and_lavmi/react-ant-admin.git
 ```
 
-- **2.** 安装项目所需依赖
+## **2.** 安装项目所需依赖
 
 使用 npm 安装或者使用 cnpm
 
 ```shell
+#cd dir
 D:> cd react-ant-admin
-
+# 安装依赖
 D:\react-ant-admin> npm i
-
+# or
 D:\react-ant-admin> cnpm i
 ```
 
-- **3.** 启动
+## **3.** 启动
 
 输入 npm run "start mock" 启动本地 mock 数据
 

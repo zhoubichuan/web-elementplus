@@ -20,9 +20,7 @@ head:
 ├─ scripts            启动配置项        文件夹
 ├─ src                源码             文件夹
 ├─ .editorconfig      编辑配置文件      文件
-├─ .env.mock          环境变量配置文件   文件
 ├─ .gitignore         git忽略配置文件   文件
-├─ color.config.js    主题色启用文件    文件
 ├─ color.js           主题色脚本文件    文件
 ├─ LICENSE            项目开源协议      文件
 ├─ README.md          使用文档         文件

@@ -57,7 +57,7 @@ function getSidebar() {
       text: "菜单信息配置",
       link: "/menu/",
       children: [
-        { text: "创建一个路由", link: "/menu/createMenu" },
+        { text: "创建一个菜单", link: "/menu/createMenu" },
         { text: "创建一个页面", link: "/menu/createPage" },
       ],
     },
