@@ -13,18 +13,6 @@ module.exports = {
           "width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no",
       },
     ],
-    [
-      "meta",
-      { name: "keywords", content: "react react-admin ant 后台管理系统" },
-    ],
-    [
-      "meta",
-      {
-        name: "description",
-        content:
-          "此框架使用与二次开发，前端框架使用react，UI框架使用ant-design，全局数据状态管理使用redux，ajax使用库为axios。用于快速搭建中后台页面。",
-      },
-    ],
     ["link", { rel: "icon", href: "/doc-react-ant-admin/logo.svg" }],
     // 统计代码
     [
