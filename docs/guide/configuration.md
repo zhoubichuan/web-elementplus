@@ -40,12 +40,14 @@ src
  │    ├─ index.js   主要信息配置文件
  │    └─ ajax.js    网络请求库配置文件
  │ 
- ├─ components      组件库
+ ├─ components      自定义组件库
  │ 
  ├─ layout          项目页面布局
+ │    ├─ mode       布局模式文件夹
  │    ├─ footer.js  项目页面底部布局
  │    ├─ header.js  项目页面头部布局
  │    ├─ index.js   项目页面主题布局
+ │    ├─ index.less 布局样式
  │    ├─ siderMenu.js 项目页面侧边栏菜单布局
  │    └─ topMenu.js  项目页面顶部栏菜单布局
  │ 
@@ -61,6 +63,12 @@ src
  │    └─ list.js       页面路由列表
  │  
  ├─ store           redux全局数据管理
+ │    ├─ layout     关于布局模式
+ │    ├─ menu       关于菜单
+ │    ├─ user       关于用户
+ │    ├─ visibel    关于用户显示
+ │    └─ index.js   入口文件
+ │  
  ├─ utils           工具库
  ├─ App.js          项目渲染主入口
  ├─ index.js        项目启动主入口

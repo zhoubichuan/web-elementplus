@@ -83,23 +83,13 @@ function getSidebar() {
 function getNav() {
   return [
     { text: "介绍", link: "/", activeMatch: "^/$|^/guide/" },
-    {
-      text: "菜单信息配置",
-      link: "/menu/",
-    },
-    { text: "权限信息配置", link: "/power/" },
-    {
-      text: "留言",
-      link: "/feedback/",
-      ctiveMatch: "/feedback/",
-    },
+    { text: "菜单信息配置", link: "/menu/", activeMatch: "/menu/" },
+    { text: "权限信息配置", link: "/power/", activeMatch: "/power/" },
+    { text: "留言", link: "/feedback/", activeMatch: "/feedback/" },
     {
       text: "预览地址",
       link: "https://azhengpersonalblog.top/react-ant-admin/",
     },
-    {
-      text: "更多地址",
-      link: "/contact/",
-    },
+    { text: "更多地址", link: "/contact/", activeMatch: "/contact/" },
   ];
 }
