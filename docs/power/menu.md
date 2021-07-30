@@ -1,5 +1,5 @@
---- 
-title: 菜单如何关联用户权限 react-ant-admin 
+---
+title: 菜单如何关联用户权限 react-ant-admin
 head:
   - - meta
     - name: description
@@ -8,44 +8,50 @@ head:
     - name: keywords
       content: react react-ant react-admin react-ant-admin 菜单如何关联用户权限
 ---
+
 # 菜单如何关联用户权限
 
-看完用菜单配置之后，就知道`type`这属性是来控制菜单显示，页面加载。因为`type`属性值为数组类型*Array*，所以只要用户信息的`type`值包含在此，代表有权限访问。
+在权限表里有`menu_id`这一属性，它就是用来关联菜单的，在数据库存储它是一条字符串，把关联的菜单 id 用逗号隔开存储。如：`1,2,3,4,5,6,7,8,9`。
 
 - 举例
 
 ```js
+// 假设现在有两个权限
+var powers = [
+  {
+    type_id: 1,
+    name: "管理员",
+    menu_id: "1,2,3,4,5,6,7,8,9,10",
+  },
+  {
+    type_id: 1,
+    name: "用户",
+    menu_id: "8,9,10",
+  },
+];
 
 // 假设现在有两个用户信息
-
-const user1 ={
-  username:"user1",
+var user1 = {
   // ... 省略其他信息
-  type:"admin" // 权限标识为admin
-}
-const user2 ={
-  username:"user2"
-   // ... 省略其他信息
-  type:"user" // 权限标识为user
-}
+  username: "user1",
+  type_id: 1, // 权限标识为 管理员
+};
+
+var user2 = {
+  username: "user2",
+  // ... 省略其他信息
+  type_id: 2, // 权限标识为 用户
+};
 
 // 假设现在有个菜单信息是这样的
-const menu = {
-   title: "详情页",
-    path: "/details",
-    key: "details",
-    parentKey: "",
-    icon: "icon_edit",
-    type: ["admin"], // user1 通过了权限可以进行访问，而user2会被拦截，页面无法正常显示
-}
+var menu = {
+  menu_id: 1,
+  title: "详情页",
+  path: "/details",
+  key: "details",
+  parentKey: "",
+  icon: "icon_edit",
+};
 
-/**
- * 若type 值为 空数组时， 任何人都无法访问
- * 若用户信息、菜单信息 无type 属性值时， 都可以访问
- * 若type 值为 假值 都可以访问
-*/
+// 只有标识为 管理员 权限的用户才可以看见 菜单 menu_id: 1的信息
 ```
-
-::: tip
-在这里，希望`用户信息，菜单信息`里包含**type**字段，不然权限这块相当于没用到！
-:::
