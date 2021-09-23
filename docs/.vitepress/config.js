@@ -19,6 +19,11 @@ module.exports = {
       "script",
       { src: "https://hm.baidu.com/hm.js?3a995a34b126c8652c75166fa2690df9" },
     ],
+    // 百度推送代码
+    [
+      "script",
+      { src: "/doc-react-ant-admin/push.js" },
+    ],
   ],
 
   themeConfig: {

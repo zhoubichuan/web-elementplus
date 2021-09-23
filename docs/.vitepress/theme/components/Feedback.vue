@@ -22,6 +22,7 @@
           <span>{{ item.time }}</span>
         </div>
         <div class="content" v-text="item.f_context"></div>
+        <div class="replay" v-text="item.f_back" v-if="item.f_back"></div>
       </li>
     </ul>
     <div class="nolist" v-if="list.length === 0">暂无留言~</div>
@@ -196,7 +197,7 @@ onMounted(getList);
 .title {
   color: #000;
 }
-.content {
+.replay,.content {
   padding: 10px;
   white-space: pre-line;
   color: #00000073;
@@ -211,5 +212,9 @@ onMounted(getList);
   text-shadow: none;
   box-shadow: none;
   cursor: not-allowed;
+}
+.replay{
+   padding:0 15px 10px;
+   color: red;
 }
 </style>
