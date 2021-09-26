@@ -24,7 +24,7 @@ var powers = [
     menu_id: "1,2,3,4,5,6,7,8,9,10",
   },
   {
-    type_id: 1,
+    type_id: 2,
     name: "用户",
     menu_id: "8,9,10",
   },
@@ -53,5 +53,7 @@ var menu = {
   icon: "icon_edit",
 };
 
-// 只有标识为 管理员 权限的用户才可以看见 菜单 menu_id: 1的信息
 ```
+::: tip
+只有标识为 管理员 权限的用户才可以看见 菜单 menu_id: 1的信息
+:::
