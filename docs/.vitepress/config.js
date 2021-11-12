@@ -33,6 +33,10 @@ module.exports = {
     author: "kongyijilafumi",
     nav: getNav(),
   },
+  markdown: {
+    lineNumbers: true
+  }
+
 };
 
 function getSidebar() {
@@ -44,6 +48,7 @@ function getSidebar() {
         { text: "开始使用", link: "/guide/start" },
         { text: "文件配置", link: "/guide/configuration" },
         { text: "路径配置", link: "/guide/path" },
+        { text: "请求配置", link: "/guide/ajax" },
       ],
     },
     {
