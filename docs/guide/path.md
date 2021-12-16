@@ -1,5 +1,5 @@
---- 
-title: 路径配置 react-ant-admin 
+---
+title: 路径配置 react-ant-admin
 head:
   - - meta
     - name: description
@@ -8,6 +8,7 @@ head:
     - name: keywords
       content: react react-ant react-admin react-ant-admin 路径配置
 ---
+
 # 路径配置
 
 ## 如何设置指定某地址为默认打开地址
@@ -28,7 +29,7 @@ const defaultArr = [
     to: "/details/person", // 重定向到 ....
     components: Redirect, // 重定向组件
   },
-  // ....... 
+  // .......
 ];
 const list = auto.map((c) => ({ ...c, components: loadable(c.components) }));
 
@@ -48,12 +49,12 @@ export default list;
 const RouterBasename = "/";
 ```
 
-## 修改打包生产的文件名字
+## 修改打包生产的文件夹
 
 找到`scripts/build.js`文件，进行如下修改即可。
 
 ```js
-process.env.BUILD_PATH = "./react-ant-admin";
+process.env.BUILD_PATH = "react-ant-admin"; // 当前项目下的 react-ant-admin 文件夹
 ```
 
 ## 打包之后静态资源加载失败
@@ -82,6 +83,6 @@ process.env.BUILD_PATH = "./react-ant-admin";
 ```
 
 ::: tip
-希望`package.json`里的*homepage*属性，`scripts/build.js`文件的 _process.env.BUILD_PATH_，`src/common/index.js`文件的*RouterBasename*，这三个的值相同，否则不管是运行还是打包都会发生意想不到的事情!
+希望`package.json`里的*homepage*属性， `src/common/index.js`文件的*RouterBasename*，这两个的值相同，否则不管是运行还是打包都会发生意想不到的事情!
 
 :::
