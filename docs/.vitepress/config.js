@@ -3,6 +3,7 @@ module.exports = {
   base: "/doc-react-ant-admin/",
   dest: "public",
   lang: "zh-CN",
+  description:"适用于开发人员快速搭建中后台页面，管理系统。",
   hmr: { overlay: false },
   head: [
     [
@@ -44,7 +45,7 @@ function getSidebar() {
     {
       text: "介绍",
       children: [
-        { text: "什么是react-ant-admin？", link: "/" },
+        { text: "什么是react-ant-admin？", link: "/guide/" },
         { text: "开始使用", link: "/guide/start" },
         { text: "文件配置", link: "/guide/configuration" },
         { text: "路径配置", link: "/guide/path" },
@@ -80,7 +81,7 @@ function getSidebar() {
 
 function getNav() {
   return [
-    { text: "介绍", link: "/", activeMatch: "^/$|^/guide/" },
+    { text: "介绍", link: "/guide/", activeMatch: "^/guide/" },
     { text: "菜单信息配置", link: "/menu/", activeMatch: "/menu/" },
     { text: "权限信息配置", link: "/power/", activeMatch: "/power/" },
     { text: "留言", link: "/feedback/", activeMatch: "/feedback/" },
