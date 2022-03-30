@@ -40,21 +40,22 @@ export default list;
 
 ## 修改项目 base 路由前缀
 
-找到`src/common/index.js`文件进行如下修改即可。
+找到`.env-cmdrc.js`文件进行如下修改即可。
 
 ```js
-// const RouterBasename = "/react-ant-admin";
-//        ||
-//        \/
-const RouterBasename = "/";
+const devConfig = {
+  REACT_APP_ROUTERBASE: "/abc", // react路由基础路径 /abc
+};
 ```
 
 ## 修改打包生产的文件夹
 
-找到`scripts/build.js`文件，进行如下修改即可。
+找到`.env-cmdrc.js`文件进行如下修改即可。
 
 ```js
-process.env.BUILD_PATH = "react-ant-admin"; // 当前项目下的 react-ant-admin 文件夹
+const productionCfg = {
+  BUILD_PATH: "test", // 打包 文件夹名称 test文件夹
+};
 ```
 
 ## 打包之后静态资源加载失败
@@ -65,24 +66,31 @@ process.env.BUILD_PATH = "react-ant-admin"; // 当前项目下的 react-ant-admi
 
 假设你的网站地址为：https://wwww.xxxxx.com
 
-现在你想把项目放在这个网站的二级域名下如：https://wwww.xxxxx.com/blog 但是你没有修改`package.json`里的*homepage*属性，所以就会发现静态文件 404。因为它们都以根目录去访问。所以会出现上述情况。
+现在你想把项目放在这个网站的二级域名下如：https://wwww.xxxxx.com/blog 但是你没有修改`.env-cmdrc.js`里的*PUBLIC_URL*属性，所以就会发现静态文件 404。因为它们都以根目录去访问。所以会出现上述情况。
 
-解决这种办法去修改`package.json`里的*homepage*属性即可
+解决这种办法去修改`.env-cmdrc.js`里的*PUBLIC_URL*属性即可
 
 ```json{4}
 {
-  "name": "react-ant-admin",
-  "version": "0.1.0",
-  "homepage": "/react-ant-admin", // 你指定的网站路径
-  "dependencies": {
-    "@babel/core": "7.12.3",
-    "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
-    "@svgr/webpack": "5.5.0"
-  }
+  "REACT_APP_ROUTERBASE": "/react-ant-admin", // react路由基础路径
+  "REACT_APP_API_BASEURL": "/api/react-ant-admin", //请求地址
+  "PUBLIC_URL": "/blog",// 静态文件路径 这个时候你可以 https://wwww.xxxxx.com/blog/xxx.js 正常访问静态资源了
+  "NODE_ENV": "production", // 打包模式 生产模式
+  "BUILD_PATH": "react-ant-admin", // 打包 文件夹名称
 }
 ```
 
 ::: tip
-希望`package.json`里的*homepage*属性， `src/common/index.js`文件的*RouterBasename*，这两个的值相同，否则不管是运行还是打包都会发生意想不到的事情!
+希望`.env-cmdrc.js`里的*PUBLIC_URL*属性,_REACT_APP_ROUTERBASE_，这两个的值相同，否则不管是运行还是打包都会发生意想不到的事情!
 
 :::
+
+## React-Router 使用哈希模式(#)
+
+只需要在`.env-cmdrc.js` 的启动模式下加上`REACT_APP_ROUTER_ISHASH`字段并且值为`1`即可。
+
+```json
+{
+ "REACT_APP_ROUTER_ISHASH": "1", // 启用哈希模式
+}
+```
