@@ -128,7 +128,7 @@ module.exports = Promise.resolve({
 使用[vscode 编辑器](https://code.visualstudio.com/)[下载地址](https://blog.csdn.net/bielaiwuyang1999/article/details/117814237)
 
 把此项目文件夹拖入`vscode编辑器`,找到左下角`npm 脚本栏目`选择快速启动，免命令。
-![免命令示例图](https://gitee.com/kong_yiji_and_lavmi/my-image/raw/master/run.png)
+![免命令示例图](https://raw.githubusercontent.com/kongyijilafumi/my-image/master/run.png)
 
 ## 为什么使用 npm run "start:mock"
 

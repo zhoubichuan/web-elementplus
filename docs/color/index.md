@@ -15,11 +15,11 @@ head:
 
 - 默认主题色
 
-![默认主题](https://gitee.com/kong_yiji_and_lavmi/my-image/raw/master/doc-theme01.png)
+![默认主题](https://raw.githubusercontent.com/kongyijilafumi/my-image/master/doc-theme01.png)
 
 - 暗黑主题色
 
-![暗黑主题](https://gitee.com/kong_yiji_and_lavmi/my-image/raw/master/doc-theme02.png)
+![暗黑主题](https://raw.githubusercontent.com/kongyijilafumi/my-image/master/doc-theme02.png)
 
 ## 根据项目启动脚本显示主题
 
