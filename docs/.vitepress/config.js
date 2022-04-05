@@ -3,7 +3,7 @@ module.exports = {
   base: "/doc-react-ant-admin/",
   dest: "public",
   lang: "zh-CN",
-  description:"适用于开发人员快速搭建中后台页面，管理系统。",
+  description: "适用于开发人员快速搭建中后台页面，管理系统。",
   hmr: { overlay: false },
   head: [
     [
@@ -30,6 +30,10 @@ module.exports = {
   themeConfig: {
     sidebar: {
       "/": getSidebar(),
+    },
+    algolia: {
+      apiKey: '3cf87848227335901102442fb529bacc',
+      indexName: 'react_admin_docs'
     },
     author: "kongyijilafumi",
     nav: getNav(),
