@@ -38,6 +38,7 @@ import axios from "axios";
 import { ElMessage } from "element-plus";
 import "element-plus/lib/theme-chalk/el-message.css";
 import "element-plus/lib/theme-chalk/el-icon.css";
+import "element-plus/lib/theme-chalk/base.css"
 
 const postUrl = "/api/react-ant-admin/feedback";
 const getListUrl = "/api/react-ant-admin/getfeedback";
