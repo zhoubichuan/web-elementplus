@@ -57,7 +57,7 @@ let menu = [
 ];
 ```
 
-由于菜单会走本地会话存储`window.sessionStorage`,所以保存代码后需要关闭当前窗口,重新打开页面输入地址 http://localhost:3000/react-ant-admin
+由于菜单会走本地会话存储`window.sessionStorage`,所以保存代码后需要关闭当前窗口,重新打开页面输入地址 `http://localhost:3000/react-ant-admin`
 
 打开之后,会发现菜单会多出一个`test`栏目,这样就完成了菜单的添加.
 

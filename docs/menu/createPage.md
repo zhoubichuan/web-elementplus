@@ -50,4 +50,4 @@ export const route = {
 若页面是与菜单栏上的路由信息是一一对应的话，以上的`route`添加的信息只需要`path`属性即可，因为其余属性会与菜单信息一起合并，`key`,`title`等等都会有，不需要添加太多信息，若想覆盖菜单的`title`等信息，可以追加进去，因为**页面路由列表信息**`优先级高于`**菜单配置信息**！
 :::
 
-浏览器访问 http://localhost:3000/react-ant-admin/test 即可
+浏览器访问 `http://localhost:3000/react-ant-admin/test` 即可
