@@ -11,7 +11,7 @@ head:
 
 # 权限类别配置
 
-单条数据展示：JSON 格式
+本项目权限单条数据展示：JSON 格式
 
 ```json{2}
 {
@@ -33,3 +33,6 @@ CREATE TABLE `power`  (
   PRIMARY KEY (`type_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 ```
+::: tip
+若你有更好的权限设计完全可以自主设计。以上是[react-ant-admin-server后台设计](https://gitee.com/kong_yiji_and_lavmi/react-ant-admin-server)
+:::

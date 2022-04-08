@@ -40,3 +40,6 @@ CREATE TABLE `user_info`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 ```
+::: tip
+若你有更好的权限设计完全可以自主设计。以上是[react-ant-admin-server后台设计](https://gitee.com/kong_yiji_and_lavmi/react-ant-admin-server)
+:::

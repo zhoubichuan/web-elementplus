@@ -1,6 +1,6 @@
 ---
 home: true
-description: asdasd
+title: 首页
 heroImage: /react.svg
 actionText: 开始
 actionLink: /guide/

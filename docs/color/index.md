@@ -23,15 +23,18 @@ head:
 
 ## 根据项目启动脚本显示主题
 
+在这里你可以自定义启动方式[点击这里查看文件配置](/guide/configuration)
+
 ```json
 {
   "scripts": {
-    "start": "node color && node scripts/start.js",
-    "start color": "cross-env COLOR=true node color && cross-env COLOR=true node scripts/start.js",
-    "start mock": "node color && cross-env REACT_APP_MOCK=1 node scripts/start.js",
-    "start mock color": "cross-env COLOR=true node color && cross-env REACT_APP_MOCK=1 COLOR=true node scripts/start.js",
-    "build": "node color && node scripts/build.js",
-    "build color": "cross-env COLOR=true node color && cross-env COLOR=true node scripts/build.js"
+    "start": "node color && env-cmd --verbose -e development node scripts/start.js",
+    "start:color": "env-cmd --verbose -e development_color node color && env-cmd --verbose -e development_color node scripts/start.js",
+    "start:mock": "node color && env-cmd --verbose -e development_mock node scripts/start.js",
+    "start:mock_color": "env-cmd --verbose -e development_color_mock node color && env-cmd --verbose -e development_color_mock node scripts/start.js",
+    "build": "node color && env-cmd --verbose -e production node scripts/build.js",
+    "build:color": "env-cmd --verbose -e production_color node color && env-cmd --verbose -e production_color node scripts/build.js",
+    "build:github-pages": "env-cmd --verbose -e production_github node color && env-cmd --verbose -e production_github node scripts/build.js"
   }
 }
 ```
@@ -40,15 +43,15 @@ head:
 
 请求接口数据，通过后台返回数据显示项目信息
 
-- npm run "start color"
+- npm run "start:color"
 
 请求接口数据，通过后台返回数据显示项目信息，并且开启主题色配置。
 
-- npm run "start mock"
+- npm run "start:mock"
 
 本地模拟数据，假数据来显示项目信息
 
-- npm run "start mock color"
+- npm run "start:mock_color"
 
 本地模拟数据，假数据来显示项目信息，并且开启主题色配置。
 
@@ -56,6 +59,7 @@ head:
 
 普通打包模式。
 
-- npm run "build color"
+- npm run "build:color"
 
 打包主题色。项目体积会有所增加。
+
