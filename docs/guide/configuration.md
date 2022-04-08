@@ -1,5 +1,5 @@
 ---
-title: react-ant-admin 文件配置
+title: 文件配置
 head:
   - - meta
     - name: description

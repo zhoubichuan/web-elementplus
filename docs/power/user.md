@@ -1,5 +1,5 @@
 ---
-title: 用户关联权限 react-ant-admin
+title: 用户关联权限
 head:
   - - meta
     - name: description

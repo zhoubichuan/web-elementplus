@@ -1,5 +1,5 @@
 ---
-title: 菜单如何关联用户权限 react-ant-admin
+title: 菜单如何关联用户权限
 head:
   - - meta
     - name: description

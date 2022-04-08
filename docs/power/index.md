@@ -1,5 +1,5 @@
 ---
-title: 权限类别配置 react-ant-admin
+title: 权限类别配置
 head:
   - - meta
     - name: description

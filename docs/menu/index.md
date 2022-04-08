@@ -1,5 +1,5 @@
 ---
-title: 菜单配置 react-ant-admin
+title: 菜单配置
 head:
   - - meta
     - name: description

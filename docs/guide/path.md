@@ -1,5 +1,5 @@
 ---
-title: 路径配置 react-ant-admin
+title: 路径配置
 head:
   - - meta
     - name: description

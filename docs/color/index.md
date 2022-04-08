@@ -1,5 +1,5 @@
 ---
-title: 主题色配置 react-ant-admin
+title: 主题色配置
 head:
   - - meta
     - name: description

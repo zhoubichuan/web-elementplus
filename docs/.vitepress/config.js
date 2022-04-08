@@ -32,9 +32,9 @@ module.exports = {
       "/": getSidebar(),
     },
     algolia: {
-      appId: '2ZVFSW798B',
-      apiKey: '3cf87848227335901102442fb529bacc',
-      indexName: 'react_admin_docs'
+      appId: 'AL1QFC6D6J',
+      apiKey: 'afb33711192aecd970cac3e08b5f26d6',
+      indexName: 'react-ant-admin'
     },
     author: "kongyijilafumi",
     nav: getNav(),

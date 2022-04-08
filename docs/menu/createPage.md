@@ -1,5 +1,5 @@
 ---
-title: 创建一个页面 react-ant-admin
+title: 创建一个页面
 head:
   - - meta
     - name: description

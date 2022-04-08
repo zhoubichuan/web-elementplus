@@ -1,5 +1,5 @@
 ---
-title: 开始使用 react-ant-admin
+title: 开始使用
 head:
   - - meta
     - name: description

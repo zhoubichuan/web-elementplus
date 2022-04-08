@@ -1,5 +1,5 @@
 ---
-title: 创建一个菜单栏 react-ant-admin
+title: 创建一个菜单栏
 head:
   - - meta
     - name: description

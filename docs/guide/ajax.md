@@ -1,5 +1,5 @@
 ---
-title: react-ant-admin ajax配置
+title: ajax配置
 head:
   - - meta
     - name: description
