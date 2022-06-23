@@ -1,13 +1,17 @@
 ---
-home: true
-title: 首页
-heroImage: /react.svg
-actionText: 开始
-actionLink: /guide/
-
-altActionText: 了解更多
-altActionLink: /guide/start
-
+layout: home
+hero:
+  name: react-ant-admin
+  text: 后台管理框架
+  image: /react.svg
+  tagline: react-ant-admin 适用于后台管理 web 项目的二次开发。让开发人员快速搭建后台管理项目。
+  actions:
+    - theme: brand
+      text: 开始
+      link: /guide/
+    - theme: alt
+      text: 了解更多
+      link: /guide/start
 features:
   - title: 💡 菜单配置
     details: 扁平化数据组织，方便编写，存库，页面菜单，排序，标题，侧边栏，顶部导航栏同步。

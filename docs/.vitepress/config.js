@@ -3,6 +3,7 @@ module.exports = {
   base: "/doc-react-ant-admin/",
   dest: "public",
   lang: "zh-CN",
+  lastUpdated: true,
   description: "适用于开发人员快速搭建中后台页面，管理系统。",
   hmr: { overlay: false },
   head: [
@@ -28,10 +29,7 @@ module.exports = {
   ],
 
   themeConfig: {
-    lastUpdatedText: 'Updated Date',
-    sidebar: {
-      "/": getSidebar(),
-    },
+    sidebar: getSidebar(),
     algolia: {
       appId: 'AL1QFC6D6J',
       apiKey: 'afb33711192aecd970cac3e08b5f26d6',
@@ -50,7 +48,7 @@ function getSidebar() {
   return [
     {
       text: "介绍",
-      children: [
+      items: [
         { text: "什么是react-ant-admin？", link: "/guide/" },
         { text: "开始使用", link: "/guide/start" },
         { text: "文件配置", link: "/guide/configuration" },
@@ -60,31 +58,31 @@ function getSidebar() {
     },
     {
       text: "菜单信息配置",
-      link: "/menu/",
-      children: [
+      items: [
+        { text: "菜单配置", link: "/menu/" },
         { text: "创建一个菜单", link: "/menu/createMenu" },
         { text: "创建一个页面", link: "/menu/createPage" },
       ],
     },
     {
       text: "权限信息配置",
-      link: "/power/",
-      children: [
+      items: [
+        { text: "权限配置", link: "/power/",},
         { text: "用户权限配置", link: "/power/user" },
         { text: "菜单如何关联用户权限", link: "/power/menu" },
       ],
     },
     {
-      text: "分支介绍",
-      link: "/branch/",
+      text: "分支",
+      items: [{ link: "/branch/", text: "分支介绍" }]
     },
     {
-      text: "主题色配置",
-      link: "/color/",
+      text: "主题",
+      items: [{ link: "/color/", text: "主题色配置", }]
     },
     {
       text: "留言",
-      link: "/feedback/",
+      items: [{ link: "/feedback/", text: "留言板" }]
     },
   ];
 }

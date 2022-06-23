@@ -5,7 +5,7 @@ export default function fetchReleaseTag() {
     fetch('https://api.github.com/repos/kongyijilafumi/react-ant-admin/releases/latest')
       .then((res) => res.json())
       .then((json) => {
-        const mainTitle = document.getElementById('main-title')
+        const mainTitle = document.querySelector('.main .name')
         mainTitle.style.position = 'relative'
 
         const docsReleaseTag = document.createElement('span')
