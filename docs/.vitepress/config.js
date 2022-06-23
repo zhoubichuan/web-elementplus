@@ -28,6 +28,7 @@ module.exports = {
   ],
 
   themeConfig: {
+    lastUpdatedText: 'Updated Date',
     sidebar: {
       "/": getSidebar(),
     },
@@ -72,6 +73,10 @@ function getSidebar() {
         { text: "用户权限配置", link: "/power/user" },
         { text: "菜单如何关联用户权限", link: "/power/menu" },
       ],
+    },
+    {
+      text: "分支介绍",
+      link: "/branch/",
     },
     {
       text: "主题色配置",
