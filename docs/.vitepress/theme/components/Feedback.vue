@@ -195,13 +195,10 @@ onMounted(getList);
   font-size: 12px;
   color: #d9d9d9;
 }
-.title {
-  color: #000;
-}
 .replay,.content {
   padding: 10px;
   white-space: pre-line;
-  color: #00000073;
+  color: var(--vp-c-text-2);
 }
 .btn.more {
   width: 100%;
@@ -216,6 +213,6 @@ onMounted(getList);
 }
 .replay{
    padding:0 15px 10px;
-   color: red;
+   color: var(--vp-c-red);
 }
 </style>
