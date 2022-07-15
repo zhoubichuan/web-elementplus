@@ -1,17 +1,17 @@
 ---
 layout: home
 hero:
-  name: react-ant-admin
-  text: 后台管理框架
+  name: element-plus学习笔记
+  text: 加油～～
   image: /react.svg
-  tagline: react-ant-admin 适用于后台管理 web 项目的二次开发。让开发人员快速搭建后台管理项目。
+  tagline: element-plus
   actions:
     - theme: brand
       text: 开始
-      link: /guide/
+      link: /base/
     - theme: alt
       text: 了解更多
-      link: /guide/start
+      link: /base/start
 features:
   - title: 💡 菜单配置
     details: 扁平化数据组织，方便编写，存库，页面菜单，排序，标题，侧边栏，顶部导航栏同步。
@@ -25,7 +25,7 @@ features:
     details: 使用了webpack-router-generator来直接在定义页面里定义路由信息。
   - title: 🔑 权限控制
     details: 根据不用角色的功能类型显示菜单,路由页面拦截。
-footer: MIT Licensed | Copyright © 2021-present azheng
+# footer: MIT Licensed | Copyright © 2021-present azheng
 ---
 
 

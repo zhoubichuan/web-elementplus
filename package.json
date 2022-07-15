@@ -4,17 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "vitepress dev docs --port 3301",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "dev": "vitepress dev docs --port 3301",
+    "build": "vitepress build docs",
+    "serve": "vitepress serve docs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^18.0.4",
+    "@vitejs/plugin-vue-jsx": "^1.3.10",
     "axios": "^0.21.1",
-    "element-plus": "^1.0.2-beta.46",
+    "element-plus": "^1.0.2-beta.71",
     "vitepress": "^1.0.0-alpha.4",
+    "vitepress-theme-demoblock": "^1.4.2",
     "vue": "^3.2.37"
   }
 }
