@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "vitepress dev docs --port 3301",
-    "build": "vitepress build docs",
-    "serve": "vitepress serve docs"
+    "dev": "vitepress dev src",
+    "build": "vitepress build src",
+    "serve": "vitepress serve src"
   },
   "keywords": [],
   "author": "",
