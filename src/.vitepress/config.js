@@ -1,12 +1,12 @@
 module.exports = {
   title: "elementplus",
   base: "/web-elementplus/",
-  dest: "public",
+  dest: "../../web-elementplus",
   lang: "zh-CN",
-  lastUpdated: true,
   description: "elementplus",
   hmr: { overlay: false },
   themeConfig: {
+    smoothScroll: true,
     repo: 'https://github.com/zhoubichuan/web-elementplus', // 源码地址
     repoLabel: '查看源码', // (查看源码的)组件名称
     docsBranch: 'master', // git 源仓库 仓库分支

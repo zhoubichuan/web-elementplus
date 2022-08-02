@@ -12,3 +12,6 @@ meta:
 
 - 组件介绍
   [Layout 布局](https://element-plus.gitee.io/#/zh-CN/component/layout)
+  <!-- docs/Forms/index.md -->
+# 表单
+用户通过配置`schema`渲染表单。

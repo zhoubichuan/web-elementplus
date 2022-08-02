@@ -1,7 +1,8 @@
 ---
+home: true
 layout: home
 hero:
-  name: element-plus学习笔记
+  name: element-plus笔记
   text: 加油～～
   image: /react.svg
   tagline: element-plus
@@ -27,7 +28,6 @@ features:
     details: 根据不用角色的功能类型显示菜单,路由页面拦截。
 # footer: MIT Licensed | Copyright © 2021-present azheng
 ---
-
 
 <script setup>
 import fetchReleaseTag from './.vitepress/theme/fetchTag.js'

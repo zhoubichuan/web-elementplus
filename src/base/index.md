@@ -17,18 +17,11 @@ head:
 ```vue
 
 <template>
-  <button style="color: red">Small</button>
-  <button type="size">Middle</button>
-  <button>Large</button>
-  <button disabled>Disabled</button>
+  <el-button style="color: red">Small</el-button>
+  <el-button type="size">Middle</el-button>
+  <el-button>Large</el-button>
+  <el-button disabled>Disabled</el-button>
 </template>
-
-<style>
-  button {
-    margin: 0 20px;
-  }
-</style>
-
 ```
 
 :::
