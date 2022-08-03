@@ -8,7 +8,7 @@ meta:
     content: vuepress,最新技术文档,vuepress语法,markdown语法
 ---
 
-# 五.UI库
+# UI库
 
 ::: tip 前言
 补充一些官方文档中没有的，但是实际开发中最好需要了解的内容

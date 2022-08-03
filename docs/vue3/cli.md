@@ -8,7 +8,7 @@ meta:
     content: vuepress,最新技术文档,vuepress语法,markdown语法
 ---
 
-# 一.Vue/cli 3.x
+# Vue/cli 3.x
 
 ::: tip 前言
 补充一些官方文档中没有的，但是实际开发中最好需要了解的内容

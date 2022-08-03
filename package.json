@@ -1,11 +1,11 @@
 {
-  "name": "web-elementplus",
+  "name": "web-vue3",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "yarn run register:components && cross-env BASE=/web-elementplus/ vitepress dev docs",
-    "build": "yarn run register:components && cross-env BASE=/web-elementplus/ vitepress build docs",
+    "dev": "yarn run register:components && cross-env BASE=/web-vue3/ vitepress dev docs",
+    "build": "yarn run register:components && cross-env BASE=/web-vue3/ vitepress build docs",
     "serve": "vitepress serve docs",
     "register:components": "vitepress-rc"
   },

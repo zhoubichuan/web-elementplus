@@ -43,19 +43,16 @@ function getComponentsSidebar() {
 
 function getGuideSidebar() {
   return [
-    {
-      text: '指南',
-      children: [
-        { text: '首页', link: '/vue3/home' },
-        { text: '脚手架', link: '/vue3/cli' },
-        { text: 'vue', link: '/vue3/vue' },
-        { text: 'vue2', link: '/vue3/vue1' },
-        { text: 'router', link: '/vue3/vuerouter' },
-        { text: 'vuex', link: '/vue3/vuex' },
-        { text: 'ui', link: '/vue3/ui' },
-        { text: 'vueuse', link: '/vue3/vueuse' }
-      ]
-    },
+
+    { text: 'Home', link: '/vue3/home' },
+    { text: 'Vue/cli 3.x', link: '/vue3/cli' },
+    { text: 'Vue3.x（基础）', link: '/vue3/vue' },
+    { text: 'Vue3.x（组件通信', link: '/vue3/vue1' },
+    { text: 'Vue-Router 4.x', link: '/vue3/vuerouter' },
+    { text: 'Vuex 4.x', link: '/vue3/vuex' },
+    { text: 'UI库', link: '/vue3/ui' },
+    { text: 'VueUse', link: '/vue3/vueuse' }
+
   ]
 }
 

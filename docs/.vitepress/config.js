@@ -8,10 +8,10 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }]
   ],
-  outDir: "web-elementplus",
+  outDir: "web-vue3",
   base,
   themeConfig: {
-    repo: 'https://github.com/zhoubichuan/web-elementplus',
+    repo: 'https://github.com/zhoubichuan/web-vue3',
     logo: '/logo.svg',
     docsDir: 'docs',
     docsBranch: 'master',
