@@ -19,7 +19,7 @@ jobs:
       - name: copy file  via ssh key
         uses: appleboy/scp-action@master
         with:
-          source: "web-elementplus/*"
+          source: "docs/.vitepress/dist/*"
           host: ${{ secrets.HOST }}
           target: "/usr/src/zhoubichuan/dev/"
           port: ${{ secrets.PORT }}
