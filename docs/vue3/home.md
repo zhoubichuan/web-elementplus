@@ -19,7 +19,9 @@ meta:
 ::: warning 前言
 **vue-cli3.x，[参考文档](https://cli.vuejs.org/zh/)**
 :::
+
 ### 1.1 VueCLI
+
 - vue create demo
 - npm run serve
 - npm install
@@ -33,12 +35,17 @@ meta:
 
 **vuex4.x：vue 状态管理器，[参考文档](https://next.vuex.vuejs.org/zh/index.html)**
 :::
+
 ### 2.1vue3.x
+
 #### 2.1.1 创建应用(main.js)
+
 - Vue.createApp()
 - app.use()
 - app.mount()
+
 #### 2.1.2 模板语法(template)
+
 - teleport
 - 插值表达式
 - 指令
@@ -49,7 +56,9 @@ meta:
   - v-show
   - v-on(@)
   - ref
+
 #### 2.1.3 setup
+
 - ref
 - reactive
 - readonly
@@ -58,7 +67,9 @@ meta:
 - watch
 - watchEffect
 - provide/inject
+
 #### 2.1.4 生命周期
+
 - setup
 - onBeforeMount
 - onMounted
@@ -76,8 +87,9 @@ meta:
 **element plus，饿了么推出的 UI 组件库，[参考文档](https://element-plus.gitee.io/zh-CN/)**
 :::
 
-## 4.工具类（参考 vue2.x 部分）
+## 4.工具类
 
+参考 vue2.x 部分
 ::: warning 前言
 **axios，基于 promise 的网络请求库，[参考文档](http://www.axios-js.com/zh-cn/docs/)**
 
@@ -93,8 +105,9 @@ meta:
 
 :::
 
-## 5.css 预处理器（参考 vue2.x 部分）
+## 5.css 预处理器
 
+参考 vue2.x 部分
 ::: warning 前言
 **SASS，世界上最成熟、最稳定、最强大的专业级 CSS 扩展语言！，[参考文档](https://www.sass.hk/)**
 
@@ -103,8 +116,9 @@ meta:
 **Stylus，富于表现力、动态的、健壮的 CSS，[参考文档](https://www.stylus-lang.cn/)**
 :::
 
-## 6.代码校验（参考 vue2.x 部分）
+## 6.代码校验
 
+参考 vue2.x 部分
 ::: warning 前言
 **eslint，可组装的 JavaScript 和 JSX 检查工具，[参考文档](https://eslint.bootcss.com)**
 
