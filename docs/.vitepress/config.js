@@ -3,8 +3,8 @@ const nav = require('./configs/nav')
 const sidebar = require('./configs/sidebar')
 
 module.exports = {
-  title: 'VitePress',
-  description: 'Life is short, Keep it simple.',
+  title: 'Vue3.x',
+  description: 'Vue3.x学习笔记',
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }]
   ],
