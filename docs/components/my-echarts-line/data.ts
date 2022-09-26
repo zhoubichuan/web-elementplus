@@ -1,15 +1,3 @@
-
-/*
- * @Description: 
- * @Version: 1.0
- * @Author: songchao
- * @Date: 2021-10-22 09:50:39
- * @LastEditors: songchao
- * @LastEditTime: 2021-11-08 17:34:56
- */
-
-/* echarts折线图数据 */
-
 export const columnData = {
     xAxis: {
         type: 'category',

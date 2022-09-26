@@ -1,15 +1,4 @@
 
-/*
- * @Description: 
- * @Version: 1.0
- * @Author: songchao
- * @Date: 2021-10-22 09:50:39
- * @LastEditors: songchao
- * @LastEditTime: 2021-10-28 14:04:23
- */
-
-/* echarts饼图数据 */
-
 export const pieData = {
     // title: {
     //     text: '害虫分类占比',

@@ -1,11 +1,3 @@
-/*
- * @Author: songchao
- * @Date: 2022-01-27 17:17:09
- * @LastEditTime: 2022-03-30 17:15:10
- * @LastEditors: songchao
- * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- * @FilePath: /vue3-share/components/index.ts
- */
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import {
   ElConfigProvider as MyConfigProvider,
