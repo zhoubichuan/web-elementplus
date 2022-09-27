@@ -4,7 +4,7 @@
   </el-radio>
 </template>
 
-<style lang="scss">
+<style lang="less">
 .my-radio {
   .el-radio__inner {
     border: var(--radio-circle-not-checked-border);

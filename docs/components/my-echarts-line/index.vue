@@ -29,7 +29,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .echarts-line {
   width: 100%;
   height: 100%;

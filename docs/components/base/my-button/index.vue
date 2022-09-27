@@ -88,7 +88,7 @@ export default defineComponent({
   }
 })
 </script>
-<style lang="scss">
+<style lang="less">
 .my-button {
   &.is-disabled {
     background-color: #f2f2f2;

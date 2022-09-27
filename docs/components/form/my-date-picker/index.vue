@@ -6,7 +6,7 @@
   ></el-date-picker>
 </template>
 
-<style lang="scss">
+<style lang="less">
 .my-date-picker {
   .el-input__inner:focus,
   &.el-range-editor.is-active,

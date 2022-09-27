@@ -13,7 +13,7 @@
 import { CaretTop } from '@element-plus/icons-vue'
 </script>
 
-<style lang="scss">
+<style lang="less">
 .my-select {
   &.el-select {
     width: var(--select-width-default);

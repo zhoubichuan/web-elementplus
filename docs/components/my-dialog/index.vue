@@ -19,7 +19,7 @@
 
 <script>
 import { defineComponent, reactive, toRefs } from 'vue'
-import myButton from '../my-button/index.vue'
+import myButton from '../base/my-button/index.vue'
 
 export default defineComponent({
   name: 'MyDialog',
@@ -48,7 +48,7 @@ export default defineComponent({
   }
 })
 </script>
-<style lang="scss">
+<style lang="less">
 .my-dialog {
   &.is-disabled {
     background-color: #f2f2f2;
@@ -66,7 +66,7 @@ export default defineComponent({
   }
 }
 </style>
-<style lang="scss">
+<style lang="less">
 .el-dialog__header {
   padding: 20px 32px;
   border-bottom: 1px solid #edeeef;

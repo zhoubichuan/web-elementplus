@@ -26,7 +26,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .headerBreadcrumb {
   position: fixed;
   top: 0;

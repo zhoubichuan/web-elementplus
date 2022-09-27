@@ -4,7 +4,7 @@
   </el-checkbox>
 </template>
 
-<style lang="scss">
+<style lang="less">
 .my-checkbox {
   .el-checkbox__inner {
     border: var(--radio-circle-not-checked-border);

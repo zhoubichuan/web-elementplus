@@ -6,6 +6,8 @@ import '../../../src/styles/index.css'
 import './styles/index.css'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import MyElementPlus from '../../components'
+import 'element-plus/dist/index.css'
 export default {
   ...theme,
   enhanceApp({ app, router, siteData }) {
@@ -14,6 +16,7 @@ export default {
     // siteData is a ref of current site-level metadata.
     app.component(Button.name, Button)
     app.use(ElementPlus)
+    app.use(MyElementPlus)
     registerComponents(app)
   }
 }

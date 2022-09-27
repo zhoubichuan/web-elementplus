@@ -59,12 +59,12 @@ function getGuideSidebar() {
 function getComsSidebar() {
   return [
     {
-      text: "my-alert",
+      text: "base",
       children: [
         // { text: "index", link: "/element/base/" },
         { text: "layout", link: "/element/base/layout" },
         { text: "container", link: "/element/base/container" },
-        { text: "button", link: "/element/base/button" },
+        { text: "button", link: "/element/base/my-button" },
         { text: "link", link: "/element/base/link" },
         { text: "space", link: "/element/base/space" },
         { text: "scrollbar", link: "/element/base/scrollbar" },

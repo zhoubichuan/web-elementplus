@@ -17,7 +17,7 @@ const activeColor = ref('#2FB755')
 const inactiveColor = ref('#DDD')
 </script>
 
-<style lang="scss">
+<style lang="less">
 // switch-default
 .my-switch {
   &.el-switch--default .el-switch__core {

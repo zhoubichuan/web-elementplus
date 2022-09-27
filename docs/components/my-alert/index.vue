@@ -2,7 +2,7 @@
   <el-alert class="my-alert" show-icon v-bind="$attrs" />
 </template>
 
-<style lang="scss">
+<style lang="less">
 .my-alert {
   &.el-alert--success.is-light {
     color: var(--color-success);

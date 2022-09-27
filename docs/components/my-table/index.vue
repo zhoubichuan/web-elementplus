@@ -19,7 +19,7 @@
 import MyPagination from '../my-pagination/index.vue'
 </script>
 
-<style lang="scss">
+<style lang="less">
 .my-table {
   color: var(--color-text-primary);
   &.el-table .el-table__header-wrapper thead {

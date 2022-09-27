@@ -17,7 +17,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style lang="less">
 .my-steps {
   .el-step__title.is-success {
     color: var(--color-primary);

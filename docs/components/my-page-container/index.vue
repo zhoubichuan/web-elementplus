@@ -35,7 +35,7 @@
 
 <script>
 import { defineComponent, reactive, toRefs } from 'vue'
-import MyButton from '../my-button/index.vue'
+import MyButton from '../base/my-button/index.vue'
 
 export default defineComponent({
   props: ['header'],
@@ -55,7 +55,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .container {
   padding: 20px;
   padding-top: 0;

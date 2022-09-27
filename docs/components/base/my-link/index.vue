@@ -4,4 +4,4 @@
   </el-link>
 </template>
 
-<style lang="scss"></style>
+<style lang="less"></style>

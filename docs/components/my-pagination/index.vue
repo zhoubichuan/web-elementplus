@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="less">
 .my-pagination-wrap {
   display: flex;
   justify-content: space-between;

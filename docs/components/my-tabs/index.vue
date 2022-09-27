@@ -4,7 +4,7 @@
   </el-tabs>
 </template>
 
-<style lang="scss">
+<style lang="less">
 .my-tabs {
   .el-tabs__item.is-active,
   .el-tabs__item:hover {
