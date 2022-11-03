@@ -6,8 +6,7 @@ import '../../../src/styles/index.css'
 import './styles/index.css'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-import MyElementPlus from '../../components'
-import 'element-plus/dist/index.css'
+import MyElementPlus from '../../../src'
 export default {
   ...theme,
   enhanceApp({ app, router, siteData }) {

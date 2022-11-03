@@ -19,7 +19,7 @@
 
 <script>
 import { defineComponent, reactive, toRefs } from 'vue'
-import myButton from '../base/my-button/index.vue'
+import myButton from '../my-button/index.vue'
 
 export default defineComponent({
   name: 'MyDialog',

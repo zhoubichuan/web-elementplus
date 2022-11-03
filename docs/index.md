@@ -1,10 +1,10 @@
 ---
 home: true
 heroImage: /logo.svg
-actionText: Get Started
+actionText: 开始
 actionLink: /vue3.x/home/
 
-altActionText: Learn More
+altActionText: 更多
 altActionLink: /vue3.x/home/
 
 features:

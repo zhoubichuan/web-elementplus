@@ -35,7 +35,7 @@
 
 <script>
 import { defineComponent, reactive, toRefs } from 'vue'
-import MyButton from '../base/my-button/index.vue'
+import MyButton from '../my-button/index.vue'
 
 export default defineComponent({
   props: ['header'],
