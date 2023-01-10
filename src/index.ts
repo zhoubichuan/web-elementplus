@@ -168,7 +168,6 @@ export default {
     if (options && Array.isArray(options)) {
       options.forEach((name) => {
         if ((coms as any)[name]) {
-          console.log(111)
           console.log(name)
           vue.component(name, (coms as any)[name])
         }

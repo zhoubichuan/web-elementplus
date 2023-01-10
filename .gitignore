@@ -1,23 +1,8 @@
-.DS_Store
 node_modules
-/dist
-dist
-scripts/docsearch-scraper
-
-# local env files
-.env.local
-.env.*.local
-
-# Log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Editor directories and files
-.idea
 .vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+dist
+script/demo.vue
+script/index.js
+script/index.d.ts
+script/package.json
+script/README.md

@@ -6,58 +6,29 @@
 
 基础的标签用法。
 
-:::demo 使用`type`、`plain`、`round`和`circle`属性来定义 Tag 的样式。
-```vue
-<template>
-  <xl-button>默认按钮</xl-button>
-  <xl-button type="primary">主要按钮</xl-button>
-  <xl-button type="success">成功按钮</xl-button>
-  <xl-button type="info">信息按钮</xl-button>
-  <xl-button type="warning">警告按钮</xl-button>
-  <xl-button type="danger">危险按钮</xl-button>
-</template>
-```
+###### 输入
+<demo src="./demo/avatar.vue" desc="使用 `type`、`plain`、`round` 和 `circle` 来定义按钮的样式。"></demo>
 
-:::
+<demo src="./demo/alert.vue" desc="使用 `type`、`plain`、`round` 和 `circle` 来定义按钮的样式。"></demo>
 
-## 不同尺寸
+<demo src="./demo/button.vue" desc="使用 `type`、`plain`、`round` 和 `circle` 来定义按钮的样式。"></demo>
 
-提供三种不同尺寸的标签。
 
-:::demo
+<demo src="./demo/card.vue" desc="使用 `type`、`plain`、`round` 和 `circle` 来定义按钮的样式。"></demo>
 
-```vue
-<template>
-  <xl-button>默认按钮</xl-button>
-  <xl-button type="primary">主要按钮</xl-button>
-  <xl-button type="success">成功按钮</xl-button>
-  <xl-button type="info">信息按钮</xl-button>
-  <xl-button type="warning">警告按钮</xl-button>
-  <xl-button type="danger">危险按钮</xl-button>
-</template>
-```
 
-:::
+<demo src="./demo/checkbox.vue" desc="使用 `type`、`plain`、`round` 和 `circle` 来定义按钮的样式。"></demo>
 
-## 加载中
 
-点击标签进行数据加载操作，在标签上面显示加载状态。
+<demo src="./demo/datePicker.vue" desc="使用 `type`、`plain`、`round` 和 `circle` 来定义按钮的样式。"></demo>
 
-:::demo
 
-```vue
-<template>
-  <xl-button>默认按钮</xl-button>
-  <xl-button type="primary">主要按钮</xl-button>
-  <xl-button type="success">成功按钮</xl-button>
-  <xl-button type="info">信息按钮</xl-button>
-  <xl-button type="warning">警告按钮</xl-button>
-  <xl-button type="danger">危险按钮</xl-button>
-</template>
-```
+<demo src="./demo/dialog.vue" desc="使用 `type`、`plain`、`round` 和 `circle` 来定义按钮的样式。"></demo>
 
-:::
 
+<demo src="./demo/message.vue" desc="使用 `type`、`plain`、`round` 和 `circle` 来定义按钮的样式。"></demo>
+
+<demo src="./demo/messageBox.vue" desc="使用 `type`、`plain`、`round` 和 `circle` 来定义按钮的样式。"></demo>
 ## Attributes
 
 | 参数    | 说明   | 类型    | 可选值                                             | 默认值  |
@@ -65,4 +36,3 @@
 | size    | 尺寸   | string  | large / small / mini                               | default |
 | type    | 类型   | string  | primary / success / warning / info / danger / text | primary |
 | loading | 加载中 | boolean | —                                                  | false   |
-

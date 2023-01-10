@@ -4,7 +4,6 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, ref, watch } from 'vue'
-import deepmerge from 'deepmerge'
 import * as echarts from 'echarts'
 import { pieData } from './data'
 
@@ -14,7 +13,7 @@ export default defineComponent({
     const divRef = ref()
     const reloadEcharts = () => {
       const myChart = echarts.init(divRef.value)
-      myChart.setOption(deepmerge(pieData, props.options))
+      myChart.setOption({...pieData, ...props.options})
     }
     onMounted(() => {
       reloadEcharts()

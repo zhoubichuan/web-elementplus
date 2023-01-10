@@ -6,7 +6,7 @@
           v-for="(x, k) in header.breadcrumb"
           :to="{
             path: x.path,
-            query: x.query
+            query: x.query,
           }"
           :key="k"
         >
@@ -34,25 +34,25 @@
 </template>
 
 <script>
-import { defineComponent, reactive, toRefs } from 'vue'
-import MyButton from '../my-button/index.vue'
+import { defineComponent, reactive, toRefs } from "vue";
+import MyButton from "../my-button/index.vue";
 
 export default defineComponent({
-  props: ['header'],
+  props: ["header"],
   components: { MyButton },
   setup(props) {
     const state = reactive({
-      options: props.header.options
-    })
+      options: props.header.options,
+    });
     const setOptions = (arr) => {
-      state.options = arr
-    }
+      state.options = arr;
+    };
     return {
       ...toRefs(state),
-      setOptions
-    }
-  }
-})
+      setOptions,
+    };
+  },
+});
 </script>
 
 <style lang="less" scoped>

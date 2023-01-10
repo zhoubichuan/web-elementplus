@@ -1,5 +1,5 @@
-import {ElMessageBox} from 'element-plus'
-export default function(content: string, title: string, options?: any) {
+import { ElMessageBox } from 'element-plus'
+export default function (content: string, title: string, options?: any) {
   return ElMessageBox.confirm(
     content,
     title,
