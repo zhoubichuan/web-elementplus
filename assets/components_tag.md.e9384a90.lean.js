@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,a as l}from"./app.2401c261.js";const i=JSON.parse('{"title":"Tag 标签","description":"","frontmatter":{},"headers":[],"relativePath":"components/tag.md","lastUpdated":1673454549000}'),o={name:"components/tag.md"},p=l("",19),t=[p];function e(c,D,r,F,y,C){return n(),a("div",null,t)}const u=s(o,[["render",e]]);export{i as __pageData,u as default};

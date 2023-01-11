@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as t,a as n}from"./app.2401c261.js";const u=JSON.parse('{"title":"Modal 对话框","description":"","frontmatter":{},"headers":[],"relativePath":"components/modal.md","lastUpdated":1673454549000}'),l={name:"components/modal.md"},o=n("",9),p=[o];function e(r,c,D,F,y,d){return t(),a("div",null,p)}const C=s(l,[["render",e]]);export{u as __pageData,C as default};

@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./app.2401c261.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"src/my-echarts-pie/index.md","lastUpdated":1673454549000}'),r={name:"src/my-echarts-pie/index.md"};function s(c,n,o,d,i,p){return a(),t("div")}const f=e(r,[["render",s]]);export{m as __pageData,f as default};
