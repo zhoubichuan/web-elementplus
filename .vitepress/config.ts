@@ -3,7 +3,7 @@ import nav from './nav'
 import sidebar from './sidebar'
 export default {
     srcDir: "./",
-    outDir: './dist',
+    outDir: './web-vue3',
     base: '/web-vue3',
     lang: 'zh-CN',
     title: 'web-vue3',    // 标题
@@ -23,7 +23,7 @@ export default {
         sidebar,
         // 社交信息栏
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/1006008051/web-vue3' }
+            { icon: 'github', link: 'https://github.com/zhoubichuan/web-vue3' }
         ],
         // 底部信息栏
         footer: {

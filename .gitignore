@@ -1,6 +1,6 @@
 node_modules
 .vscode
-dist
+web-vue3
 script/demo.vue
 script/index.js
 script/index.d.ts
