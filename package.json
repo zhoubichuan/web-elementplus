@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "web-vue3",
+  "name": "web-elementplus",
   "version": "1.0.0",
   "description": "ElementPlus二次封装",
   "main": "index.js",
@@ -15,11 +15,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhoubichuan/web-vue3.git"
+    "url": "git+https://github.com/zhoubichuan/web-elementplus.git"
   },
-  "homepage": "https://zhoubichuan.github.io/web-vue3",
+  "homepage": "https://zhoubichuan.github.io/web-elementplus",
   "bugs": {
-    "url": "https://github.com/zhoubichuan/web-vue3/issues"
+    "url": "https://github.com/zhoubichuan/web-elementplus/issues"
   },
   "author": "zhoubichuan",
   "license": "MIT",
@@ -35,7 +35,7 @@
     "release": "node script/release && rimraf -G ./script/src"
   },
   "keywords": [
-    "web-vue3",
+    "web-elementplus",
     "vitepress",
     "vitepress-demo",
     "vitepress-theme",

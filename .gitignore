@@ -1,6 +1,6 @@
 node_modules
 .vscode
-web-vue3
+web-elementplus
 script/demo.vue
 script/index.js
 script/index.d.ts

@@ -3,7 +3,7 @@ declare module '*.vue' {
     export default component
 }
 
-declare module 'web-vue3' {
+declare module 'web-elementplus' {
     const demoblock: (md: any) => void;
     export default demoblock
 }

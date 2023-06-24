@@ -19,9 +19,9 @@ jobs:
       - name: copy file  via ssh key
         uses: appleboy/scp-action@master
         with:
-          source: "web-vue3/*"
+          source: "web-elementplus/*"
           host: ${{ secrets.HOST }}
-          target: "/usr/src/zhoubichuan/prod/web-vue3"
+          target: "/usr/src/zhoubichuan/prod/web-elementplus"
           port: ${{ secrets.PORT }}
           username: ${{ secrets.USER }}
           password: ${{ secrets.PASSWORD }}

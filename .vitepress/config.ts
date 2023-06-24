@@ -3,10 +3,10 @@ import nav from './nav'
 import sidebar from './sidebar'
 export default {
     srcDir: "./",
-    outDir: './web-vue3',
-    base: '/web-vue3',
+    outDir: './web-elementplus',
+    base: '/web-elementplus',
     lang: 'zh-CN',
-    title: 'web-vue3',    // 标题
+    title: 'web-elementplus',    // 标题
     description: '基于vitepress最新版的组件库代码示例插件',    // 描述
     lastUpdated: true, // 上次更新时间
     markdown: {
@@ -23,7 +23,7 @@ export default {
         sidebar,
         // 社交信息栏
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/zhoubichuan/web-vue3' }
+            { icon: 'github', link: 'https://github.com/zhoubichuan/web-elementplus' }
         ],
         // 底部信息栏
         footer: {
