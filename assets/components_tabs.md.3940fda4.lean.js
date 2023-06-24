@@ -1,1 +1,0 @@
-import{_ as s,c as t,o as a,a as n}from"./app.2401c261.js";const b=JSON.parse('{"title":"Tabs 标签页","description":"","frontmatter":{},"headers":[],"relativePath":"components/tabs.md","lastUpdated":1673454549000}'),l={name:"components/tabs.md"},o=n("",9),p=[o];function e(r,c,d,D,F,y){return a(),t("div",null,p)}const u=s(l,[["render",e]]);export{b as __pageData,u as default};

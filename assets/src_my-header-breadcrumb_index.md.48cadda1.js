@@ -1,1 +1,0 @@
-import{_ as e,c as r,o as t}from"./app.2401c261.js";const _=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"src/my-header-breadcrumb/index.md","lastUpdated":1673454549000}'),a={name:"src/my-header-breadcrumb/index.md"};function c(s,d,n,o,i,m){return t(),r("div")}const f=e(a,[["render",c]]);export{_ as __pageData,f as default};
