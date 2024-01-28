@@ -1,8 +1,10 @@
 node_modules
 .vscode
-web-elementplus
+dist
 script/demo.vue
 script/index.js
 script/index.d.ts
 script/package.json
 script/README.md
+docs
+cache

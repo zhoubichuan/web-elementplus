@@ -1,8 +1,8 @@
 {
   "private": true,
-  "name": "web-elementplus",
-  "version": "1.0.0",
-  "description": "ElementPlus二次封装",
+  "name": "vitepress-demoblock",
+  "version": "1.0.3",
+  "description": "为vitepress添加更专业的Demo演示能力",
   "main": "index.js",
   "module": "index.js",
   "types": "index.d.ts",
@@ -15,33 +15,33 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhoubichuan/web-elementplus.git"
+    "url": "git+https://github.com/1006008051/vitepress-demoblock.git"
   },
-  "homepage": "https://zhoubichuan.github.io/web-elementplus",
+  "homepage": "https://1006008051.github.io/vitepress-demoblock",
   "bugs": {
-    "url": "https://github.com/zhoubichuan/web-elementplus/issues"
+    "url": "https://github.com/1006008051/vitepress-demoblock/issues"
   },
-  "author": "zhoubichuan",
+  "author": "Wang Yongcun",
   "license": "MIT",
   "engines": {
     "node": ">=14"
   },
   "scripts": {
     "dev": "rimraf -G ./script/demo.vue && vitepress dev --host300",
-    "build:all": "npm run build:es && npm run build:docs",
+    "build": "npm run build:es && npm run build:docs",
     "build:es": "rimraf -G ./script/src && tsc -b -f",
-    "build": "rimraf -G ./script/demo.vue &&  vitepress build",
+    "build:docs": "rimraf -G ./script/demo.vue &&  vitepress build",
     "serve": "vitepress serve",
     "release": "node script/release && rimraf -G ./script/src"
   },
   "keywords": [
-    "web-elementplus",
+    "vitepress-demoblock",
     "vitepress",
     "vitepress-demo",
     "vitepress-theme",
     "vitepress-theme-demoblock",
     "vue代码组件示例",
-    "ElementPlus代码组件示例"
+    "vitepress代码组件示例"
   ],
   "devDependencies": {
     "@element-plus/icons-vue": "2.0.10",
@@ -52,10 +52,9 @@
     "sass": "^1.55.0",
     "shiki": "^0.11.1",
     "typescript": "^4.8.4",
-    "vitepress": "^1.0.0-alpha.22"
+    "vitepress": "^1.0.0-alpha.27"
   },
   "dependencies": {
-    "echarts": "^5.4.1",
-    "vitepress-theme-demoblock": "^1.4.2"
+    "ezuikit-js": "^0.7.0"
   }
 }

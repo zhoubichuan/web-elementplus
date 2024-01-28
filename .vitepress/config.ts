@@ -3,7 +3,7 @@ import nav from './nav'
 import sidebar from './sidebar'
 export default {
     srcDir: "./",
-    outDir: './web-elementplus',
+    outDir: './docs',
     base: '/web-elementplus',
     lang: 'zh-CN',
     title: 'web-elementplus',    // 标题

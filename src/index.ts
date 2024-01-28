@@ -58,26 +58,26 @@ import {
   ElScrollbar as MyScrollbar
 } from 'element-plus'
 
-import MyAlert from './my-alert/index.vue'
-import MyButton from './my-button/index.vue'
-import MyCard from './my-card/index.vue'
-import MyDialog from './my-dialog/index.vue'
-import MyDatePicker from './my-date-picker/index.vue'
-import MyMenu from './my-menu/index.vue'
-import MyHeaderBreadcrumb from './my-header-breadcrumb/index.vue'
-import MyMessage from './my-message/index'
-import MyMessageBox from './my-message-box/index'
-import MyNotification from './my-notification/index'
-import MyPageContainer from './my-page-container/index.vue'
-import MyPagination from './my-pagination/index.vue'
-import MyRadio from './my-radio/index.vue'
-import MySelect from './my-select/index.vue'
-import MySteps from './my-steps/index.vue'
-import MySwitch from './my-switch/index.vue'
-import MyTable from './my-table/index.vue'
-import MyTabs from './my-tabs/index.vue'
-import MyCheckbox from './my-checkbox/index.vue'
-import MyLink from './my-link/index.vue'
+import MyAlert from './alert/index.vue'
+import MyButton from './button/index.vue'
+import MyCard from './card/index.vue'
+import MyDialog from './dialog/index.vue'
+import MyDatePicker from './date-picker/index.vue'
+import MyMenu from './menu/index.vue'
+import MyHeaderBreadcrumb from './header-breadcrumb/index.vue'
+import MyMessage from './message/index'
+import MyMessageBox from './message-box/index'
+import MyNotification from './notification/index'
+import MyPageContainer from './page-container/index.vue'
+import MyPagination from './pagination/index.vue'
+import MyRadio from './radio/index.vue'
+import MySelect from './select/index.vue'
+import MySteps from './steps/index.vue'
+import MySwitch from './switch/index.vue'
+import MyTable from './table/index.vue'
+import MyTabs from './tabs/index.vue'
+import MyCheckbox from './checkbox/index.vue'
+import MyLink from './link/index.vue'
 
 import 'element-plus/dist/index.css'
 import './index.less'
@@ -168,6 +168,7 @@ export default {
     if (options && Array.isArray(options)) {
       options.forEach((name) => {
         if ((coms as any)[name]) {
+          console.log(111)
           console.log(name)
           vue.component(name, (coms as any)[name])
         }

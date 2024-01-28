@@ -1,71 +1,31 @@
 export default {
-  '/src/': [{
-    text: 'ElementPlus',
-    items: [
-      { text: 'MyAlert', link: '/src/my-alert/index' },
-      { text: 'MyButton', link: '/src/my-button/index' },
-      { text: 'MyCard', link: '/src/my-card/index' },
-      { text: 'MyDialog', link: '/src/my-dialog/index' },
-      { text: 'MyDatePicker', link: '/src/my-date-picker/index' },
-      { text: 'MyMenu', link: '/src/my-menu/index' },
-      { text: 'MyHeaderBreadcrumb', link: '/src/my-header-breadcrumb/index' },
-      { text: 'MyMessage', link: '/src/my-message/index' },
-      { text: 'MyMessageBox', link: '/src/my-message-box/index' },
-      { text: 'MyNotification', link: '/src/my-notification/index' },
-      { text: 'MyPageContainer', link: '/src/my-page-container/index' },
-      { text: 'MyPagination', link: '/src/my-pagination/index' },
-      { text: 'MyRadio', link: '/src/my-radio/index' },
-      { text: 'MySelect', link: '/src/my-select/index' },
-      { text: 'MySteps', link: '/src/my-steps/index' },
-      { text: 'MySwitch', link: '/src/my-switch/index' },
-      { text: 'MyTable', link: '/src/my-table/index' },
-      { text: 'MyTabs', link: '/src/my-tabs/index' },
-      { text: 'MyCheckbox', link: '/src/my-checkbox/index' },
-      { text: 'MyLink', link: '/src/my-link/index' },
-    ]
-  }],
-  '/vue3/': [{
-    text: '组件2',
-    items: [
-      { text: 'Home', link: '/vue3/home' },
-      { text: 'Vue/cli 3.x', link: '/vue3/cli' },
-      { text: 'Vue3.x（基础）', link: '/vue3/vue' },
-      { text: 'Vue3.x（组件通信)', link: '/vue3/vue1' },
-      { text: 'Vue-Router 4.x', link: '/vue3/vuerouter' },
-      { text: 'Vuex 4.x', link: '/vue3/vuex' },
-      { text: 'UI库', link: '/vue3/ui' },
-      { text: 'VueUse', link: '/vue3/vueuse' }
-    ]
-  }],
-  '/components/': [{
-    text: '组件',
-    items: [
-      // {
-      //   text: 'Button 按钮',
-      //   link: '/components/button'
-      // },
-      {
-        text: 'Tabs 标签页',
-        link: '/components/tabs'
-      },
-      {
-        text: 'Modal 对话框',
-        link: '/components/modal'
-      },
-      {
-        text: 'Tag 标签',
-        link: '/components/tag'
-      },
-      {
-        text: 'Vue 引用组件',
-        link: '/components/vue'
-      },
-      {
-        text: 'Vue Script',
-        link: '/components/vue-script'
-      }
-    ]
-  }],
+  '/src/': [
+    {
+      text: 'element二次封装',
+      items: [
+        { text: 'Alert', link: '/src/my-alert/index' },
+        { text: 'Button', link: '/src/my-button/index' },
+        { text: 'Card', link: '/src/my-card/index' },
+        { text: 'Dialog', link: '/src/my-dialog/index' },
+        { text: 'DatePicker', link: '/src/my-date-picker/index' },
+        { text: 'Menu', link: '/src/my-menu/index' },
+        { text: 'HeaderBreadcrumb', link: '/src/my-header-breadcrumb/index' },
+        { text: 'Message', link: '/src/my-message/index' },
+        { text: 'MessageBox', link: '/src/my-message-box/index' },
+        { text: 'Notification', link: '/src/my-notification/index' },
+        { text: 'PageContainer', link: '/src/my-page-container/index' },
+        { text: 'Pagination', link: '/src/my-pagination/index' },
+        { text: 'Radio', link: '/src/my-radio/index' },
+        { text: 'Select', link: '/src/my-select/index' },
+        { text: 'Steps', link: '/src/my-steps/index' },
+        { text: 'Switch', link: '/src/my-switch/index' },
+        { text: 'Table', link: '/src/my-table/index' },
+        { text: 'Tabs', link: '/src/my-tabs/index' },
+        { text: 'Checkbox', link: '/src/my-checkbox/index' },
+        { text: 'Link', link: '/src/my-link/index' },
+      ]
+    }
+  ],
   '/element/': [
     {
       text: "base",

@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-#   name: web-vue3
+#   name: vitepress-demoblock
   text: vitepress demoblock
   tagline: 为vitepress添加更专业的Demo演示能力
   # image:
@@ -14,7 +14,7 @@ hero:
       link: /demo/guide/quickstart
     - theme: alt
       text: 在GitHub上查看
-      link: https://github.com/1006008051/web-vue3
+      link: https://github.com/1006008051/vitepress-demoblock
 features:
   - icon: ⚡️
     title: 基于vitepress
