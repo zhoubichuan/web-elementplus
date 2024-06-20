@@ -120,7 +120,7 @@ const components = [
 //   Select,
 //   Option,
 //   OptionGroup,
-//   Button,
+  Button,
 //   Search,
 //   Dialog,
 //   Slider,

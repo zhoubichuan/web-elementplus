@@ -15,7 +15,7 @@
       </el-breadcrumb>
       <div v-if="options && options.length" class="options">
         <template v-for="(x, k) in options">
-          <my-button
+          <web-button
             :key="k"
             v-if="x.type === 'button'"
             type="primary"
@@ -23,7 +23,7 @@
             @click="x.onClick"
           >
             {{ x.label }}
-          </my-button>
+          </web-button>
         </template>
       </div>
     </div>
@@ -35,11 +35,9 @@
 
 <script>
 import { defineComponent, reactive, toRefs } from 'vue'
-import MyButton from '../my-button/index.vue'
 
 export default defineComponent({
   props: ['header'],
-  components: { MyButton },
   setup(props) {
     const state = reactive({
       options: props.header.options

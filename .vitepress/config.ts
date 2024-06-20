@@ -1,4 +1,4 @@
-import demoblock from '../src/demoblock';
+import demoblock from './demoblock';
 import nav from './nav'
 import sidebar from './sidebar'
 export default {

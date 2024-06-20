@@ -9,8 +9,8 @@
     </slot>
     <template v-if="$slots.footer || $attrs['my-footer']" #footer>
       <span v-if="$attrs['my-footer']" class="dialog-footer">
-        <my-button type="info" @click="handleCancel">取 消</my-button>
-        <my-button type="success" @click="handleConfirm">确 定</my-button>
+        <web-button type="info" @click="handleCancel">取 消</web-button>
+        <web-button type="success" @click="handleConfirm">确 定</web-button>
       </span>
       <slot v-else name="footer"> </slot>
     </template>
@@ -18,35 +18,31 @@
 </template>
 
 <script>
-import { defineComponent, reactive, toRefs } from 'vue'
-import myButton from '../my-button/index.vue'
+import { defineComponent, reactive, toRefs } from "vue";
 
 export default defineComponent({
-  name: 'WebDialog',
-  components: {
-    myButton
-  },
-  emits: ['my-cancel', 'my-confirm'],
+  name: "WebDialog",
+  emits: ["my-cancel", "my-confirm"],
   setup(props, { attrs, emit }) {
-    const state = reactive({})
+    const state = reactive({});
     let newAttrs = {
-      ...attrs
-    }
+      ...attrs,
+    };
     const handleCancel = () => {
-      emit('myCancel')
-    }
+      emit("myCancel");
+    };
 
     const handleConfirm = () => {
-      emit('myConfirm')
-    }
+      emit("myConfirm");
+    };
     return {
       ...toRefs(state),
       newAttrs,
       handleCancel,
-      handleConfirm
-    }
-  }
-})
+      handleConfirm,
+    };
+  },
+});
 </script>
 <style lang="less">
 .my-dialog {

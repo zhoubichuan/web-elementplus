@@ -3,8 +3,8 @@ layout: home
 
 hero:
 #   name: web-elementplus
-  text: vitepress demoblock
-  tagline: 为vitepress添加更专业的Demo演示能力
+  text: ElementPlus
+  tagline: 对elementplus进行二次封装
   # image:
   #   src: /logo.svg
   #   alt: VitePress

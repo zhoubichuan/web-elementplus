@@ -5,90 +5,91 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, toRefs, computed } from 'vue'
+import { defineComponent, reactive, toRefs, computed } from "vue";
 export default defineComponent({
-  name: 'WebButton',
+  name: "WebButton",
   setup(props, { attrs }) {
-    const state = reactive({})
+    const state = reactive({});
     interface Attrs {
-      size: string
-      color?: string
+      size: string;
+      color?: string;
     }
     const defaultAttrs: Attrs = {
-      size: 'default'
-    }
+      size: "default",
+    };
 
     let newAttrs: Attrs = {
       ...defaultAttrs,
-      ...attrs
-    }
+      ...attrs,
+    };
     switch (attrs.type) {
-      case 'success':
-        newAttrs.color = '#2FB755'
-        break
-      case 'primary':
-        break
+      case "success":
+        newAttrs.color = "#2FB755";
+        break;
+      case "primary":
+        break;
       default:
-        break
+        break;
     }
     if (attrs.plain) {
-      newAttrs.color = '#ffffff'
+      newAttrs.color = "#ffffff";
     }
     if (attrs.icon) {
       // newAttrs.plain = true
     }
     const buttonStyle = computed(() => {
       interface Styles {
-        padding: string
-        color?: string
-        border?: string
-        backgroundColor?: string
+        padding: string;
+        color?: string;
+        border?: string;
+        backgroundColor?: string;
       }
       let styles: Styles = {
-        padding: '10px 15px'
-      }
+        padding: "10px 15px",
+      };
       if (attrs.disabled === undefined || attrs.disabled === false) {
         switch (
           attrs.type //按钮类型
         ) {
-          case 'success':
+          case "success":
             // styles.color = '#2FB755'
-            break
-          case 'primary':
-            break
+            break;
+          case "primary":
+            break;
           default:
-            styles.color = '#2FB755'
-            styles.border = '1px solid #2FB755'
-            styles.backgroundColor = '#ffffff'
-            break
+            styles.color = "#2FB755";
+            styles.border = "1px solid #2FB755";
+            styles.backgroundColor = "#ffffff";
+            break;
         }
       }
 
       switch (
         attrs.size //按钮尺寸
       ) {
-        case 'small':
-          styles.padding = '7px 8px'
-          break
-        case 'middle':
-          break
+        case "small":
+          styles.padding = "7px 8px";
+          break;
+        case "middle":
+          break;
         default:
-          break
+          break;
       }
       if (attrs.icon) {
-        styles.padding = '10px 15px 10px 11px'
+        styles.padding = "10px 15px 10px 11px";
       }
-      return styles
-    })
+      return styles;
+    });
     return {
       ...toRefs(state),
       newAttrs,
-      buttonStyle
-    }
-  }
-})
+      buttonStyle,
+    };
+  },
+});
 </script>
 <style lang="less">
+@import url(../../base.less);
 .my-button {
   &.is-disabled {
     background-color: #f2f2f2;

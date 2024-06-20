@@ -1,4 +1,4 @@
 export default [
-  { text: "ElementPlus", link: "/element-plus/base/button" },
-  { text: "ElementPlus二次封装", link: "/element-package/base/button" },
+  { text: "组件源码", link: "/src/element-plus/base/button" },
+  { text: "二次封装", link: "/src/element-package/base/button" },
 ]
