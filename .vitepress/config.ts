@@ -2,9 +2,9 @@ import demoblock from './demoblock';
 import nav from './nav'
 import sidebar from './sidebar'
 export default {
+    base: "/web-elementplus/", // 部署站点的基础路径
     srcDir: "./",
     outDir: './web-elementplus',
-    base: '/web-elementplus',
     lang: 'zh-CN',
     title: 'web-elementplus',    // 标题
     description: '基于vitepress最新版的组件库代码示例插件',    // 描述

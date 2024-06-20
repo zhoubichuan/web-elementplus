@@ -30,7 +30,8 @@
     "dev": "rimraf -G ./script/demo.vue && vitepress dev",
     "build:all": "npm run build:es && npm run build",
     "build:es": "rimraf -G ./script/src && tsc -b -f",
-    "build": "rimraf -G ./script/demo.vue &&  vitepress build",
+    "build:doc": "rimraf -G ./script/demo.vue &&  vitepress build",
+    "build": "vitepress build",
     "serve": "vitepress serve",
     "release": "node script/release && rimraf -G ./script/src"
   },
