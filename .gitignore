@@ -1,8 +1,6 @@
 node_modules
-.vscode
 web-elementplus
 script/demo.vue
 script/index.js
 script/index.d.ts
-script/package.json
-script/README.md
+.vitepress/cache
