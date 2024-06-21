@@ -3,7 +3,8 @@
     <slot></slot>
   </el-checkbox>
 </template>
-
+<script setup lang="ts" name="WebCheckbox">
+</script>
 <style lang="less">
 .my-checkbox {
   .el-checkbox__inner {

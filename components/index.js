@@ -15,7 +15,7 @@
 // import Radio from './radio/index.js'
 // import RadioGroup from './radio-group/index.js'
 // import RadioButton from './radio-button/index.js'
-// import Checkbox from './checkbox/index.js'
+import Checkbox from './checkbox/index.js'
 // import CheckboxButton from './checkbox-button/index.js'
 // import CheckboxGroup from './checkbox-group/index.js'
 // import Switch from './switch/index.js'
@@ -57,7 +57,7 @@ import Button from './button/index.js'
 // import Spinner from './spinner/index.js'
 // import Message from './message/index.js'
 // import Badge from './badge/index.js'
-// import Card from './card/index.js'
+import Card from './card/index.js'
 // import Rate from './rate/index.js'
 // import Steps from './steps/index.js'
 // import Step from './step/index.js'
@@ -113,7 +113,7 @@ const components = [
 //   Radio,
 //   RadioGroup,
 //   RadioButton,
-//   Checkbox,
+  Checkbox,
 //   CheckboxButton,
 //   CheckboxGroup,
 //   Switch,
@@ -151,7 +151,7 @@ const components = [
 //   Progress,
 //   Spinner,
 //   Badge,
-//   Card,
+  Card,
 //   Rate,
 //   Steps,
 //   Step,
@@ -233,7 +233,7 @@ export default {
 //   Radio,
 //   RadioGroup,
 //   RadioButton,
-//   Checkbox,
+  Checkbox,
 //   CheckboxButton,
 //   CheckboxGroup,
 //   Switch,
@@ -274,7 +274,7 @@ export default {
 //   Spinner,
 //   Message,
 //   Badge,
-//   Card,
+  Card,
 //   Rate,
 //   Steps,
 //   Step,
