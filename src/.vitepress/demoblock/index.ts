@@ -8,7 +8,7 @@ const { resolve } = path;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 // 同步定义shiki的codeToHtml
-let codeToHtml: any = null;
+let codeToHtml: any = ()=>{};
 (async () => {
     let res = await getHighlighter({
         theme: 'material-palenight'
