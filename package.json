@@ -2,7 +2,7 @@
   "private": false,
   "name": "web-elementplus",
   "version": "1.0.0",
-  "description": "web-elementplus技术文档",
+  "description": "elementplus技术文档",
   "main": "index.js",
   "module": "index.js",
   "types": "index.d.ts",
@@ -27,12 +27,9 @@
     "node": ">=14"
   },
   "scripts": {
-    "dev": "rimraf -G ./script/demo.vue && vitepress dev",
-    "build": "npm run build:es && npm run build:docs",
-    "build:es": "rimraf -G ./script/src && tsc -b -f",
-    "build:docs": "rimraf -G ./script/demo.vue &&  vitepress build",
-    "serve": "vitepress serve",
-    "release": "node script/release && rimraf -G ./script/src"
+    "dev": "vitepress dev src",
+    "build": "vitepress build src",
+    "serve": "vitepress serve"
   },
   "keywords": [
     "web-elementplus",
@@ -46,15 +43,13 @@
   "devDependencies": {
     "@element-plus/icons-vue": "2.0.10",
     "@types/node": "^18.7.23",
-    "deepmerge": "^4.3.1",
-    "echarts": "^5.5.0",
     "element-plus": "2.2.17",
-    "less": "^4.2.0",
     "rimraf": "3.0.0",
     "sass": "^1.55.0",
     "shiki": "^0.11.1",
     "typescript": "^4.8.4",
-    "vitepress": "^1.2.3"
+    "vitepress": "^1.2.3",
+    "vitepress-markdown-timeline": "^1.2.1"
   },
   "dependencies": {
     "vitepress-theme-demoblock": "^1.4.2"

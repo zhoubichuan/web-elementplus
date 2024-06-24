@@ -3,4 +3,4 @@ web-elementplus
 script/demo.vue
 script/index.js
 script/index.d.ts
-.vitepress/cache
+src/.vitepress/cache

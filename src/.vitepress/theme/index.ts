@@ -3,7 +3,7 @@ import demo from '../demoblock/demo.vue'
 
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-import WebElementPlus from '../../components/index.js'
+import WebElementPlus from '../../../components/index.js'
 // 导出vitepress配置
 export default {
     ...DefaultTheme,
