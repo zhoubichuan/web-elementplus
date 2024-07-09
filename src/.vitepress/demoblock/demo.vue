@@ -65,6 +65,7 @@ export default {
     // 注册演示组件
     const demoSlot =
       codePath && modules[codePath] ? defineAsyncComponent(modules[codePath]) : null;
+      console.log(codePath,'codePath')
     // 展开or收起代码
     const isExpanded = ref(false);
     const onClickControl = () => {

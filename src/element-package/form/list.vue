@@ -1,8 +1,4 @@
 <template>
-  <div>
-    <!-- 搜索部分 -->
-    <formSearch :formCreate="handleFormCreate"></formSearch>
-    <!-- 表格区域 -->
     <BaseTable :table-config="tableConfig" :table-data="tableData ?? []" :page-info="pageInfo"
       @changePageSize="handleSizeChange" @changeCurrentPage="handleCurrentChange">
       <template #handler="scope">
@@ -15,28 +11,15 @@
         </div>
       </template>
     </BaseTable>
-    <!-- 创建/编辑部分 -->
-    <form-submit :title="currentRowData?.id ? '编辑NFT' : '创建NFT'" destroy-on-close v-model="submitDialogVisible"
-      :close="handleClose" @reloadList="reloadData" :initData="currentRowData"></form-submit>
-    <!-- 查看部分 -->
-    <form-view title="查看NFT" destroy-on-close v-model="viewDialogVisible" :close="handleClose"
-      :initData="currentRowData"></form-view>
-  </div>
 </template>
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import { getNftList } from '@/api/nft'
-import { tableConfig } from './config/table.config'
-import { IUserRoleItem, NFTListItem } from '@/api/type'
-import { useBaseTableByApi } from '@/components/BaseTable/hooks/useBaseTableByApi'
-import formSubmit from './formSubmit.vue'
-import formView from './formView.vue'
-import formSearch from './formSearch.vue'
+
 //弹框
 const submitDialogVisible = ref(false)
 // 表单修改
-const currentRowData = ref<NFTListItem>({
+const currentRowData = ref<any>({
   relatedId: '',
   type: '1',
   count: '',
@@ -52,7 +35,6 @@ const getTopicParam = reactive<Record<string, string | number | undefined>>({
   spuid: '',
   startTime: '',
 })
-const { tableData, pageInfo, reloadData, handleCurrentChange, handleSizeChange } = useBaseTableByApi<IUserRoleItem>(getNftList, getTopicParam)
 const handleClose = () => {
   submitDialogVisible.value = false
 }
@@ -71,14 +53,14 @@ const handleFormCreate = () => {
   }
 }
 
-const singleEdit = (value: NFTListItem) => {
+const singleEdit = (value: any) => {
   const { id, relatedId, type, count, name, remark } = value
   currentRowData.value = { id, relatedId, type, count, name, remark }
   console.log(currentRowData.value, 'currentRowData')
   submitDialogVisible.value = true
 }
 // 表单查看
-const singleView = (value: NFTListItem) => {
+const singleView = (value: any) => {
   const { id, relatedId, type, count, name, remark } = value
   currentRowData.value = { id, relatedId, type, count, name, remark }
   viewDialogVisible.value = true

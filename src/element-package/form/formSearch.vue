@@ -41,15 +41,11 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
 import { Refresh, Search } from '@element-plus/icons-vue'
-import { getNftList } from '@/api/nft'
-import { IUserRoleItem } from '@/api/type'
-import { useBaseTableByApi } from '@/components/BaseTable/hooks/useBaseTableByApi'
 import { ElForm } from 'element-plus'
-import dayjs from 'dayjs'
 const { formCreate } = defineProps<{ formCreate: Function }>()
 const time = ref('')
 const chooseTime = (res: any) => {
-    getTopicParam.startTime = res ? dayjs(res).valueOf() + '' : undefined
+    getTopicParam.startTime = undefined
 }
 // 查询参数
 const getTopicParam = reactive<Record<string, string | number | undefined>>({
@@ -60,15 +56,12 @@ const getTopicParam = reactive<Record<string, string | number | undefined>>({
     spuid: '',
     startTime: '',
 })
-const { reloadData } = useBaseTableByApi<IUserRoleItem>(getNftList, getTopicParam)
 const handlerSearch = () => {
-    reloadData()
 }
 const resetSearchForm = () => {
     Object.keys(getTopicParam).forEach(key => {
         getTopicParam[key] = ''
     })
-    reloadData()
 }
 
 </script>

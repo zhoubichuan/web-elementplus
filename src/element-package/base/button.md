@@ -4,23 +4,11 @@
 
 ## 基础用法
 
-###### 输入
-
-```
-<demo src="./button.vue" desc="使用 `type`、`plain`、`round` 和 `circle` 来定义按钮的样式。"></demo>
-```
-
 ###### 输出
 
 <demo src="./button.vue" desc="使用 `type`、`plain`、`round` 和 `circle` 来定义按钮的样式。"></demo>
 
 ## 禁用状态
-
-###### 输入
-
-```
-<demo src="./button-disabled.vue" desc="使用 `disabled`来定义按钮的禁用。"></demo>
-```
 
 ###### 输出
 
@@ -36,12 +24,6 @@
 2.2.1 版本添加，同时可以使用 type API 设置链接按钮的主题样式。
 :::
 
-###### 输入
-
-```
-<demo src="./button-link.vue"></demo>
-```
-
 ###### 输出
 
 <demo src="./button-link.vue"></demo>
@@ -51,12 +33,6 @@
 除了默认的大小，按钮组件还提供了几种额外的尺寸可供选择，以便适配不同的场景。
 
 使用 `size` 属性额外配置尺寸，可使用 `large`和`small`两种值。
-
-###### 输入
-
-```
-<demo src="./button-size.vue"></demo>
-```
 
 ###### 输出
 
