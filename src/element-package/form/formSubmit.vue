@@ -49,9 +49,9 @@ import { ref, toRefs, watch, unref } from 'vue'
 import { NFTListItem } from '@/api/type'
 import { IModelTypeItem, submit } from '@/api/nft'
 import { ElForm, ElMessage } from 'element-plus'
-import cascader from './cascader.vue'
-import upload from './upload.vue'
-import Editor from '@/components/Editor/index.vue'
+// import cascader from './cascader.vue'
+// import upload from './upload.vue'
+// import Editor from '@/components/Editor/index.vue'
 // initData 有数据为编辑状态
 const props = defineProps<{ close: () => void, initData: NFTListItem | undefined }>()
 const { close } = toRefs(props)

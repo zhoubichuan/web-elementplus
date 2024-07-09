@@ -25,6 +25,8 @@ import Button from './button/index.js'
 // import ButtonGroup from './button-group/index.js'
 // import Search from './search/index.js'
 import Dialog from './dialog/index.js'
+import Search from './search/index.js'
+// import Dialog from './dialog/index.js'
 // import Modal from './modal/index.js'
 // import CommonForm from './common-form/index.js'
 // import Table from './table/index.js'
@@ -120,6 +122,8 @@ const components = [
   Button,
 //   Search,
   Dialog,
+  Search,
+//   Dialog,
 //   Slider,
 //   Modal,
 //   ButtonGroup,
@@ -185,9 +189,9 @@ const components = [
 //   Result
 ]
 
-const install = function (Vue, opts = {}) {
+const install = function (app, opts = {}) {
   components.forEach(component => {
-    Vue.component(component.name, component)
+    app.component(component.name, component)
   })
 
 //   Vue.use(InfiniteScroll)
@@ -239,6 +243,8 @@ export default {
 //   ButtonGroup,
 //   Search,
   Dialog,
+  Search,
+//   Dialog,
 //   Slider,
 //   Modal,
 //   CommonForm,
