@@ -1,76 +1,69 @@
 <template>
-  <el-dialog custom-class="my-dialog" v-bind="newAttrs">
-    <template v-if="$slots.title || $attrs['my-title']" #title>
-      <span v-if="$attrs['my-title']" class="dialog-title">提示 </span>
-      <slot v-else name="title"> </slot>
-    </template>
-    <slot>
-      <p>弹窗内容自定义</p>
-    </slot>
-    <template v-if="$slots.footer || $attrs['my-footer']" #footer>
-      <span v-if="$attrs['my-footer']" class="dialog-footer">
-        <web-button type="info" @click="handleCancel">取 消</web-button>
-        <web-button type="success" @click="handleConfirm">确 定</web-button>
-      </span>
-      <slot v-else name="footer"> </slot>
-    </template>
+  <el-dialog v-bind="attrs" @close="handleCancel">
+      <template v-if="$slots.title || $attrs['web-title']" #title>
+          <span v-if="$attrs['web-title']" class="dialog-title">提示 </span>
+          <slot v-else name="title"> </slot>
+      </template>
+      <slot>
+          <p>弹窗内容自定义</p>
+      </slot>
+      <template v-if="$slots.footer || $attrs['web-footer']" #footer>
+          <span v-if="$attrs['web-footer']" class="dialog-footer">
+              <el-button @click="handleCancel">取 消</el-button>
+              <el-button type="primary" @click="handleConfirm">确 定</el-button>
+          </span>
+          <slot v-else name="footer"> </slot>
+      </template>
   </el-dialog>
 </template>
 
-<script>
-import { defineComponent, reactive, toRefs } from "vue";
+<script lang="ts" setup name="WebDialog">
+import { defineEmits, useAttrs } from "vue";
+const emit = defineEmits(["handleCancel", "handleConfirm"])
+const handleCancel = () => {
+  emit("handleCancel");
+};
+const defaultAttrs = useAttrs()
+const attrs = {
+  ...defaultAttrs,
+  class: "web-dialog",
+  "lock-scroll": true,
+  "destroy-on-close": true,
+  width: "80%"
+}
 
-export default defineComponent({
-  name: "WebDialog",
-  emits: ["my-cancel", "my-confirm"],
-  setup(props, { attrs, emit }) {
-    const state = reactive({});
-    let newAttrs = {
-      ...attrs,
-    };
-    const handleCancel = () => {
-      emit("myCancel");
-    };
-
-    const handleConfirm = () => {
-      emit("myConfirm");
-    };
-    return {
-      ...toRefs(state),
-      newAttrs,
-      handleCancel,
-      handleConfirm,
-    };
-  },
-});
+const handleConfirm = () => {
+  emit("handleConfirm");
+};
 </script>
-<style lang="less">
-.my-dialog {
-  &.is-disabled {
-    background-color: #f2f2f2;
-    color: #a5a5a5;
-    border: 1px solid #e9e9e9;
-  }
-  .el-dialog__header {
-    padding: var(--dialog-header-padding);
-  }
-  .el-dialog__footer {
-    padding: var(--dialog-footer-padding);
-    .el-button + .el-button {
-      margin-left: var(--dialog-footer-button-space);
-    }
+
+<style lang="scss">
+.web-dialog {
+  margin-top: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  .el-dialog__body {
+      height: calc(100vh - 200px);
+      overflow-y: auto;
   }
 }
-</style>
-<style lang="less">
+
 .el-dialog__header {
   padding: 20px 32px;
   border-bottom: 1px solid #edeeef;
 }
+
 .el-dialog__body {
   padding: 22px 32px 32px;
 }
+
 .el-dialog__title {
   font-weight: bold;
+}
+</style>
+<style>
+.el-overlay-dialog {
+  overflow: hidden;
 }
 </style>

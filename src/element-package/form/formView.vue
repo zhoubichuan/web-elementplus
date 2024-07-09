@@ -1,53 +1,17 @@
 <template>
-  <el-dialog v-bind="$attrs" width="1160px" destroy-on-close >
+  <web-dialog v-bind="{ ...$attrs, close }">
     <el-form ref="formRef" :model="formData" label-width="80px">
-      <el-form-item label="关联项目" prop="type">
-        {{ modelTypes.find(i => i.value === formData.type)?.desc }}
-      </el-form-item>
-      <template v-if="formData.type == '0'">
-        <el-form-item label="模型id" prop="relatedId">
-          {{ formData.relatedId }}
-        </el-form-item>
-        <el-row :gutter="20">
-          <el-col :span="10">
-            <el-form-item label="名称" prop="name">
-              {{ formData.name }}
-            </el-form-item>
-          </el-col>
-          <el-col :span="10">
-            <el-form-item label="铸造数量" prop="count">
-              {{ formData.count }}
-            </el-form-item>
-          </el-col>
-        </el-row>
-
-      </template>
-      <template v-else>
-        <el-form-item label="资产" prop="relatedId">
-          <cascader v-model="formData.relatedId" style="width: 100%"></cascader>
-        </el-form-item>
-        <el-form-item label="展示图" prop="image">
-          <upload v-model="formData.image" style="width: 50%"></upload>
-        </el-form-item>
-      </template>
-      <el-form-item label="NFT说明" prop="remark">
-        <div v-html="formData.remark"></div>
-      </el-form-item>
+      <web-form-item v-for="(formItem, formItemIndex) in baseFormData" :formData="formItem" :key="formItemIndex" />
     </el-form>
-  </el-dialog>
+  </web-dialog>
 </template>
 
 <script setup lang="ts">
-import { ref, toRefs, watch, unref } from 'vue'
-import { NFTListItem } from '@/api/type'
-import { IModelTypeItem, submit } from '@/api/nft'
+import { ref, toRefs, watch, unref, } from 'vue'
 import { ElForm, ElMessage } from 'element-plus'
-import cascader from './cascader.vue'
-import upload from './upload.vue'
-// initData 有数据为编辑状态
-const props = defineProps<{ close: () => void, initData: NFTListItem | undefined }>()
+const props = defineProps<{ close: () => void, initData: any | undefined }>()
 const { close } = toRefs(props)
-const modelTypes = ref<Array<IModelTypeItem>>([
+const modelTypes = ref<Array<any>>([
   {
     value: '1',
     desc: '模型',
@@ -57,27 +21,53 @@ const modelTypes = ref<Array<IModelTypeItem>>([
     desc: '资产',
   },
 ])
-const initFormData: NFTListItem = {
-  relatedId: '',
+const initFormData: any = {
+  relatedId: 'sssss',
   type: '1',
-  count: '',
-  name: '',
-  remark: '',
+  count: '中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国',
+  name: '小明',
+  remark: '中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国',
 }
-const initFormData2: NFTListItem = {
-  relatedId: '1',
-  type: '2',
-  remark: '',
-  image: ''
-}
+
 const formRef = ref<InstanceType<typeof ElForm>>()
-const formData = ref<NFTListItem>(props.initData ? props.initData : initFormData)
-watch(
-  () => props.initData,
-  (val: NFTListItem | undefined) => {
-    if (val === unref(formData.value)) return
-    formData.value = val ? val : initFormData
-  }
-)
+const formData = ref<any>(initFormData)
+
+
+const baseFormData = [
+  [
+    {
+      prop: 'type',
+      label: "关联项目",
+      render: modelTypes.value.find(i => i.value == formData.value.type)?.desc,
+    },
+  ],
+  [
+    {
+      prop: 'name',
+      label: "名称",
+      render: formData.value.name
+    },
+    {
+      prop: 'count',
+      label: "铸造数量",
+      render: formData.value.count
+    }
+  ],
+  [
+    {
+      prop: 'relatedId',
+      label: "模型id",
+      render: formData.value.relatedId
+    }
+  ],
+  [
+    {
+      prop: 'remark',
+      label: "remark",
+      render: formData.value.remark
+    }
+  ],
+]
+
 </script>
 <style lang="scss" scoped></style>

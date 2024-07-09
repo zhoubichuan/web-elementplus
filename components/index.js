@@ -1,7 +1,6 @@
 // import Pagination from './pagination/index.js'
 // import Preview from './preview/index.js'
 // import Layout from './layout/index.js'
-// import Dialog from './dialog/index.js'
 // import Autocomplete from './autocomplete/index.js'
 // import Dropdown from './dropdown/index.js'
 // import DropdownMenu from './dropdown-menu/index.js'
@@ -10,7 +9,7 @@
 // import Submenu from './submenu/index.js'
 // import MenuItem from './menu-item/index.js'
 // import MenuItemGroup from './menu-item-group/index.js'
-// import Input from './input/index.js'
+import Input from './input/index.js'
 // import InputNumber from './input-number/index.js'
 // import Radio from './radio/index.js'
 // import RadioGroup from './radio-group/index.js'
@@ -19,16 +18,15 @@ import Checkbox from './checkbox/index.js'
 // import CheckboxButton from './checkbox-button/index.js'
 // import CheckboxGroup from './checkbox-group/index.js'
 // import Switch from './switch/index.js'
-// import Select from './select/index.js'
+import Select from './select/index.js'
 // import Option from './option/index.js'
 // import OptionGroup from './option-group/index.js'
 import Button from './button/index.js'
 // import ButtonGroup from './button-group/index.js'
 // import Search from './search/index.js'
-// import Dialog from './dialog/index.js'
+import Dialog from './dialog/index.js'
 // import Modal from './modal/index.js'
 // import CommonForm from './common-form/index.js'
-// import FormItem from './form-item/index.js'
 // import Table from './table/index.js'
 // import TableColumn from './table-column/index.js'
 // import DatePicker from './date-picker/index.js'
@@ -40,7 +38,7 @@ import Button from './button/index.js'
 // import Breadcrumb from './breadcrumb/index.js'
 // import BreadcrumbItem from './breadcrumb-item/index.js'
 // import Form from './form/index.js'
-// import FormItem from './form-item/index.js'
+import FormItem from './form-item/index.js'
 // import Tabs from './tabs/index.js'
 // import TabPane from './tab-pane/index.js'
 // import Tag from './tag/index.js'
@@ -52,7 +50,7 @@ import Button from './button/index.js'
 // import Icon from './icon/index.js'
 // import Row from './row/index.js'
 // import Col from './col/index.js'
-// import Upload from './upload/index.js'
+import Upload from './upload/index.js'
 // import Progress from './progress/index.js'
 // import Spinner from './spinner/index.js'
 // import Message from './message/index.js'
@@ -99,7 +97,6 @@ const components = [
 //   Pagination,
 //   Preview,
 //   Layout,
-//   Dialog,
 //   Autocomplete,
 //   Dropdown,
 //   DropdownMenu,
@@ -108,7 +105,7 @@ const components = [
 //   Submenu,
 //   MenuItem,
 //   MenuItemGroup,
-//   Input,
+  Input,
 //   InputNumber,
 //   Radio,
 //   RadioGroup,
@@ -117,17 +114,16 @@ const components = [
 //   CheckboxButton,
 //   CheckboxGroup,
 //   Switch,
-//   Select,
+  Select,
 //   Option,
 //   OptionGroup,
   Button,
 //   Search,
-//   Dialog,
+  Dialog,
 //   Slider,
 //   Modal,
 //   ButtonGroup,
 //   CommonForm,
-//   FormItem,
 //   Table,
 //   TableColumn,
 //   DatePicker,
@@ -138,7 +134,7 @@ const components = [
 //   Breadcrumb,
 //   BreadcrumbItem,
 //   Form,
-//   FormItem,
+  FormItem,
 //   Tabs,
 //   TabPane,
 //   Tag,
@@ -147,7 +143,7 @@ const components = [
 //   Icon,
 //   Row,
 //   Col,
-//   Upload,
+  Upload,
 //   Progress,
 //   Spinner,
 //   Badge,
@@ -219,7 +215,6 @@ export default {
 //   Layout,
 //   Loading,
 //   Pagination,
-//   Dialog,
 //   Autocomplete,
 //   Dropdown,
 //   DropdownMenu,
@@ -228,7 +223,7 @@ export default {
 //   Submenu,
 //   MenuItem,
 //   MenuItemGroup,
-//   Input,
+  Input,
 //   InputNumber,
 //   Radio,
 //   RadioGroup,
@@ -237,17 +232,16 @@ export default {
 //   CheckboxButton,
 //   CheckboxGroup,
 //   Switch,
-//   Select,
+  Select,
 //   Option,
 //   OptionGroup,
   Button,
 //   ButtonGroup,
 //   Search,
-//   Dialog,
+  Dialog,
 //   Slider,
 //   Modal,
 //   CommonForm,
-//   FormItem,
 //   Table,
 //   TableColumn,
 //   DatePicker,
@@ -259,7 +253,7 @@ export default {
 //   Breadcrumb,
 //   BreadcrumbItem,
 //   Form,
-//   FormItem,
+  FormItem,
 //   Tabs,
 //   TabPane,
 //   Tag,
@@ -269,7 +263,7 @@ export default {
 //   Icon,
 //   Row,
 //   Col,
-//   Upload,
+  Upload,
 //   Progress,
 //   Spinner,
 //   Message,

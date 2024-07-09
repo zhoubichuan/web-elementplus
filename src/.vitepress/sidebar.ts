@@ -32,9 +32,9 @@ export default {
         { text: "space", link: "/element-plus/form/datetimepicker" },
         { text: "scrollbar", link: "/element-plus/form/upload" },
         { text: "config-provider", link: "/element-plus/form/rate" },
-        { text: "space", link: "/element-plus/form/colorpicker" },
-        { text: "scrollbar", link: "/element-plus/form/transfer" },
-        { text: "config-provider", link: "/element-plus/form/form" },
+        { text: "十六.ColorPicker", link: "/element-plus/form/colorpicker" },
+        { text: "十七.Transfer", link: "/element-plus/form/transfer" },
+        { text: "十八.Form", link: "/element-plus/form/form" },
       ],
     },
     {

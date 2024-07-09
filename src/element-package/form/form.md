@@ -13,3 +13,5 @@ meta:
 - 组件介绍
 
 [Form 表单](https://element-plus.gitee.io/#/zh-CN/component/form)
+
+<demo src="./formView.vue"></demo>
