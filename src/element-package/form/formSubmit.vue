@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-bind="$attrs" width="1160px" destroy-on-close  >
+  <el-dialog v-bind="$attrs" width="1160px" destroy-on-close>
     <el-form ref="formRef" :rules="rules" :model="formData" label-width="80px">
       <el-form-item label="关联项目" prop="type">
         <el-select v-model="formData.type" placeholder="请选择类型" style="width: 36%" @change="typeChange">
@@ -46,14 +46,14 @@
 
 <script setup lang="ts">
 import { ref, toRefs, watch, unref } from 'vue'
-import { NFTListItem } from '@/api/type'
-import { IModelTypeItem, submit } from '@/api/nft'
+// import { NFTListItem } from '@/api/type'
+// import { IModelTypeItem, submit } from '@/api/nft'
 import { ElForm, ElMessage } from 'element-plus'
-import cascader from './cascader.vue'
-import upload from './upload.vue'
-import Editor from '@/components/Editor/index.vue'
+// import cascader from './cascader.vue'
+// import upload from './upload.vue'
+// import Editor from '@/components/Editor/index.vue'
 // initData 有数据为编辑状态
-const props = defineProps<{ close: () => void, initData: NFTListItem | undefined }>()
+const props = defineProps<{ close: () => void, initData: any | undefined }>()
 const { close } = toRefs(props)
 const rules = {
   relatedId: [{ required: true, message: '请输入模型/资产id', trigger: 'blur' }],
@@ -63,7 +63,7 @@ const rules = {
   name: [{ required: true, message: '请输入名称', trigger: 'blur' }],
   remark: [{ required: true, message: '请输入NFT说明', trigger: 'blur' }]
 }
-const modelTypes = ref<Array<IModelTypeItem>>([
+const modelTypes = ref<Array<any>>([
   {
     value: '1',
     desc: '模型',
@@ -73,14 +73,14 @@ const modelTypes = ref<Array<IModelTypeItem>>([
     desc: '资产',
   },
 ])
-const initFormData: NFTListItem = {
+const initFormData: any = {
   relatedId: '',
   type: '1',
   count: '',
   name: '',
   remark: '',
 }
-const initFormData2: NFTListItem = {
+const initFormData2: any = {
   relatedId: '1',
   type: '2',
   remark: '',
@@ -88,11 +88,11 @@ const initFormData2: NFTListItem = {
 }
 const dialogTitle = ref('创建NFT')
 const formRef = ref<InstanceType<typeof ElForm>>()
-const formData = ref<NFTListItem>(props.initData ? props.initData : initFormData)
+const formData = ref<any>(props.initData ? props.initData : initFormData)
 const emits = defineEmits(['reloadList'])
 watch(
   () => props.initData,
-  (val: NFTListItem | undefined) => {
+  (val: any | undefined) => {
     if (val === unref(formData.value)) return
     formData.value = val ? val : initFormData
   }
@@ -107,14 +107,14 @@ const typeChange = (val: any) => {
 
 const handleSubmit = () => {
   formRef.value?.validate(async valid => {
-    if (valid) {
-      const { c } = await submit({ ...formData.value as NFTListItem })
-      if (c == 200) {
-        ElMessage.success(dialogTitle.value + '成功')
-        emits('reloadList')
-        props.close()
-      }
-    }
+    // if (valid) {
+    //   const { c } = await submit({ ...formData.value as any })
+    //   if (c == 200) {
+    //     ElMessage.success(dialogTitle.value + '成功')
+    //     emits('reloadList')
+    //     props.close()
+    //   }
+    // }
   })
 }
 

@@ -41,9 +41,9 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
 import { Refresh, Search } from '@element-plus/icons-vue'
-import { getNftList } from '@/api/nft'
-import { IUserRoleItem } from '@/api/type'
-import { useBaseTableByApi } from '@/components/BaseTable/hooks/useBaseTableByApi'
+// import { getNftList } from '@/api/nft'
+// import { IUserRoleItem } from '@/api/type'
+// import { useBaseTableByApi } from '@/components/BaseTable/hooks/useBaseTableByApi'
 import { ElForm } from 'element-plus'
 import dayjs from 'dayjs'
 const { formCreate } = defineProps<{ formCreate: Function }>()
@@ -60,15 +60,15 @@ const getTopicParam = reactive<Record<string, string | number | undefined>>({
     spuid: '',
     startTime: '',
 })
-const { reloadData } = useBaseTableByApi<IUserRoleItem>(getNftList, getTopicParam)
+// const { reloadData } = useBaseTableByApi<IUserRoleItem>(getNftList, getTopicParam)
 const handlerSearch = () => {
-    reloadData()
+    // reloadData()
 }
 const resetSearchForm = () => {
     Object.keys(getTopicParam).forEach(key => {
         getTopicParam[key] = ''
     })
-    reloadData()
+    // reloadData()
 }
 
 </script>

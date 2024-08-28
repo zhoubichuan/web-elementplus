@@ -28,13 +28,13 @@
 import { ElDatePicker } from 'element-plus'
 import { reactive, ref } from 'vue'
 import { Refresh, Search } from '@element-plus/icons-vue'
-import { getNftList } from '@/api/nft'
-import { IUserRoleItem } from '@/api/type'
-import { useBaseTableByApi } from '@/components/BaseTable/hooks/useBaseTableByApi'
+// import { getNftList } from '@/api/nft'
+// import { IUserRoleItem } from '@/api/type'
+// import { useBaseTableByApi } from '@/components/BaseTable/hooks/useBaseTableByApi'
 import { ElForm } from 'element-plus'
 import dayjs from 'dayjs'
-import WebInput from '../../input'
-import WebFormItem from '../../form-item'
+// import WebInput from '../../input'
+// import WebFormItem from '../../form-item'
 const { formCreate, searchForm } = defineProps<{ formCreate: Function, searchForm: any }>()
 const time = ref('')
 const chooseTime = (res: any) => {
@@ -49,15 +49,16 @@ const getTopicParam = reactive<Record<string, string | number | undefined>>({
   spuid: '',
   startTime: '',
 })
-const { reloadData } = useBaseTableByApi<IUserRoleItem>(getNftList, getTopicParam)
+
+// const { reloadData } = useBaseTableByApi<IUserRoleItem>(getNftList, getTopicParam)
 const handlerSearch = () => {
-  reloadData()
+  // reloadData()
 }
 const resetSearchForm = () => {
   Object.keys(getTopicParam).forEach(key => {
     getTopicParam[key] = ''
   })
-  reloadData()
+  // reloadData()
 }
 
 </script>

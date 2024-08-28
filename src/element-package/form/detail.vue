@@ -15,16 +15,31 @@
 
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
-import { IModelTypeItem, getNftList, modelType, delModel } from '@/api/nft'
-import { tableConfig2 } from './config/table.config'
-import { IQueryUserRoleParm, IUserRoleItem } from '@/api/type'
-import { useBaseTableByApi } from '@/components/BaseTable/hooks/useBaseTableByApi'
+// import { IModelTypeItem, getNftList, modelType, delModel } from '@/api/nft'
+// import { tableConfig2 } from './config/table.config'
+// import { IQueryUserRoleParm, IUserRoleItem } from '@/api/type'
+// import { useBaseTableByApi } from '@/components/BaseTable/hooks/useBaseTableByApi'
 import { nextTick } from 'process'
-import { useStore } from '@/store'
+// import { useStore } from '@/store'
 import { ElForm, ElMessage } from 'element-plus'
 import { cloneDeep } from 'lodash'
+const tableConfig2: any = {
+  title: '',
+  editWidth: '180',
+  isEdit: false,
+  needCreate: false,
+  tableItems: [
+    { prop: 'id', label: 'spuid', width: '90' },
+    { prop: 'skuName', label: '名称', width: '120' },
+    { prop: 'onChainTime', label: '上链时间' },
+    { prop: 'modelPicture', label: '合约类型', width: '100' },
+    { prop: 'token', label: 'token', width: '120' },
+    { prop: 'walletAddress', label: '现存地址', width: '120' },
+    { prop: 'owerId', label: '持有用户ID', width: '160' }
+  ]
+}
 
-const store = useStore()
+// const store = useStore()
 // 查询参数
 const getTopicParam = reactive<Record<string, string>>({
   type: '',
@@ -33,25 +48,25 @@ const getTopicParam = reactive<Record<string, string>>({
 })
 // const tableData = []
 const { tableData, pageInfo, reloadData, handleCurrentChange, handleSizeChange, toDelete } =
-  useBaseTableByApi<IUserRoleItem>(getNftList, getTopicParam, delModel)
-console.log(pageInfo)
+  // useBaseTableByApi<IUserRoleItem>(getNftList, getTopicParam, delModel)
+// console.log(pageInfo)
 
-const modelTypes = ref<Array<IModelTypeItem>>()
-modelType().then(res => {
-  modelTypes.value = res.d
-})
+// const modelTypes = ref<Array<IModelTypeItem>>()
+// modelType().then(res => {
+//   modelTypes.value = res.d
+// })
 
 
 //上传弹窗2
-const uploadDialogVisible2 = ref(false)
-const uploadFile2 = () => {
-  const { id, upWay } = currentEditItem.value
-  if (id && upWay == 0) dialogTitle.value = '修改服饰'
-  else if (id && upWay == 1) dialogTitle.value = '修改模型'
-  else if (upWay == 0) dialogTitle.value = '上传服饰'
-  else if (upWay == 1) dialogTitle.value = '上传模型'
-  uploadDialogVisible2.value = true
-}
+// const uploadDialogVisible2 = ref(false)
+// const uploadFile2 = () => {
+//   const { id, upWay } = currentEditItem.value
+//   if (id && upWay == 0) dialogTitle.value = '修改服饰'
+//   else if (id && upWay == 1) dialogTitle.value = '修改模型'
+//   else if (upWay == 0) dialogTitle.value = '上传服饰'
+//   else if (upWay == 1) dialogTitle.value = '上传模型'
+//   // uploadDialogVisible2.value = true
+// }
 
 //上传弹窗
 const uploadDialogVisible = ref(false)
@@ -63,11 +78,11 @@ const uploadFile = () => {
   else if (upWay == 1) dialogTitle.value = '上传模型'
   uploadDialogVisible.value = true
 }
-const currentAdmin = computed(() => store.state.user.currentAdmin)
+// const currentAdmin = computed(() => store.state.user.currentAdmin)
 
 // 上传或修改服饰对象
 const initItem = {
-  uid: currentAdmin.value?.id,
+  // uid: currentAdmin.value?.id,
   modelName: '',
   type: '',
   blockPicture: [],
@@ -77,20 +92,20 @@ const initItem = {
   status: 0,
   timeMills: new Date().getTime() + ''
 }
-const currentEditItem = ref<IUserRoleItem>({ ...initItem })
+const currentEditItem = ref<any>({ ...initItem })
 const resetItem = () => {
   currentEditItem.value = initItem
 }
 // 删除预览的图片
 const delUrl = (url: string) => {
   console.log('删除了', url)
-  const index = currentEditItem.value.modelPicture.findIndex(ul => ul == url)
+  const index = currentEditItem.value.modelPicture.findIndex((ul: string) => ul == url)
   currentEditItem.value.modelPicture.splice(index, 1)
 }
 
 const dialogTitle = ref('修改服饰')
 // 修改
-const toEdit = (item: IUserRoleItem) => {
+const toEdit = (item: any) => {
   const tempItem = cloneDeep(item)
   currentEditItem.value = tempItem
   nextTick(() => {

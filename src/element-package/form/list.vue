@@ -26,17 +26,17 @@
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import { getNftList } from '@/api/nft'
-import { tableConfig } from './config/table.config'
-import { IUserRoleItem, NFTListItem } from '@/api/type'
-import { useBaseTableByApi } from '@/components/BaseTable/hooks/useBaseTableByApi'
-import formSubmit from './formSubmit.vue'
-import formView from './formView.vue'
-import formSearch from './formSearch.vue'
+// import { getNftList } from '@/api/nft'
+// import { tableConfig } from './config/table.config'
+// import { IUserRoleItem, NFTListItem } from '@/api/type'
+// import { useBaseTableByApi } from '@/components/BaseTable/hooks/useBaseTableByApi'
+// import formSubmit from './formSubmit.vue'
+// import formView from './formView.vue'
+// import formSearch from './formSearch.vue'
 //弹框
 const submitDialogVisible = ref(false)
 // 表单修改
-const currentRowData = ref<NFTListItem>({
+const currentRowData = ref<any>({
   relatedId: '',
   type: '1',
   count: '',
@@ -52,7 +52,7 @@ const getTopicParam = reactive<Record<string, string | number | undefined>>({
   spuid: '',
   startTime: '',
 })
-const { tableData, pageInfo, reloadData, handleCurrentChange, handleSizeChange } = useBaseTableByApi<IUserRoleItem>(getNftList, getTopicParam)
+// const { tableData, pageInfo, reloadData, handleCurrentChange, handleSizeChange } = useBaseTableByApi<IUserRoleItem>(getNftList, getTopicParam)
 const handleClose = () => {
   submitDialogVisible.value = false
 }
@@ -71,14 +71,14 @@ const handleFormCreate = () => {
   }
 }
 
-const singleEdit = (value: NFTListItem) => {
+const singleEdit = (value: any) => {
   const { id, relatedId, type, count, name, remark } = value
   currentRowData.value = { id, relatedId, type, count, name, remark }
   console.log(currentRowData.value, 'currentRowData')
   submitDialogVisible.value = true
 }
 // 表单查看
-const singleView = (value: NFTListItem) => {
+const singleView = (value: any) => {
   const { id, relatedId, type, count, name, remark } = value
   currentRowData.value = { id, relatedId, type, count, name, remark }
   viewDialogVisible.value = true

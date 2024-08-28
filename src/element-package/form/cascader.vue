@@ -29,10 +29,8 @@
 </template>
 <script setup lang="ts">
 import { computed, reactive, ref, toRefs } from 'vue'
-import { NFTListItem } from '@/api/type'
-import { IModelTypeItem } from '@/api/nft'
-const formData2 = ref<NFTListItem>()
-const linesType = ref<Array<IModelTypeItem>>([
+const formData2 = ref<any>()
+const linesType = ref<Array<any>>([
     {
         value:'1',
         desc: '全部',
@@ -46,7 +44,7 @@ const linesType = ref<Array<IModelTypeItem>>([
         desc: '公交',
     }
 ])
-const siteType = ref<Array<IModelTypeItem>>([
+const siteType = ref<Array<any>>([
     {
         value:'1',
         desc: '全部',
