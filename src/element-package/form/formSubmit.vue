@@ -1,95 +1,92 @@
 <template>
-  <el-dialog v-bind="$attrs" width="1160px" destroy-on-close>
+  <web-dialog @reloadList="reloadData" v-model="show" v-bind="{
+    title: !create ? '编辑NFT' : '创建NFT', close: handleClose,
+    initData: currentRowData, 'web-footer': true
+  }" @handleCancel="close" @handleConfirm="handleSubmit">
     <el-form ref="formRef" :rules="rules" :model="formData" label-width="80px">
-      <el-form-item label="关联项目" prop="type">
-        <el-select v-model="formData.type" placeholder="请选择类型" style="width: 36%" @change="typeChange">
-          <el-option v-for="(type, index) in modelTypes" :key="index" :value="type.value" :label="type.desc">
-            {{ type.desc }}
-          </el-option>
-        </el-select>
-      </el-form-item>
-      <template v-if="formData.type == '0'">
-        <el-form-item label="模型id" prop="relatedId">
-          <el-input v-model="formData.relatedId" placeholder="请输入模型id" style="width: 36%"></el-input>
-        </el-form-item>
-        <el-row :gutter="20">
-          <el-col :span="10">
-            <el-form-item label="名称" prop="name">
-              <el-input v-model="formData.name" placeholder="请输入名称" style="width: 100%"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="10">
-            <el-form-item label="铸造数量" prop="count">
-              <el-input v-model="formData.count" placeholder="请输入铸造数量" style="width: 100%"></el-input>
-            </el-form-item>
-          </el-col>
-        </el-row>
+      <template v-if="Number(formData.type) == 0">
+        <web-form-item v-for="(formItem, formItemIndex) in baseFormData" :formData="formItem" :key="formItemIndex" />
       </template>
       <template v-else>
-        <el-form-item label="资产" prop="relatedId">
-          <cascader v-model="formData.relatedId" style="width: 100%"></cascader>
-        </el-form-item>
-        <el-form-item label="展示图" prop="image">
-          <upload v-model="formData.image" style="width: 50%"></upload>
-        </el-form-item>
+        <web-form-item v-for="(formItem, formItemIndex) in baseFormData2" :formData="formItem" :key="formItemIndex" />
       </template>
-      <el-form-item label="NFT说明" prop="remark">
-        <editor v-model="formData.remark" type="textarea" placeholder="请输入NFT说明" style="width: 50%"></editor>
-      </el-form-item>
     </el-form>
-    <template #footer>
-      <el-button @click="close">取 消</el-button>
-      <el-button type="primary" @click="handleSubmit">确 定</el-button>
-    </template>
-  </el-dialog>
+  </web-dialog>
+  <web-button @click="handleCreate">创建</web-button>
+  <web-button @click="handleEdit">编辑</web-button>
 </template>
 
 <script setup lang="ts">
-import { ref, toRefs, watch, unref } from 'vue'
-// import { NFTListItem } from '@/api/type'
-// import { IModelTypeItem, submit } from '@/api/nft'
+import { ref, toRefs, defineProps, watch, unref, defineEmits } from 'vue'
 import { ElForm, ElMessage } from 'element-plus'
-// import cascader from './cascader.vue'
-// import upload from './upload.vue'
-// import Editor from '@/components/Editor/index.vue'
-// initData 有数据为编辑状态
-const props = defineProps<{ close: () => void, initData: any | undefined }>()
+const props = defineProps<{ close: () => void; initData: any | undefined }>()
 const { close } = toRefs(props)
+const show = ref(false)
+const create = ref(false)
+const edit = ref(false)
+const currentRowData = ref<any>({
+  relatedId: '',
+  type: '0',
+  count: '',
+  name: '',
+  remark: ''
+})
+const handleClose = () => {
+  show.value = false
+  create.value = false
+}
+const handleCreate = () => {
+  show.value = true
+  create.value = true
+}
+const handleEdit = () => {
+  show.value = true
+  edit.value = true
+}
+const submit = () => {
+
+}
 const rules = {
-  relatedId: [{ required: true, message: '请输入模型/资产id', trigger: 'blur' }],
+  relatedId: [
+    { required: true, message: '请输入模型/资产id', trigger: 'blur' }
+    // { type: 'number', max: 1000, message: "模型/资产id为数字" }
+  ],
   type: [{ required: true, message: '请选择关联项目', trigger: 'blur' }],
   image: [{ required: true, message: '请选择展示图', trigger: 'blur' }],
-  count: [{ required: true, message: '请输入铸造数量', trigger: 'blur' }],
+  count: [
+    { required: true, message: '请输入铸造数量', trigger: 'blur' }
+    // { type: 'number', max: 1000, message: "铸造数量为数字" }
+  ],
   name: [{ required: true, message: '请输入名称', trigger: 'blur' }],
   remark: [{ required: true, message: '请输入NFT说明', trigger: 'blur' }]
 }
-const modelTypes = ref<Array<any>>([
+const modelTypes = ref<Array<IModelTypeItem>>([
+  {
+    value: '0',
+    desc: '模型'
+  },
   {
     value: '1',
-    desc: '模型',
-  },
-  {
-    value: '2',
-    desc: '资产',
-  },
+    desc: '资产'
+  }
 ])
 const initFormData: any = {
   relatedId: '',
-  type: '1',
+  type: '0',
   count: '',
   name: '',
-  remark: '',
+  remark: ''
 }
 const initFormData2: any = {
   relatedId: '1',
-  type: '2',
+  type: '1',
   remark: '',
   image: ''
 }
 const dialogTitle = ref('创建NFT')
 const formRef = ref<InstanceType<typeof ElForm>>()
 const formData = ref<any>(props.initData ? props.initData : initFormData)
-const emits = defineEmits(['reloadList'])
+const emit = defineEmits(['reloadList', 'update:modelValue'])
 watch(
   () => props.initData,
   (val: any | undefined) => {
@@ -98,34 +95,176 @@ watch(
   }
 )
 const typeChange = (val: any) => {
-  if (val === '1') {
+  if (val === 0) {
     formData.value = initFormData
   } else {
     formData.value = initFormData2
   }
 }
-
 const handleSubmit = () => {
-  formRef.value?.validate(async valid => {
-    // if (valid) {
-    //   const { c } = await submit({ ...formData.value as any })
-    //   if (c == 200) {
-    //     ElMessage.success(dialogTitle.value + '成功')
-    //     emits('reloadList')
-    //     props.close()
-    //   }
-    // }
+  formRef.value?.validate(async (valid: any) => {
+    if (valid) {
+      let params: any = { ...formData.value }
+      params.type = Number(params.type)
+      const { c } = await submit(params)
+      if (c == 200) {
+        ElMessage.success(dialogTitle.value + '成功')
+        emit('reloadList')
+        props.close()
+      }
+    }
   })
 }
-
+const baseFormData = [
+  [
+    {
+      prop: 'type',
+      label: '关联项目',
+      component: {
+        modelValue: formData.value.type,
+        'onUpdate:modelValue': (value: string) => (formData.value.type = value),
+        placeholder: '请选择类型',
+        onChange: typeChange,
+        disabled: true,
+        options: modelTypes.value.map(item => ({ label: item.desc, value: String(item.value) }))
+      }
+    },
+    {}
+  ],
+  [
+    {
+      prop: 'relatedId',
+      label: '模型id',
+      component:{
+        modelValue: formData.value.relatedId,
+          'onUpdate:modelValue': (value: string) => (formData.value.relatedId = value),
+          placeholder: '请输入模型id'
+      }
+    },
+    {}
+  ],
+  [
+    {
+      prop: 'name',
+      label: '名称',
+      component:{
+        modelValue: formData.value.name,
+          'onUpdate:modelValue': (value: string) => (formData.value.name = value),
+          placeholder: '请输入名称'
+      }
+    },
+    {
+      prop: 'count',
+      label: '铸造数量',
+      component:{
+        modelValue: formData.value.count,
+          'onUpdate:modelValue': (value: string) => (formData.value.count = value),
+          placeholder: '请输入铸造数量'
+      }
+    }
+  ],
+  [
+    {
+      prop: 'remark',
+      label: 'NFT说明',
+      component:{
+        is:'web-rich',
+        modelValue: formData.value.remark,
+          'onUpdate:modelValue': (value: string) => (formData.value.remark = value),
+          menus: [
+            'head',
+            'bold',
+            'fontSize',
+            // 'fontName',
+            // 'italic',
+            // 'underline',
+            // 'strikeThrough',
+            // 'indent',
+            // 'lineHeight',
+            // 'foreColor',
+            // 'backColor',
+            // 'link',
+            'list',
+            // 'todo',
+            // 'justify',
+            // 'quote',
+            // 'emoticon',
+            'image'
+            // 'video',
+            // 'table',
+            // 'code',
+            // 'splitLine',
+            // 'undo',
+            // 'redo',
+          ],
+          style: 'width: 100%'
+      }
+    }
+  ]
+]
+const baseFormData2 = [
+  [
+    {
+      prop: 'type',
+      label: '关联项目',
+      render: modelTypes.value.find(i => i.value == String(formData.value.type))?.desc
+    }
+  ],
+  [
+    {
+      prop: 'relatedId',
+      label: '资产',
+      render: formData.value.relatedId
+    }
+  ],
+  [
+    {
+      prop: 'image',
+      label: '展示图',
+      render: formData.value.image
+    }
+  ],
+  [
+    {
+      prop: 'remark',
+      label: 'NFT说明',
+      component:{
+        is:'web-rich',
+        modelValue: formData.value.remark,
+          'onUpdate:modelValue': (value: string) => (formData.value.remark = value),
+          menus: [
+            'head',
+            'bold',
+            'fontSize',
+            // 'fontName',
+            // 'italic',
+            // 'underline',
+            // 'strikeThrough',
+            // 'indent',
+            // 'lineHeight',
+            // 'foreColor',
+            // 'backColor',
+            // 'link',
+            'list',
+            // 'todo',
+            // 'justify',
+            // 'quote',
+            // 'emoticon',
+            'image'
+            // 'video',
+            // 'table',
+            // 'code',
+            // 'splitLine',
+            // 'undo',
+            // 'redo',
+          ],
+          style: 'width: 100%'
+      }
+    }
+  ]
+]
 </script>
-<style lang="scss" scoped>
-.el-cascader-panel {
-  :deep('.el-cascader-menu') {
-    :first-of-type {}
-  }
-}
-</style>
+
 <style>
 .el-cascader-menu__wrap {
   .el-cascader-node {

@@ -1,8 +1,7 @@
 <template>
-  <el-input v-model="input" placeholder="Please input" />
+  <el-input class="web-input" v-bind="$attrs"> </el-input>
 </template>
 
-<script lang="ts" setup>
-import { ref } from "vue";
-const input = ref("");
+<script setup lang="ts" name="WebInput">
+import { defineProps, toRefs, PropType } from 'vue'
 </script>

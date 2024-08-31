@@ -36,7 +36,11 @@ const handleConfirm = () => {
   emit("handleConfirm");
 };
 </script>
-
+<script lang='ts'>
+export default {
+  name: "WebDialog"
+}
+</script>
 <style lang="scss">
 .web-dialog {
   margin-top: 0;

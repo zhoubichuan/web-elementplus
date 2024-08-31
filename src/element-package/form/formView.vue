@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, toRefs, watch, unref, } from 'vue'
+import { ref, toRefs, defineProps, } from 'vue'
 import { ElForm, ElMessage } from 'element-plus'
 const props = defineProps<{ close: () => void, initData: any | undefined }>()
 const { close } = toRefs(props)

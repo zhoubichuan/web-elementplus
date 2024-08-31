@@ -14,4 +14,17 @@ meta:
 
 [Form 表单](https://element-plus.gitee.io/#/zh-CN/component/form)
 
-<demo src="./formView.vue"></demo>
+## 1.搜索组件
+
+<demo src="./formSearch1.vue"></demo>
+
+## 2.创建/编辑组件
+
+<demo src="./formSubmit1.vue"></demo>
+
+## 3.展示组件
+
+<demo src="./formView1.vue"></demo>
+
+###### 输出
+

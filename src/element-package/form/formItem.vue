@@ -3,10 +3,11 @@
     <el-row :gutter="20">
       <el-col v-for="(n, key) in formData.length" :span="24 / formData.length" :key="key">
         <el-form-item v-if="formData[key].prop" :label="formData[key].label" :prop="formData[key].prop" v-bind="$attrs">
-          <Render v-if="typeof formData[key].render === 'function'" :render="formData[key].render"
-            :formItem="formData[key]" />
-          <component v-else-if="formData[key].component" v-bind="formData[key].component"
-            :is="formData[key].component.is || 'web-input'" />
+          <Render
+            v-if="typeof formData[key].render === 'function'"
+            :render="formData[key].render"
+            :formItem="formData[key]"
+          ></Render>
           <span v-else>{{ formData[key].render }}</span>
         </el-form-item>
       </el-col>
@@ -21,14 +22,19 @@
       </el-row> -->
   </div>
 </template>
-
-<script lang='ts' setup name="WebFormItem">
+<script>
 import Render from './Render.js'
-import { defineProps } from 'vue'
-const { } = defineProps<{
-  formData: {
-    tyep: Array,
-    default: () => []
+
+export default {
+  name: 'WebFormItem',
+  components: {
+    Render
+  },
+  props: {
+    formData: {
+      tyep: Array,
+      default: () => []
+    }
   }
-}>()
+}
 </script>

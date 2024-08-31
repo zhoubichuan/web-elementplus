@@ -12,3 +12,7 @@ meta:
 
 - 组件介绍
   [Layout 布局](https://element-plus.gitee.io/#/zh-CN/component/layout)
+
+  ```
+<demo src="./dialog.vue" desc="通过 `row` 和 `col` 组件，并通过 col 组件的 `span` 属性我们就可以自由地组合布局。"></demo>
+```

@@ -6,3 +6,8 @@
 import { defineProps, toRefs, PropType } from "vue"
 
 </script>
+<script lang='ts'>
+export default {
+  name: "WebInput"
+}
+</script>

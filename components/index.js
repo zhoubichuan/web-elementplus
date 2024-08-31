@@ -39,6 +39,7 @@ import Dialog from './dialog/index.js'
 // import BreadcrumbItem from './breadcrumb-item/index.js'
 // import Form from './form/index.js'
 import FormItem from './form-item/index.js'
+import formSearch from './form-search/index.js'
 // import Tabs from './tabs/index.js'
 // import TabPane from './tab-pane/index.js'
 // import Tag from './tag/index.js'
@@ -135,6 +136,7 @@ const components = [
 //   BreadcrumbItem,
 //   Form,
   FormItem,
+  formSearch,
 //   Tabs,
 //   TabPane,
 //   Tag,
@@ -187,6 +189,7 @@ const components = [
 
 const install = function (Vue, opts = {}) {
   components.forEach(component => {
+    console.log(component.name)
     Vue.component(component.name, component)
   })
 
@@ -254,6 +257,7 @@ export default {
 //   BreadcrumbItem,
 //   Form,
   FormItem,
+  formSearch,
 //   Tabs,
 //   TabPane,
 //   Tag,
