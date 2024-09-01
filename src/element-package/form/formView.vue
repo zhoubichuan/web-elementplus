@@ -1,17 +1,19 @@
 <template>
-  <web-dialog v-bind="{ ...$attrs, close }">
-    <el-form ref="formRef" :model="formData" label-width="80px">
-      <web-form-item v-for="(formItem, formItemIndex) in baseFormData" :formData="formItem" :key="formItemIndex" />
-    </el-form>
-  </web-dialog>
+  <web-form-view title="查看xxx" :data="data" v-model="show" :close="handleClose"/>
+  <web-button @click="handleView">查看</web-button>
 </template>
 
 <script setup lang="ts">
-import { ref, toRefs, defineProps, } from 'vue'
-import { ElForm, ElMessage } from 'element-plus'
-const props = defineProps<{ close: () => void, initData: any | undefined }>()
-const { close } = toRefs(props)
-const modelTypes = ref<Array<any>>([
+import { ref } from 'vue'
+const initFormData: any = {
+  relatedId: 'sssss',
+  type: '1',
+  count: '中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国',
+  name: '小明',
+  remark: '中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国',
+}
+const formData = ref<any>(initFormData)
+  const modelTypes = ref<Array<any>>([
   {
     value: '1',
     desc: '模型',
@@ -21,19 +23,8 @@ const modelTypes = ref<Array<any>>([
     desc: '资产',
   },
 ])
-const initFormData: any = {
-  relatedId: 'sssss',
-  type: '1',
-  count: '中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国',
-  name: '小明',
-  remark: '中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国',
-}
-
-const formRef = ref<InstanceType<typeof ElForm>>()
-const formData = ref<any>(initFormData)
-
-
-const baseFormData = [
+const data = ref(
+  [
   [
     {
       prop: 'type',
@@ -68,6 +59,15 @@ const baseFormData = [
     }
   ],
 ]
+)
+const handleView = () =>{
+  show.value = true
+}
+const handleClose = () => {
+  show.value = false
+}
+//查看状态
+const show = ref(false)
 
 </script>
 <style lang="scss" scoped></style>

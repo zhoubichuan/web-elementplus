@@ -1,19 +1,16 @@
 <template>
-  <web-dialog @reloadList="reloadData" v-model="show" v-bind="{
-    title: !create ? '编辑NFT' : '创建NFT', close: handleClose,
-    initData: currentRowData, 'web-footer': true
+  <web-dialog @reloadList="reloadData" v-bind="{
+    ...$attrs, 'web-footer': true
   }" @handleCancel="close" @handleConfirm="handleSubmit">
-    <el-form ref="formRef" :rules="rules" :model="formData" label-width="80px">
+    <web-form ref="formRef" :rules="rules" :model="formData" label-width="80px">
       <template v-if="Number(formData.type) == 0">
         <web-form-item v-for="(formItem, formItemIndex) in baseFormData" :formData="formItem" :key="formItemIndex" />
       </template>
       <template v-else>
         <web-form-item v-for="(formItem, formItemIndex) in baseFormData2" :formData="formItem" :key="formItemIndex" />
       </template>
-    </el-form>
+    </web-form>
   </web-dialog>
-  <web-button @click="handleCreate">创建</web-button>
-  <web-button @click="handleEdit">编辑</web-button>
 </template>
 
 <script setup lang="ts">
@@ -21,9 +18,7 @@ import { ref, toRefs, defineProps, watch, unref, defineEmits } from 'vue'
 import { ElForm, ElMessage } from 'element-plus'
 const props = defineProps<{ close: () => void; initData: any | undefined }>()
 const { close } = toRefs(props)
-const show = ref(false)
-const create = ref(false)
-const edit = ref(false)
+
 const currentRowData = ref<any>({
   relatedId: '',
   type: '0',
@@ -31,18 +26,7 @@ const currentRowData = ref<any>({
   name: '',
   remark: ''
 })
-const handleClose = () => {
-  show.value = false
-  create.value = false
-}
-const handleCreate = () => {
-  show.value = true
-  create.value = true
-}
-const handleEdit = () => {
-  show.value = true
-  edit.value = true
-}
+
 const submit = () => {
 
 }
@@ -135,10 +119,10 @@ const baseFormData = [
     {
       prop: 'relatedId',
       label: '模型id',
-      component:{
+      component: {
         modelValue: formData.value.relatedId,
-          'onUpdate:modelValue': (value: string) => (formData.value.relatedId = value),
-          placeholder: '请输入模型id'
+        'onUpdate:modelValue': (value: string) => (formData.value.relatedId = value),
+        placeholder: '请输入模型id'
       }
     },
     {}
@@ -147,19 +131,19 @@ const baseFormData = [
     {
       prop: 'name',
       label: '名称',
-      component:{
+      component: {
         modelValue: formData.value.name,
-          'onUpdate:modelValue': (value: string) => (formData.value.name = value),
-          placeholder: '请输入名称'
+        'onUpdate:modelValue': (value: string) => (formData.value.name = value),
+        placeholder: '请输入名称'
       }
     },
     {
       prop: 'count',
       label: '铸造数量',
-      component:{
+      component: {
         modelValue: formData.value.count,
-          'onUpdate:modelValue': (value: string) => (formData.value.count = value),
-          placeholder: '请输入铸造数量'
+        'onUpdate:modelValue': (value: string) => (formData.value.count = value),
+        placeholder: '请输入铸造数量'
       }
     }
   ],
@@ -167,37 +151,37 @@ const baseFormData = [
     {
       prop: 'remark',
       label: 'NFT说明',
-      component:{
-        is:'web-rich',
+      component: {
+        is: 'web-rich',
         modelValue: formData.value.remark,
-          'onUpdate:modelValue': (value: string) => (formData.value.remark = value),
-          menus: [
-            'head',
-            'bold',
-            'fontSize',
-            // 'fontName',
-            // 'italic',
-            // 'underline',
-            // 'strikeThrough',
-            // 'indent',
-            // 'lineHeight',
-            // 'foreColor',
-            // 'backColor',
-            // 'link',
-            'list',
-            // 'todo',
-            // 'justify',
-            // 'quote',
-            // 'emoticon',
-            'image'
-            // 'video',
-            // 'table',
-            // 'code',
-            // 'splitLine',
-            // 'undo',
-            // 'redo',
-          ],
-          style: 'width: 100%'
+        'onUpdate:modelValue': (value: string) => (formData.value.remark = value),
+        menus: [
+          'head',
+          'bold',
+          'fontSize',
+          // 'fontName',
+          // 'italic',
+          // 'underline',
+          // 'strikeThrough',
+          // 'indent',
+          // 'lineHeight',
+          // 'foreColor',
+          // 'backColor',
+          // 'link',
+          'list',
+          // 'todo',
+          // 'justify',
+          // 'quote',
+          // 'emoticon',
+          'image'
+          // 'video',
+          // 'table',
+          // 'code',
+          // 'splitLine',
+          // 'undo',
+          // 'redo',
+        ],
+        style: 'width: 100%'
       }
     }
   ]
@@ -228,43 +212,47 @@ const baseFormData2 = [
     {
       prop: 'remark',
       label: 'NFT说明',
-      component:{
-        is:'web-rich',
+      component: {
+        is: 'web-rich',
         modelValue: formData.value.remark,
-          'onUpdate:modelValue': (value: string) => (formData.value.remark = value),
-          menus: [
-            'head',
-            'bold',
-            'fontSize',
-            // 'fontName',
-            // 'italic',
-            // 'underline',
-            // 'strikeThrough',
-            // 'indent',
-            // 'lineHeight',
-            // 'foreColor',
-            // 'backColor',
-            // 'link',
-            'list',
-            // 'todo',
-            // 'justify',
-            // 'quote',
-            // 'emoticon',
-            'image'
-            // 'video',
-            // 'table',
-            // 'code',
-            // 'splitLine',
-            // 'undo',
-            // 'redo',
-          ],
-          style: 'width: 100%'
+        'onUpdate:modelValue': (value: string) => (formData.value.remark = value),
+        menus: [
+          'head',
+          'bold',
+          'fontSize',
+          // 'fontName',
+          // 'italic',
+          // 'underline',
+          // 'strikeThrough',
+          // 'indent',
+          // 'lineHeight',
+          // 'foreColor',
+          // 'backColor',
+          // 'link',
+          'list',
+          // 'todo',
+          // 'justify',
+          // 'quote',
+          // 'emoticon',
+          'image'
+          // 'video',
+          // 'table',
+          // 'code',
+          // 'splitLine',
+          // 'undo',
+          // 'redo',
+        ],
+        style: 'width: 100%'
       }
     }
   ]
 ]
 </script>
-
+<script lang='ts'>
+export default {
+  name: "WebFormSubmit"
+}
+</script>
 <style>
 .el-cascader-menu__wrap {
   .el-cascader-node {

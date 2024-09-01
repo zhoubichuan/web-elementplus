@@ -1,6 +1,6 @@
 <template>
   <el-card class="page-search" style="margin-top: 10px">
-    <el-form size="small" ref="searchInfoRef" :model="getTopicParam" label-width="120px">
+    <web-form size="small" ref="searchInfoRef" :model="getTopicParam" label-width="120px">
       <template v-if="searchForm.length">
         <web-form-item
           v-for="(formItem, formItemIndex) in searchForm"
@@ -21,15 +21,13 @@
           </div>
         </el-col>
       </el-row>
-    </el-form>
+    </web-form>
   </el-card>
 </template>
 
 <script setup lang="ts" name="WebFormSearch">
 import { reactive } from 'vue'
-import { ElForm } from 'element-plus'
 import { Refresh, Search } from '@element-plus/icons-vue'
-import WebFormItem from './formItem.vue'
 const { formCreate, searchForm, reloadFn } = defineProps<{
   formCreate: Function
   searchForm: any

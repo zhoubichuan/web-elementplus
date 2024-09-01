@@ -37,9 +37,11 @@ import Dialog from './dialog/index.js'
 // import MessageBox from './message-box/index.js'
 // import Breadcrumb from './breadcrumb/index.js'
 // import BreadcrumbItem from './breadcrumb-item/index.js'
-// import Form from './form/index.js'
+import Form from './form/index.js'
 import FormItem from './form-item/index.js'
 import formSearch from './form-search/index.js'
+import FormSubmit from './form-submit/index.js'
+import FormView from './form-view/index.js'
 // import Tabs from './tabs/index.js'
 // import TabPane from './tab-pane/index.js'
 // import Tag from './tag/index.js'
@@ -134,9 +136,11 @@ const components = [
 //   Tooltip,
 //   Breadcrumb,
 //   BreadcrumbItem,
-//   Form,
+  Form,
   FormItem,
   formSearch,
+  FormSubmit,
+  FormView,
 //   Tabs,
 //   TabPane,
 //   Tag,
@@ -255,9 +259,11 @@ export default {
 //   MessageBox,
 //   Breadcrumb,
 //   BreadcrumbItem,
-//   Form,
+  Form,
   FormItem,
   formSearch,
+  FormSubmit,
+  FormView,
 //   Tabs,
 //   TabPane,
 //   Tag,

@@ -16,15 +16,17 @@ meta:
 
 ## 1.搜索组件
 
-<demo src="./formSearch1.vue"></demo>
+<demo src="./formSearch.vue"></demo>
 
-## 2.创建/编辑组件
+## 2.创建组件
 
-<demo src="./formSubmit1.vue"></demo>
+<demo src="./formCreate.vue"></demo>
 
-## 3.展示组件
+## 3.编辑组件
 
-<demo src="./formView1.vue"></demo>
+<demo src="./formEdit.vue"></demo>
 
-###### 输出
+## 4.展示组件
+
+<demo src="./formView.vue"></demo>
 
