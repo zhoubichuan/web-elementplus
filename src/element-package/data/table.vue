@@ -1,25 +1,24 @@
 <template>
-    <!-- 表格区域 -->
-    <BaseTable :table-config="tableConfig2" :table-data="tableData ?? []" :page-info="pageInfo"
-      @changePageSize="handleSizeChange" @changeCurrentPage="handleCurrentChange" @toDelete="toDelete" @toEdit="toEdit">
-      <template #modelPicture="scope">
-        <el-row>
-          <div class="block" v-for="(pic, index) in scope.row.modelPicture" :key="index">
-            <el-image style="width: 60px; height: 60px; margin-left: 10px" :src="pic"
-              :preview-src-list="scope.row.modelPicture"></el-image>
-          </div>
-        </el-row>
-      </template>
-    </BaseTable>
+  <!-- 表格区域 -->
+  <web-table :table-config="tableConfig2" :table-data="tableData ?? []" :page-info="pageInfo"
+    @changePageSize="handleSizeChange" @changeCurrentPage="handleCurrentChange" @toDelete="toDelete" @toEdit="toEdit">
+    <template #modelPicture="scope">
+      <el-row>
+        <div class="block" v-for="(pic, index) in scope.row.modelPicture" :key="index">
+          <el-image style="width: 60px; height: 60px; margin-left: 10px" :src="pic"
+            :preview-src-list="scope.row.modelPicture"></el-image>
+        </div>
+      </el-row>
+    </template>
+  </web-table>
 </template>
 
 <script setup lang="ts">
-import { computed, reactive, ref } from 'vue'
+import { nextTick, reactive, ref } from 'vue'
 // import { IModelTypeItem, getNftList, modelType, delModel } from '@/api/nft'
 // import { tableConfig2 } from './config/table.config'
-// import { IQueryUserRoleParm, IUserRoleItem } from '@/api/type'
-// import { useBaseTableByApi } from '@/components/BaseTable/hooks/useBaseTableByApi'
-import { nextTick } from 'process'
+// import { IQueryUserRoleParm, any } from '@/api/type'
+import { useBaseTableByApi } from './useBaseTableByApi'
 // import { useStore } from '@/store'
 import { ElForm, ElMessage } from 'element-plus'
 import { cloneDeep } from 'lodash'
@@ -48,7 +47,7 @@ const getTopicParam = reactive<Record<string, string>>({
 })
 // const tableData = []
 const { tableData, pageInfo, reloadData, handleCurrentChange, handleSizeChange, toDelete } =
-  // useBaseTableByApi<IUserRoleItem>(getNftList, getTopicParam, delModel)
+  useBaseTableByApi<any>(new Promise(), getTopicParam,new Promise())
 // console.log(pageInfo)
 
 // const modelTypes = ref<Array<IModelTypeItem>>()

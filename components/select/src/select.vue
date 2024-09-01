@@ -17,7 +17,11 @@ const props = defineProps({
 })
 const { options } = toRefs(props)
 </script>
-
+<script lang='ts'>
+export default {
+  name: "WebSelect"
+}
+</script>
 <style lang="scss">
 // .web-select {
 //   &.el-select {

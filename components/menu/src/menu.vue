@@ -4,7 +4,7 @@
   </el-menu>
 </template>
 
-<style lang="less">
+<style lang="scss">
 .my-menu {
   &.el-menu--horizontal > .el-menu-item.is-active {
     border-bottom: 2px solid var(--color-primary);

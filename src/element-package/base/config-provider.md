@@ -10,38 +10,9 @@ meta:
 
 # 七.Config Provider
 
-- 组件介绍
+:::tip 前言
+组件默认使用 Flex 布局，不需要手动设置 type="flex"。
 
-  [Layout 布局](https://element-plus.gitee.io/#/zh-CN/component/layout)
+请注意父容器避免使用 inline 相关样式，会导致组件宽度不能撑满。
+:::
 
-## index.ts
-
-```js
-import { withInstall } from "@element-plus/utils/with-install"
-import { ConfigProvider } from "./config-provider"
-
-export const ElConfigProvider = withInstall(ConfigProvider)
-export default ElConfigProvider
-```
-
-## config-provider.ts
-
-```js
-import { defineComponent } from "vue"
-
-import { useLocaleProps, useLocale } from "@element-plus/hooks"
-
-export const ConfigProvider = defineComponent({
-  name: "ElConfigProvider",
-  props: {
-    ...useLocaleProps,
-    // Add more configs
-  },
-
-  setup(_, { slots }) {
-    useLocale()
-
-    return () => slots.default()
-  },
-})
-```

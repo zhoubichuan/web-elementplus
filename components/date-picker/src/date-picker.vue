@@ -1,13 +1,17 @@
 <template>
   <el-date-picker
     v-bind="$attrs"
-    class="my-date-picker"
-    popper-class="my-date-picker-popper"
+    class="web-date-picker"
+    popper-class="web-date-picker-popper"
   ></el-date-picker>
 </template>
-
-<style lang="less">
-.my-date-picker {
+<script lang='ts'>
+export default {
+  name: "WebDatePicker"
+}
+</script>
+<style lang="scss">
+.web-date-picker {
   .el-input__inner:focus,
   &.el-range-editor.is-active,
   &.el-input__inner:focus {
@@ -18,7 +22,7 @@
     height: var(--date-picker-input-height);
   }
 }
-.my-date-picker-popper {
+.web-date-picker-popper {
   .el-date-table td.today .el-date-table-cell__text,
   .el-date-table td.available:hover,
   .el-picker-panel__icon-btn:hover,

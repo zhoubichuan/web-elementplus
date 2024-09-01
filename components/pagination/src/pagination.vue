@@ -1,8 +1,8 @@
 <template>
-  <div class="my-pagination-wrap">
+  <div class="web-pagination-wrap">
     <div class="total">共 {{ $attrs.total }} 条数据</div>
     <el-pagination
-      class="my-pagination"
+      class="web-pagination"
       popper-class="my-pagination-popper"
       background
       layout="prev, pager, next, sizes, jumper"
@@ -11,9 +11,13 @@
     </el-pagination>
   </div>
 </template>
-
-<style lang="less">
-.my-pagination-wrap {
+<script lang='ts'>
+export default {
+  name: "WebPagination"
+}
+</script>
+<style lang="scss">
+.web-pagination-wrap {
   display: flex;
   justify-content: space-between;
   line-height: 32px;
@@ -23,7 +27,7 @@
     font-size: var(--pagination-total-font-size);
   }
 }
-.my-pagination {
+.web-pagination {
   .el-pagination__sizes {
     margin-left: 16px;
   }

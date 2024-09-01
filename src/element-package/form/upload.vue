@@ -8,14 +8,15 @@
 
 <script lang="ts" setup>
 import { ref, watch, unref } from 'vue'
-import { getLocal } from '@/utils/storage'
-import { propTypes } from '@/utils/propTypes'
 import type { UploadProps, UploadUserFile } from 'element-plus'
 const headers = {
-    JwtToken: getLocal('JwtToken')
+    JwtToken: localStorage.getItem('JwtToken')
 }
 const props = defineProps({
-    modelValue: propTypes.string.def('')
+    modelValue: {
+        type: String,
+        default: ''
+    }
 })
 const emits = defineEmits(['update:modelValue'])
 const fileList = ref<UploadUserFile[]>(props.modelValue ? [

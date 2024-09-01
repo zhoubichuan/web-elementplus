@@ -1,11 +1,15 @@
 <template>
-  <el-radio class="my-radio" v-bind="$attrs">
+  <el-radio class="web-radio" v-bind="$attrs">
     <slot></slot>
   </el-radio>
 </template>
-
-<style lang="less">
-.my-radio {
+<script lang='ts'>
+export default {
+  name: "WebRadio"
+}
+</script>
+<style lang="scss">
+.web-radio {
   .el-radio__inner {
     border: var(--radio-circle-not-checked-border);
   }

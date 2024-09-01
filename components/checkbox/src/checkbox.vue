@@ -1,12 +1,17 @@
 <template>
-  <el-checkbox class="my-checkbox" v-bind="$attrs">
+  <el-checkbox class="web-checkbox" v-bind="$attrs">
     <slot></slot>
   </el-checkbox>
 </template>
 <script setup lang="ts" name="WebCheckbox">
 </script>
-<style lang="less">
-.my-checkbox {
+<script lang='ts'>
+export default {
+  name: "WebCheckbox"
+}
+</script>
+<style lang="scss">
+.web-checkbox {
   .el-checkbox__inner {
     border: var(--radio-circle-not-checked-border);
   }
@@ -35,7 +40,7 @@
       // display: none;
     }
   }
-  &.my-checkbox .el-checkbox__inner {
+  &.web-checkbox .el-checkbox__inner {
     border: 1px solid #dcdfe6;
   }
 }

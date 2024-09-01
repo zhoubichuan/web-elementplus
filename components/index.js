@@ -44,11 +44,11 @@ import FormSubmit from './form-submit/index.js'
 import FormView from './form-view/index.js'
 // import Tabs from './tabs/index.js'
 // import TabPane from './tab-pane/index.js'
-// import Tag from './tag/index.js'
+import Tag from './tag/index.js'
 // import Tree from './tree/index.js'
 // import Alert from './alert/index.js'
 // import Notification from './notification/index.js'
-// import Slider from './slider/index.js'
+import Slider from './slider/index.js'
 // import Loading from './loading/index.js'
 // import Icon from './icon/index.js'
 // import Row from './row/index.js'
@@ -123,7 +123,7 @@ const components = [
   Button,
 //   Search,
   Dialog,
-//   Slider,
+  Slider,
 //   Modal,
 //   ButtonGroup,
 //   CommonForm,
@@ -143,7 +143,7 @@ const components = [
   FormView,
 //   Tabs,
 //   TabPane,
-//   Tag,
+  Tag,
 //   Tree,
 //   Alert,
 //   Icon,
@@ -246,7 +246,7 @@ export default {
 //   ButtonGroup,
 //   Search,
   Dialog,
-//   Slider,
+  Slider,
 //   Modal,
 //   CommonForm,
 //   Table,
@@ -266,7 +266,7 @@ export default {
   FormView,
 //   Tabs,
 //   TabPane,
-//   Tag,
+  Tag,
 //   Tree,
 //   Alert,
 //   Notification,

@@ -29,7 +29,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .echarts-pie {
   width: 100%;
   height: 100%;

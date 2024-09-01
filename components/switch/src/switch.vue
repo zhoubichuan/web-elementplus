@@ -16,8 +16,12 @@ import { ref } from 'vue'
 const activeColor = ref('#2FB755')
 const inactiveColor = ref('#DDD')
 </script>
-
-<style lang="less">
+<script lang='ts'>
+export default {
+  name: "WebSwitch"
+}
+</script>
+<style lang="scss">
 // switch-default
 .my-switch {
   &.el-switch--default .el-switch__core {

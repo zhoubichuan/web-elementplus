@@ -3,8 +3,12 @@
     <slot></slot>
   </el-tabs>
 </template>
-
-<style lang="less">
+<script lang='ts'>
+export default {
+  name: "WebTabs"
+}
+</script>
+<style lang="scss">
 .my-tabs {
   .el-tabs__item.is-active,
   .el-tabs__item:hover {

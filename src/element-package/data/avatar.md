@@ -1,16 +1,21 @@
 # Avatar 头像
-Avatar 组件可以用来代表人物或对象， 支持使用图片，图标或者文字作为 Avatar
+
+:::tip 前言
+组件默认使用 Flex 布局，不需要手动设置 type="flex"。
+
+请注意父容器避免使用 inline 相关样式，会导致组件宽度不能撑满。
+:::
 
 ## 基础用法
 
 使用 `shape` 和 `size` 属性来设置 Avatar 的形状和大小。
 
 ###### 输入
+
 ```
 <demo src="./avatar.vue"></demo>
 ```
+
 ###### 输出
 
 <demo src="./avatar.vue"></demo>
-
-

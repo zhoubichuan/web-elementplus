@@ -1,9 +1,13 @@
 <template>
-  <el-alert class="my-alert" show-icon v-bind="$attrs" />
+  <el-alert class="web-alert" show-icon v-bind="$attrs" />
 </template>
-
-<style lang="less">
-.my-alert {
+<script lang='ts'>
+export default {
+  name: "WebAlter"
+}
+</script>
+<style lang="scss">
+.web-alert {
   &.el-alert--success.is-light {
     color: var(--color-success);
     background-color: var(--color-success-bg);

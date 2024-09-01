@@ -1,5 +1,5 @@
 <template>
-  <el-button class="my-button" :style="buttonStyle" v-bind="newAttrs">
+  <el-button class="web-button" :style="buttonStyle" v-bind="newAttrs">
     <slot></slot>
   </el-button>
 </template>
@@ -84,10 +84,10 @@ export default {
   name: "WebButton"
 }
 </script>
-<style lang="less">
-@import url(../../base.less);
+<style lang="scss">
+@import url(../../base.scss);
 
-.my-button {
+.web-button {
   &.is-disabled {
     background-color: #f2f2f2;
     color: #a5a5a5;
