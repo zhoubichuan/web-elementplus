@@ -1,124 +1,52 @@
 <template>
-  <el-card style="margin-top: 10px">
-    <!-- 表格展示区域 -->
-    <div class="header">
-      <div class="title">
-        <span v-if="tableConfig?.title"></span>
-        <h5>{{ tableConfig?.title }}</h5>
-      </div>
-      <el-button v-if="tableConfig?.needCreate !== false ?? true" @click="createItem" type="primary"
-        >新建{{ tableConfig.title?.slice(0, 2) }}</el-button
-      >
-    </div>
     <el-table
-      ref="tableRef"
-      @selection-change="handleSelectionChange"
-      :data="tableData"
-      border
-      style="width: 100%"
-      stripe
+        class="web-table"
+        :data="data"
+        stripe
+        header-cell-class-name="up3-custom-header-cell"
+        cell-class-name="up3-custom-cell"
     >
-      <template #empty>
-        <el-empty :image-size="200" description="暂无数据" />
-      </template>
-      <el-table-column v-if="tableConfig.hasSelection" type="selection" width="55" />
-      <template v-for="item in tableConfig.tableItems" :key="item.label">
-        <el-table-column v-bind="item" :prop="item.prop" :label="item.label" :width="item?.width">
-          <template #default="scope">
-            <slot
-              :name="item.prop"
-              :row="scope.row"
-              >{{item._options?item._options.find( (i:any) =>i.value==scope.row[item.prop]).label: scope.row[item.prop] }}</slot
-            >
-          </template>
+        <el-table-column v-for="(item, index) in columnData" :key="index" v-bind="item">
+            <template #header="{column}">
+                <span class="text">{{ column.label }}</span>
+            </template>
+            <template #default="{ row, column }">
+                <div class="operation" v-if="'操作' === column.label">
+                    <!-- eslint-disable vue/no-v-text-v-html-on-component -->
+                    <component
+                        v-text="item?.component?.text"
+                        :is="item?.component?.is"
+                        :class="item?.component?.class"
+                        @click="() => handleOperation(row)"
+                    />
+                    <!-- eslint-enabl -->
+                </div>
+            </template>
         </el-table-column>
-      </template>
-
-      <el-table-column v-if="tableConfig.isEdit" label="操作" :width="tableConfig.editWidth ?? '100'" fixed="right">
-        <template v-slot="scope">
-          <slot name="handler" :row="scope.row">
-            <div>
-              <el-button type="primary" size="small" link @click="editMenu(scope.row)">修改</el-button>
-              <el-button type="danger" @click="deleteMenu(scope.row.id)" size="small" link>删除</el-button>
-            </div>
-          </slot>
-        </template>
-      </el-table-column>
     </el-table>
-
-    <!-- 分页区域 -->
-    <div class="footer" v-if="tablePageInfo && tableData.length !== 0">
-      <el-pagination
-        background
-        v-model:currentPage="tablePageInfo.currentPage"
-        v-model:page-size="tablePageInfo.pageSize"
-        :hide-on-single-page="true"
-        :page-sizes="[20, 50, 100, 200]"
-        layout="total, sizes, prev, pager, next, jumper"
-        :total="tablePageInfo.totalCount"
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-      />
-    </div>
-  </el-card>
 </template>
 
 <script setup lang="ts" name="WebTable">
-import { ElTable } from 'element-plus'
-import { ref, watch } from 'vue'
-const props = defineProps<{
-  tableConfig: any
-  tableData: Array<{ [key: string]: any }>
-  pageInfo: IPageInfo
-}>()
+import { ElTable, ElTableColumn } from 'element-plus';
+type component = { is: string; class?: string; text: string };
+const { data, columnData } = withDefaults(
+    defineProps<{
+        data?: component[];
+        columnData?: { component?: component }[];
+    }>(),
+    {
+        data: () => [],
+        columnData: () => []
+    }
+);
 
-const tablePageInfo = ref<any>()
-
-watch(
-  () => ({ ...props.pageInfo }),
-  newPageInfo => {
-    console.log(newPageInfo)
-    tablePageInfo.value = { ...newPageInfo }
-  },
-  {
-    immediate: true
-  }
-)
-
-
-const emit = defineEmits(['toEdit', 'toDelete', 'toCreate', 'changePageSize', 'changeCurrentPage', 'selectChange'])
-const handleSelectionChange = (val: any) => {
-  emit('selectChange', val)
-}
-const editMenu = (data: any) => {
-  emit('toEdit', data)
-}
-const deleteMenu = (id: number) => {
-      emit('toDelete', id)
-}
-const createItem = () => {
-  const emptyObj = { ...props.tableData[0] }
-  Object.keys(emptyObj).forEach(key => {
-    emptyObj[key] = ''
-  })
-
-  emit('toCreate', emptyObj)
-}
-
-const handleSizeChange = (pageSize: number) => {
-  emit('changePageSize', { ...tablePageInfo.value, pageSize })
-}
-const handleCurrentChange = (currentPage: number) => {
-  emit('changeCurrentPage', { ...tablePageInfo.value, currentPage })
-}
-
-const tableRef = ref<InstanceType<typeof ElTable>>()
-const clearSelection = () => {
-  tableRef.value?.clearSelection()
-}
-defineExpose({
-  clearSelection
-})
+defineOptions({
+    name: 'WebTable'
+});
+const emit = defineEmits(['operation']);
+const handleOperation = (row: typeof ElTableColumn & component) => {
+    emit('operation', row);
+};
 </script>
 <script lang='ts'>
 export default {
@@ -126,35 +54,66 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 10px;
-
-  .title {
-    display: flex;
-    justify-content: space-around;
-
-    span {
-      width: 1px;
-      height: 14px;
-      background-color: var(--el-color-primary);
-      border: 1px solid var(--el-color-primary);
+.web-table {
+    width: 1400;
+    max-height: 682px;
+    min-height: 248px;
+    border-radius: 12px 12px 0 0;
+    &::before {
+        display: none;
     }
-
-    h5 {
-      margin: 0;
-      padding-bottom: -5px;
-      padding-left: 20px;
-      font-size: 14px;
+    :deep(.el-table__header-wrapper) {
+        height: 49px;
+        .el-table__header {
+            height: 100%;
+            margin: 0;
+            .el-table__cell {
+                padding: 0;
+                .cell {
+                    font-weight: bold;
+                    font-size: 18px;
+                    color: #244367;
+                    line-height: 25px;
+                    text-align: center;
+                    font-style: normal;
+                    text-transform: none;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
     }
-  }
-}
-
-.footer {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 10px;
+    :deep(.el-table__body-wrapper) {
+        height: calc(100% - 49px);
+        background: #f3f6f9;
+        .el-table__header {
+        }
+        .el-scrollbar {
+            height: 100%;
+            .el-scrollbar__view {
+                width: 100%;
+                .el-table__body {
+                    width: auto !important; // todo 为何组件内部会直接计算值
+                }
+            }
+        }
+    }
+    &.el-table--striped {
+        :deep(.el-table__header-wrapper) {
+            .el-table__header {
+                .el-table__cell {
+                    background: #f3f6f9;
+                }
+            }
+        }
+        :deep(.el-table__body) {
+            .el-table__row--striped {
+                .el-table__cell {
+                    background: #f7f8fc;
+                }
+            }
+        }
+    }
 }
 </style>

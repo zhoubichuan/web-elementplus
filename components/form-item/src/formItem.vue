@@ -24,19 +24,19 @@
     </el-row>
   </div>
 </template>
-<script>
-import Render from './Render.js'
 
-export default {
-  name: 'WebFormItem',
-  components: {
-    Render
-  },
-  props: {
-    formData: {
-      tyep: Array,
-      default: () => []
-    }
+<script lang="ts" setup>
+import { defineProps } from 'vue'
+import Render from '../../Render.js'
+const { formData } = defineProps<{
+  formData: {
+    type: Array,
+    default: () => []
   }
+}>()
+</script>
+<script lang='ts'>
+export default {
+  name: "WebFormItem"
 }
 </script>

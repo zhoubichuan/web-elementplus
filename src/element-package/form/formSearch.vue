@@ -1,49 +1,32 @@
 <template>
-  <web-form-search :formCreate="handleFormCreate" :searchForm="searchForm" :reloadFn="reloadData">xxx</web-form-search>
+  <web-form-search :model="getTopicParam" :formCreate="handleFormCreate" :searchForm="searchForm"
+    :reloadFn="reloadData" />
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { reactive, ref, defineProps } from 'vue'
 import dayjs from 'dayjs'
 // import { useBaseTableByApi } from './useBaseTableByApi'
 const time = ref('')
 const chooseTime = (res: any) => {
   getTopicParam.startTime = res ? dayjs(res).valueOf() + '' : undefined
 }
-const reloadData = () =>{
-  
+const { model } = defineProps({
+  model: {
+    type: Object,
+    default: {},
+  }
+})
+const reloadData = () => {
+  alert('search')
 }
-//弹框
-const submitDialogVisible = ref(false)
-// 表单修改
-const currentRowData = ref<any>({
-  relatedId: '',
-  type: '0',
-  count: '',
-  name: '',
-  remark: ''
-})
+
 // 查询参数
-const getTopicParam = reactive<Record<string, string | number | undefined>>({
-  currentPage: 1,
-  pageSize: 20,
-  name: '',
-  creator: '',
-  id: '',
-  startTime: ''
-})
+const getTopicParam = reactive<any>(model)
 
 // 表单创建
 const handleFormCreate = () => {
-  submitDialogVisible.value = true
-  currentRowData.value = {
-    id: '',
-    relatedId: '',
-    type: '0',
-    count: '',
-    name: '',
-    remark: ''
-  }
+
 }
 
 // 详情查看
@@ -52,22 +35,25 @@ const searchForm = [
     {
       prop: 'name',
       label: '名称',
-      component:{
-        'v-model':getTopicParam.name
+      component: {
+        'v-model': getTopicParam.name
       }
     },
     {
       prop: 'creator',
       label: '创建人',
-      component:{
+      component: {
         modelValue: getTopicParam.creator,
-        'onUpdate:modelValue': (value: string) => (getTopicParam.creator = value)
+        'onUpdate:modelValue': (value: string) => {
+          debugger
+          return (getTopicParam.creator = value)
+        }
       }
     },
     {
       prop: 'id',
       label: 'id',
-      component:{
+      component: {
         modelValue: getTopicParam.id,
         'onUpdate:modelValue': (value: string) => (getTopicParam.id = value)
       }
@@ -75,13 +61,13 @@ const searchForm = [
     {
       prop: 'time',
       label: '铸造时间',
-      component:{
-        is:'el-date-picker',
+      component: {
+        is: 'el-date-picker',
         modelValue: time,
-          'onUpdate:modelValue': (value: string) => (time.value = value),
-          type: 'date',
-          placeholder: '选择日期',
-          onChange: chooseTime
+        'onUpdate:modelValue': (value: string) => (time.value = value),
+        type: 'date',
+        placeholder: '选择日期',
+        onChange: chooseTime
       }
     }
   ]
