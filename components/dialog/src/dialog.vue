@@ -9,8 +9,8 @@
       </slot>
       <template v-if="$slots.footer || $attrs['web-footer']" #footer>
           <span v-if="$attrs['web-footer']" class="dialog-footer">
-              <el-button @click="handleCancel">取 消</el-button>
-              <el-button type="primary" @click="handleConfirm">确 定</el-button>
+              <web-button @click="handleCancel">取 消</web-button>
+              <web-button type="primary" @click="handleConfirm">确 定</web-button>
           </span>
           <slot v-else name="footer"> </slot>
       </template>

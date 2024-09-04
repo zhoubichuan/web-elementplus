@@ -1,6 +1,6 @@
 import Pagination from './pagination/index'
 // import Preview from './preview/index'
-// import Layout from './layout/index'
+import Layout from './layout/index'
 // import Autocomplete from './autocomplete/index'
 // import Dropdown from './dropdown/index'
 // import DropdownMenu from './dropdown-menu/index'
@@ -99,12 +99,13 @@ import Card from './card/index'
 const components = [
   Pagination,
 //   Preview,
-//   Layout,
+  Layout,
 //   Autocomplete,
 //   Dropdown,
 //   DropdownMenu,
 //   DropdownItem,
   Menu,
+  
 //   Submenu,
 //   MenuItem,
 //   MenuItemGroup,
@@ -219,7 +220,7 @@ export default {
   version: '2.15.13',
   install,
 //   Preview,
-//   Layout,
+  Layout,
 //   Loading,
   Pagination,
 //   Autocomplete,

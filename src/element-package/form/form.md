@@ -10,9 +10,9 @@ meta:
 
 # 十八.Form
 
-- 组件介绍
-
-[Form 表单](https://element-plus.gitee.io/#/zh-CN/component/form)
+:::tip 前言
+扩展基础组件
+:::
 
 ## 1.搜索组件
 
@@ -29,4 +29,3 @@ meta:
 ## 4.展示组件
 
 <demo src="./formView.vue"></demo>
-
