@@ -31,8 +31,8 @@ export default {
 <style lang="scss" scoped>
 .web-input {
     &.textarea {
-        width: 940px;
-        :deep(.utb-ep-textarea__inner) {
+        width: 100%;
+        :deep(.el-textarea__inner) {
             background-color: #f3f6f9;
             border-radius: 8px 8px 8px 8px;
             border: 1px solid #eef2f6;
@@ -46,7 +46,7 @@ export default {
                 cursor: pointer;
             }
         }
-        :deep(.utb-ep-input__count) {
+        :deep(.el-input__count) {
             font-size: 24px;
             line-height: 28px;
             bottom: 10px;

@@ -1,21 +1,21 @@
 <template>
     <div class="mb-2 ml-4">
-      <el-radio-group v-model="radio1">
-        <el-radio value="1" size="large">Option 1</el-radio>
-        <el-radio value="2" size="large">Option 2</el-radio>
-      </el-radio-group>
+      <web-radio-group v-model="radio1">
+        <web-radio value="1" size="large">Option 1</web-radio>
+        <web-radio value="2" size="large">Option 2</web-radio>
+      </web-radio-group>
     </div>
-    <div class="my-2 ml-4">
-      <el-radio-group v-model="radio2">
-        <el-radio value="1">Option 1</el-radio>
-        <el-radio value="2">Option 2</el-radio>
-      </el-radio-group>
+    <div class="web-2 ml-4">
+      <web-radio-group v-model="radio2">
+        <web-radio value="1">Option 1</web-radio>
+        <web-radio value="2">Option 2</web-radio>
+      </web-radio-group>
     </div>
-    <div class="my-4 ml-4">
-      <el-radio-group v-model="radio3">
-        <el-radio value="1" size="small">Option 1</el-radio>
-        <el-radio value="2" size="small">Option 2</el-radio>
-      </el-radio-group>
+    <div class="web-4 ml-4">
+      <web-radio-group v-model="radio3">
+        <web-radio value="1" size="small">Option 1</web-radio>
+        <web-radio value="2" size="small">Option 2</web-radio>
+      </web-radio-group>
     </div>
   </template>
   

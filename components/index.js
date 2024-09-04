@@ -1,23 +1,23 @@
-// import Pagination from './pagination/index'
+import Pagination from './pagination/index'
 // import Preview from './preview/index'
 // import Layout from './layout/index'
 // import Autocomplete from './autocomplete/index'
 // import Dropdown from './dropdown/index'
 // import DropdownMenu from './dropdown-menu/index'
 // import DropdownItem from './dropdown-item/index'
-// import Menu from './menu/index'
+import Menu from './menu/index'
 // import Submenu from './submenu/index'
 // import MenuItem from './menu-item/index'
 // import MenuItemGroup from './menu-item-group/index'
 import Input from './input/index'
 // import InputNumber from './input-number/index'
-// import Radio from './radio/index'
-// import RadioGroup from './radio-group/index'
+import Radio from './radio/index'
+import RadioGroup from './radio-group/index'
 // import RadioButton from './radio-button/index'
 import Checkbox from './checkbox/index'
 // import CheckboxButton from './checkbox-button/index'
 // import CheckboxGroup from './checkbox-group/index'
-// import Switch from './switch/index'
+import Switch from './switch/index'
 import Select from './select/index'
 // import Option from './option/index'
 // import OptionGroup from './option-group/index'
@@ -97,26 +97,26 @@ import Card from './card/index'
 // import Result from './result/index'
 
 const components = [
-//   Pagination,
+  Pagination,
 //   Preview,
 //   Layout,
 //   Autocomplete,
 //   Dropdown,
 //   DropdownMenu,
 //   DropdownItem,
-//   Menu,
+  Menu,
 //   Submenu,
 //   MenuItem,
 //   MenuItemGroup,
   Input,
 //   InputNumber,
-//   Radio,
-//   RadioGroup,
+  Radio,
+  RadioGroup,
 //   RadioButton,
   Checkbox,
 //   CheckboxButton,
 //   CheckboxGroup,
-//   Switch,
+  Switch,
   Select,
 //   Option,
 //   OptionGroup,
@@ -221,24 +221,24 @@ export default {
 //   Preview,
 //   Layout,
 //   Loading,
-//   Pagination,
+  Pagination,
 //   Autocomplete,
 //   Dropdown,
 //   DropdownMenu,
 //   DropdownItem,
-//   Menu,
+  Menu,
 //   Submenu,
 //   MenuItem,
 //   MenuItemGroup,
   Input,
 //   InputNumber,
-//   Radio,
-//   RadioGroup,
+  Radio,
+  RadioGroup,
 //   RadioButton,
   Checkbox,
 //   CheckboxButton,
 //   CheckboxGroup,
-//   Switch,
+  Switch,
   Select,
 //   Option,
 //   OptionGroup,

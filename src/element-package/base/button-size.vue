@@ -7,7 +7,7 @@
     <web-button :icon="Search">Search</web-button>
     <web-button size="small" :icon="Search">Search</web-button>
   </web-row>
-  <web-row class="my-4">
+  <web-row class="web-4">
     <web-button size="large" round>Large</web-button>
     <web-button round>Default</web-button>
     <web-button size="small" round>Small</web-button>

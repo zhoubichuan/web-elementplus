@@ -3,7 +3,7 @@
     <div class="total">共 {{ $attrs.total }} 条数据</div>
     <el-pagination
       class="web-pagination"
-      popper-class="my-pagination-popper"
+      popper-class="web-pagination-popper"
       background
       layout="prev, pager, next, sizes, jumper"
       v-bind="$attrs"
@@ -69,7 +69,7 @@ export default {
     box-shadow: 0 0 0 1px var(--color-primary) inset !important;
   }
 }
-.my-pagination-popper {
+.web-pagination-popper {
   .el-select-dropdown__item.hover,
   .el-select-dropdown__item:hover {
     background-color: var(--color-help);

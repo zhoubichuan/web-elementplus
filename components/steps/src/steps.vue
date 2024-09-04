@@ -1,5 +1,5 @@
 <template>
-  <el-steps class="my-steps" v-bind="$attrs" finish-status="success" simple>
+  <el-steps class="web-steps" v-bind="$attrs" finish-status="success" simple>
     <slot></slot>
   </el-steps>
 </template>
@@ -18,7 +18,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.my-steps {
+.web-steps {
   .el-step__title.is-success {
     color: var(--color-primary);
   }

@@ -1,6 +1,6 @@
 <template>
   <el-switch
-    class="my-switch"
+    class="web-switch"
     v-bind="$attrs"
     :active-color="activeColor"
     :inactive-color="inactiveColor"
@@ -23,7 +23,7 @@ export default {
 </script>
 <style lang="scss">
 // switch-default
-.my-switch {
+.web-switch {
   &.el-switch--default .el-switch__core {
     width: var(--switch-width-default) !important;
     height: var(--switch-height-default);

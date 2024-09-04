@@ -1,5 +1,5 @@
 <template>
-  <el-link class="my-link" v-bind="$attrs">
+  <el-link class="web-link" v-bind="$attrs">
     <slot></slot>
   </el-link>
 </template>

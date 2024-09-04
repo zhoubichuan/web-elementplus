@@ -1,7 +1,7 @@
 @import url(base.scss);
 
 // message
-div.my-message {
+div.web-message {
   border: none;
   height: var(--message-height);
   &.el-message--info {
@@ -34,8 +34,8 @@ div.my-message {
   }
 }
 
-// my-message-box
-.my-message-box {
+// web-message-box
+.web-message-box {
   padding: var(--message-box-padding-bottom);
   .el-message-box__header {
     height: var(--message-box-header-height);
@@ -58,12 +58,12 @@ div.my-message {
   .el-message-box__headerbtn {
     display: none;
   }
-  .my-message-box-btn-cancel {
+  .web-message-box-btn-cancel {
     background-color: var(--color-cancel-btn-bg);
     color: var(--color-cancel-btn-text);
     border: none;
   }
-  .my-message-box-btn-confirm {
+  .web-message-box-btn-confirm {
     background-color: var(--color-primary) !important;
     border: none;
   }

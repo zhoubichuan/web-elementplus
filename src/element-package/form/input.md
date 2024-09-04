@@ -10,12 +10,10 @@ Input 为受控组件，它 总会显示 Vue 绑定值。
 
 ## 基础用法
 
-###### 输入
-
-```
-<demo src="./input.vue"></demo>
-```
-
-###### 输出
+## 1.输入框
 
 <demo src="./input.vue"></demo>
+
+## 2.文本域
+
+<demo src="./input-textarea.vue"></demo>

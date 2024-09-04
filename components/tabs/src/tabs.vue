@@ -1,5 +1,5 @@
 <template>
-  <el-tabs v-bind="$attrs" class="my-tabs">
+  <el-tabs v-bind="$attrs" class="web-tabs">
     <slot></slot>
   </el-tabs>
 </template>
@@ -9,7 +9,7 @@ export default {
 }
 </script>
 <style lang="scss">
-.my-tabs {
+.web-tabs {
   .el-tabs__item.is-active,
   .el-tabs__item:hover {
     color: var(--color-primary);

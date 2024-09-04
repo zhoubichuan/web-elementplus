@@ -1,9 +1,9 @@
 <template>
-  <el-table v-bind="$attrs" class="my-table">
+  <el-table v-bind="$attrs" class="web-table">
     <slot></slot>
   </el-table>
   <template v-if="$attrs.pagination">
-    <my-pagination
+    <web-pagination
       layout="prev, pager, next"
       :total="($attrs.pagination as any)?.total.value || 0"
       @current-change="($attrs.pagination as any)?.currentChange.value"
@@ -11,16 +11,16 @@
       :page-size="($attrs.pagination as any)?.pageSize.value || 10"
       :page-sizes="[10, 20, 50, 100]"
     >
-    </my-pagination>
+    </web-pagination>
   </template>
 </template>
 
 <script setup lang="ts">
-import MyPagination from '../my-pagination/index.vue'
+import MyPagination from '../web-pagination/index.vue'
 </script>
 
 <style lang="scss">
-.my-table {
+.web-table {
   color: var(--color-text-primary);
   &.el-table .el-table__header-wrapper thead {
     color: var(--table-header-color);
