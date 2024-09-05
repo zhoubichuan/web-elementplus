@@ -29,24 +29,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.web-input {
+@import '../../config.scss';
+@import '../../common.scss';
+.#{$prefix}-input {
     &.textarea {
-        width: 100%;
-        :deep(.el-textarea__inner) {
+        width: 940px;
+        :deep(.#{$namespace}-textarea__inner) {
+            padding: 16px 40px 16px 16px;
             background-color: #f3f6f9;
             border-radius: 8px 8px 8px 8px;
             border: 1px solid #eef2f6;
             font-weight: 400;
             font-size: 24px;
-            &::-webkit-scrollbar-thumb {
-                -webkit-border-radius: 5px !important;
-                border-radius: 100px 100px 100px 100px;
-                background: #b1daff;
-                border: none;
-                cursor: pointer;
-            }
+            overflow: auto;
+            @include scrollbar();
         }
-        :deep(.el-input__count) {
+        :deep(.#{$namespace}-input__count) {
             font-size: 24px;
             line-height: 28px;
             bottom: 10px;
