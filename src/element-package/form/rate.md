@@ -9,9 +9,9 @@
 ###### 输入
 
 ```
-<demo src="./rate.vue"></demo>
+<preview path="./rate.vue"></preview>
 ```
 
 ###### 输出
 
-<demo src="./rate.vue"></demo>
+<preview path="./rate.vue"></preview>

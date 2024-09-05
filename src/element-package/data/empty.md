@@ -18,9 +18,9 @@ meta:
 ###### 输入
 
 ```
-<demo src="./empty.vue"></demo>
+<preview path="./empty.vue"></preview>
 ```
 
 ###### 输出
 
-<demo src="./empty.vue"></demo>
+<preview path="./empty.vue"></preview>

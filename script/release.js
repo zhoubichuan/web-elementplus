@@ -31,9 +31,6 @@ writePackage();
 
 // 复制 demo.vue, d.ts
 copyFileSync(path.resolve(__dirname, "../README.md"), path.resolve(__dirname, "README.md"));
-copyFileSync(path.resolve(__dirname, "../src/demoblock/demo.vue"), path.resolve(__dirname, "demo.vue"));
-copyFileSync(path.resolve(__dirname, "../src/demoblock/index.d.ts"), path.resolve(__dirname, "index.d.ts"));
-copyFileSync(path.resolve(__dirname, "../script/src/demoblock/index.js"), path.resolve(__dirname, "index.js"));
 
 // npm publish
 execSync(`cd ./script && npm publish`);

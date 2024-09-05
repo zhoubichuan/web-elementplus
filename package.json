@@ -43,6 +43,8 @@
   "devDependencies": {
     "@element-plus/icons-vue": "2.0.10",
     "@types/node": "^18.7.23",
+    "@vitepress-demo-preview/component": "^2.3.2",
+    "@vitepress-demo-preview/plugin": "^1.2.3",
     "element-plus": "2.2.17",
     "less": "^4.2.0",
     "rimraf": "3.0.0",

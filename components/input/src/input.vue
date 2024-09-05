@@ -33,7 +33,7 @@ export default {
 @import '../../common.scss';
 .#{$prefix}-input {
     &.textarea {
-        width: 940px;
+        width: 100%;
         :deep(.#{$namespace}-textarea__inner) {
             padding: 16px 40px 16px 16px;
             background-color: #f3f6f9;

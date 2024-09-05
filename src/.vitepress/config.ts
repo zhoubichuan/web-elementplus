@@ -1,13 +1,12 @@
-import demoblock from './demoblock';
-import nav from './nav'
-import sidebar from './sidebar'
 import { defineConfig } from 'vitepress'
+// @vitepress-demo-preview/plugin: 支持区块内的方式展示 demo 和示例代码
+import { containerPreview, componentPreview } from '@vitepress-demo-preview/plugin'
+import { fileURLToPath, URL } from 'node:url'
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'
-
-//命令集：pnpm add -D vitepress vue less sass @mdit-vue/shared vitepress-markdown-timeline medium-zoom vitepress-plugin-comment-with-giscus
-
+import nav from './nav'
 import timeline from "vitepress-markdown-timeline";
-
+import sidebar from './sidebar'
+// https://vitepress.dev/reference/site-config
 export default defineConfig({
   base: "/web-elementplus/", // 部署站点的基础路径
   srcDir: "./",
@@ -20,16 +19,14 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', href: '/logo.png' }],
   ],
-  // #endregion fav
-
-  //cleanUrls:true, //开启纯净链接无html
-
-
-  //启用深色模式
-  //   appearance:'dark',
-  plugins: [VueSetupExtend()],
-
-  //markdown配置
+  vite: {
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('../../src', import.meta.url))
+      }
+    },
+    plugins: [VueSetupExtend()],
+  },
   markdown: {
     headers: {
       level: [0, 0]
@@ -38,21 +35,18 @@ export default defineConfig({
     lineNumbers: true,
 
     //时间线 
-    config: (md) => {
+    // @vitepress-demo-preview的配置
+    config(md) {
+      // 支持区块内的方式展示 demo 和示例代码
       md.use(timeline);
-      md.use(demoblock)
+      md.use(containerPreview)
+      md.use(componentPreview)
     },
-
     // 开启图片懒加载
     image: {
       lazyLoading: true
     },
-
   },
-
-
-
-
   //主题配置
   themeConfig: {
     //左上角logo
@@ -66,38 +60,33 @@ export default defineConfig({
     //导航栏
     nav,
 
-
     //侧边栏
     sidebar,
 
-
-
-    // //本地搜索
-    // search: {
-    //   provider: 'local',
-    //   options: {
-    //     locales: {
-    //       zh: {
-    //         translations: {
-    //           button: {
-    //             buttonText: '搜索文档',
-    //             buttonAriaLabel: '搜索文档'
-    //           },
-    //           modal: {
-    //             noResultsText: '无法找到相关结果',
-    //             resetButtonTitle: '清除查询条件',
-    //             footer: {
-    //               selectText: '选择',
-    //               navigateText: '切换'
-    //             },
-    //           },
-    //         },
-    //       },
-    //     },
-    //   },
-    // },
-
-
+    //本地搜索
+    search: {
+      provider: 'local',
+      options: {
+        locales: {
+          zh: {
+            translations: {
+              button: {
+                buttonText: '搜索文档',
+                buttonAriaLabel: '搜索文档'
+              },
+              modal: {
+                noResultsText: '无法找到相关结果',
+                resetButtonTitle: '清除查询条件',
+                footer: {
+                  selectText: '选择',
+                  navigateText: '切换'
+                },
+              },
+            },
+          },
+        },
+      },
+    },
 
     //社交链接
     socialLinks: [
@@ -143,6 +132,5 @@ export default defineConfig({
 
   },
 
-
-
 })
+

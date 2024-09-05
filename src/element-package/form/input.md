@@ -12,8 +12,8 @@ Input 为受控组件，它 总会显示 Vue 绑定值。
 
 ## 1.输入框
 
-<demo src="./input.vue"></demo>
+<preview path="./input.vue"></preview>
 
 ## 2.文本域
 
-<demo src="./input-textarea.vue"></demo>
+<preview path="./input-textarea.vue"></preview>

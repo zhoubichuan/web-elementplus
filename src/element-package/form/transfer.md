@@ -23,9 +23,9 @@ Input 为受控组件，它 总会显示 Vue 绑定值。
 ###### 输入
 
 ```
-<demo src="./transfer.vue"></demo>
+<preview path="./transfer.vue"></preview>
 ```
 
 ###### 输出
 
-<demo src="./transfer.vue"></demo>
+<preview path="./transfer.vue"></preview>

@@ -7,9 +7,9 @@
 ###### 输入
 
 ```
-<demo src="./scrollbar.vue" desc="通过使用 `setScrollTop` 与 `setScrollLeft` 方法，可以手动控制滚动条滚动。"></demo>
+<preview path="./scrollbar.vue" desc="通过使用 `setScrollTop` 与 `setScrollLeft` 方法，可以手动控制滚动条滚动。"></preview>
 ```
 
 ###### 输出
 
-<demo src="./scrollbar.vue" desc="通过使用 `setScrollTop` 与 `setScrollLeft` 方法，可以手动控制滚动条滚动。"></demo>
+<preview path="./scrollbar.vue" desc="通过使用 `setScrollTop` 与 `setScrollLeft` 方法，可以手动控制滚动条滚动。"></preview>

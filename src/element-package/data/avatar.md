@@ -13,9 +13,9 @@
 ###### 输入
 
 ```
-<demo src="./avatar.vue"></demo>
+<preview path="./avatar.vue"></preview>
 ```
 
 ###### 输出
 
-<demo src="./avatar.vue"></demo>
+<preview path="./avatar.vue"></preview>

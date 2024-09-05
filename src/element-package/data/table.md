@@ -18,8 +18,8 @@ meta:
 
 ## 1
 
-<!-- <demo src="./table.vue"></demo> -->
+<!-- <preview path="./table.vue"></preview> -->
 
 ## 2
 
-<demo src="./table2.vue"></demo>
+<preview path="./table2.vue"></preview>

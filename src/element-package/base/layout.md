@@ -8,16 +8,16 @@
 
 ## 1.布局1
 
-<demo src="./layout1.vue"></demo>
+<preview path="./layout1.vue"></preview>
 
 ## 2.布局2
 
-<demo src="./layout2.vue"></demo>
+<preview path="./layout2.vue"></preview>
 
 ## 3.布局3
 
-<demo src="./layout3.vue"></demo>
+<preview path="./layout3.vue"></preview>
 
 ## 4.布局4
 
-<demo src="./layout.vue" desc="通过 `row` 和 `col` 组件，并通过 col 组件的 `span` 属性我们就可以自由地组合布局。"></demo>
+<preview path="./layout.vue" desc="通过 `row` 和 `col` 组件，并通过 col 组件的 `span` 属性我们就可以自由地组合布局。"></preview>

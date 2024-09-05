@@ -11,24 +11,24 @@
 ###### 输入
 
 ```
-<demo src="./button.vue" desc="使用 `type`、`plain`、`round` 和 `circle` 来定义按钮的样式。"></demo>
+<preview path="./button.vue" desc="使用 `type`、`plain`、`round` 和 `circle` 来定义按钮的样式。"></preview>
 ```
 
 ###### 输出
 
-<demo src="./button.vue" desc="使用 `type`、`plain`、`round` 和 `circle` 来定义按钮的样式。"></demo>
+<preview path="./button.vue" desc="使用 `type`、`plain`、`round` 和 `circle` 来定义按钮的样式。"></preview>
 
 ## 禁用状态
 
 ###### 输入
 
 ```
-<demo src="./button-disabled.vue" desc="使用 `disabled`来定义按钮的禁用。"></demo>
+<preview path="./button-disabled.vue" desc="使用 `disabled`来定义按钮的禁用。"></preview>
 ```
 
 ###### 输出
 
-<demo src="./button-disabled.vue" desc="使用 `disabled`来定义按钮的禁用。"></demo>
+<preview path="./button-disabled.vue" desc="使用 `disabled`来定义按钮的禁用。"></preview>
 
 ## 链接按钮
 
@@ -43,12 +43,12 @@
 ###### 输入
 
 ```
-<demo src="./button-link.vue"></demo>
+<preview path="./button-link.vue"></preview>
 ```
 
 ###### 输出
 
-<demo src="./button-link.vue"></demo>
+<preview path="./button-link.vue"></preview>
 
 ## 自定义颜色
 
@@ -59,12 +59,12 @@
 ###### 输入
 
 ```
-<demo src="./button-size.vue"></demo>
+<preview path="./button-size.vue"></preview>
 ```
 
 ###### 输出
 
-<demo src="./button-size.vue"></demo>
+<preview path="./button-size.vue"></preview>
 
 ## Button 属性
 

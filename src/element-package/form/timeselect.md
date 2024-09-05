@@ -23,9 +23,9 @@ Input 为受控组件，它 总会显示 Vue 绑定值。
 ###### 输入
 
 ```
-<demo src="./timeselect.vue"></demo>
+<preview path="./timeselect.vue"></preview>
 ```
 
 ###### 输出
 
-<demo src="./timeselect.vue"></demo>
+<preview path="./timeselect.vue"></preview>

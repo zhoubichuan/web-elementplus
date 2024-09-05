@@ -17,9 +17,9 @@ meta:
 ###### 输入
 
 ```
-<demo src="./checkbox.vue" desc="使用 `type`、`plain`、`round` 和 `circle` 来定义按钮的样式。"></demo>
+<preview path="./checkbox.vue" desc="使用 `type`、`plain`、`round` 和 `circle` 来定义按钮的样式。"></preview>
 ```
 
 ###### 输出
 
-<demo src="./checkbox.vue" desc="使用 `type`、`plain`、`round` 和 `circle` 来定义按钮的样式。"></demo>
+<preview path="./checkbox.vue" desc="使用 `type`、`plain`、`round` 和 `circle` 来定义按钮的样式。"></preview>
