@@ -18,19 +18,13 @@
 </template>
 
 <script setup lang="ts" name="WebTable">
-import { withDefaults, defineProps, defineOptions, defineEmits } from 'vue'
+import {  defineProps, defineOptions, defineEmits } from 'vue'
 import { ElTable, ElTableColumn } from 'element-plus';
 type component = { is: string; class?: string; text: string };
-const { data, columnData } = withDefaults(
-    defineProps<{
-        data?: component[];
-        columnData?: { component?: component }[];
-    }>(),
-    {
-        data: () => [],
-        columnData: () => []
-    }
-);
+const { data, columnData } = defineProps<{
+        data?: () => component[],
+        columnData?: () => component[]
+    }>();
 
 defineOptions({
     name: 'WebTable'
