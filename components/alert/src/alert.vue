@@ -1,10 +1,8 @@
 <template>
   <el-alert class="web-alert" show-icon v-bind="$attrs" />
 </template>
-<script lang='ts'>
-export default {
-  name: "WebAlter"
-}
+<script lang='ts' setup name="WebAlter">
+
 </script>
 <style lang="scss">
 .web-alert {

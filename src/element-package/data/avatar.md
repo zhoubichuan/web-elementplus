@@ -8,14 +8,4 @@
 
 ## 基础用法
 
-使用 `shape` 和 `size` 属性来设置 Avatar 的形状和大小。
-
-###### 输入
-
-```
-<preview path="./avatar.vue"></preview>
-```
-
-###### 输出
-
 <preview path="./avatar.vue"></preview>

@@ -20,16 +20,4 @@ meta:
 
 ## 基础布局
 
-使用列创建基础网格布局。
-
-通过 `row` 和 `col` 组件，并通过 col 组件的 span 属性我们就可以自由地组合布局。
-
-###### 输入
-
-```
-<preview path="./card.vue" desc="通过 `row` 和 `col` 组件，并通过 col 组件的 `span` 属性我们就可以自由地组合布局。"></preview>
-```
-
-###### 输出
-
 <preview path="./card.vue" desc="通过 `row` 和 `col` 组件，并通过 col 组件的 `span` 属性我们就可以自由地组合布局。"></preview>

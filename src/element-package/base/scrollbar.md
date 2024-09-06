@@ -4,12 +4,4 @@
 
 ## 手动滚动
 
-###### 输入
-
-```
-<preview path="./scrollbar.vue" desc="通过使用 `setScrollTop` 与 `setScrollLeft` 方法，可以手动控制滚动条滚动。"></preview>
-```
-
-###### 输出
-
 <preview path="./scrollbar.vue" desc="通过使用 `setScrollTop` 与 `setScrollLeft` 方法，可以手动控制滚动条滚动。"></preview>

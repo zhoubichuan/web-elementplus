@@ -13,7 +13,7 @@ import Input from './input/index'
 // import InputNumber from './input-number/index'
 import Radio from './radio/index'
 import RadioGroup from './radio-group/index'
-// import RadioButton from './radio-button/index'
+import RadioButton from './radio-button/index'
 import Checkbox from './checkbox/index'
 // import CheckboxButton from './checkbox-button/index'
 // import CheckboxGroup from './checkbox-group/index'
@@ -46,7 +46,7 @@ import FormView from './form-view/index'
 // import TabPane from './tab-pane/index'
 import Tag from './tag/index'
 // import Tree from './tree/index'
-// import Alert from './alert/index'
+import Alert from './alert/index'
 // import Notification from './notification/index'
 import Slider from './slider/index'
 // import Loading from './loading/index'
@@ -113,7 +113,7 @@ const components = [
 //   InputNumber,
   Radio,
   RadioGroup,
-//   RadioButton,
+  RadioButton,
   Checkbox,
 //   CheckboxButton,
 //   CheckboxGroup,
@@ -146,7 +146,7 @@ const components = [
 //   TabPane,
   Tag,
 //   Tree,
-//   Alert,
+  Alert,
 //   Icon,
 //   Row,
 //   Col,
@@ -235,7 +235,7 @@ export default {
 //   InputNumber,
   Radio,
   RadioGroup,
-//   RadioButton,
+  RadioButton,
   Checkbox,
 //   CheckboxButton,
 //   CheckboxGroup,
@@ -269,7 +269,7 @@ export default {
 //   TabPane,
   Tag,
 //   Tree,
-//   Alert,
+  Alert,
 //   Notification,
 //   Icon,
 //   Row,

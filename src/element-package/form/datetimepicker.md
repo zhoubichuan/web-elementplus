@@ -10,7 +10,6 @@ meta:
 
 # 十三.DateTimePicker
 
-
 :::tip 前言
 Input 为受控组件，它 总会显示 Vue 绑定值。
 
@@ -20,13 +19,5 @@ Input 为受控组件，它 总会显示 Vue 绑定值。
 :::
 
 ## 基础用法
-
-###### 输入
-
-```
-<preview path="./input.vue"></preview>
-```
-
-###### 输出
 
 <preview path="./input.vue"></preview>
