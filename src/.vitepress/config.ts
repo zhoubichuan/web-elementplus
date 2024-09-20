@@ -10,6 +10,7 @@ import sidebar from './sidebar'
 export default defineConfig({
   base: "/web-elementplus/", // 部署站点的基础路径
   srcDir: "./",
+  srcExclude: ['vue/**', '**/README.md'],
   outDir: '../web-elementplus',
   lang: 'zh-CN',
   title: 'web-elementplus',    // 标题
@@ -49,13 +50,13 @@ export default defineConfig({
   },
   //主题配置
   themeConfig: {
+    lastUpdatedText: '最后更新',
     //左上角logo
-    //logo: '/logo.png',
-    //logo: 'https://vitejs.cn/vite3-cn/logo-with-shadow.png', //远程引用
-    //siteTitle: false, //标题隐藏
+    logo: '/logo.png',
+    siteTitle: false, //标题隐藏
 
     //设置站点标题 会覆盖title
-    //siteTitle: 'Hello World',
+    // siteTitle: 'Hello World',
 
     //导航栏
     nav,
@@ -98,16 +99,14 @@ export default defineConfig({
     //页脚
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2023-2024 备案号：<a href="https://beian.miit.gov.cn/">zzz号</a>',
+      copyright: 'Copyright © 2023-2024 备案号：<a href="https://beian.miit.gov.cn/">鄂ICP备2022012824号-1</a>',
     },
-
 
     //侧边栏文字更改(移动端)
     sidebarMenuLabel: '目录',
 
     //返回顶部文字修改(移动端)
     returnToTopLabel: '返回顶部',
-
 
     //大纲显示2-3级标题
     outline: {
@@ -117,12 +116,10 @@ export default defineConfig({
 
 
     //编辑本页
-    //editLink: {
-    //  pattern: 'https://github.com/账户名/仓库名/edit/main/docs/:path',
-    //  text: '在GitHub编辑本页'
-    //},
-
-
+    editLink: {
+      pattern: 'https://github.com/zhoubichuan/web-elementplus/edit/master/src/:path',
+      text: '在GitHub编辑本页'
+    },
 
     //自定义上下页名
     docFooter: {
