@@ -41,10 +41,10 @@ const tableConfig2: any = {
 // const store = useStore()
 // 查询参数
 const getTopicParam = reactive<Record<string, string>>({
-  type: '',
-  sex: '',
-  timeMills: ''
-})
+  type: "",
+  sex: "",
+  timeMills: "",
+});
 // const tableData = []
 const { tableData, pageInfo, reloadData, handleCurrentChange, handleSizeChange, toDelete } =
   useBaseTableByApi<any>(new Promise(), getTopicParam,new Promise())
@@ -55,6 +55,7 @@ const { tableData, pageInfo, reloadData, handleCurrentChange, handleSizeChange, 
 //   modelTypes.value = res.d
 // })
 
+const modelTypes = ref<Array<any>>();
 
 //上传弹窗2
 // const uploadDialogVisible2 = ref(false)
@@ -68,7 +69,7 @@ const { tableData, pageInfo, reloadData, handleCurrentChange, handleSizeChange, 
 // }
 
 //上传弹窗
-const uploadDialogVisible = ref(false)
+const uploadDialogVisible = ref(false);
 const uploadFile = () => {
   const { id, upWay } = currentEditItem.value
   if (id && upWay == 0) dialogTitle.value = '修改服饰'
@@ -93,8 +94,8 @@ const initItem = {
 }
 const currentEditItem = ref<any>({ ...initItem })
 const resetItem = () => {
-  currentEditItem.value = initItem
-}
+  currentEditItem.value = initItem;
+};
 // 删除预览的图片
 const delUrl = (url: string) => {
   console.log('删除了', url)
@@ -102,7 +103,7 @@ const delUrl = (url: string) => {
   currentEditItem.value.modelPicture.splice(index, 1)
 }
 
-const dialogTitle = ref('修改服饰')
+const dialogTitle = ref("修改服饰");
 // 修改
 const toEdit = (item: any) => {
   const tempItem = cloneDeep(item)
@@ -112,14 +113,14 @@ const toEdit = (item: any) => {
   })
 }
 
-const uploadFormRef = ref<InstanceType<typeof ElForm>>()
+const uploadFormRef = ref<InstanceType<typeof ElForm>>();
 
 const rules = {
-  upWay: [{ required: true, message: '请选择上传文件类型', trigger: 'blur' }],
-  modelName: [{ required: true, message: '请输入名称', trigger: 'blur' }],
-  type: [{ required: true, message: '请选择类型', trigger: 'blur' }],
-  sex: [{ required: true, message: '请选择适用性别', trigger: 'blur' }]
-}
+  upWay: [{ required: true, message: "请选择上传文件类型", trigger: "blur" }],
+  modelName: [{ required: true, message: "请输入名称", trigger: "blur" }],
+  type: [{ required: true, message: "请选择类型", trigger: "blur" }],
+  sex: [{ required: true, message: "请选择适用性别", trigger: "blur" }],
+};
 </script>
 <style lang="scss" scoped>
 .upload-area {
@@ -127,7 +128,7 @@ const rules = {
   height: 60px;
   background: #ededed;
 
-  >label {
+  > label {
     margin-top: 15px;
     margin-left: 60px;
     background-color: #fff;
@@ -135,7 +136,7 @@ const rules = {
     cursor: pointer;
   }
 
-  >div {
+  > div {
     margin-top: -10px;
     color: #a5a5a5;
 
@@ -144,7 +145,7 @@ const rules = {
       width: 100%;
       line-height: 15px;
       text-align: center;
-      transform: scale(.7);
+      transform: scale(0.7);
     }
   }
 }
@@ -163,7 +164,7 @@ const rules = {
   overflow: scroll;
   background-color: #ededed;
 
-  >div:first-child {
+  > div:first-child {
     position: absolute;
     z-index: -1;
     opacity: 0;

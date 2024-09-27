@@ -1,9 +1,9 @@
 <template>
-    <el-upload v-model:file-list="fileList" class="upload-part" action="/admin-api/admin/userDynamic/upload"
-        :on-preview="handlePreview" :limit="1" :headers="headers" :on-remove="handleRemove" list-type="picture-card"
-        :on-success="handleSuccess">
-        <el-button>上传图片</el-button>
-    </el-upload>
+  <!-- 搜索组件 -->
+  <web-upload
+  
+  >
+  </web-upload>
 </template>
 
 <script lang="ts" setup>

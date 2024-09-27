@@ -3,7 +3,7 @@ export default {
     {
       text: "基础组件",
       items: [
-        // { text: "index", link: "/element-plus/base/" },
+        { text: "首页", link: "/element-plus/base/" },
         { text: "layout", link: "/element-plus/base/layout" },
         { text: "container", link: "/element-plus/base/container" },
         { text: "button", link: "/element-plus/base/button" },
@@ -113,7 +113,7 @@ export default {
     {
       text: "基础组件",
       items: [
-        // { text: "index", link: "/element-package/base/" },
+        { text: "首页", link: "/element-package/base/" },
         { text: "layout", link: "/element-package/base/layout" },
         { text: "container", link: "/element-package/base/container" },
         { text: "button", link: "/element-package/base/button" },
