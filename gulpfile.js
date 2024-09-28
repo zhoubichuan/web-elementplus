@@ -1,6 +1,5 @@
 // import imgmin from 'gulp-imagemin'// 压缩图片
 let gulp = require('gulp');
-let { VueLoaderPlugin } = require('vue-loader')
 let clean = require('gulp-clean'); // 打包之前，先清空原来的文件
 let gulpRemoveHtml = require('gulp-remove-html'); // 标签清除
 let removeEmptyLines = require('gulp-remove-empty-lines'); // 清除空白行

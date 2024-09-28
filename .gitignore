@@ -4,3 +4,4 @@ script/demo.vue
 script/index.js
 script/index.d.ts
 src/.vitepress/cache
+lib
