@@ -6,6 +6,7 @@
   "main": "index.js",
   "module": "index.js",
   "types": "index.d.ts",
+  "type": "module",
   "files": [
     "demo.vue",
     "index.js",
