@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org/
-      - run: npm run build:comps && cd lib && npm publish
+      - run: npm i && npm run build:comps && cd lib && npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
@@ -39,6 +39,6 @@ jobs:
         with:
           node-version: 20
           registry-url: https://npm.pkg.github.com/
-      - run: npm run build:comps && cd lib && npm publish
+      - run: npm i && npm run build:comps && cd lib && npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.ACCESS_TOKEN}}
