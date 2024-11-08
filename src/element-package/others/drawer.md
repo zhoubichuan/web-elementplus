@@ -8,7 +8,7 @@ meta:
     content: vuepress,最新技术文档,vuepress语法,markdown语法
 ---
 
-# 十四.Drawer
+# 十四.抽屉组件
 
 :::tip
 组件默认使用 Flex 布局，不需要手动设置 type="flex"。

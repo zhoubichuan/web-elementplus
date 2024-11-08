@@ -6,27 +6,22 @@
 请注意父容器避免使用 inline 相关样式，会导致组件宽度不能撑满。
 :::
 
-## 基础用法
+## 默认按钮
 
-###### 输出
-
-<preview path="./button.vue" desc="使用 `type`、`plain`、`round` 和 `circle` 来定义按钮的样式。"></preview>
+<preview path="./button-default.vue"></preview>
 
 ## 禁用状态
 
-###### 输出
 
-<preview path="./button-disabled.vue" desc="使用 `disabled`来定义按钮的禁用。"></preview>
+<preview path="./button-disabled.vue"></preview>
 
 ## 链接按钮
 
-###### 输出
 
 <preview path="./button-link.vue"></preview>
 
 ## 自定义颜色
 
-###### 输出
 
 <preview path="./button-size.vue"></preview>
 

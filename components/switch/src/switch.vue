@@ -1,22 +1,21 @@
 <template>
-  <el-switch class="web-switch" v-bind="$attrs" :active-color="activeColor" :inactive-color="inactiveColor"
-    inline-prompt active-text="开" inactive-text="关"></el-switch>
+  <el-switch class="web-switch" :active-color="activeColor" :inactive-color="inactiveColor" inline-prompt
+    active-text="开" inactive-text="关" v-bind="$attrs"></el-switch>
 </template>
 
 
 <script setup lang="ts" name="WebSwitch">
+defineOptions({
+  name: 'WebSwitch'
+});
 import { ref } from 'vue'
 
 const activeColor = ref('#2FB755')
 const inactiveColor = ref('#DDD')
+
 </script>
-<script lang='ts'>
-export default {
-  name: "WebSwitch"
-}
-</script>
-<style lang="scss">
-// switch-default
+
+<!-- <style lang="scss">
 .web-switch {
   &.el-switch--default .el-switch__core {
     width: var(--switch-width-default) !important;
@@ -65,4 +64,4 @@ export default {
     font-size: var(--switch-text-size-large);
   }
 }
-</style>
+</style> -->

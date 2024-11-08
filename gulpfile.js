@@ -9,8 +9,12 @@ import sass from 'gulp-sass';
 import minifyCSS from 'gulp-minify-css'
 import uglify from 'gulp-uglify'; // 获取 uglify 模块（用于压缩 JS）
 import babel from 'gulp-babel'; // 将ES6编译成ES5
+import ts from 'gulp-typescript'
+import replace from 'gulp-string-replace'
 const distBasePath = 'lib/'; //构建输出的目录
 const comPath = 'components/'
+
+const tsProject = ts.createProject('tsconfig.json', { declaration: true, "removeComments": true });
 
 //删除dist文件
 gulp.task('task1-clean', function () {
@@ -47,9 +51,18 @@ gulp.task('task3-css', function () {
 })
 
 
-//压缩js
-gulp.task('task4-js', function () {
-  return gulp.src([comPath + '**/*.js'])
+//ts转js->压缩js
+let first = true;
+gulp.task('task4-ts', () => {
+  return tsProject.src([comPath + '**/*.js']).pipe(tsProject())
+    .pipe(replace('var long;', function () {//替换第一行文本
+      if (first) {
+        first = false;
+        return "window.long = {};";
+      }
+      else
+        return "";
+    }, { logs: { enabled: false } }))
     .pipe(babel({
       presets: ['@babel/preset-env']
     }))
@@ -78,7 +91,7 @@ gulp.task('task7-copy', function () {
     comPath + '**/*.scss',
     comPath + '**/*.json',
     comPath + '**/*.md',
-    // comPath+'**/*.js'
+    comPath+'**/*.ts'
   ])
     // .pipe(imgmin())
     .pipe(gulp.dest(distBasePath))
@@ -88,7 +101,7 @@ gulp.task('default', gulp.series(
   'task1-clean',
   // 'task2-html',
   // 'task3-css',
-  'task4-js',
+  // 'task4-ts',
   // 'task5-image',
   // 'task6-scss',
   'task7-copy'

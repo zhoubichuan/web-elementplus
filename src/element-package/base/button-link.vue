@@ -8,14 +8,8 @@
 
   <p>Disabled link button</p>
   <div class="flex justify-space-between flex-wrap gap-4">
-    <web-button
-      v-for="button in buttons"
-      :key="button.text"
-      :type="button.type"
-      link
-      disabled
-      >{{ button.text }}</web-button
-    >
+    <web-button v-for="button in buttons" :key="button.text" :type="button.type" link disabled>{{ button.text
+      }}</web-button>
   </div>
 </template>
 

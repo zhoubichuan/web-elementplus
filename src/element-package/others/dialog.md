@@ -8,7 +8,7 @@ meta:
     content: vuepress,最新技术文档,vuepress语法,markdown语法
 ---
 
-# 一.Dialog
+# 一.弹框组件
 
 :::tip 前言
 
@@ -19,8 +19,4 @@ meta:
 
 ## 1.案例
 
-```
-<preview path="./dialog.vue" desc="通过 `row` 和 `col` 组件，并通过 col 组件的 `span` 属性我们就可以自由地组合布局。"></preview>
-```
-
-<preview path="./dialog.vue" desc="通过 `row` 和 `col` 组件，并通过 col 组件的 `span` 属性我们就可以自由地组合布局。"></preview>
+<preview path="./dialog.vue"></preview>

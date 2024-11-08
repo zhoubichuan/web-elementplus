@@ -8,32 +8,34 @@
     </el-input>
 </template>
 
-<script setup lang="ts" name="WebInput">
+<script setup lang="ts">
+import { useAttrs } from 'vue';
 import { ElInput } from 'element-plus';
-import { useAttrs, defineEmits } from 'vue';
+
+defineOptions({
+    name: 'WebInput'
+});
+
 const attrs = useAttrs();
 let newAttrs = attrs;
 if (attrs.type === 'textarea') {
-    newAttrs = { 'show-word-limit': true, maxlength: 1024, rows: 12, placeholder: '请输入', ...newAttrs };
+    newAttrs = { 'show-word-limit': false, maxlength: 1024, rows: 12, placeholder: '请输入', ...newAttrs };
 }
 const emits = defineEmits<{ 'update:modelValue': [string] }>();
-const { modelValue } = defineProps<{ modelValue: '' }>();
+const { modelValue } = defineProps<{ modelValue: string }>();
 const handleUpdate = (val: string) => {
     emits('update:modelValue', val);
-};
-</script>
-<script lang="ts">
-export default {
-    name: 'WebInput'
 };
 </script>
 
 <style lang="scss" scoped>
 @import '../../config.scss';
 @import '../../common.scss';
+
 .#{$prefix}-input {
     &.textarea {
-        width: 100%;
+        width: 940px;
+
         :deep(.#{$namespace}-textarea__inner) {
             padding: 16px 40px 16px 16px;
             background-color: #f3f6f9;
@@ -44,6 +46,7 @@ export default {
             overflow: auto;
             @include scrollbar();
         }
+
         :deep(.#{$namespace}-input__count) {
             font-size: 24px;
             line-height: 28px;

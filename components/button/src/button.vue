@@ -85,7 +85,7 @@ export default {
 }
 </script>
 <style lang="scss">
-@import url(../../base.scss);
+@import url(../../index.scss);
 
 .web-button {
   &.is-disabled {

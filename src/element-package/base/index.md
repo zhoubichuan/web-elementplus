@@ -11,17 +11,3 @@ head:
 # 基础部分
 
 <div>常用的操作按钮</div>
-
-:::demo 使用`type`，`plain`，`round`来定义 Button 的样式
-
-```vue
-
-<template>
-  <el-button style="color: red">Small</el-button>
-  <el-button type="size">Middle</el-button>
-  <el-button>Large</el-button>
-  <el-button disabled>Disabled</el-button>
-</template>
-```
-
-:::

@@ -20,4 +20,4 @@ Input 为受控组件，它 总会显示 Vue 绑定值。
 
 ## 基础用法
 
-<preview path="./input.vue"></preview>
+<preview path="./message.vue"></preview>

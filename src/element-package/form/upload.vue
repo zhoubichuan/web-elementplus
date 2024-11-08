@@ -1,9 +1,6 @@
 <template>
-  <!-- 搜索组件 -->
-  <web-upload
-  
-  >
-  </web-upload>
+    <!-- 搜索组件 -->
+    <web-upload> </web-upload>
 </template>
 
 <script lang="ts" setup>

@@ -1,8 +1,6 @@
 <template>
   <!-- 表格区域 -->
-  <div style="height: 240px;">
-    <web-table :data="data" :column-data="column" />
-  </div>
+  <web-table :data="data" :column-data="column" />
 </template>
 
 <script setup lang="ts">

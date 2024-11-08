@@ -16,10 +16,18 @@ meta:
 请注意父容器避免使用 inline 相关样式，会导致组件宽度不能撑满。
 :::
 
-## 1
+## 1.默认表格
 
-<!-- <preview path="./table.vue"></preview> -->
+<preview path="./table.vue"></preview>
 
-## 2
+## 2.带操作部分
 
 <preview path="./table2.vue"></preview>
+
+## 3.带操作部分
+
+<preview path="./table3.vue"></preview>
+
+## 3.带分页
+
+<preview path="./table4.vue"></preview>

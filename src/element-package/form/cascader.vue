@@ -1,87 +1,291 @@
 <template>
-    <el-row :gutter="20">
-        <el-col :span="10">
-            <div class="select-part" style="width:1200px;">
-                <el-select v-model="formData2.type" placeholder="请选择类型" style="width: 100px">
-                    <el-option v-for="(type, index) in linesType" :key="index" :value="type.desc" :label="type.desc">
-                        {{ type.desc }}
-                    </el-option>
-                </el-select>
-                <el-select v-model="formData2.type2" placeholder="请选择类型" style="width:100px">
-                    <el-option v-for="(type, index) in siteType" :key="index" :value="type.desc" :label="type.desc">
-                        {{ type.desc }}
-                    </el-option>
-                </el-select>
-                <el-button>添加选择</el-button>
-            </div>
-            <div class="cascader-part">
-                <el-cascader-panel :options="options2" :props="{ multiple: true }" clearable />
-            </div>
-        </el-col>
-        <el-col :span="10">
-            已选内容
-            <el-button>取消选中</el-button>
-            <div class="cascader-part">
-                <el-cascader-panel :options="options2" :props="{ multiple: true }" clearable />
-            </div>
-        </el-col>
-    </el-row>
+    <div class="m-4">
+        <p>Child options expand when clicked (default)</p>
+        <web-cascader v-model="value" :options="options" @change="handleChange" />
+    </div>
+    <div class="m-4">
+        <p>Child options expand when hovered</p>
+        <web-cascader v-model="value" :options="options" :props="props" @change="handleChange" />
+    </div>
 </template>
-<script setup lang="ts">
-import { computed, reactive, ref, toRefs } from 'vue'
-const formData2 = ref<any>()
-const linesType = ref<Array<any>>([
+
+<script lang="ts" setup>
+import { ref } from 'vue'
+
+const value = ref([])
+
+const props = {
+    expandTrigger: 'hover' as const,
+}
+
+const handleChange = (value) => {
+    console.log(value)
+}
+
+const options = [
     {
-        value:'1',
-        desc: '全部',
-    },
-    {
-        value:'1',
-        desc: '地铁',
-    },
-    {
-        value:'1',
-        desc: '公交',
-    }
-])
-const siteType = ref<Array<any>>([
-    {
-        value:'1',
-        desc: '全部',
-    },
-    {
-        value:'1',
-        desc: '车站',
-    },
-    {
-        value:'1',
-        desc: '车厢',
-    }
-])
-const options2 = [
-    {
-        value: '1',
-        label: '北京',
+        value: 'guide',
+        label: 'Guide',
         children: [
             {
-                value: '12',
-                label: '地铁一号线',
+                value: 'disciplines',
+                label: 'Disciplines',
                 children: [
                     {
-                        value: '123',
-                        label: '车站一号广告位',
+                        value: 'consistency',
+                        label: 'Consistency',
+                    },
+                    {
+                        value: 'feedback',
+                        label: 'Feedback',
+                    },
+                    {
+                        value: 'efficiency',
+                        label: 'Efficiency',
+                    },
+                    {
+                        value: 'controllability',
+                        label: 'Controllability',
                     },
                 ],
             },
             {
-                value: '2',
-                label: '上海',
+                value: 'navigation',
+                label: 'Navigation',
                 children: [
                     {
-                        value: '21',
-                        label: '地铁二号线',
+                        value: 'side nav',
+                        label: 'Side Navigation',
+                    },
+                    {
+                        value: 'top nav',
+                        label: 'Top Navigation',
                     },
                 ],
+            },
+        ],
+    },
+    {
+        value: 'component',
+        label: 'Component',
+        children: [
+            {
+                value: 'basic',
+                label: 'Basic',
+                children: [
+                    {
+                        value: 'layout',
+                        label: 'Layout',
+                    },
+                    {
+                        value: 'color',
+                        label: 'Color',
+                    },
+                    {
+                        value: 'typography',
+                        label: 'Typography',
+                    },
+                    {
+                        value: 'icon',
+                        label: 'Icon',
+                    },
+                    {
+                        value: 'button',
+                        label: 'Button',
+                    },
+                ],
+            },
+            {
+                value: 'form',
+                label: 'Form',
+                children: [
+                    {
+                        value: 'radio',
+                        label: 'Radio',
+                    },
+                    {
+                        value: 'checkbox',
+                        label: 'Checkbox',
+                    },
+                    {
+                        value: 'input',
+                        label: 'Input',
+                    },
+                    {
+                        value: 'input-number',
+                        label: 'InputNumber',
+                    },
+                    {
+                        value: 'select',
+                        label: 'Select',
+                    },
+                    {
+                        value: 'cascader',
+                        label: 'Cascader',
+                    },
+                    {
+                        value: 'switch',
+                        label: 'Switch',
+                    },
+                    {
+                        value: 'slider',
+                        label: 'Slider',
+                    },
+                    {
+                        value: 'time-picker',
+                        label: 'TimePicker',
+                    },
+                    {
+                        value: 'date-picker',
+                        label: 'DatePicker',
+                    },
+                    {
+                        value: 'datetime-picker',
+                        label: 'DateTimePicker',
+                    },
+                    {
+                        value: 'upload',
+                        label: 'Upload',
+                    },
+                    {
+                        value: 'rate',
+                        label: 'Rate',
+                    },
+                    {
+                        value: 'form',
+                        label: 'Form',
+                    },
+                ],
+            },
+            {
+                value: 'data',
+                label: 'Data',
+                children: [
+                    {
+                        value: 'table',
+                        label: 'Table',
+                    },
+                    {
+                        value: 'tag',
+                        label: 'Tag',
+                    },
+                    {
+                        value: 'progress',
+                        label: 'Progress',
+                    },
+                    {
+                        value: 'tree',
+                        label: 'Tree',
+                    },
+                    {
+                        value: 'pagination',
+                        label: 'Pagination',
+                    },
+                    {
+                        value: 'badge',
+                        label: 'Badge',
+                    },
+                ],
+            },
+            {
+                value: 'notice',
+                label: 'Notice',
+                children: [
+                    {
+                        value: 'alert',
+                        label: 'Alert',
+                    },
+                    {
+                        value: 'loading',
+                        label: 'Loading',
+                    },
+                    {
+                        value: 'message',
+                        label: 'Message',
+                    },
+                    {
+                        value: 'message-box',
+                        label: 'MessageBox',
+                    },
+                    {
+                        value: 'notification',
+                        label: 'Notification',
+                    },
+                ],
+            },
+            {
+                value: 'navigation',
+                label: 'Navigation',
+                children: [
+                    {
+                        value: 'menu',
+                        label: 'Menu',
+                    },
+                    {
+                        value: 'tabs',
+                        label: 'Tabs',
+                    },
+                    {
+                        value: 'breadcrumb',
+                        label: 'Breadcrumb',
+                    },
+                    {
+                        value: 'dropdown',
+                        label: 'Dropdown',
+                    },
+                    {
+                        value: 'steps',
+                        label: 'Steps',
+                    },
+                ],
+            },
+            {
+                value: 'others',
+                label: 'Others',
+                children: [
+                    {
+                        value: 'dialog',
+                        label: 'Dialog',
+                    },
+                    {
+                        value: 'tooltip',
+                        label: 'Tooltip',
+                    },
+                    {
+                        value: 'popover',
+                        label: 'Popover',
+                    },
+                    {
+                        value: 'card',
+                        label: 'Card',
+                    },
+                    {
+                        value: 'carousel',
+                        label: 'Carousel',
+                    },
+                    {
+                        value: 'collapse',
+                        label: 'Collapse',
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        value: 'resource',
+        label: 'Resource',
+        children: [
+            {
+                value: 'axure',
+                label: 'Axure Components',
+            },
+            {
+                value: 'sketch',
+                label: 'Sketch Templates',
+            },
+            {
+                value: 'docs',
+                label: 'Design Documentation',
             },
         ],
     },

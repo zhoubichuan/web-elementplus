@@ -1,8 +1,8 @@
 <template>
   <el-upload v-model:file-list="fileList" class="upload-part" action="/admin-api/admin/userDynamic/upload"
-      :on-preview="handlePreview" :limit="1" :headers="headers" :on-remove="handleRemove" list-type="picture-card"
-      :on-success="handleSuccess">
-      <el-button>上传图片</el-button>
+    :on-preview="handlePreview" :limit="1" :headers="headers" :on-remove="handleRemove" list-type="picture-card"
+    :on-success="handleSuccess">
+    <el-button>上传图片</el-button>
   </el-upload>
 </template>
 
@@ -10,33 +10,33 @@
 import { ref, watch, unref } from 'vue'
 import type { UploadProps, UploadUserFile } from 'element-plus'
 const headers = {
-  JwtToken: localStorage.get('JwtToken')
+  JwtToken: ''
 }
 const props = defineProps({
   modelValue: {
-      type: String,
-      default: "",
+    type: String,
+    default: "",
   }
 })
 const emits = defineEmits(['update:modelValue'])
 const fileList = ref<UploadUserFile[]>(props.modelValue ? [
   {
-      name: '',
-      url: props.modelValue,
+    name: '',
+    url: props.modelValue,
   },
 ] : [])
 
 watch(
   () => props.modelValue,
   (val: string) => {
-      console.log(val, 'watch')
-      if (val === unref(fileList.value[0].url)) return
-      fileList.value = val ? [
-          {
-              name: '',
-              url: val,
-          },
-      ] : []
+    console.log(val, 'watch')
+    if (val === unref(fileList.value[0].url)) return
+    fileList.value = val ? [
+      {
+        name: '',
+        url: val,
+      },
+    ] : []
   }
 )
 
