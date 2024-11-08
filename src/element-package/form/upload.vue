@@ -6,9 +6,7 @@
 <script lang="ts" setup>
 import { ref, watch, unref } from 'vue'
 import type { UploadProps, UploadUserFile } from 'element-plus'
-const headers = {
-    JwtToken: localStorage.getItem('JwtToken')
-}
+
 const props = defineProps({
     modelValue: {
         type: String,

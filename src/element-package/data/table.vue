@@ -21,7 +21,6 @@ import { nextTick, reactive, ref } from 'vue'
 import { useBaseTableByApi } from './useBaseTableByApi'
 // import { useStore } from '@/store'
 import { ElForm, ElMessage } from 'element-plus'
-import { cloneDeep } from 'lodash'
 const tableConfig2: any = {
   title: '',
   editWidth: '180',
@@ -106,7 +105,7 @@ const delUrl = (url: string) => {
 const dialogTitle = ref("修改服饰");
 // 修改
 const toEdit = (item: any) => {
-  const tempItem = cloneDeep(item)
+  const tempItem = item
   currentEditItem.value = tempItem
   nextTick(() => {
     uploadFile()

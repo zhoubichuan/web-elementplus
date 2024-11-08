@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "web-elementplus",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "elementplus技术文档",
   "main": "index.js",
   "module": "index.js",

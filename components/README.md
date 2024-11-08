@@ -2,7 +2,7 @@
 
 基于 elementplus 二次封装的业务组件库。
 
-[查看组件 demo](https://zhoubichuan.com/web-elementplus/element-package/base/1.index.html)
+[查看组件 demo](https://zhoubichuan.com/web-elementplus/element-package/base/layout.html)
 
 ## 1.使用方法
 
