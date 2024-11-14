@@ -1,27 +1,29 @@
 <template>
-  <el-select class="web-select" popper-class="web-select-popper" v-bind="$attrs" :suffix-icon="CaretTop">
-    <template #default="scoped">
+  <el-select class="web-select" popper-class="web-select-popper" :suffix-icon="CaretTop" v-bind="$attrs">
+    <el-option v-if="!slots.default" v-for="item in options" :key="item.value" :label="item.label"
+      :value="item.value" />
+    <template v-if="slots.default" #default="scoped">
       <slot name="default" v-bind="scoped"></slot>
     </template>
-    <template #header="scoped">
+    <template v-if="slots.header" #header="scoped">
       <slot name="header" v-bind="scoped"></slot>
     </template>
-    <template #footer="scoped">
+    <template v-if="slots.footer" #footer="scoped">
       <slot name="footer" v-bind="scoped"></slot>
     </template>
-    <template #prefix="scoped">
+    <template v-if="slots.prefix" #prefix="scoped">
       <slot name="prefix" v-bind="scoped"></slot>
     </template>
-    <template #empty="scoped">
+    <template v-if="slots.empty" #empty="scoped">
       <slot name="empty" v-bind="scoped"></slot>
     </template>
-    <template #tag="scoped">
+    <template v-if="slots.tag" #tag="scoped">
       <slot name="tag" v-bind="scoped"></slot>
     </template>
-    <template #loading="scoped">
+    <template v-if="slots.loading" #loading="scoped">
       <slot name="loading" v-bind="scoped"></slot>
     </template>
-    <template #label="scoped">
+    <template v-if="slots.label" #label="scoped">
       <slot name="label" v-bind="scoped"></slot>
     </template>
   </el-select>
@@ -29,21 +31,21 @@
 
 <script setup lang="ts" name="WebSelect">
 import { CaretTop } from '@element-plus/icons-vue'
-import { defineProps, toRefs, PropType } from "vue"
-const props = defineProps({
+import { defineProps, PropType } from "vue"
+const { options } = defineProps({
   options: {
     type: Array as PropType<{ label: string, value: string }[]>,
-    default: [{}]
+    default: () => []
   }
 })
-const { options } = toRefs(props)
+const slots = useSlots()
+import { useSlots } from 'vue'
+defineOptions({
+  name: 'WebSelect'
+});
 </script>
-<script lang='ts'>
-export default {
-  name: "WebSelect"
-}
-</script>
-<!-- <style lang="scss">
+
+<style lang="scss">
 .web-select {
   &.el-select {
     width: var(--select-width-default);
@@ -106,4 +108,4 @@ export default {
     background-color: var(--select-bg-color-disabled);
   }
 }
-</style> -->
+</style>

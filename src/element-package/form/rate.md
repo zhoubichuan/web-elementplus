@@ -1,11 +1,14 @@
+---
+lang: zh-CN
+sidebarDepth: 2
+meta:
+  - name: description
+    content: 个人总结的vuepress学习技术文档-语法
+  - name: keywords
+    content: vuepress,最新技术文档,vuepress语法,markdown语法
+---
+
 # Rate 评分
 
-用于评分
-
-## 基础用法
-
-评分默认被分为三个等级，可以利用颜色数组对分数及情感倾向进行分级（默认情况下不区分颜色）。 三个等级所对应的颜色用 colors 属性设置，而它们对应的两个阈值则通过 `low-threshold` 和 `high-threshold` 设定。
-
-###### 输出
-
+##  默认
 <preview path="./rate.vue"></preview>

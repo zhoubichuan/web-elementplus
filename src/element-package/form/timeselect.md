@@ -10,4 +10,4 @@ meta:
 
 # 十一.TimeSelect
 
-<preview path="./timeselect.vue"></preview>
+<preview path="./timeselect-default.vue"></preview>

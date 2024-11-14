@@ -1,8 +1,4 @@
-import {ElMessage} from 'element-plus'
+import { ElMessage } from 'element-plus'
 export default function (options: any) {
-  return ElMessage(Object.assign({},{
-    customClass: 'web-message', 
-    showClose: true
-  }, 
-  options))
+  return ElMessage(options)
 }

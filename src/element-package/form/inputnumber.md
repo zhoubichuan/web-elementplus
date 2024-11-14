@@ -9,5 +9,7 @@ meta:
 ---
 
 # 四.InputNumber
+:::warning
 
+:::
 <preview path="./inputnumber.vue"></preview>

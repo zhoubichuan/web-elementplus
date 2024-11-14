@@ -10,5 +10,8 @@ meta:
 
 
 # 十二.DatePicker
+:::warning
 
-<preview path="./cascader.vue"></preview>
+:::
+## 默认
+<preview path="./datepicker-default.vue"></preview>

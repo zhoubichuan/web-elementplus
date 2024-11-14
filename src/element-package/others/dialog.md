@@ -19,4 +19,4 @@ meta:
 
 ## 1.案例
 
-<preview path="./dialog.vue"></preview>
+<preview path="./dialog-default.vue"></preview>

@@ -1,6 +1,5 @@
 <template>
-  <!-- 表格区域 -->
-  <web-table :data="data" :column-data="column" @operation="handleOperation" />
+  <web-table-pagination :data="data" :column="column" @operation="handleOperation" />
 </template>
 
 <script setup lang="ts">

@@ -23,7 +23,7 @@
     <web-button type="warning" round>Warning</web-button>
     <web-button type="danger" round>Danger</web-button>
   </web-row>
-  <web-row>
+  <web-row class="mb-4">
     <web-button :icon="Search" circle />
     <web-button type="primary" :icon="Edit" circle />
     <web-button type="success" :icon="Check" circle />
@@ -36,3 +36,10 @@
 <script lang="ts" setup>
 import { Check, Delete, Edit, Message, Search, Star } from "@element-plus/icons-vue";
 </script>
+
+<style lang="scss" scoped>
+.mb-4 {
+  display: block;
+  margin-top: 20px;
+}
+</style>

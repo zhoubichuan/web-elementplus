@@ -1,16 +1,17 @@
 <template>
   <el-cascader class="web-cascader" v-bind="$attrs">
-    <template #default="scoped">
+    <template v-if="slots.default" #default="scoped">
       <slot name="default" v-bind="scoped"></slot>
     </template>
-    <template #empty="scoped">
+    <template v-if="slots.empty" #empty="scoped">
       <slot name="empty" v-bind="scoped"></slot>
     </template>
   </el-cascader>
 </template>
 <script lang="ts" setup>
+import { useSlots } from 'vue'
 import { ElCascader } from 'element-plus';
-
+const slots = useSlots()
 defineOptions({
   name: 'WebCascader'
 });

@@ -1,6 +1,6 @@
 <template>
   <!-- 表格区域 -->
-  <web-table :table-config="tableConfig2" :table-data="tableData ?? []" :page-info="pageInfo"
+  <web-table :table-config="config" :table="tableData ?? []" :page-info="pageInfo"
     @changePageSize="handleSizeChange" @changeCurrentPage="handleCurrentChange" @toDelete="toDelete" @toEdit="toEdit">
     <template #modelPicture="scope">
       <el-row>
@@ -15,13 +15,9 @@
 
 <script setup lang="ts">
 import { nextTick, reactive, ref } from 'vue'
-// import { IModelTypeItem, getNftList, modelType, delModel } from '@/api/nft'
-// import { tableConfig2 } from './config/table.config'
-// import { IQueryUserRoleParm, any } from '@/api/type'
 import { useBaseTableByApi } from './useBaseTableByApi'
-// import { useStore } from '@/store'
 import { ElForm, ElMessage } from 'element-plus'
-const tableConfig2: any = {
+const config: any = {
   title: '',
   editWidth: '180',
   isEdit: false,
@@ -46,7 +42,7 @@ const getTopicParam = reactive<Record<string, string>>({
 });
 // const tableData = []
 const { tableData, pageInfo, reloadData, handleCurrentChange, handleSizeChange, toDelete } =
-  useBaseTableByApi<any>(new Promise(), getTopicParam,new Promise())
+  useBaseTableByApi<any>()
 // console.log(pageInfo)
 
 // const modelTypes = ref<Array<IModelTypeItem>>()
@@ -127,7 +123,7 @@ const rules = {
   height: 60px;
   background: #ededed;
 
-  > label {
+  >label {
     margin-top: 15px;
     margin-left: 60px;
     background-color: #fff;
@@ -135,7 +131,7 @@ const rules = {
     cursor: pointer;
   }
 
-  > div {
+  >div {
     margin-top: -10px;
     color: #a5a5a5;
 
@@ -163,7 +159,7 @@ const rules = {
   overflow: scroll;
   background-color: #ededed;
 
-  > div:first-child {
+  >div:first-child {
     position: absolute;
     z-index: -1;
     opacity: 0;

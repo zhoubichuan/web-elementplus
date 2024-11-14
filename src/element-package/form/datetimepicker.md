@@ -9,5 +9,8 @@ meta:
 ---
 
 # 十三.DateTimePicker
+:::warning
 
-<preview path="./datetimepicker.vue"></preview>
+:::
+## 1.默认
+<preview path="./datetimepicker-default.vue"></preview>

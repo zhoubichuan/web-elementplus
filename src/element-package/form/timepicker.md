@@ -10,4 +10,4 @@ meta:
 
 # 十.TimePicker
 
-<preview path="./timepicker.vue"></preview>
+<preview path="./timepicker-default.vue"></preview>

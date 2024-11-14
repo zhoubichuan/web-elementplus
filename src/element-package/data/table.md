@@ -8,26 +8,24 @@ meta:
     content: vuepress,最新技术文档,vuepress语法,markdown语法
 ---
 
-# 一.Table
+# 一.表格组件
 
 :::tip 前言
-组件默认使用 Flex 布局，不需要手动设置 type="flex"。
 
-请注意父容器避免使用 inline 相关样式，会导致组件宽度不能撑满。
 :::
 
 ## 1.默认表格
 
-<preview path="./table.vue"></preview>
+<!-- <preview path="./table-default.vue"></preview> -->
 
 ## 2.带操作部分
 
-<preview path="./table2.vue"></preview>
+<preview path="./table-operation.vue"></preview>
 
 ## 3.带操作部分
 
-<preview path="./table3.vue"></preview>
+<preview path="./table-operation2.vue"></preview>
 
 ## 3.带分页
 
-<preview path="./table4.vue"></preview>
+<preview path="./table-pagination.vue"></preview>

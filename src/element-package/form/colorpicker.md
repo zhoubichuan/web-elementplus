@@ -9,5 +9,9 @@ meta:
 ---
 
 # 十六.ColorPicker
+:::warning
 
-<preview path="./colorpicker.vue"></preview>
+:::
+
+## 默认
+<preview path="./colorpicker-default.vue"></preview>

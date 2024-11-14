@@ -1,10 +1,8 @@
 <template>
     <div class="m-4">
-        <p>Child options expand when clicked (default)</p>
         <web-cascader v-model="value" :options="options" @change="handleChange" />
     </div>
     <div class="m-4">
-        <p>Child options expand when hovered</p>
         <web-cascader v-model="value" :options="options" :props="props" @change="handleChange" />
     </div>
 </template>

@@ -1,13 +1,18 @@
 :root {
-  // 主要颜色
-  --color-primary: #3a94fe;
+  // 颜色
+  --color-default: #f9f9f9;
+  --color-primary: #2fb755;
   --color-success: #2fb755;
-  --color-success-bg: #f0f9eb;
-  --color-help: #f5fcf2;
-  --color-warn: #f5cd4a;
-  --color-warn-bg: #fff8df;
+  --color-info: #cccccc;
+  --color-warning: #f5cd4a;
   --color-danger: #f64c4c;
-  --color-danger-bg: #feeff0;
+  --color-disabled: #f2f2f2
+  // border
+  --color-border:#2fb755;
+
+  // text
+  --color-text-default: #606266;
+  --color-text-disabled: #a5a5a5;
 
   --color-white: white;
   --color-text-primary: #1d1d1f;
@@ -22,13 +27,13 @@
   --color-f2f2f2: #f2f2f2;
   --color-f9f9f9: #f9f9f9;
 
-  // button
+  // 1.button
   --button-large-height: 40px;
   --button-large-padding: 10px 16px;
   --button-default-height: 36px;
-  --button-default-padding: 8px 16px;
+  --button-default-padding: 10px 15px;
   --button-small-height: 28px;
-  --button-small-padding: 5px 16px;
+  --button-small-padding: 7px 8px;
 
   // dialog
   --dialog-header-padding: 24px 32px;

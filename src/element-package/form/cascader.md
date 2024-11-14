@@ -8,6 +8,18 @@ meta:
     content: vuepress,最新技术文档,vuepress语法,markdown语法
 ---
 
-# 一.Cascader
 
-<preview path="./cascader.vue"></preview>
+# 一.级联组件
+
+:::warning
+
+:::
+
+## 默认
+<preview path="./cascader-default.vue"></preview>
+
+## 可搜索
+<preview path="./cascader-search.vue"></preview>
+
+## 面板
+<preview path="./cascader-panel.vue"></preview>

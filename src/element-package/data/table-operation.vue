@@ -1,10 +1,13 @@
 <template>
   <!-- 表格区域 -->
-  <web-table :data="data" :column-data="column" />
+  <web-table-operation :data="data" :column="column"  @operation="handleOperation"/>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+const handleOperation = () => {
+  alert(1)
+}
 const data = ref([
   {
     date: '2016-05-03',

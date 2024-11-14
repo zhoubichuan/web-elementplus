@@ -10,8 +10,11 @@ meta:
 
 # 二.Checkbox
 
-常用的操作按钮。
+:::warning
 
-## 基础用法
+:::
 
-<preview path="./checkbox.vue"></preview>
+
+## 默认
+
+<preview path="./checkbox-default.vue"></preview>

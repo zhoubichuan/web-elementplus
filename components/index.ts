@@ -19,7 +19,7 @@ import Checkbox from './checkbox/index'
 // import CheckboxGroup from './checkbox-group/index'
 import Switch from './switch/index'
 import Select from './select/index'
-// import Option from './option/index'
+import Option from './option/index'
 // import OptionGroup from './option-group/index'
 import Button from './button/index'
 // import ButtonGroup from './button-group/index'
@@ -29,10 +29,11 @@ import Dialog from './dialog/index'
 // import CommonForm from './common-form/index'
 import Table from './table/index'
 import WebTablePagination from './table-pagination/index'
+import WebTableOperation from './table-operation/index'
 // import TableColumn from './table-column/index'
 // import DatePicker from './date-picker/index'
-// import TimeSelect from './time-select/index'
-// import TimePicker from './time-picker/index'
+import TimeSelect from './time-select/index'
+import TimePicker from './time-picker/index'
 // import Popover from './popover/index'
 import Tooltip from './tooltip/index'
 // import MessageBox from './message-box/index'
@@ -48,7 +49,7 @@ import FormView from './form-view/index'
 import Tag from './tag/index'
 import Tree from './tree/index'
 import Alert from './alert/index'
-// import Notification from './notification/index'
+import WebNotification from './notification/index'
 import Slider from './slider/index'
 // import Loading from './loading/index'
 // import Icon from './icon/index'
@@ -85,7 +86,7 @@ import Cascader from './cascader/index'
 // import Backtop from './backtop/index'
 // import InfiniteScroll from './infinite-scroll/index'
 // import PageHeader from './page-header/index'
-// import CascaderPanel from './cascader-panel/index'
+import CascaderPanel from './cascader-panel/index'
 // import Avatar from './avatar/index'
 // import Drawer from './drawer/index'
 // import Statistic from './statistic/index'
@@ -120,7 +121,7 @@ const components = [
 //   CheckboxGroup,
   Switch,
   Select,
-//   Option,
+  Option,
 //   OptionGroup,
   Button,
 //   Search,
@@ -133,10 +134,11 @@ const components = [
 //   CommonForm,
   Table,
   WebTablePagination,
+  WebTableOperation,
 //   TableColumn,
 //   DatePicker,
-//   TimeSelect,
-//   TimePicker,
+  TimeSelect,
+  TimePicker,
 //   Popover,
   Tooltip,
 //   Breadcrumb,
@@ -175,15 +177,15 @@ const components = [
 //   Aside,
 //   Main,
 //   Footer,
-//   Timeline,
-//   TimelineItem,
+  // Timeline,
+  // TimelineItem,
 //   Link,
 //   Divider,
 //   Image,
 //   Calendar,
 //   Backtop,
 //   PageHeader,
-//   CascaderPanel,
+  CascaderPanel,
 //   Avatar,
 //   Drawer,
 //   Statistic,
@@ -214,7 +216,7 @@ const install = function (app, opts = {}) {
 //   Vue.prototype.$alert = MessageBox.alert
 //   Vue.prototype.$confirm = MessageBox.confirm
 //   Vue.prototype.$prompt = MessageBox.prompt
-//   Vue.prototype.$notify = Notification
+  // Vue.prototype.$notify = WebNotification
 //   Vue.prototype.$message = Message
 }
 
@@ -244,7 +246,7 @@ export default {
 //   CheckboxGroup,
   Switch,
   Select,
-//   Option,
+  Option,
 //   OptionGroup,
   Button,
 //   ButtonGroup,
@@ -257,10 +259,11 @@ export default {
 //   CommonForm,
   Table,
   WebTablePagination,
+  WebTableOperation,
 //   TableColumn,
 //   DatePicker,
-//   TimeSelect,
-//   TimePicker,
+  TimeSelect,
+  TimePicker,
 //   Popover,
   Tooltip,
 //   MessageBox,
@@ -276,7 +279,7 @@ export default {
   Tag,
   Tree,
   Alert,
-//   Notification,
+  WebNotification,
 //   Icon,
 //   Row,
 //   Col,
@@ -311,7 +314,7 @@ export default {
 //   Backtop,
 //   InfiniteScroll,
 //   PageHeader,
-//   CascaderPanel,
+  CascaderPanel,
 //   Avatar,
 //   Drawer,
 //   Statistic,

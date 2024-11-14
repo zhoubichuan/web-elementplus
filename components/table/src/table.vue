@@ -1,139 +1,154 @@
 <template>
-    <el-table class="web-table" :data="data" stripe header-cell-class-name="up3-custom-header-cell"
-        cell-class-name="up3-custom-cell">
-        <el-table-column v-for="(item, index) in columnData" :key="index" v-bind="item">
-            <template #header="{ column }">
-                <span class="text">{{ column.label }}</span>
+    <el-card style="margin-top: 10px">
+        <div class="header">
+            <div class="title">
+                <span v-if="config?.title"></span>
+                <h5>{{ config?.title }}</h5>
+            </div>
+            <el-button v-if="!!config?.needCreate" @click="createItem" type="primary">
+                新建{{
+                    config.title?.slice(0, 2) }}
+            </el-button>
+        </div>
+        <el-table ref="tableRef" @selection-change="handleSelectionChange" :data="data" border style="width: 100%"
+            stripe>
+            <template #empty>
+                <el-empty :image-size="200" description="暂无数据" />
             </template>
-            <template #default="{ row, column }">
-                <div class="operation" v-if="'操作' === column.label">
-                    <component v-text="item?.component?.text" :is="item?.component?.is" :class="item?.component?.class"
-                        @click="() => handleOperation(row)" />
-                </div>
+            <el-table-column v-if="config.hasSelection" type="selection" width="55" />
+            <template v-for="item in config.tableItems" :key="item.label">
+                <el-table-column v-bind="item" :prop="item.prop" :label="item.label" :width="item?.width">
+                    <template #default="scope">
+                        <slot :name="item.prop" :row="scope.row"></slot>
+                    </template>
+                </el-table-column>
             </template>
-        </el-table-column>
-    </el-table>
+
+            <el-table-column v-if="config.isEdit" label="操作" :width="config?.editWidth ? config?.editWidth : '100'"
+                fixed="right">
+                <template v-slot="scope">
+                    <slot name="handler" :row="scope.row">
+                        <div>
+                            <el-button type="primary" size="small" link @click="editMenu(scope.row)">修改</el-button>
+                            <el-button type="danger" @click="deleteMenu(scope.row.id)" size="small" link>删除</el-button>
+                        </div>
+                    </slot>
+                </template>
+            </el-table-column>
+        </el-table>
+        <div class="footer" v-if="tablePageInfo && data.length !== 0">
+            <el-pagination background v-model:currentPage="tablePageInfo.currentPage"
+                v-model:page-size="tablePageInfo.pageSize" :hide-on-single-page="true" :page-sizes="[20, 50, 100, 200]"
+                layout="total, sizes, prev, pager, next, jumper" :total="tablePageInfo.totalCount"
+                @size-change="handleSizeChange" @current-change="handleCurrentChange" />
+        </div>
+    </el-card>
 </template>
 
 <script setup lang="ts" name="WebTable">
-import { ElTable, ElTableColumn } from 'element-plus';
-type component = { is: string; class?: string; text: string };
-const { data, columnData } = defineProps<{
-    data?: component[];
-    columnData?: { component?: component }[];
-}>();
+import { ElTable, ElButton, ElTableColumn } from 'element-plus'
+import { ref, watch } from 'vue'
 
-defineOptions({
-    name: 'WebTable'
-});
-const emit = defineEmits(['operation']);
-const handleOperation = (row: typeof ElTableColumn & component) => {
-    emit('operation', row);
-};
+const { pageInfo, data } = defineProps({
+    config: {
+        type: Object,
+        default: () => ({
+            needCreate: false,
+            hasSelection: false
+        })
+    },
+    data: {
+        type: Array,
+        default: () => []
+    },
+    pageInfo: {
+        type: Object,
+        default: () => ({})
+    },
+})
+
+const tablePageInfo = ref<any>()
+
+watch(
+    () => ({ ...pageInfo }),
+    newPageInfo => {
+        tablePageInfo.value = { ...newPageInfo }
+    },
+    {
+        immediate: true
+    }
+)
+
+const emit = defineEmits(['toEdit', 'toDelete', 'toCreate', 'changePageSize', 'changeCurrentPage', 'selectChange'])
+const handleSelectionChange = (val: any) => {
+    emit('selectChange', val)
+}
+const editMenu = (data: any) => {
+    emit('toEdit', data)
+}
+const deleteMenu = (id: number) => {
+    emit('toDelete', id)
+}
+const createItem = () => {
+    const emptyObj = { ...data[0] }
+    Object.keys(emptyObj).forEach(key => {
+        emptyObj[key] = ''
+    })
+
+    emit('toCreate', emptyObj)
+}
+
+const handleSizeChange = (pageSize: number) => {
+    emit('changePageSize', { ...tablePageInfo.value, pageSize })
+}
+const handleCurrentChange = (currentPage: number) => {
+    emit('changeCurrentPage', { ...tablePageInfo.value, currentPage })
+}
+
+const tableRef = ref<InstanceType<typeof ElTable>>()
+const clearSelection = () => {
+    tableRef.value?.clearSelection()
+}
+defineExpose({
+    clearSelection,
+    name: "WebTable"
+})
 </script>
-
+<script lang='ts'>
+export default {
+    name: "WebTable"
+}
+</script>
 <style lang="scss" scoped>
-@import '../../config.scss';
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
 
-.#{$prefix}-table {
-    width: 1400px;
-    max-height: 682px;
-    min-height: 248px;
-    border-radius: 12px 12px 0 0;
+    .title {
+        display: flex;
+        justify-content: space-around;
 
-    &::before {
-        display: none;
-    }
-
-    :deep(.#{$namespace}-table__header-wrapper) {
-        height: 49px;
-
-        .#{$namespace}-table__header {
-            height: 100%;
-
-            .#{$namespace}-table__cell {
-                padding: 0;
-
-                .cell {
-                    font-weight: bold;
-                    font-size: 18px;
-                    color: #244367;
-                    line-height: 25px;
-                    text-align: center;
-                    font-style: normal;
-                    text-transform: none;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 0;
-                }
-
-                &.two-font {
-                    .cell {
-                        .text {
-                            width: 44px;
-                        }
-                    }
-                }
-
-                &.three-font {
-                    .cell {
-                        .text {
-                            width: 66px;
-                        }
-                    }
-                }
-
-                &.four-font {
-                    .cell {
-                        .text {
-                            width: 88px;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    :deep(.#{$namespace}-table__body-wrapper) {
-        height: calc(100% - 49px);
-        background: #f3f6f9;
-
-        .#{$namespace}-table__header {}
-
-        .#{$namespace}-scrollbar {
-            height: 100%;
-
-            .#{$namespace}-scrollbar__wrap {
-                max-height: 500px;
-
-                .#{$namespace}-scrollbar__view {
-                    width: 100%;
-
-                    .#{$namespace}-table__body {
-                        // width: auto !important; // todo 为何组件内部会直接计算值
-                    }
-                }
-            }
-        }
-    }
-
-    &.#{$namespace}-table--striped {
-        :deep(.#{$namespace}-table__header-wrapper) {
-            .#{$namespace}-table__header {
-                .#{$namespace}-table__cell {
-                    background: #f3f6f9;
-                }
-            }
+        span {
+            width: 1px;
+            height: 14px;
+            background-color: var(--color-primary);
+            border: 1px solid var(--olor-primary);
         }
 
-        :deep(.#{$namespace}-table__body) {
-            .#{$namespace}-table__row--striped {
-                .#{$namespace}-table__cell {
-                    background: #f7f8fc;
-                }
-            }
+        h5 {
+            margin: 0;
+            padding-bottom: -5px;
+            padding-left: 20px;
+            font-size: 14px;
         }
     }
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
 }
 </style>

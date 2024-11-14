@@ -12,16 +12,13 @@
 
 ## 禁用状态
 
-
 <preview path="./button-disabled.vue"></preview>
 
 ## 链接按钮
 
-
 <preview path="./button-link.vue"></preview>
 
 ## 自定义颜色
-
 
 <preview path="./button-size.vue"></preview>
 

@@ -1,10 +1,13 @@
 <template>
-  <el-form ref="formRef" style="max-width: 600px" :model="numberValidateForm" label-width="auto" class="demo-ruleForm">
-    <slot></slot>
+  <el-form ref="formRef" :model="numberValidateForm" label-width="auto" class="demo-ruleForm" v-bind="$attrs">
+    <template #default="scoped">
+      <slot name="default" v-bind="scoped"></slot>
+    </template>
   </el-form>
 </template>
 
 <script lang="ts" setup>
+import { ElForm } from 'element-plus'
 import { reactive, ref } from 'vue'
 import type { FormInstance } from 'element-plus'
 
