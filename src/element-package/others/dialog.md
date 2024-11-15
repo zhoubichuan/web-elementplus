@@ -17,6 +17,10 @@ meta:
 
 :::
 
-## 1.案例
+## 默认
 
 <preview path="./dialog-default.vue"></preview>
+
+## dialog-create
+
+<preview path="./dialog-create.vue" ></preview>

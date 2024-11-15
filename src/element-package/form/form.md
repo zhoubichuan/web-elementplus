@@ -9,10 +9,23 @@ meta:
 ---
 
 # 十八.Form
+
 :::warning
 
 :::
 
 ## 1.案例
 
-<preview path="./formView.vue"></preview>
+## form-search
+
+<preview path="./form-search.vue"></preview>
+
+
+
+<!-- ## form-view
+
+<demo src="./form-view.vue" ></demo>
+
+## search
+
+<demo src="./search.vue" ></demo> -->

@@ -1,5 +1,5 @@
 <template>
-  <el-form ref="formRef" :model="numberValidateForm" label-width="auto" class="demo-ruleForm" v-bind="$attrs">
+  <el-form ref="formRef" label-width="auto" class="demo-ruleForm" v-bind="$attrs">
     <template #default="scoped">
       <slot name="default" v-bind="scoped"></slot>
     </template>
@@ -8,18 +8,15 @@
 
 <script lang="ts" setup>
 import { ElForm } from 'element-plus'
-import { reactive, ref } from 'vue'
+import { defineExpose, ref } from 'vue'
 import type { FormInstance } from 'element-plus'
 
 const formRef = ref<FormInstance>()
-
-const numberValidateForm = reactive({
-  age: '',
+defineExpose({
+  validate: (params) => formRef.value?.validate(params)
 })
 
-</script>
-<script lang='ts'>
-export default {
-  name: "WebForm"
-}
+defineOptions({
+  name: 'WebForm'
+})
 </script>
