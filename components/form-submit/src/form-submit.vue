@@ -2,38 +2,44 @@
   <web-dialog @reloadList="reloadData" v-bind="{
     ...$attrs, 'web-footer': true
   }" @handleCancel="close" @handleConfirm="handleSubmit">
-    <web-form ref="formRef" :rules="rules" :model="formData" label-width="80px">
-      <template v-if="Number(formData.type) == 0">
+    <web-form ref="formRef" :rules="rules" :model="formModel" label-width="80px">
+      <template v-if="Number(formModel.type) == 0">
         <web-form-item v-for="(formItem, formItemIndex) in baseFormData" :formData="formItem" :key="formItemIndex" />
       </template>
       <template v-else>
-        <web-form-item v-for="(formItem, formItemIndex) in baseFormData2" :formData="formItem" :key="formItemIndex" />
+        <web-form-item v-for="(formItem, formItemIndex) in baseFormData" :formData="formItem" :key="formItemIndex" />
       </template>
     </web-form>
   </web-dialog>
 </template>
 
 <script setup lang="ts">
-import { ref, toRefs, defineProps, watch, unref, defineEmits } from 'vue'
+import { ref, reactive, defineProps, watch, unref, defineEmits } from 'vue'
 import { ElForm, ElMessage } from 'element-plus'
-const props = defineProps<{ close: () => void; initData: any | undefined }>()
-const { close } = toRefs(props)
+import WebFormItem from '../../form-item/index'
 
-const currentRowData = ref<any>({
-  relatedId: '',
-  type: '0',
-  count: '',
-  name: '',
-  remark: ''
+const { close, reloadFn, creteForm } = defineProps<{
+  close: Function
+  reloadFn: Function
+  creteForm: any
+}>()
+// 查询参数
+const formModel = reactive(reactive<Record<string, string | number | undefined>>({}))
+const init = () => creteForm.forEach(child => {
+  child.forEach(item => {
+    if (item.prop) {
+      formModel[item.prop] = item.init || ''
+    }
+  })
 })
-
+init()
 const submit = () => {
-
+  reloadFn(formModel)
 }
 const rules = {
   relatedId: [
-    { required: true, message: '请输入模型/资产id', trigger: 'blur' }
-    // { type: 'number', max: 1000, message: "模型/资产id为数字" }
+    { required: true, message: '请输入sssdds/rtyrtyrt', trigger: 'blur' }
+    // { type: 'number', max: 1000, message: "sssdds/rtyrtyrt为数字" }
   ],
   type: [{ required: true, message: '请选择关联项目', trigger: 'blur' }],
   image: [{ required: true, message: '请选择展示图', trigger: 'blur' }],
@@ -42,16 +48,16 @@ const rules = {
     // { type: 'number', max: 1000, message: "铸造数量为数字" }
   ],
   name: [{ required: true, message: '请输入名称', trigger: 'blur' }],
-  remark: [{ required: true, message: '请输入NFT说明', trigger: 'blur' }]
+  remark: [{ required: true, message: '请输入说明', trigger: 'blur' }]
 }
 const modelTypes = ref<Array<IModelTypeItem>>([
   {
     value: '0',
-    desc: '模型'
+    desc: 'sssdds'
   },
   {
     value: '1',
-    desc: '资产'
+    desc: 'sdqewqwe'
   }
 ])
 const initFormData: any = {
@@ -67,186 +73,170 @@ const initFormData2: any = {
   remark: '',
   image: ''
 }
-const dialogTitle = ref('创建NFT')
+const dialogTitle = ref('创建')
 const formRef = ref<InstanceType<typeof ElForm>>()
-const formData = ref<any>(props.initData ? props.initData : initFormData)
 const emit = defineEmits(['reloadList', 'update:modelValue'])
-watch(
-  () => props.initData,
-  (val: any | undefined) => {
-    if (val === unref(formData.value)) return
-    formData.value = val ? val : initFormData
-  }
-)
+
 const typeChange = (val: any) => {
   if (val === 0) {
-    formData.value = initFormData
+    // formData.value = initFormData
   } else {
-    formData.value = initFormData2
+    // formData.value = initFormData2
   }
 }
 const handleSubmit = () => {
   formRef.value?.validate(async (valid: any) => {
     if (valid) {
-      let params: any = { ...formData.value }
+      let params: any = { ...formModel }
       params.type = Number(params.type)
-      const { c } = await submit(params)
+      const { c } = await submit(formModel)
       if (c == 200) {
         ElMessage.success(dialogTitle.value + '成功')
         emit('reloadList')
-        props.close()
+        close()
       }
     }
   })
 }
-const baseFormData = [
-  [
-    {
-      prop: 'type',
-      label: '关联项目',
-      component: {
-        modelValue: formData.value.type,
-        'onUpdate:modelValue': (value: string) => (formData.value.type = value),
-        placeholder: '请选择类型',
-        onChange: typeChange,
-        disabled: true,
-        options: modelTypes.value.map(item => ({ label: item.desc, value: String(item.value) }))
-      }
-    },
-    {}
-  ],
-  [
-    {
-      prop: 'relatedId',
-      label: '模型id',
-      component: {
-        modelValue: formData.value.relatedId,
-        'onUpdate:modelValue': (value: string) => (formData.value.relatedId = value),
-        placeholder: '请输入模型id'
-      }
-    },
-    {}
-  ],
-  [
-    {
-      prop: 'name',
-      label: '名称',
-      component: {
-        modelValue: formData.value.name,
-        'onUpdate:modelValue': (value: string) => (formData.value.name = value),
-        placeholder: '请输入名称'
-      }
-    },
-    {
-      prop: 'count',
-      label: '铸造数量',
-      component: {
-        modelValue: formData.value.count,
-        'onUpdate:modelValue': (value: string) => (formData.value.count = value),
-        placeholder: '请输入铸造数量'
-      }
-    }
-  ],
-  [
-    {
-      prop: 'remark',
-      label: 'NFT说明',
-      component: {
-        is: 'web-rich',
-        modelValue: formData.value.remark,
-        'onUpdate:modelValue': (value: string) => (formData.value.remark = value),
-        menus: [
-          'head',
-          'bold',
-          'fontSize',
-          // 'fontName',
-          // 'italic',
-          // 'underline',
-          // 'strikeThrough',
-          // 'indent',
-          // 'lineHeight',
-          // 'foreColor',
-          // 'backColor',
-          // 'link',
-          'list',
-          // 'todo',
-          // 'justify',
-          // 'quote',
-          // 'emoticon',
-          'image'
-          // 'video',
-          // 'table',
-          // 'code',
-          // 'splitLine',
-          // 'undo',
-          // 'redo',
-        ],
-        style: 'width: 100%'
-      }
-    }
-  ]
-]
-const baseFormData2 = [
-  [
-    {
-      prop: 'type',
-      label: '关联项目',
-      render: modelTypes.value.find(i => i.value == String(formData.value.type))?.desc
-    }
-  ],
-  [
-    {
-      prop: 'relatedId',
-      label: '资产',
-      render: formData.value.relatedId
-    }
-  ],
-  [
-    {
-      prop: 'image',
-      label: '展示图',
-      render: formData.value.image
-    }
-  ],
-  [
-    {
-      prop: 'remark',
-      label: 'NFT说明',
-      component: {
-        is: 'web-rich',
-        modelValue: formData.value.remark,
-        'onUpdate:modelValue': (value: string) => (formData.value.remark = value),
-        menus: [
-          'head',
-          'bold',
-          'fontSize',
-          // 'fontName',
-          // 'italic',
-          // 'underline',
-          // 'strikeThrough',
-          // 'indent',
-          // 'lineHeight',
-          // 'foreColor',
-          // 'backColor',
-          // 'link',
-          'list',
-          // 'todo',
-          // 'justify',
-          // 'quote',
-          // 'emoticon',
-          'image'
-          // 'video',
-          // 'table',
-          // 'code',
-          // 'splitLine',
-          // 'undo',
-          // 'redo',
-        ],
-        style: 'width: 100%'
-      }
-    }
-  ]
-]
+// const baseFormData = [
+//   [
+//     {
+//       prop: 'type',
+//       label: '类型',
+//       type: 'select',
+//       component: {
+//         placeholder: '请选择类型',
+//         onChange: typeChange,
+//         disabled: true,
+//         options: modelTypes.value.map(item => ({ label: item.desc, value: String(item.value) }))
+//       }
+//     },
+//     {}
+//   ],
+//   [
+//     {
+//       prop: 'relatedId',
+//       label: 'xxx',
+//       component: {
+//         placeholder: '请输入sssddsid'
+//       }
+//     },
+//     {}
+//   ],
+//   [
+//     {
+//       prop: 'name',
+//       label: '名称',
+//       component: {
+//         placeholder: '请输入名称'
+//       }
+//     },
+//     {
+//       prop: 'count',
+//       label: 'saddd',
+//       component: {
+//         placeholder: '请输入ss'
+//       }
+//     }
+//   ],
+//   [
+//     {
+//       prop: 'remark',
+//       label: '说明',
+//       type: 'web-rich',
+//       component: {
+//         menus: [
+//           'head',
+//           'bold',
+//           'fontSize',
+//           // 'fontName',
+//           // 'italic',
+//           // 'underline',
+//           // 'strikeThrough',
+//           // 'indent',
+//           // 'lineHeight',
+//           // 'foreColor',
+//           // 'backColor',
+//           // 'link',
+//           'list',
+//           // 'todo',
+//           // 'justify',
+//           // 'quote',
+//           // 'emoticon',
+//           'image'
+//           // 'video',
+//           // 'table',
+//           // 'code',
+//           // 'splitLine',
+//           // 'undo',
+//           // 'redo',
+//         ],
+//         style: 'width: 100%'
+//       }
+//     }
+//   ]
+// ]
+// const baseFormData2 = [
+//   [
+//     {
+//       prop: 'type',
+//       label: '类型',
+//       render: modelTypes.value.find(i => i.value == String(formData.value.type))?.desc
+//     }
+//   ],
+//   [
+//     {
+//       prop: 'relatedId',
+//       label: 'sdqewqwe',
+//       render: formData.value.relatedId
+//     }
+//   ],
+//   [
+//     {
+//       prop: 'image',
+//       label: '图片',
+//       render: formData.value.image
+//     }
+//   ],
+//   [
+//     {
+//       prop: 'remark',
+//       label: '说明',
+//       component: {
+//         is: 'web-rich',
+//         modelValue: formData.value.remark,
+//         'onUpdate:modelValue': (value: string) => (formData.value.remark = value),
+//         menus: [
+//           'head',
+//           'bold',
+//           'fontSize',
+//           // 'fontName',
+//           // 'italic',
+//           // 'underline',
+//           // 'strikeThrough',
+//           // 'indent',
+//           // 'lineHeight',
+//           // 'foreColor',
+//           // 'backColor',
+//           // 'link',
+//           'list',
+//           // 'todo',
+//           // 'justify',
+//           // 'quote',
+//           // 'emoticon',
+//           'image'
+//           // 'video',
+//           // 'table',
+//           // 'code',
+//           // 'splitLine',
+//           // 'undo',
+//           // 'redo',
+//         ],
+//         style: 'width: 100%'
+//       }
+//     }
+//   ]
+// ]
 </script>
 <script lang='ts'>
 export default {
