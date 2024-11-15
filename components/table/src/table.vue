@@ -29,8 +29,8 @@
                 <template v-slot="scope">
                     <slot name="handler" :row="scope.row">
                         <div>
-                            <el-button type="primary" size="small" link @click="editMenu(scope.row)">修改</el-button>
-                            <el-button type="danger" @click="deleteMenu(scope.row.id)" size="small" link>删除</el-button>
+                            <el-button type="primary" size="middle" link @click="editMenu(scope.row)">修改</el-button>
+                            <el-button type="danger" @click="deleteMenu(scope.row.id)" size="middle" link>删除</el-button>
                         </div>
                     </slot>
                 </template>

@@ -8,12 +8,12 @@
     <web-checkbox v-model="checked4" label="Option 2" />
   </div>
   <div>
-    <web-checkbox v-model="checked5" label="Option 1" size="small" />
-    <web-checkbox v-model="checked6" label="Option 2" size="small" />
+    <web-checkbox v-model="checked5" label="Option 1" size="middle" />
+    <web-checkbox v-model="checked6" label="Option 2" size="middle" />
   </div>
   <div>
-    <web-checkbox v-model="checked7" label="Option 1" size="small" disabled />
-    <web-checkbox v-model="checked8" label="Option 2" size="small" disabled />
+    <web-checkbox v-model="checked7" label="Option 1" size="middle" disabled />
+    <web-checkbox v-model="checked8" label="Option 2" size="middle" disabled />
   </div>
 </template>
 

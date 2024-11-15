@@ -5,32 +5,32 @@ div.web-message {
   border: none;
   height: var(--message-height);
   &.el-message--info {
-    background-color: var(--color-placeholder-bg);
+    background-color: var(--web-color-placeholder-bg);
   }
   &.el-message--info .el-message__content,
   i.el-message-icon--info {
-    color: var(--color-placeholder);
+    color: var(--web-color-placeholder);
   }
   &.el-message--success {
-    background-color: var(--color-success-bg);
+    background-color: var(--web-color-success-bg);
   }
   &.el-message--success .el-message__content,
   i.el-message-icon--success {
-    color: var(--color-success);
+    color: var(--web-color-success);
   }
   &.el-message--warning {
-    background-color: var(--color-warn-bg);
+    background-color: var(--web-color-warn-bg);
   }
   &.el-message--warning .el-message__content,
   i.el-message-icon--warning {
-    color: var(--color-warn);
+    color: var(--web-color-warn);
   }
   &.el-message--error {
-    background-color: var(--color-danger-bg);
+    background-color: var(--web-color-danger-bg);
   }
   &.el-message--error .el-message__content,
   i.el-message-icon--error {
-    color: var(--color-danger);
+    color: var(--web-color-danger);
   }
 }
 
@@ -59,15 +59,15 @@ div.web-message {
     display: none;
   }
   .web-message-box-btn-cancel {
-    background-color: var(--color-cancel-btn-bg);
-    color: var(--color-cancel-btn-text);
+    background-color: var(--web-color-cancel-btn-bg);
+    color: var(--web-color-cancel-btn-text);
     border: none;
   }
   .web-message-box-btn-confirm {
-    background-color: var(--color-primary) !important;
+    background-color: var(--web-color-primary) !important;
     border: none;
   }
   .el-message-box__status.el-message-box-icon--error {
-    color: var(--color-danger);
+    color: var(--web-color-danger);
   }
 }

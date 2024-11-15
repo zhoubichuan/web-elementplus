@@ -26,7 +26,8 @@
 
 <script lang="ts" setup name="WebDialog">
 import { defineEmits, useSlots } from "vue";
-const { mold } = defineProps({
+import WebButton from '../../button/index'
+const { mold, size } = defineProps({
   mold: {
     type: String, // create/edit/view  message
     default: 'create'
@@ -57,7 +58,7 @@ defineOptions({
   transform: translateY(-50%);
 
   .el-dialog__body {
-    height: calc(100vh - 200px);
+    max-height: calc(100vh - 200px);
     overflow-y: auto;
   }
 

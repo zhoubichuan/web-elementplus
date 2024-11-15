@@ -22,10 +22,7 @@ meta:
 
 
 
-<!-- ## form-view
 
-<demo src="./form-view.vue" ></demo>
+<!-- ## search
 
-## search
-
-<demo src="./search.vue" ></demo> -->
+<demo src="./search.vue" ></demo>  -->

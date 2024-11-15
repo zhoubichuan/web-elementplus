@@ -1,6 +1,6 @@
-import {h} from 'vue'
-const FC = (props,context) => {
-  return props.render(h,props.formData)
+import { h } from 'vue'
+const FC = (props, context) => {
+  return props.render(h, props.formData)
 }
 
-export default FC;
+export default FC

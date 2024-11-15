@@ -1,58 +1,31 @@
 <template>
   <el-select class="web-select" popper-class="web-select-popper" :suffix-icon="CaretTop" v-bind="$attrs">
-    <template v-if="newOptions.length">
-      <el-option v-for="(item, index) in newOptions" :key="index" :label="item[newOptionsProps.label]"
-        :value="item[newOptionsProps.value]" />
-    </template>
-    <template v-if="slots.default && !newOptions.length" #default>
-      <slot v-if="slots.default" name="default"></slot>
-    </template>
-    <template v-if="slots.header" #header="scoped">
-      <slot name="header" v-bind="scoped"></slot>
-    </template>
-    <template v-if="slots.footer" #footer="scoped">
-      <slot name="footer" v-bind="scoped"></slot>
-    </template>
-    <template v-if="slots.prefix" #prefix="scoped">
-      <slot name="prefix" v-bind="scoped"></slot>
-    </template>
-    <template v-if="slots.empty" #empty="scoped">
-      <slot name="empty" v-bind="scoped"></slot>
-    </template>
-    <template v-if="slots.tag" #tag="scoped">
-      <slot name="tag" v-bind="scoped"></slot>
-    </template>
-    <template v-if="slots.loading" #loading="scoped">
-      <slot name="loading" v-bind="scoped"></slot>
-    </template>
-    <template v-if="slots.label" #label="scoped">
-      <slot name="label" v-bind="scoped"></slot>
-    </template>
+    <el-option v-for="(item, index) in options" :key="index" :label="item[optionLabel]"
+      :value="item[optionValue]" />
   </el-select>
 </template>
 
 <script setup lang="ts" name="WebSelect">
 import { CaretTop } from '@element-plus/icons-vue'
 import { defineProps, PropType, computed } from "vue"
-const { options, optionsProps } = defineProps({
+const { options } = defineProps({
   options: {
     type: Array as PropType<{ label: string, value: string }[]>,
     default: () => []
   },
-  optionsProps: {
-    type: Object as PropType<{ label: string, value: string }>,
-    default: () => ({
-      label: 'label',
-      value: 'value'
-    })
+  optionLabel: {
+    type: String,
+    default: 'label'
+  },
+  optionValue: {
+    type: String,
+    default: 'value'
   }
 })
-const newOptions = computed(() => options)
-const newOptionsProps = computed(() => optionsProps as { label: string, value: string })
 const slots = useSlots()
 import { useSlots } from 'vue'
 defineOptions({
-  name: 'WebSelect'
+  name: 'WebSelectOptions'
 });
 </script>
 

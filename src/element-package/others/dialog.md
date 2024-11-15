@@ -21,6 +21,14 @@ meta:
 
 <preview path="./dialog-default.vue"></preview>
 
-## dialog-create
+## 创建
 
 <preview path="./dialog-create.vue" ></preview>
+
+## 编辑
+
+<preview path="./dialog-edit.vue" ></preview>
+
+## 查看
+
+<preview path="./dialog-view.vue" ></preview>

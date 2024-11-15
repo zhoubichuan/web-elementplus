@@ -1,6 +1,6 @@
 import Input from './src/input.vue'
-/* istanbul ignore next */
-Input.install = function (Vue) {
-  Vue.component(Input.name, Input)
+import type { App } from 'vue'
+Input.install = function (app: App) {
+  app.component(Input.name, Input)
 }
 export default Input

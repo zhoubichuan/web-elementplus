@@ -1,6 +1,6 @@
 import CascaderPanel from './src/cascader-panel.vue'
-/* istanbul ignore next */
-CascaderPanel.install = function (Vue) {
-  Vue.component(CascaderPanel.name, CascaderPanel)
+import type { App } from 'vue'
+CascaderPanel.install = function (app:App) {
+  app.component(CascaderPanel.name, CascaderPanel)
 }
 export default CascaderPanel

@@ -15,7 +15,7 @@
         xxxxx
     </web-dialog>
     <web-button @click="handleShow3">显示4</web-button>
-    <web-dialog title="1111" mold="edit" size="small" v-model="show4" @handleCancel="handleCancel4"
+    <web-dialog title="1111" mold="edit" size="middle" v-model="show4" @handleCancel="handleCancel4"
         @handleConfirm="handleConfirm4">
         xxxxx
     </web-dialog>
