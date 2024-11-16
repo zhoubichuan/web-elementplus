@@ -1,5 +1,5 @@
 <template>
-  <web-form-view title="查看xxx" :data="data" v-model="show" :close="handleClose"/>
+  <web-form-view title="查看xxx" :data="data" v-model="show" :close="handleClose" />
   <web-button @click="handleView">查看</web-button>
 </template>
 
@@ -13,7 +13,7 @@ const initFormData: any = {
   remark: '中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国',
 }
 const formData = ref<any>(initFormData)
-  const modelTypes = ref<Array<any>>([
+const modelTypes = ref<Array<any>>([
   {
     value: '1',
     desc: '模型',
@@ -25,42 +25,47 @@ const formData = ref<any>(initFormData)
 ])
 const data = ref(
   [
-  [
-    {
-      prop: 'type',
-      label: "关联项目",
-      render: modelTypes.value.find(i => i.value == formData.value.type)?.desc,
-    },
-  ],
-  [
-    {
-      prop: 'name',
-      label: "名称",
-      render: formData.value.name
-    },
-    {
-      prop: 'count',
-      label: "铸造数量",
-      render: formData.value.count
-    }
-  ],
-  [
-    {
-      prop: 'relatedId',
-      label: "模型id",
-      render: formData.value.relatedId
-    }
-  ],
-  [
-    {
-      prop: 'remark',
-      label: "remark",
-      render: formData.value.remark
-    }
-  ],
-]
+    [
+      {
+        prop: 'type',
+        label: "关联项目",
+        type: 'div',
+        value: modelTypes.value.find(i => i.value == formData.value.type)?.desc,
+      },
+    ],
+    [
+      {
+        prop: 'name',
+        label: "名称",
+        type: 'div',
+        value: formData.value.name
+      },
+      {
+        prop: 'count',
+        label: "铸造数量",
+        type: 'div',
+        value: formData.value.count
+      }
+    ],
+    [
+      {
+        prop: 'relatedId',
+        label: "模型id",
+        type: 'div',
+        value: formData.value.relatedId
+      }
+    ],
+    [
+      {
+        prop: 'remark',
+        label: "remark",
+        type: 'div',
+        value: formData.value.remark
+      }
+    ],
+  ]
 )
-const handleView = () =>{
+const handleView = () => {
   show.value = true
 }
 const handleClose = () => {

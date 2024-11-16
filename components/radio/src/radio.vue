@@ -11,29 +11,29 @@ export default {
 <style lang="scss">
 .web-radio {
   .el-radio__inner {
-    border: var(--radio-circle-not-checked-border);
+    border: var(--web-color-circle-not-checked-border);
   }
   &:hover {
     .el-radio__input:not(.is-disabled) .el-radio__inner {
-      border: var(--radio-circle-not-checked-border-hover);
+      border: var(--web-color-circle-not-checked-border-hover);
     }
   }
   .el-radio__input.is-checked:not(.is-disabled) .el-radio__inner {
-    background-color: var(--color-primary);
-    border-color: var(--color-primary);
+    background-color: var(--web-color-primary);
+    border-color: var(--web-color-primary);
   }
   .el-radio__input.is-checked:not(.is-disabled) + .el-radio__label {
-    color: var(--color-primary);
+    color: var(--web-color-primary);
   }
   &.el-radio.is-bordered.is-disabled {
-    background-color: var(--color-placeholder-bg);
-    border-color: var(--radio-disabled-boder-color);
+    background-color: var(--web-color-placeholder-bg);
+    border-color: var(--web-color-disabled-boder-color);
   }
   &.el-radio.is-bordered.is-checked:not(.is-disabled) {
-    border-color: var(--color-primary);
+    border-color: var(--web-color-primary);
   }
   .el-radio__input.is-disabled.is-checked .el-radio__inner {
-    border: var(--radio-circle-checked-disabled-border);
+    border: var(--web-color-circle-checked-disabled-border);
     &::after {
       display: none;
     }

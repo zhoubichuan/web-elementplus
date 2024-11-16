@@ -3,8 +3,12 @@
     <el-row v-if="formData.length">
       <el-col :span="12" v-for="(item, index) in formData" :key="index">
         <el-form-item :label="item.label" :prop="item.prop" v-if="item.type">
-          <component :is="item.type" v-bind="item.component" v-model="formModel[item.prop]">
-          </component>
+          <template v-if="item.type === 'div'">
+            <div>{{ item.value }}</div>
+          </template>
+          <template v-else>
+            <component :is="item.type" v-bind="item.component" v-model="formModel[item.prop]" />
+          </template>
           <!-- <template v-else>
             <Render v-if="typeof formData[0].render === 'function'" :render="formData[0].render"
               :formItem="formData[0]"></Render>

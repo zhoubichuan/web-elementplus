@@ -18,36 +18,36 @@ defineOptions({
 <style lang="scss">
 .web-checkbox {
   .el-checkbox__inner {
-    border: var(--radio-circle-not-checked-border);
+    border: var(--web-radio-circle-not-checked-border);
   }
 
   &:hover {
     .el-checkbox__input:not(.is-disabled) .el-checkbox__inner {
-      border: var(--radio-circle-not-checked-border-hover);
+      border: var(--web-radio-circle-not-checked-border-hover);
     }
   }
 
   .el-checkbox__input.is-checked:not(.is-disabled) .el-checkbox__inner {
-    background-color: var(--color-primary);
-    border-color: var(--color-primary);
+    background-color: var(--web-color-primary);
+    border-color: var(--web-color-primary);
   }
 
   .el-checkbox__input.is-checked:not(.is-disabled)+.el-checkbox__label {
-    color: var(--color-primary);
+    color: var(--web-color-primary);
   }
 
   &.el-checkbox.is-bordered.is-disabled {
-    background-color: var(--color-placeholder-bg);
-    border-color: var(--radio-disabled-boder-color);
+    background-color: var(--web-color-placeholder-bg);
+    border-color: var(--web-radio-disabled-boder-color);
   }
 
   &.el-checkbox.is-bordered.is-checked:not(.is-disabled) {
-    border-color: var(--color-primary);
+    border-color: var(--web-color-primary);
   }
 
   .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner {
 
-    // border: var(--radio-circle-checked-disabled-border);
+    // border: var(--web-radio-circle-checked-disabled-border);
     &::after {
       // display: none;
     }
