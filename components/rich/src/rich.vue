@@ -33,7 +33,11 @@ onMounted(() => {
   editor.create()
   editor.txt.html(props.modelValue)
 })
+defineOptions({
+  name: 'WebRich'
+});
 </script>
+
 <style lang="scss" scoped>
 // 富文本样式
 .toolbar {

@@ -1,6 +1,6 @@
 import Form from './src/form.vue'
-/* istanbul ignore next */
-Form.install = function (Vue) {
-  Vue.component(Form.name, Form)
+import type { App } from 'vue'
+Form.install = function (app: App) {
+  app.component(Form.name, Form)
 }
 export default Form

@@ -1,5 +1,5 @@
 <template>
-  <el-form ref="formRef" label-width="auto" class="demo-ruleForm" v-bind="$attrs">
+  <el-form ref="formRef" class="demo-ruleForm" v-bind="$attrs">
     <template #default="scoped">
       <slot name="default" v-bind="scoped"></slot>
     </template>

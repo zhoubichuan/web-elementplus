@@ -4,9 +4,6 @@
     <template v-if="slots.header" #header>
       <slot name="header"></slot>
     </template>
-    <template v-if="slots.title" #title="scoped">
-      <slot name="title" v-bind="scoped"></slot>
-    </template>
     <template v-if="$slots.title || mold.includes('message')" #title>
       <span v-if="mold.includes('message')" class="dialog-title">提示 </span>
       <slot v-else name="title"> </slot>

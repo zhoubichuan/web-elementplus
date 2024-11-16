@@ -1,10 +1,10 @@
 <template>
   <div>
-    <el-row v-if="formData.length">
-      <el-col :span="12" v-for="(item, index) in formData" :key="index">
+    <el-row v-if="formData.length" :gutter="20">
+      <el-col :span="24 / formData.length" v-for="(item, index) in formData" :key="index">
         <el-form-item :label="item.label" :prop="item.prop" v-if="item.type">
           <template v-if="item.type === 'div'">
-            <div>{{ item.value }}</div>
+            <div class="rich" contenteditable="true" v-html="item.init"></div>
           </template>
           <template v-else>
             <component :is="item.type" v-bind="item.component" v-model="formModel[item.prop]" />
@@ -56,8 +56,16 @@ defineOptions({
     Render,
     input: defineAsyncComponent(() => import(`../../input/index`)),
     select: defineAsyncComponent(() => import(`../../select/index`)),
-    cascader: defineAsyncComponent(() => import(`../../cascader/index`))
+    'select-image': defineAsyncComponent(() => import(`../../select-image/index`)),
+    cascader: defineAsyncComponent(() => import(`../../cascader/index`)),
+    rich: defineAsyncComponent(() => import(`../../rich/index`)),
+    'transfer-cascader-panel': defineAsyncComponent(() => import(`../../transfer-cascader-panel/index`)),
   }
 })
-
 </script>
+
+<style>
+.rich {
+  -webkit-user-modify: read-only;
+}
+</style>
