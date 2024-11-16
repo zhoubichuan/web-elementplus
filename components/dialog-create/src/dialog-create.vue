@@ -1,5 +1,5 @@
 <template>
-  <web-dialog @reloadList="reloadData" v-bind="$attrs" @handleCancel="close" @handleConfirm="handleSubmit">
+  <web-dialog v-bind="$attrs" @handleCancel="close" @handleConfirm="handleSubmit">
     <web-form ref="formRef" :rules="rules" :model="formModel" label-width="80px">
       <web-form-item v-for="(formItem, formItemIndex) in creteForm" :formData="formItem" :key="formItemIndex" />
     </web-form>
@@ -9,11 +9,11 @@
 <script setup lang="ts">
 import { ref, reactive, defineProps, provide, defineEmits } from 'vue'
 import { ElForm, ElMessage } from 'element-plus'
+import WebDialog from '../../dialog/index'
 import WebForm from '../../form/index'
 import WebFormItem from '../../form-item/index'
-
-const { close, request, creteForm } = defineProps<{
-  rules:Object,
+const { rules, close, request, creteForm } = defineProps<{
+  rules: Object,
   close: Function
   request: Function
   creteForm: any
@@ -33,7 +33,6 @@ const submit = () => {
 }
 provide('formModel', formModel)
 
-
 const dialogTitle = ref('创建')
 const formRef = ref<InstanceType<typeof ElForm>>()
 const emit = defineEmits(['reloadList', 'update:modelValue'])
@@ -52,17 +51,11 @@ const handleSubmit = () => {
     }
   })
 }
+defineOptions({
+  name: 'WebDialogCreate'
+});
+</script>
 
-</script>
-<script lang='ts'>
-export default {
-  name: "WebDialogCreate"
-}
-</script>
-<style>
-.el-cascader-menu__wrap {
-  .el-cascader-node {
-    padding: 0 !important;
-  }
-}
+<style lang="scss">
+
 </style>
