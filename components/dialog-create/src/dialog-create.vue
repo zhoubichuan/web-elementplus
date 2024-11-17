@@ -1,7 +1,7 @@
 <template>
   <web-dialog v-bind="$attrs" @handleCancel="close" @handleConfirm="handleSubmit">
     <web-form ref="formRef" :rules="rules" :model="formModel" label-width="80px">
-      <web-form-item v-for="(formItem, formItemIndex) in creteForm" :formData="formItem" :key="formItemIndex" />
+      <web-form-item v-for="(formItem, formItemIndex) in creteForm" :form-data="formItem" :key="formItemIndex" />
     </web-form>
   </web-dialog>
 </template>
@@ -12,12 +12,24 @@ import { ElForm, ElMessage } from 'element-plus'
 import WebDialog from '../../dialog/index'
 import WebForm from '../../form/index'
 import WebFormItem from '../../form-item/index'
-const { rules, close, request, creteForm } = defineProps<{
-  rules: Object,
-  close: Function
-  request: Function
-  creteForm: any
-}>()
+const { rules, close, request, creteForm } = defineProps({
+  rules: {
+    type: Object,
+    default: () => ({})
+  },
+  close: {
+    type: Function,
+    default: () => { }
+  },
+  request: {
+    type: Function,
+    default: () => { }
+  },
+  creteForm: {
+    type: Array,
+    default: () => []
+  },
+})
 // 查询参数
 const formModel = reactive<Record<string, string | number | undefined>>({})
 const init = () => creteForm.forEach(child => {
@@ -56,6 +68,4 @@ defineOptions({
 });
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

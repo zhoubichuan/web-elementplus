@@ -20,17 +20,25 @@
   </el-row>
 </template>
 <script setup lang="ts">
-import { computed, reactive, ref, toRefs, onBeforeMount } from 'vue'
+import { reactive, ref, toRefs, onBeforeMount } from 'vue'
 import WebSelectOptions from '../../select-options/index'
 import WebCascaderPanel from '../../cascader-panel/index'
-import { IModelTypeItem, getNftTree, getNftScenarios } from '@/api/nft'
+import { getNftTree, getNftScenarios } from '@/api/nft'
 import { cloneDeep } from 'lodash'
 
 const emits = defineEmits(['update:modelValue'])
-const { modelValue } = defineProps({
+const { modelValue, requestSelect, requestTree } = defineProps({
   modelValue: {
     type: String,
     default: ''
+  },
+  requestSelect: {
+    type: Function,
+    default: () => []
+  },
+  requestTree: {
+    type: Function,
+    default: () => []
   }
 })
 const formData = ref<any>({
@@ -47,30 +55,22 @@ const nextSelect = ref([])
 const treeData2 = ref([])
 
 const treeData = ref()
-const requestTree = async params => {
-  const {
-    c,
-    d: { result }
-  } = await getNftTree(params)
-  if (c == 200) {
-    treeData.value = result
-  }
+const getRequestTree = async (params) => {
+  const result = await requestTree(params)
+  treeData.value = result
 }
 const scenariosData = ref([])
-const requestScenarios = async () => {
-  const { c, d } = await getNftScenarios()
-  if (c == 200) {
-    const data = d.reverse()
-    scenariosData.value = data
-    formData.value.type = data[0].value
-    requestTree({ sceneType: data[0].value })
-  }
+const requestScenarios = async (params) => {
+  const data = await requestSelect(params)
+  scenariosData.value = data
+  formData.value.type = data[0].value
+  getRequestTree({ sceneType: data[0].value })
 }
 onBeforeMount(() => {
   requestScenarios()
 })
 const handleSelectChange = (id: string) => {
-  requestTree({ sceneType: id })
+  getRequestTree({ sceneType: id })
 }
 const handleAdd = () => {
   nextSelect.value = preSelect.value

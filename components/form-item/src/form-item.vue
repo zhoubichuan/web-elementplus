@@ -55,6 +55,7 @@ defineOptions({
   components: {
     Render,
     input: defineAsyncComponent(() => import(`../../input/index`)),
+    'input-button': defineAsyncComponent(() => import(`../../input-button/index`)),
     select: defineAsyncComponent(() => import(`../../select/index`)),
     'select-image': defineAsyncComponent(() => import(`../../select-image/index`)),
     cascader: defineAsyncComponent(() => import(`../../cascader/index`)),

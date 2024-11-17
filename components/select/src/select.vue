@@ -32,12 +32,17 @@
 </template>
 
 <script setup lang="ts" name="WebSelect">
+import { onMounted, useSlots, ref, watch } from 'vue';
 import { CaretTop } from '@element-plus/icons-vue'
 import { defineProps, PropType, computed } from "vue"
-const { options, optionsProps } = defineProps({
+const { options, request, optionsProps } = defineProps({
   options: {
     type: Array as PropType<{ label: string, value: string }[]>,
     default: () => []
+  },
+  request: {
+    type: Function,
+    default: () => { }
   },
   optionsProps: {
     type: Object as PropType<{ label: string, value: string }>,
@@ -47,10 +52,12 @@ const { options, optionsProps } = defineProps({
     })
   }
 })
-const newOptions = computed(() => options)
+const newOptions = ref([])
 const newOptionsProps = computed(() => optionsProps as { label: string, value: string })
 const slots = useSlots()
-import { useSlots } from 'vue'
+onMounted(async () => {
+  newOptions.value = await request()
+})
 defineOptions({
   name: 'WebSelect'
 });
