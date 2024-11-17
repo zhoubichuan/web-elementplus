@@ -9,7 +9,7 @@ meta:
 ---
 
 # 一.Radio
-:::warning
+::: tip 前言
 
 :::
 ## 默认

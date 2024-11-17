@@ -10,10 +10,9 @@ meta:
 
 # 二.Checkbox
 
-:::warning
+::: tip 前言
 
 :::
-
 
 ## 默认
 

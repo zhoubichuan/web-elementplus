@@ -1,7 +1,7 @@
 # Input 输入框
 
 
-:::warning
+::: tip 前言
 
 :::
 

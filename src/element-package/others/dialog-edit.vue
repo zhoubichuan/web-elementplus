@@ -1,6 +1,6 @@
 <template>
   <web-dialog-create :rules="rules" size="big" title="编辑xx" v-model="show" :close="handleClose" @reloadList="reloadData"
-    :creteForm="formData" :request="handleRequest"/>
+    :creteForm="formData" :request="handleRequest" />
   <web-button @click="handleCreate">编辑</web-button>
 </template>
 
@@ -17,7 +17,6 @@ const handleClose = () => {
   create.value = false
 }
 const handleRequest = (val) => {
-  debugger
 }
 const typeChange = (val: any) => {
   if (val === 1) {
@@ -46,10 +45,11 @@ const baseFormData = [
       prop: 'type',
       label: '类型',
       type: 'select',
+      init: 1,
       component: {
         placeholder: '请选择类型',
         onChange: typeChange,
-        options: [{ value: 1, label: '1' }, { value: 2, label: '2' }]
+        request: () => [{ value: 1, label: '1asdfaqwfsafa' }, { value: 2, label: 'asdf23asdfa2' }]
       }
     },
     {}
@@ -59,6 +59,7 @@ const baseFormData = [
       prop: 'relatedId',
       label: 'xxx',
       type: 'input',
+      init:55,
       component: {
         placeholder: '请输入sssddsid'
       }
@@ -70,6 +71,7 @@ const baseFormData = [
       prop: 'name',
       label: '名称',
       type: 'input',
+      init:'李白',
       component: {
         placeholder: '请输入名称'
       }
@@ -78,6 +80,7 @@ const baseFormData = [
       prop: 'count',
       label: 'saddd',
       type: 'input',
+      init:'1111',
       component: {
         placeholder: '请输入ss'
       }
@@ -88,6 +91,13 @@ const baseFormData = [
       prop: 'remark',
       label: '说明',
       type: 'rich',
+      init:`什么是纯文本 什么是富文本 – PingCode
+
+
+
+相对于纯文本,富文本是指那些包含了格式信息的文本,比如字体样式(粗体、斜体等)、颜色、超链接、图像、表格等多媒体元素。富文本编辑器如Microsoft Word或网页上的HTML编辑器能支持这些格式。富文...
+
+PingCode`,
       component: {
         menus: [
           'head',
@@ -120,67 +130,7 @@ const baseFormData = [
     }
   ]
 ]
-const baseFormData2 = [
-  [
-    {
-      prop: 'type',
-      label: '类型',
-      type: 'select',
-      components: {
-        options: []
-      }
-    }
-  ],
-  [
-    {
-      prop: 'relatedId',
-      label: 'sdqewqwe',
-    }
-  ],
-  [
-    {
-      prop: 'image',
-      label: '图片',
-      type: 'web-select-image',
-    }
-  ],
-  [
-    {
-      prop: 'remark',
-      label: '说明',
-      type: 'web-rich',
-      component: {
-        menus: [
-          'head',
-          'bold',
-          'fontSize',
-          // 'fontName',
-          // 'italic',
-          // 'underline',
-          // 'strikeThrough',
-          // 'indent',
-          // 'lineHeight',
-          // 'foreColor',
-          // 'backColor',
-          // 'link',
-          'list',
-          // 'todo',
-          // 'justify',
-          // 'quote',
-          // 'emoticon',
-          'image'
-          // 'video',
-          // 'table',
-          // 'code',
-          // 'splitLine',
-          // 'undo',
-          // 'redo',
-        ],
-        style: 'width: 100%'
-      }
-    }
-  ]
-]
+
 const formData = ref(baseFormData)
 </script>
 <style lang="scss" scoped></style>

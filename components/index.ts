@@ -26,6 +26,7 @@ import Button from './button/index'
 import Search from './search/index'
 import Dialog from './dialog/index'
 import DialogCreate from './dialog-create/index'
+import DialogView from './dialog-view/index'
 // import Modal from './modal/index'
 // import CommonForm from './common-form/index'
 import Table from './table/index'
@@ -127,6 +128,7 @@ const components = [
   //   Search,
   Dialog,
   DialogCreate,
+  DialogView,
   Slider,
   Search,
   //   Dialog,
@@ -253,6 +255,7 @@ export default {
   //   Search,
   Dialog,
   DialogCreate,
+  DialogView,
   Slider,
   Search,
   //   Dialog,

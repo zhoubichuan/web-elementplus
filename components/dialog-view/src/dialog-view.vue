@@ -1,5 +1,5 @@
 <template>
-  <web-dialog v-bind="$attrs" model="view" @handleCancel="close">
+  <web-dialog v-bind="$attrs" mold="view" @handleCancel="close">
     <web-form :model="formModel" label-width="80px">
       <web-form-item v-for="(formItem, formItemIndex) in creteForm" :form-data="formItem" :key="formItemIndex" />
     </web-form>

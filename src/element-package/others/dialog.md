@@ -14,6 +14,7 @@ meta:
 
 - 1.添加类型`size`
 - 2.头部改造
+- 3.弹框组件+表单组件
 
 :::
 
@@ -23,12 +24,18 @@ meta:
 
 ## 创建
 
+- 通过`type`字段选择不同的组件，内部使用异步组件动态加载
+
 <preview path="./dialog-create.vue" ></preview>
 
 ## 编辑
 
+- 通过`init`字段赋给默认值
+
 <preview path="./dialog-edit.vue" ></preview>
 
 ## 查看
+
+- 去掉`取消`、`确认`按钮
 
 <preview path="./dialog-view.vue" ></preview>

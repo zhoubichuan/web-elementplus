@@ -1,5 +1,5 @@
 <template>
-  <web-form-view title="查看xxx" :data="data" v-model="show" :close="handleClose" />
+  <web-dialog-view size="big"  title="查看xxx" :creteForm="data" v-model="show" :close="handleClose" />
   <web-button @click="handleView">查看</web-button>
 </template>
 
@@ -16,11 +16,11 @@ const formData = ref<any>(initFormData)
 const modelTypes = ref<Array<any>>([
   {
     value: '1',
-    desc: '模型',
+    desc: 'adfasdfad',
   },
   {
     value: '2',
-    desc: '资产',
+    desc: 'asdfqweqsdfasd',
   },
 ])
 const data = ref(
@@ -28,9 +28,9 @@ const data = ref(
     [
       {
         prop: 'type',
-        label: "关联项目",
+        label: "xx项目",
         type: 'div',
-        value: modelTypes.value.find(i => i.value == formData.value.type)?.desc,
+        init: modelTypes.value.find(i => i.value == formData.value.type)?.desc,
       },
     ],
     [
@@ -38,29 +38,29 @@ const data = ref(
         prop: 'name',
         label: "名称",
         type: 'div',
-        value: formData.value.name
+        init: formData.value.name
       },
       {
         prop: 'count',
-        label: "铸造数量",
+        label: "xx数量",
         type: 'div',
-        value: formData.value.count
+        init: formData.value.count
       }
     ],
     [
       {
         prop: 'relatedId',
-        label: "模型id",
+        label: "asdfid",
         type: 'div',
-        value: formData.value.relatedId
+        init: formData.value.relatedId
       }
     ],
     [
       {
         prop: 'remark',
-        label: "remark",
+        label: "dddd",
         type: 'div',
-        value: formData.value.remark
+        init: formData.value.remark
       }
     ],
   ]

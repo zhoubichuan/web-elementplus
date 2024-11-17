@@ -1,5 +1,5 @@
 <template>
-  <web-select v-model="value" :options="options" placeholder="请选择" />
+  <web-select v-model="value" :request="() => options" placeholder="请选择" />
 </template>
 
 <script lang="ts" setup>

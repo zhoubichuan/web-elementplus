@@ -9,7 +9,7 @@ meta:
 ---
 
 # 十六.ColorPicker
-:::warning
+::: tip 前言
 
 :::
 

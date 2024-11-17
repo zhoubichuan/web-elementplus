@@ -130,7 +130,7 @@ export default {
       text: "表单组件",
       items: [
         { text: "index", link: "/element-package/form/" },
-        { text: "一.Cascader", link: "/element-package/form/cascader" },
+        { text: "一.级联选择", link: "/element-package/form/cascader" },
         { text: "二.Checkbox", link: "/element-package/form/checkbox" },
         { text: "三.Input", link: "/element-package/form/input" },
         { text: "四.InputNumber", link: "/element-package/form/inputnumber" },
@@ -147,7 +147,7 @@ export default {
         { text: "十五.Rate", link: "/element-package/form/rate" },
         { text: "十六.ColorPicker", link: "/element-package/form/colorpicker" },
         { text: "十七.Transfer", link: "/element-package/form/transfer" },
-        { text: "十八.Form", link: "/element-package/form/form" },
+        { text: "十八.表单", link: "/element-package/form/form" },
       ],
     },
   ],

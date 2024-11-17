@@ -10,7 +10,7 @@ meta:
 
 # Form 表单组件
 
-:::warning
+::: tip 前言
 
 :::
 

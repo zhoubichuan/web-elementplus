@@ -10,5 +10,6 @@ meta:
 
 # Rate 评分
 
-##  默认
+## 默认
+
 <preview path="./rate.vue"></preview>

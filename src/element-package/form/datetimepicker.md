@@ -9,7 +9,7 @@ meta:
 ---
 
 # 十三.DateTimePicker
-:::warning
+::: tip 前言
 
 :::
 ## 1.默认

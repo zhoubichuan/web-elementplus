@@ -10,7 +10,7 @@ meta:
 
 
 # 十二.DatePicker
-:::warning
+::: tip 前言
 
 :::
 ## 默认

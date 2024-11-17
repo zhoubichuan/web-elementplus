@@ -69,9 +69,7 @@ const handleConfirm4 = () => {
 </script>
 
 <style lang="scss">
-.el-cascader-menu__wrap {
-    .el-cascader-node {
-        padding: 0 !important;
-    }
+.web-button {
+   margin-right: 20px;
 }
 </style>

@@ -10,7 +10,7 @@ meta:
 
 # 十八.Form
 
-:::warning
+::: tip 前言
 
 :::
 
@@ -19,9 +19,6 @@ meta:
 ## form-search
 
 <preview path="./form-search.vue"></preview>
-
-
-
 
 <!-- ## search
 

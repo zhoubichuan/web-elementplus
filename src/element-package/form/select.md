@@ -8,9 +8,14 @@ meta:
     content: vuepress,最新技术文档,vuepress语法,markdown语法
 ---
 
-# 五.Select
-:::warning
+# 五.选择下拉框
+
+::: tip 前言
+
+- 扩展 `request`字段
 
 :::
+
 ## 默认
+
 <preview path="./select-default.vue"></preview>

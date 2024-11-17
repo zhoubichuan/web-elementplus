@@ -49,7 +49,7 @@ const baseFormData = [
       component: {
         placeholder: '请选择类型',
         onChange: typeChange,
-        options: [{ value: 1, label: '1' }, { value: 2, label: '2' }]
+        request: () => [{ value: 1, label: '1asdfaqwfsafa' }, { value: 2, label: 'asdf23asdfa2' }]
       }
     },
     {}
@@ -88,67 +88,6 @@ const baseFormData = [
       prop: 'remark',
       label: '说明',
       type: 'rich',
-      component: {
-        menus: [
-          'head',
-          'bold',
-          'fontSize',
-          // 'fontName',
-          // 'italic',
-          // 'underline',
-          // 'strikeThrough',
-          // 'indent',
-          // 'lineHeight',
-          // 'foreColor',
-          // 'backColor',
-          // 'link',
-          'list',
-          // 'todo',
-          // 'justify',
-          // 'quote',
-          // 'emoticon',
-          'image'
-          // 'video',
-          // 'table',
-          // 'code',
-          // 'splitLine',
-          // 'undo',
-          // 'redo',
-        ],
-        style: 'width: 100%'
-      }
-    }
-  ]
-]
-const baseFormData2 = [
-  [
-    {
-      prop: 'type',
-      label: '类型',
-      type: 'select',
-      components: {
-        options: []
-      }
-    }
-  ],
-  [
-    {
-      prop: 'relatedId',
-      label: 'sdqewqwe',
-    }
-  ],
-  [
-    {
-      prop: 'image',
-      label: '图片',
-      type: 'web-select-image',
-    }
-  ],
-  [
-    {
-      prop: 'remark',
-      label: '说明',
-      type: 'web-rich',
       component: {
         menus: [
           'head',
