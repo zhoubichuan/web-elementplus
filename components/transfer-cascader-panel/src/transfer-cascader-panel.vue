@@ -1,5 +1,6 @@
 <template>
-  <el-row :gutter="20" class="transfer-cascader-panel">
+  <web-cascader-panel v-if="view" v-model="nextSelect" :props="{ ...props, disabled: true }" :options="treeData2" />
+  <el-row v-else :gutter="20" class="transfer-cascader-panel">
     <el-col :span="12">
       <div class="select-part">
         <web-select-options v-model="formData.type" placeholder="请选择类型" style="width: 200px" :options="scenariosData"
@@ -23,11 +24,14 @@
 import { reactive, ref, toRefs, onBeforeMount } from 'vue'
 import WebSelectOptions from '../../select-options/index'
 import WebCascaderPanel from '../../cascader-panel/index'
-import { getNftTree, getNftScenarios } from '@/api/nft'
 import { cloneDeep } from 'lodash'
 
 const emits = defineEmits(['update:modelValue'])
 const { modelValue, requestSelect, requestTree } = defineProps({
+  view: {
+    type: Boolean,
+    default: false
+  },
   modelValue: {
     type: String,
     default: ''

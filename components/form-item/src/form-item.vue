@@ -55,12 +55,14 @@ defineOptions({
   components: {
     Render,
     input: defineAsyncComponent(() => import(`../../input/index`)),
+    'input-more': defineAsyncComponent(() => import(`../../input-more/index`)),
     'input-button': defineAsyncComponent(() => import(`../../input-button/index`)),
     select: defineAsyncComponent(() => import(`../../select/index`)),
     'select-image': defineAsyncComponent(() => import(`../../select-image/index`)),
     cascader: defineAsyncComponent(() => import(`../../cascader/index`)),
     rich: defineAsyncComponent(() => import(`../../rich/index`)),
     'transfer-cascader-panel': defineAsyncComponent(() => import(`../../transfer-cascader-panel/index`)),
+    upload: defineAsyncComponent(() => import(`../../upload/index`)),
   }
 })
 </script>
