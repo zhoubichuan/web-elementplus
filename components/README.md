@@ -8,10 +8,8 @@
 
 ### 1.1 安装
 
-以 yarn 为例
-
 ```sh
-yarn add web-elementplus
+npm i web-elementplus -S
 ```
 
 ### 1.2 配置
