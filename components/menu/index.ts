@@ -1,6 +1,6 @@
 import Menu from './src/menu.vue'
-/* istanbul ignore next */
-Menu.install = function (Vue) {
-  Vue.component(Menu.name, Menu)
+import type { App } from 'vue'
+Menu.install = function (app: App) {
+  app.component(Menu.name, Menu)
 }
 export default Menu

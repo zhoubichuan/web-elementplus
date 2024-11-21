@@ -1,6 +1,6 @@
-import Tabs from './src/tabs'
-/* istanbul ignore next */
-Tabs.install = function (Vue) {
-  Vue.component(Tabs.name, Tabs)
+import Tabs from './src/tabs.vue'
+import type { App } from 'vue'
+Tabs.install = function (app: App) {
+  app.component(Tabs.name, Tabs)
 }
 export default Tabs

@@ -1,11 +1,11 @@
 <template>
   <div class="demo-color-block">
     <span class="demonstration">With default value</span>
-    <el-color-picker v-model="color1" />
+    <web-color-picker v-model="color1" />
   </div>
   <div class="demo-color-block">
     <span class="demonstration">With no default value</span>
-    <el-color-picker v-model="color2" />
+    <web-color-picker v-model="color2" />
   </div>
 </template>
 

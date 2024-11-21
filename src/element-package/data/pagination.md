@@ -16,4 +16,4 @@ meta:
 请注意父容器避免使用 inline 相关样式，会导致组件宽度不能撑满。
 :::
 
-<preview path="./pagination.vue"></preview>
+<preview path="./pagination-default.vue"></preview>

@@ -1,13 +1,13 @@
 <template>
-  <el-scrollbar ref="scrollbarRef" height="400px" always @scroll="scroll">
+  <web-scrollbar ref="scrollbarRef" height="400px" always @scroll="scroll">
     <div ref="innerRef">
       <p v-for="item in 20" :key="item" class="scrollbar-demo-item">
         {{ item }}
       </p>
     </div>
-  </el-scrollbar>
+  </web-scrollbar>
 
-  <el-slider
+  <web-slider
     v-model="value"
     :max="max"
     :format-tooltip="formatTooltip"
@@ -48,10 +48,10 @@ const formatTooltip = (value: number) => {
   margin: 10px;
   text-align: center;
   border-radius: 4px;
-  background: var(--el-color-primary-light-9);
-  color: var(--el-color-primary);
+  background: var(--web-color-primary-light-9);
+  color: var(--web-color-primary);
 }
-.el-slider {
+.web-slider {
   margin-top: 20px;
 }
 </style>

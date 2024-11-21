@@ -1,11 +1,11 @@
 <template>
   <div class="demo-rate-block">
     <span class="demonstration">Default</span>
-    <el-rate v-model="value1" />
+    <web-rate v-model="value1" />
   </div>
   <div class="demo-rate-block">
     <span class="demonstration">Color for different levels</span>
-    <el-rate v-model="value2" :colors="colors" />
+    <web-rate v-model="value2" :colors="colors" />
   </div>
 </template>
 
@@ -21,7 +21,7 @@ const colors = ref(["#99A9BF", "#F7BA2A", "#FF9900"]); // same as { 2: '#99A9BF'
 .demo-rate-block {
   padding: 30px 0;
   text-align: center;
-  border-right: solid 1px var(--el-border-color);
+  border-right: solid 1px var(--web-border-color);
   display: inline-block;
   width: 49%;
   box-sizing: border-box;
@@ -31,7 +31,7 @@ const colors = ref(["#99A9BF", "#F7BA2A", "#FF9900"]); // same as { 2: '#99A9BF'
 }
 .demo-rate-block .demonstration {
   display: block;
-  color: var(--el-text-color-secondary);
+  color: var(--web-text-color-secondary);
   font-size: 14px;
   margin-bottom: 20px;
 }

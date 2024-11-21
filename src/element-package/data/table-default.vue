@@ -3,12 +3,12 @@
   <web-table :table-config="config" :table="tableData ?? []" :page-info="pageInfo"
     @changePageSize="handleSizeChange" @changeCurrentPage="handleCurrentChange" @toDelete="toDelete" @toEdit="toEdit">
     <template #modelPicture="scope">
-      <el-row>
+      <web-row>
         <div class="block" v-for="(pic, index) in scope.row.modelPicture" :key="index">
-          <el-image style="width: 60px; height: 60px; margin-left: 10px" :src="pic"
-            :preview-src-list="scope.row.modelPicture"></el-image>
+          <web-image style="width: 60px; height: 60px; margin-left: 10px" :src="pic"
+            :preview-src-list="scope.row.modelPicture"></web-image>
         </div>
-      </el-row>
+      </web-row>
     </template>
   </web-table>
 </template>

@@ -1,6 +1,6 @@
 import Checkbox from './src/checkbox.vue'
-/* istanbul ignore next */
-Checkbox.install = function (Vue) {
-  Vue.component(Checkbox.name, Checkbox)
+import type { App } from 'vue'
+Checkbox.install = function (app: App) {
+  app.component(Checkbox.name, Checkbox)
 }
 export default Checkbox

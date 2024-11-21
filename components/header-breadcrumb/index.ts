@@ -1,6 +1,6 @@
 import HeaderBreadcrumb from './src/header-breadcrumb'
-/* istanbul ignore next */
-HeaderBreadcrumb.install = function (Vue) {
-  Vue.component(HeaderBreadcrumb.name, HeaderBreadcrumb)
+import type { App } from 'vue'
+HeaderBreadcrumb.install = function (app: App) {
+  app.component(HeaderBreadcrumb.name, HeaderBreadcrumb)
 }
 export default HeaderBreadcrumb

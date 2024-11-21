@@ -1,6 +1,6 @@
-import Steps from './src/steps'
-/* istanbul ignore next */
-Steps.install = function (Vue) {
-  Vue.component(Steps.name, Steps)
+import Steps from './src/steps.vue'
+import type { App } from 'vue'
+Steps.install = function (app: App) {
+  app.component(Steps.name, Steps)
 }
 export default Steps

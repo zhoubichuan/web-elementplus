@@ -1,6 +1,6 @@
 import Tag from './src/tag.vue'
-/* istanbul ignore next */
-Tag.install = function (Vue) {
-  Vue.component(Tag.name, Tag)
+import type { App } from 'vue'
+Tag.install = function (app: App) {
+  app.component(Tag.name, Tag)
 }
 export default Tag

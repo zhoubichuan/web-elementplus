@@ -9,7 +9,9 @@ meta:
 ---
 
 # 四.InputNumber
+
 ::: tip 前言
 
 :::
-<preview path="./inputnumber.vue"></preview>
+
+<preview path="./inputnumber-default.vue"></preview>

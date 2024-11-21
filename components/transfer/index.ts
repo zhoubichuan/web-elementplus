@@ -1,6 +1,6 @@
 import Transfer from './src/transfer.vue'
-/* istanbul ignore next */
-Transfer.install = function (Vue) {
-  Vue.component(Transfer.name, Transfer)
+import type { App } from 'vue'
+Transfer.install = function (app: App) {
+  app.component(Transfer.name, Transfer)
 }
 export default Transfer

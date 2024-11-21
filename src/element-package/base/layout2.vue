@@ -10,7 +10,7 @@ const data = ref([
     'value': 2
   },
   {
-    is: 'el-input',
+    is: 'web-input',
     value: 299
   },
   {

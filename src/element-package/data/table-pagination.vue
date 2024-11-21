@@ -65,7 +65,7 @@ const column = ref([
     slotable: true,
     name: 'operation',
     component: {
-      is: 'el-button',
+      is: 'web-button',
       class: 'link-text',
       text: '查看'
     }

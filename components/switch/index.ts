@@ -1,6 +1,6 @@
 import Switch from './src/switch.vue'
-/* istanbul ignore next */
-Switch.install = function (Vue) {
-  Vue.component(Switch.name, Switch)
+import type { App } from 'vue'
+Switch.install = function (app: App) {
+  app.component(Switch.name, Switch)
 }
 export default Switch

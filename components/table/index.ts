@@ -1,6 +1,6 @@
 import Table from './src/table.vue'
-/* istanbul ignore next */
-Table.install = function (Vue) {
-  Vue.component(Table.name, Table)
+import type { App } from 'vue'
+Table.install = function (app: App) {
+  app.component(Table.name, Table)
 }
 export default Table

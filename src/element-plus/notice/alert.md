@@ -28,7 +28,7 @@ meta:
 ```js
 import Alert from "./src/main"
 
-/* istanbul ignore next */
+import type { App } from 'vue'
 Alert.install = function(Vue) {
   Vue.component(Alert.name, Alert)
 }

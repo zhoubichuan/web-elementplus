@@ -1,6 +1,6 @@
-import Link from './src/link'
-/* istanbul ignore next */
-Link.install = function (Vue) {
-  Vue.component(Link.name, Link)
+import Link from './src/link.vue'
+import type { App } from 'vue'
+Link.install = function (app: App) {
+  app.component(Link.name, Link)
 }
 export default Link

@@ -1,4 +1,4 @@
-# Avatar 头像
+# 头像
 
 :::tip 前言
 组件默认使用 Flex 布局，不需要手动设置 type="flex"。
@@ -8,4 +8,4 @@
 
 ## 基础用法
 
-<preview path="./avatar.vue"></preview>
+<preview path="./avatar-default.vue"></preview>

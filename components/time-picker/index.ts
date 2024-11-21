@@ -1,6 +1,6 @@
 import TimePicker from './src/time-picker.vue'
-/* istanbul ignore next */
-TimePicker.install = function (Vue) {
-  Vue.component(TimePicker.name, TimePicker)
+import type { App } from 'vue'
+TimePicker.install = function (app: App) {
+  app.component(TimePicker.name, TimePicker)
 }
 export default TimePicker

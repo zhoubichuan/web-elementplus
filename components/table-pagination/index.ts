@@ -1,6 +1,6 @@
 import TablePagination from './src/table.vue'
 // @ts-ignore
-TablePagination.install = function (Vue) {
-  Vue.component(TablePagination.name, TablePagination)
+TablePagination.install = function (app: App) {
+  app.component(TablePagination.name, TablePagination)
 }
 export default TablePagination

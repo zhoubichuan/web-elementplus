@@ -1,6 +1,6 @@
 import ZoomImg from './src/zoomImg'
-/* istanbul ignore next */
-ZoomImg.install = function (Vue) {
-  Vue.component(ZoomImg.name, ZoomImg)
+import type { App } from 'vue'
+ZoomImg.install = function (app: App) {
+  app.component(ZoomImg.name, ZoomImg)
 }
 export default ZoomImg

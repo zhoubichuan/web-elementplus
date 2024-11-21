@@ -1,11 +1,11 @@
 <template>
     <div class="m-4">
         <p>单选</p>
-        <el-cascader placeholder="请输入" :options="options" filterable />
+        <web-cascader placeholder="请输入" :options="options" filterable />
     </div>
     <div class="m-4">
         <p>多选</p>
-        <el-cascader placeholder="请输入" :options="options" :props="props" filterable />
+        <web-cascader placeholder="请输入" :options="options" :props="props" filterable />
     </div>
 </template>
 

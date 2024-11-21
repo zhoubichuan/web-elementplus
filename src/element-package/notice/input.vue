@@ -1,5 +1,5 @@
 <template>
-  <el-input class="web-input" v-model="value"> </el-input>
+  <web-input class="web-input" v-model="value"> </web-input>
 </template>
 
 <script setup lang="ts">

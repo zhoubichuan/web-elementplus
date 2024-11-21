@@ -1,6 +1,6 @@
 import Search from './src/search.vue'
-/* istanbul ignore next */
-Search.install = function (Vue) {
-  Vue.component(Search.name, Search)
+import type { App } from 'vue'
+Search.install = function (app: App) {
+  app.component(Search.name, Search)
 }
 export default Search
