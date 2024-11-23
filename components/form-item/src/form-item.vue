@@ -63,6 +63,7 @@ defineOptions({
     rich: defineAsyncComponent(() => import(`../../rich/index`)),
     'transfer-cascader-panel': defineAsyncComponent(() => import(`../../transfer-cascader-panel/index`)),
     upload: defineAsyncComponent(() => import(`../../upload/index`)),
+    'upload-template': defineAsyncComponent(() => import(`../../upload-template/index`)),
   }
 })
 </script>

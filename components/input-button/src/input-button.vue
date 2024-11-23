@@ -24,9 +24,10 @@ const handleInput = (val: string) => {
 const handleClick = async () => {
   let res = await request({ spuId: attrs.modelValue })
   if (res) {
-    ElMessage.warning('spuId不存在')
-  } else {
     ElMessage.success('spuId存在')
+  } else {
+    ElMessage.warning('spuId不存在')
+
   }
 }
 defineOptions({

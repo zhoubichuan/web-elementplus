@@ -13,7 +13,7 @@
 </template>
 <script setup lang="ts" name="Webtransfer">
 import { useSlots } from 'vue'
-import { ElTransfer } from 'element-plus';
+import { WebTransfer } from 'element-plus';
 
 defineOptions({
   name: 'WebTransfer'

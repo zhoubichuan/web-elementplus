@@ -1,5 +1,5 @@
 <template>
-  <el-select class="web-select" popper-class="web-select-popper" :suffix-icon="CaretTop" v-bind="$attrs">
+  <el-select class="web-select" clearable popper-class="web-select-popper" :suffix-icon="CaretTop" v-bind="$attrs">
     <template v-if="newOptions.length">
       <el-option v-for="(item, index) in newOptions" :key="index" :label="item[newOptionsProps.label]"
         :value="item[newOptionsProps.value]" />
@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts" name="WebSelect">
-import { onMounted, useSlots, ref, watch } from 'vue';
+import { onMounted, useSlots, ref } from 'vue';
 import { CaretTop } from '@element-plus/icons-vue'
 import { defineProps, PropType, computed } from "vue"
 const { options, request, optionsProps } = defineProps({

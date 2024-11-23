@@ -1,7 +1,7 @@
 <template>
   <el-collapse v-model="activeNames" @change="handleChange">
     <el-collapse-item name="1">
-      <template slot="title">
+      <template v-slot:title>
         <i class="header-icon el-icon-info"></i>
         <span style="padding-left: 10px">搜索</span>
       </template>

@@ -3,13 +3,14 @@
     <slot></slot>
   </el-radio-group>
 </template>
-<script lang='ts'>
-export default {
-  name: "WebRadioGroup"
-}
+<script lang="ts" setup name="WebRadioGroup">
+defineOptions({
+  name: 'WebRadioGroup'
+})
 </script>
+
 <style lang="scss">
 .web-radio-group {
- 
+
 }
 </style>

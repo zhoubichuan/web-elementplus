@@ -3,10 +3,10 @@
     <slot></slot>
   </el-radio>
 </template>
-<script lang='ts'>
-export default {
-  name: "WebRadio"
-}
+<script lang='ts' setup>
+defineOptions({
+  name: 'WebRadio'
+})
 </script>
 <style lang="scss">
 .web-radio {

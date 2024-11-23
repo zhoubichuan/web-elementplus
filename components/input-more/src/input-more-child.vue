@@ -1,29 +1,48 @@
 <template>
   <div class="input-more-child">
-    <el-input class="input" v-model="value" @change="handleChange"/>
-    <el-button link>上移</el-button>
-    <el-button link> 下移</el-button>
+    <el-input class="input" v-model="value" @input="handleChange" />
+    <el-button link @click="handleUp">上移</el-button>
+    <el-button link @click="handleDown"> 下移</el-button>
     <el-icon style="font-size: 24px">
-      <Delete style="width: 20px; height: 20px; margin-left: 8px; margin-top: 8px" />
+      <Delete @click="handleDelete" style="width: 20px; height: 20px; margin-left: 8px; margin-top: 8px" />
     </el-icon>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-const { modelValue } = defineProps({
-  modelValue: {
-    type: String,
-    default: ''
+import { ref, watch } from 'vue'
+const { index, data } = defineProps({
+  index: {
+    type: Number,
+    default: 0
+  },
+  data: {
+    type: Object,
+    default: { value: 0, index: 0 }
   }
 })
-const emits = defineEmits(['update:modelValue'])
+const emits = defineEmits(['input', 'up', 'down', 'delete'])
 defineOptions({
   name: 'WebInputMoreChild'
 });
-const value = ref(modelValue)
-const handleChange = (val) => {
-  emits('update:modelValue', val)
+const value = ref('')
+watch(() => data, (newVal) => {
+  value.value = newVal.value
+}, {
+  immediate: true,
+  deep: true
+})
+const handleChange = () => {
+  emits('input', { key: index, value: { value, index: data.index } })
+}
+const handleUp = () => {
+  emits('up', { key: index, value: { value, index: data.index } })
+}
+const handleDown = () => {
+  emits('down', { key: index, value: { value, index: data.index } })
+}
+const handleDelete = () => {
+  emits('delete', { key: index, value: { value, index: data.index } })
 }
 </script>
 <style scoped lang="scss">

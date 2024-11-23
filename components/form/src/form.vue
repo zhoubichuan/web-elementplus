@@ -13,7 +13,7 @@ import type { FormInstance } from 'element-plus'
 
 const formRef = ref<FormInstance>()
 defineExpose({
-  validate: (params) => formRef.value?.validate(params)
+  validate: (params: any) => formRef.value?.validate(params)
 })
 
 defineOptions({

@@ -14,7 +14,6 @@
 
 <script lang="ts" setup>
 import { useSlots } from 'vue'
-import { ElButton } from 'element-plus';
 const slots = useSlots()
 defineOptions({
   name: 'WebButton'
@@ -22,7 +21,7 @@ defineOptions({
 </script>
 
 <style lang="scss">
-@import url(../../index.scss);
+// @import url(../../index.scss);
 
 .web-button {
   &.is-disabled {

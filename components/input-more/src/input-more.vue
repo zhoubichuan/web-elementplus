@@ -3,29 +3,48 @@
     <div class="add">
       <el-button link @click="handleAdd">添加</el-button>
     </div>
-    <web-input-more-child v-for="(item, index) in items" :key="index" :modelValue="item"
-      @update:modelValue="handleChnage" @up="handleUp" @down="handleDown" @delete="handleDelete" />
+    <web-input-more-child v-for="(item, index) in items" :key="item.index" :data="item" :index="index"
+      @input="handleChange" @up="handleUp" @down="handleDown" @delete="handleDelete" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { reactive, defineEmits, defineProps } from 'vue'
 import WebInputMoreChild from './input-more-child.vue';
-const items = ref([''])
+
+const { modelValue } = defineProps({
+  modelValue: {
+    type: String,
+    default: ''
+  }
+})
+const emit = defineEmits(['update:modelValue'])
+const items = reactive([{ value: '', index: 0 }])
+if (modelValue) {
+  items.splice(0, 1, ...modelValue.split(',').map((item, index) => ({ value: item, index })))
+}
 const handleAdd = () => {
-  items.value.push('')
+  items.push({ value: '', index: items.length })
 }
-const handleChnage = () => {
-
+const handleChange = ({ key, value }) => {
+  items[key] = value
+  emit('update:modelValue', items.map(item => item.value).join(','))
 }
-const handleUp = () => {
-
+const handleUp = ({ key, value }) => {
+  if (key > 0) {
+    items.splice(key - 1, 2, value, items[key - 1])
+  }
+  emit('update:modelValue', items.map(item => item.value).join(','))
 }
-const handleDown = () => {
-
+const handleDown = ({ key, value }) => {
+  if (key < items.length) {
+    items.splice(key, 2, items[key + 1], value)
+  }
+  emit('update:modelValue', items.map(item => item.value).join(','))
 }
-const handleDelete = () => {
-
+const handleDelete = ({ key }) => {
+  items.splice(key, 1)
+  emit('update:modelValue', items.map(item => item.value).join(','))
 }
 defineOptions({
   name: 'WebInputMore'
@@ -35,7 +54,8 @@ defineOptions({
 <style scoped lang="scss">
 .web-input-more {
   width: 100%;
-  .add{
+
+  .add {
     margin-left: 40px;
   }
 }

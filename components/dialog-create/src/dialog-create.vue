@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, defineProps, provide, defineEmits } from 'vue'
+import { ref, reactive, defineProps, provide, defineEmits, onBeforeMount } from 'vue'
 import { ElForm, ElMessage } from 'element-plus'
 import WebDialog from '../../dialog/index'
 import WebForm from '../../form/index'
@@ -38,8 +38,11 @@ const init = () => creteForm.forEach(child => {
       formModel[item.prop] = item.init || ''
     }
   })
+  console.log(formModel, 'formModel')
 })
-init()
+onBeforeMount(() => {
+  init()
+})
 const submit = () => {
   request(formModel)
 }
