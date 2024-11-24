@@ -20,14 +20,14 @@ hero:
       link: /nav/
 features:
   - icon: ⚡️
-    title: Vue的工程化
-    details: 掌握创建一个项目所需的工具、环境、配置、技术选型、场景应用、技巧、优化、部署等常见流程
+    title: 组件源码
+    details: 对element-plus组件进行源码级别的分析，熟悉底层实现
   - icon: 🖖
-    title: Vue功能模块
-    details: 掌握一般项目中的配置、包管理、登录、权限、测试、监控、国际化、服务端渲染、富文本、上传下载等常见功能
+    title: 二次封装
+    details: 对element-plus组件进行二次封装，定制化主题ui,扩展相关组件功能
   - icon: 🛠️
-    title: Vue基础知识
-    details: 掌握Vue2.x全家桶和Vue3.x全家桶中重点知识，对相关官方文档进行一些知识的补充，全面提升Vue的基础知识能力
+    title: 其他
+    details: 扩展vue3.x组件库相关知识
     link: https://vitejs.cn/
     linkText: Vite
 ---
@@ -36,10 +36,7 @@ features:
 :root {
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
-
-
   --vp-home-hero-image-background-image: linear-gradient(-45deg, #bd34fe 50%, #47caff 50%);
   --vp-home-hero-image-filter: blur(40px);
 }
-
 </style>

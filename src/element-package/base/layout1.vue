@@ -7,22 +7,19 @@ import { ref } from 'vue'
 const str = ref('222')
 const data = ref([
   {
-    is: 'web-input',
-    modelValue: str,
-    'update:modelValue': (val: string) => str.val = val
+    type: 'web-input',
+    model:str,
+    component:{
+    }
   },
   {
-    is: 'web-input',
-    'value': 2
+    type: 'web-input',
   },
   {
-    is: 'web-input',
-    modelValue: str,
-    'update:modelValue': (val: string) => str.val = val
+    type: 'web-input',
   },
   {
-    is: 'web-input',
-    'value': 2
+    type: 'web-input',
   }
 ])
 </script>

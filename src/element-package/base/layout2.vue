@@ -6,15 +6,15 @@
 import { ref } from 'vue'
 const data = ref([
   {
-    is: 'input',
+    type: 'input',
     'value': 2
   },
   {
-    is: 'web-input',
+    type: 'web-input',
     value: 299
   },
   {
-    is: 'web-input',
+    type: 'web-input',
     value: 266
   }
 ])
