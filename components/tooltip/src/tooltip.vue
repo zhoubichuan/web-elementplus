@@ -27,7 +27,7 @@ const showTips = (event: Event) => {
 </script>
 
 <style lang="scss" scoped>
-// @import '../../common.scss';
+@import '../../common.scss';
 
 .web-tooltip {
   color: #244367;

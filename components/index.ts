@@ -10,6 +10,8 @@ import Submenu from './submenu/index'
 import MenuItem from './menu-item/index'
 import MenuItemGroup from './menu-item-group/index'
 import Input from './input/index'
+import InputButton from './input-button/index'
+import InputMore from './input-more/index'
 import InputNumber from './input-number/index'
 import Radio from './radio/index'
 import RadioGroup from './radio-group/index'
@@ -112,6 +114,8 @@ const components = [
   MenuItem,
   MenuItemGroup,
   Input,
+  InputButton,
+  InputMore,
   InputNumber,
   Radio,
   RadioGroup,
@@ -236,6 +240,8 @@ export default {
   MenuItem,
   MenuItemGroup,
   Input,
+  InputButton,
+  InputMore,
   InputNumber,
   Radio,
   RadioGroup,

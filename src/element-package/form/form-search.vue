@@ -46,7 +46,7 @@ const searchForm = [
     {
       prop: 'time',
       label: '时间',
-      type: 'web-date-picker',
+      type: 'el-date-picker',
       init: time,
       component: {
         type: 'date',

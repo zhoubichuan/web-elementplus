@@ -26,7 +26,6 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps } from 'vue'
 import Render from '../../Render.js'
 const { formData } = defineProps<{
   formData: {

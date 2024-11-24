@@ -9,16 +9,13 @@
   </el-row>
 </template>
 <script setup lang="ts" name="WebLayout">
-import { defineProps } from 'vue'
 const { data } = defineProps<{
   data: {
     type: Array
     default: () => []
   }
 }>()
-</script>
-<script lang="ts">
-export default {
+defineOptions({
   name: 'WebLayout'
-}
+})
 </script>
