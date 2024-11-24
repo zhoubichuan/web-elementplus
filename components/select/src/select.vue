@@ -1,8 +1,12 @@
 <template>
   <el-select class="web-select" clearable popper-class="web-select-popper" :suffix-icon="CaretTop" v-bind="$attrs">
     <template v-if="newOptions.length">
-      <el-option v-for="(item, index) in newOptions" :key="index" :label="item[newOptionsProps.label]"
-        :value="item[newOptionsProps.value]" />
+      <el-option
+        v-for="(item, index) in newOptions"
+        :key="index"
+        :label="item[newOptionsProps.label]"
+        :value="item[newOptionsProps.value]"
+      />
     </template>
     <template v-if="slots.default && !newOptions.length" #default>
       <slot v-if="slots.default" name="default"></slot>
@@ -32,20 +36,20 @@
 </template>
 
 <script setup lang="ts" name="WebSelect">
-import { onMounted, useSlots, ref } from 'vue';
+import { onMounted, useSlots, ref } from 'vue'
 import { CaretTop } from '@element-plus/icons-vue'
-import { defineProps, PropType, computed } from "vue"
+import { defineProps, PropType, computed } from 'vue'
 const { options, request, optionsProps } = defineProps({
   options: {
-    type: Array as PropType<{ label: string, value: string }[]>,
+    type: Array as PropType<{ label: string; value: string }[]>,
     default: () => []
   },
   request: {
     type: Function,
-    default: () => { }
+    default: () => {}
   },
   optionsProps: {
-    type: Object as PropType<{ label: string, value: string }>,
+    type: Object as PropType<{ label: string; value: string }>,
     default: () => ({
       label: 'label',
       value: 'value'
@@ -53,17 +57,19 @@ const { options, request, optionsProps } = defineProps({
   }
 })
 const newOptions = ref([])
-const newOptionsProps = computed(() => optionsProps as { label: string, value: string })
+const newOptionsProps = computed(() => optionsProps as { label: string; value: string })
 const slots = useSlots()
 onMounted(async () => {
   newOptions.value = await request()
 })
 defineOptions({
   name: 'WebSelect'
-});
+})
 </script>
 
 <style lang="scss">
+@import '../../index.scss';
+
 .web-select {
   &.el-select {
     width: var(--web-select-width-default);
@@ -116,9 +122,9 @@ defineOptions({
 
     &::after {
       display: inline-block;
-      content: '';
       width: 10px;
       height: 10px;
+      content: '';
     }
   }
 

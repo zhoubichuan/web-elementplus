@@ -5,14 +5,14 @@
 </template>
 
 <script setup lang="ts" name="WebFormCreate">
-import { ref,reactive,provide, unref, defineEmits } from 'vue'
+import { ref, reactive, provide, unref, defineEmits } from 'vue'
 import WebForm from '../../form/index'
 import WebFormItem from '../../form-item/index'
 
-const { request, formData,rules } = defineProps({
+const { request, formData, rules } = defineProps({
   request: {
     type: Function,
-    default: () => { }
+    default: () => {}
   },
   formData: {
     type: Array,
@@ -28,13 +28,14 @@ const formRef = ref<InstanceType<typeof WebForm>>()
 
 // 查询参数
 const formModel = reactive<Record<string, string | number | undefined>>({})
-const init = () => formData.forEach(child => {
-  child.forEach(item => {
-    if (item.prop) {
-      formModel[item.prop] = item.init || ''
-    }
+const init = () =>
+  formData.forEach(child => {
+    child.forEach(item => {
+      if (item.prop) {
+        formModel[item.prop] = item.init || ''
+      }
+    })
   })
-})
 init()
 
 provide('formModel', formModel)

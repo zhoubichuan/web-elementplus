@@ -13,12 +13,11 @@
 </template>
 <script setup lang="ts" name="WebCard">
 import { useSlots } from 'vue'
-import { ElCard } from 'element-plus';
+import { ElCard } from 'element-plus'
 
 defineOptions({
   name: 'WebCard'
-});
+})
 
 const slots = useSlots()
-
 </script>

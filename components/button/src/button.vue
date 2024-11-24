@@ -21,12 +21,12 @@ defineOptions({
 </script>
 
 <style lang="scss">
-// @import url(../../index.scss);
+@import '../../index.scss';
 
 .web-button {
   &.is-disabled {
-    background-color: var(--web-color-disabled);
     color: var(--web-color-text-disabled);
+    background-color: var(--web-color-disabled);
     // border: 1px solid #e9e9e9;
   }
 
@@ -49,26 +49,26 @@ defineOptions({
 
     &--success {
       color: var(--web-color-white);
-      border: 1px solid var(--web-color-border);
       background-color: var(--web-color-success);
+      border: 1px solid var(--web-color-border);
     }
 
     &--info {
       color: var(--web-color-white);
-      border: 1px solid var(--web-color-info);
       background-color: var(--web-color-info);
+      border: 1px solid var(--web-color-info);
     }
 
     &--warning {
       color: var(--web-color-white);
-      border: 1px solid var(--web-color-warning);
       background-color: var(--web-color-warning);
+      border: 1px solid var(--web-color-warning);
     }
 
     &--danger {
       color: var(--web-color-white);
-      border: 1px solid var(--web-color-danger);
       background-color: var(--web-color-danger);
+      border: 1px solid var(--web-color-danger);
     }
 
     // 尺寸

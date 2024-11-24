@@ -1,21 +1,21 @@
 <template>
-  <div>
-    <el-input v-bind="$attrs" style="width: 240px" @input="handleInput" />
+  <div class="web-input-button">
+    <el-input class="input" v-bind="$attrs" @input="handleInput" />
     <el-button class="btn" @click="handleClick">确认</el-button>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, useAttrs ,defineProps} from 'vue'
+import { ref, useAttrs, defineProps } from 'vue'
 import { ElMessage } from 'element-plus'
 import { ElButton, ElInput } from 'element-plus'
 
 const attrs = useAttrs()
 const emit = defineEmits(['update:modelValue'])
-const {request} = defineProps({
-  request:{
-    type:Function,
-    default:()=>{}
+const { request } = defineProps({
+  request: {
+    type: Function,
+    default: () => {}
   }
 })
 const handleInput = (val: string) => {
@@ -27,16 +27,23 @@ const handleClick = async () => {
     ElMessage.success('spuId存在')
   } else {
     ElMessage.warning('spuId不存在')
-
   }
 }
 defineOptions({
-    name: 'WebInputButton'
-});
+  name: 'WebInputButton'
+})
 </script>
 
 <style lang="scss" scoped>
-.btn {
-  margin-left: 10px;
+.web-input-button {
+  width: 100%;
+
+  .input {
+    width: calc(100% - 70px);
+  }
+
+  .btn {
+    margin-left: 10px;
+  }
 }
 </style>

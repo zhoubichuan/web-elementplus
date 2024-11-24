@@ -19,33 +19,31 @@ const { rules, close, request, creteForm } = defineProps({
   },
   close: {
     type: Function,
-    default: () => { }
+    default: () => {}
   },
   request: {
     type: Function,
-    default: () => { }
+    default: () => {}
   },
   creteForm: {
     type: Array,
     default: () => []
-  },
+  }
 })
 // 查询参数
 const formModel = reactive<Record<string, string | number | undefined>>({})
-const init = () => creteForm.forEach(child => {
-  child.forEach(item => {
-    if (item.prop) {
-      formModel[item.prop] = item.init || ''
-    }
+const init = () =>
+  creteForm.forEach(child => {
+    child.forEach(item => {
+      if (item.prop) {
+        formModel[item.prop] = item.init || ''
+      }
+    })
+    console.log(formModel, 'formModel')
   })
-  console.log(formModel, 'formModel')
-})
 onBeforeMount(() => {
   init()
 })
-const submit = () => {
-  request(formModel)
-}
 provide('formModel', formModel)
 
 const dialogTitle = ref('创建')
@@ -55,20 +53,13 @@ const emit = defineEmits(['reloadList', 'update:modelValue'])
 const handleSubmit = () => {
   formRef.value?.validate(async (valid: any) => {
     if (valid) {
-      let params: any = { ...formModel }
-      params.type = Number(params.type)
-      const { c } = await submit(formModel)
-      if (c == 200) {
-        ElMessage.success(dialogTitle.value + '成功')
-        emit('reloadList')
-        close()
-      }
+      request(formModel)
     }
   })
 }
 defineOptions({
   name: 'WebDialogCreate'
-});
+})
 </script>
 
 <style lang="scss"></style>

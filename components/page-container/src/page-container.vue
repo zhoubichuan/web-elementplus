@@ -15,13 +15,7 @@
       </el-breadcrumb>
       <div v-if="options && options.length" class="options">
         <template v-for="(x, k) in options">
-          <web-button
-            :key="k"
-            v-if="x.type === 'button'"
-            type="primary"
-            size="medium"
-            @click="x.onClick"
-          >
+          <web-button :key="k" v-if="x.type === 'button'" type="primary" size="medium" @click="x.onClick">
             {{ x.label }}
           </web-button>
         </template>
@@ -42,7 +36,7 @@ export default defineComponent({
     const state = reactive({
       options: props.header.options
     })
-    const setOptions = (arr) => {
+    const setOptions = arr => {
       state.options = arr
     }
     return {
@@ -55,26 +49,29 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .container {
+  height: 100%;
   padding: 20px;
   padding-top: 0;
-  height: 100%;
   // min-width: 1550px;
 }
+
 .header {
-  padding: 32px 0 16px;
   position: relative;
+  padding: 32px 0 16px;
   font-size: 16px;
+
   .options {
     position: absolute;
-    right: 20px;
     top: 12px;
+    right: 20px;
   }
 }
+
 .content {
-  height: calc(100vh - 80px);
-  background: #ffffff;
-  padding: 32px 24px;
   box-sizing: border-box;
+  height: calc(100vh - 80px);
+  padding: 32px 24px;
+  background: #fff;
   border-radius: 8px;
 }
 </style>
@@ -83,6 +80,7 @@ export default defineComponent({
   color: #86868b;
   font-weight: 400;
 }
+
 .el-breadcrumb__item:last-child .el-breadcrumb__inner {
   color: #1d1d1f;
   font-weight: 400;

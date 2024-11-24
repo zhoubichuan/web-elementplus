@@ -2,8 +2,12 @@
   <el-card class="page-search" style="margin-top: 10px">
     <web-form size="middle" ref="searchInfoRef" :model="formModel" label-width="120px">
       <template v-if="searchForm.length">
-        <web-form-item v-for="(formItem, formItemIndex) in searchForm" :formData="formItem" :key="formItemIndex"
-          label-width="70px" />
+        <web-form-item
+          v-for="(formItem, formItemIndex) in searchForm"
+          :formData="formItem"
+          :key="formItemIndex"
+          label-width="70px"
+        />
       </template>
       <el-row>
         <!-- 查询 重置按钮 -->
@@ -22,13 +26,13 @@
 </template>
 
 <script setup lang="ts" name="WebFormSearch">
-import { reactive,provide } from 'vue'
+import { reactive, provide } from 'vue'
 import WebFormItem from '../../form-item/index'
 import { Refresh, Search } from '@element-plus/icons-vue'
 const { formCreate, searchForm, reloadFn } = defineProps({
   formCreate: {
     type: Function,
-    default: () => { }
+    default: () => {}
   },
   searchForm: {
     type: Array,
@@ -36,18 +40,19 @@ const { formCreate, searchForm, reloadFn } = defineProps({
   },
   reloadFn: {
     type: Function,
-    default: () => { }
-  },
+    default: () => {}
+  }
 })
 // 查询参数
 const formModel = reactive<Record<string, string | number | undefined>>({})
-const init = () => searchForm.forEach(child => {
-  child.forEach(item => {
-    if (item.prop) {
-      formModel[item.prop] = item.init || ''
-    }
+const init = () =>
+  searchForm.forEach(child => {
+    child.forEach(item => {
+      if (item.prop) {
+        formModel[item.prop] = item.init || ''
+      }
+    })
   })
-})
 init()
 const handlerSearch = () => {
   reloadFn(formModel)

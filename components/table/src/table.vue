@@ -6,8 +6,7 @@
         <h5>{{ config?.title }}</h5>
       </div>
       <el-button v-if="!!config?.needCreate" @click="createItem" type="primary">
-        新建{{
-          config.title?.slice(0, 2) }}
+        新建{{ config.title?.slice(0, 2) }}
       </el-button>
     </div>
     <el-table ref="tableRef" @selection-change="handleSelectionChange" :data="data" border style="width: 100%" stripe>
@@ -23,8 +22,12 @@
         </el-table-column>
       </template>
 
-      <el-table-column v-if="config.isEdit" label="操作" :width="config?.editWidth ? config?.editWidth : '100'"
-        fixed="right">
+      <el-table-column
+        v-if="config.isEdit"
+        label="操作"
+        :width="config?.editWidth ? config?.editWidth : '100'"
+        fixed="right"
+      >
         <template v-slot="scope">
           <slot name="handler" :row="scope.row">
             <div>
@@ -36,10 +39,17 @@
       </el-table-column>
     </el-table>
     <div class="footer" v-if="tablePageInfo && data.length !== 0">
-      <el-pagination background v-model:currentPage="tablePageInfo.currentPage"
-        v-model:page-size="tablePageInfo.pageSize" :hide-on-single-page="true" :page-sizes="[20, 50, 100, 200]"
-        layout="total, sizes, prev, pager, next, jumper" :total="tablePageInfo.totalCount"
-        @size-change="handleSizeChange" @current-change="handleCurrentChange" />
+      <el-pagination
+        background
+        v-model:currentPage="tablePageInfo.currentPage"
+        v-model:page-size="tablePageInfo.pageSize"
+        :hide-on-single-page="true"
+        :page-sizes="[20, 50, 100, 200]"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="tablePageInfo.totalCount"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      />
     </div>
   </el-card>
 </template>
@@ -63,7 +73,7 @@ const { pageInfo, data } = defineProps({
   pageInfo: {
     type: Object,
     default: () => ({})
-  },
+  }
 })
 
 const tablePageInfo = ref<any>()
@@ -93,7 +103,6 @@ const createItem = () => {
   // Object.keys(emptyObj).forEach(key => {
   //     emptyObj[key] = ''
   // })
-
   // emit('toCreate', emptyObj)
 }
 
@@ -109,10 +118,10 @@ const clearSelection = () => {
   tableRef.value?.clearSelection()
 }
 defineExpose({
-  clearSelection,
+  clearSelection
 })
 defineOptions({
-  name: "WebTable"
+  name: 'WebTable'
 })
 </script>
 

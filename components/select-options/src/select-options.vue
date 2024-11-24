@@ -1,16 +1,15 @@
 <template>
   <el-select class="web-select" popper-class="web-select-popper" :suffix-icon="CaretTop" v-bind="$attrs">
-    <el-option v-for="(item, index) in options" :key="index" :label="item[optionLabel]"
-      :value="item[optionValue]" />
+    <el-option v-for="(item, index) in options" :key="index" :label="item[optionLabel]" :value="item[optionValue]" />
   </el-select>
 </template>
 
 <script setup lang="ts" name="WebSelect">
 import { CaretTop } from '@element-plus/icons-vue'
-import { defineProps, PropType, computed } from "vue"
+import { defineProps, PropType, computed } from 'vue'
 const { options } = defineProps({
   options: {
-    type: Array as PropType<{ label: string, value: string }[]>,
+    type: Array as PropType<{ label: string; value: string }[]>,
     default: () => []
   },
   optionLabel: {
@@ -26,10 +25,13 @@ const slots = useSlots()
 import { useSlots } from 'vue'
 defineOptions({
   name: 'WebSelectOptions'
-});
+})
 </script>
 
 <style lang="scss">
+@import '../../config.scss';
+@import '../../common.scss';
+
 .web-select {
   &.el-select {
     width: var(--web-select-width-default);
@@ -82,9 +84,9 @@ defineOptions({
 
     &::after {
       display: inline-block;
-      content: '';
       width: 10px;
       height: 10px;
+      content: '';
     }
   }
 

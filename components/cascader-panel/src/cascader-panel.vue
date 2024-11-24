@@ -10,20 +10,20 @@
 </template>
 <script lang="ts" setup>
 import { useSlots } from 'vue'
-import { ElCascaderPanel } from 'element-plus';
+import { ElCascaderPanel } from 'element-plus'
 const slots = useSlots()
 defineOptions({
   name: 'WebCascaderPanel'
-});
+})
 </script>
 
 <style lang="scss" scoped>
 @import '../../common.scss';
 
 .web-tooltip {
+  color: #244367;
   font-weight: 400;
   font-size: 20px;
-  color: #244367;
   line-height: 30px;
   @include ellipsis(1);
 }

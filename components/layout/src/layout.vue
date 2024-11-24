@@ -12,13 +12,13 @@
 import { defineProps } from 'vue'
 const { data } = defineProps<{
   data: {
-    type: Array,
+    type: Array
     default: () => []
   }
 }>()
 </script>
-<script lang='ts'>
+<script lang="ts">
 export default {
-  name: "WebLayout"
+  name: 'WebLayout'
 }
 </script>

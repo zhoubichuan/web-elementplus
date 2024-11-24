@@ -1,6 +1,11 @@
 <template>
-  <el-dialog :class="{ 'web-dialog': true, [size]: true }" lock-scroll destroy-on-close @close="handleCancel"
-    v-bind="$attrs">
+  <el-dialog
+    :class="{ 'web-dialog': true, [size]: true }"
+    lock-scroll
+    destroy-on-close
+    @close="handleCancel"
+    v-bind="$attrs"
+  >
     <template v-if="slots.header" #header>
       <slot name="header"></slot>
     </template>
@@ -22,7 +27,7 @@
 </template>
 
 <script lang="ts" setup name="WebDialog">
-import { defineEmits, useSlots } from "vue";
+import { defineEmits, useSlots } from 'vue'
 import WebButton from '../../button/index'
 const { mold, size } = defineProps({
   mold: {
@@ -34,15 +39,15 @@ const { mold, size } = defineProps({
     default: 'middle'
   }
 })
-const emit = defineEmits(["handleCancel", "handleConfirm"])
+const emit = defineEmits(['handleCancel', 'handleConfirm'])
 const handleCancel = () => {
-  emit("handleCancel");
-};
+  emit('handleCancel')
+}
 const slots = useSlots()
 
 const handleConfirm = () => {
-  emit("handleConfirm");
-};
+  emit('handleConfirm')
+}
 defineOptions({
   name: 'WebDialog'
 })
@@ -50,8 +55,8 @@ defineOptions({
 
 <style lang="scss">
 .web-dialog {
-  margin-top: 0;
   top: 50%;
+  margin-top: 0;
   transform: translateY(-50%);
 
   .el-dialog__body {

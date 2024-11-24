@@ -5,5 +5,5 @@
 <script setup lang="ts" name="WebTimePicker">
 defineOptions({
   name: 'WebTimePicker'
-});
+})
 </script>

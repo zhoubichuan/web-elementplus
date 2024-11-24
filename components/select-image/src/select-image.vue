@@ -1,7 +1,12 @@
 <template>
   <div class="web-select-image">
-    <web-select-options v-if="!view" :options="options" :option-label="optionLabel" :option-value="optionValue"
-      v-bind="$attrs" />
+    <web-select-options
+      v-if="!view"
+      :options="options"
+      :option-label="optionLabel"
+      :option-value="optionValue"
+      v-bind="$attrs"
+    />
     <el-image :src="imageSrc || image" />
   </div>
 </template>
@@ -32,7 +37,6 @@ const { view, options, optionLabel, optionValue, imageSrc } = defineProps({
   }
 })
 const image = ref('')
-
 </script>
 <style lang="scss">
 .web-select-image {
@@ -41,15 +45,15 @@ const image = ref('')
   .web-select {
     display: inline-block;
     width: calc(100% - 120px);
-    vertical-align: middle;
     margin-right: 20px;
+    vertical-align: middle;
   }
 
   .el-image {
     display: inline-block;
-    vertical-align: middle;
     width: 100px;
     height: 100px;
+    vertical-align: middle;
   }
 }
 </style>

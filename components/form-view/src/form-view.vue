@@ -11,9 +11,9 @@ import { defineProps, useAttrs } from 'vue'
 const { data } = defineProps<{ data: [] }>()
 const { data: formData, ...attrs } = useAttrs()
 </script>
-<script lang='ts'>
+<script lang="ts">
 export default {
-  name: "WebFormView"
+  name: 'WebFormView'
 }
 </script>
 <style lang="scss" scoped></style>

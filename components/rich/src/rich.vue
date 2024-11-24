@@ -35,7 +35,7 @@ onMounted(() => {
 })
 defineOptions({
   name: 'WebRich'
-});
+})
 </script>
 
 <style lang="scss" scoped>

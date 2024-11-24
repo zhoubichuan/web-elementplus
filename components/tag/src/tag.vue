@@ -3,13 +3,8 @@
     <slot></slot>
   </el-tag>
 </template>
-<script lang='ts'>
+<script lang="ts">
 export default {
-  name: "WebTag"
+  name: 'WebTag'
 }
 </script>
-<style lang="scss">
-.web-tag {
-
-}
-</style>

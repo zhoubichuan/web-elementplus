@@ -1,11 +1,7 @@
 <template>
   <div class="boxsd left" ref="boxRef" @mousewheel.prevent="rollImg">
     <div ref="imgDiv" class="img">
-      <img
-        :src="imgSrc"
-        @mousedown="move"
-        :style="{ width: width + 'px', height: height + 'px' }"
-      />
+      <img :src="imgSrc" @mousedown="move" :style="{ width: width + 'px', height: height + 'px' }" />
     </div>
   </div>
 </template>
@@ -110,15 +106,17 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .boxsd {
+  position: relative;
   width: 100%;
   height: 100%;
-  background-color: #000;
   overflow: hidden;
-  position: relative;
+  background-color: #000;
+
   > div {
     position: absolute;
     width: 100%;
     height: 100%;
+
     > img {
       cursor: move;
     }

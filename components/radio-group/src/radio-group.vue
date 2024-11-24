@@ -11,6 +11,6 @@ defineOptions({
 
 <style lang="scss">
 .web-radio-group {
-
+  width: 100%;
 }
 </style>

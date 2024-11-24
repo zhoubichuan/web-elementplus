@@ -30,27 +30,31 @@ export default defineComponent({
 .headerBreadcrumb {
   position: fixed;
   top: 0;
-  width: 100%;
   z-index: 999;
   display: flex;
-  line-height: 62px;
+  width: 100%;
   padding: 0 20px;
+  font-size: 16px;
+  line-height: 62px;
   background: #fff;
   border-bottom: 1px solid #f2f2f2;
-  font-size: 16px;
+
   span {
     cursor: pointer;
   }
+
   .breadcrumb {
-    font-weight: bold;
     color: #86868b;
+    font-weight: bold;
   }
+
   .cut {
     margin: 0 8px;
   }
+
   .breadcrumb_end {
-    font-weight: bold;
     color: #1d1d1f;
+    font-weight: bold;
   }
 }
 </style>

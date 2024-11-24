@@ -1,5 +1,10 @@
 <template>
-  <el-cascader class="web-cascader" clearable v-bind="$attrs" :options="newOptions.length ? newOptions : $attrs.options">
+  <el-cascader
+    class="web-cascader"
+    clearable
+    v-bind="$attrs"
+    :options="newOptions.length ? newOptions : $attrs.options"
+  >
     <template v-if="slots.default" #default="scoped">
       <slot name="default" v-bind="scoped"></slot>
     </template>
@@ -10,11 +15,11 @@
 </template>
 <script lang="ts" setup>
 import { useSlots, onMounted, ref } from 'vue'
-import { ElCascader } from 'element-plus';
+import { ElCascader } from 'element-plus'
 const { request } = defineProps({
   request: {
     type: Function,
-    default: () => { }
+    default: () => {}
   }
 })
 const newOptions = ref([])
@@ -24,17 +29,13 @@ onMounted(async () => {
 })
 defineOptions({
   name: 'WebCascader'
-});
+})
 </script>
 
-<style lang="scss" scoped>
-@import '../../common.scss';
+<style lang="scss">
+@import '../../index.scss';
 
-.web-tooltip {
-  font-weight: 400;
-  font-size: 20px;
-  color: #244367;
-  line-height: 30px;
-  @include ellipsis(1);
+.web-cascader {
+  width: 100%;
 }
 </style>

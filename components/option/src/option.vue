@@ -1,5 +1,5 @@
 <template>
-  <el-select class="web-option"  v-bind="$attrs">
+  <el-select class="web-option" v-bind="$attrs">
     <template v-if="slots.default" #default="scoped">
       <slot name="default" v-bind="scoped"></slot>
     </template>
@@ -11,6 +11,5 @@ import { useSlots } from 'vue'
 const slots = useSlots()
 defineOptions({
   name: 'WebOption'
-});
+})
 </script>
-

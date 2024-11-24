@@ -12,12 +12,18 @@
       <slot name="empty" v-bind="scoped"></slot>
     </template>
   </el-table>
-  <web-pagination layout="prev, pager, next" :total="pagination.total" @current-change="handleCurrentChange"
-    @size-change="handleSizeChange" :page-size="pagination.pageSize" :page-sizes="[10, 20, 50, 100]">
+  <web-pagination
+    layout="prev, pager, next"
+    :total="pagination.total"
+    @current-change="handleCurrentChange"
+    @size-change="handleSizeChange"
+    :page-size="pagination.pageSize"
+    :page-sizes="[10, 20, 50, 100]"
+  >
   </web-pagination>
 </template>
 
-<script setup lang="ts" name='WebTablePagination'>
+<script setup lang="ts" name="WebTablePagination">
 import { ElTable, ElTableColumn } from 'element-plus'
 import WebPagination from '../../pagination/index'
 const { column, pagination } = defineProps({
@@ -29,7 +35,7 @@ const { column, pagination } = defineProps({
     type: Object,
     default: () => ({
       total: 0,
-      pageSize: 10,
+      pageSize: 10
     })
   }
 })
@@ -41,11 +47,11 @@ const handleCurrentChange = (val: number) => {
 }
 defineOptions({
   name: 'WebTablePagination'
-});
+})
 </script>
-<script lang='ts'>
+<script lang="ts">
 export default {
-  name: "WebTablePagination"
+  name: 'WebTablePagination'
 }
 </script>
 <style lang="scss">
@@ -53,8 +59,8 @@ export default {
   color: var(--color-text-primary);
 
   &.el-table .el-table__header-wrapper thead {
-    color: var(--table-header-color);
     height: var(--table-header-height);
+    color: var(--table-header-color);
   }
 
   &.el-table .el-table__header-wrapper th.el-table__cell {

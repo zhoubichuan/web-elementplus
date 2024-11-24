@@ -3,14 +3,14 @@
     <el-input class="input" v-model="value" @input="handleChange" />
     <el-button link @click="handleUp">上移</el-button>
     <el-button link @click="handleDown"> 下移</el-button>
-    <el-icon style="font-size: 24px">
-      <Delete @click="handleDelete" style="width: 20px; height: 20px; margin-left: 8px; margin-top: 8px" />
-    </el-icon>
+    <el-button :icon="Delete" link @click="handleDelete"></el-button>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
+import { Delete } from '@element-plus/icons-vue'
+
 const { index, data } = defineProps({
   index: {
     type: Number,
@@ -24,14 +24,18 @@ const { index, data } = defineProps({
 const emits = defineEmits(['input', 'up', 'down', 'delete'])
 defineOptions({
   name: 'WebInputMoreChild'
-});
-const value = ref('')
-watch(() => data, (newVal) => {
-  value.value = newVal.value
-}, {
-  immediate: true,
-  deep: true
 })
+const value = ref('')
+watch(
+  () => data,
+  newVal => {
+    value.value = newVal.value
+  },
+  {
+    immediate: true,
+    deep: true
+  }
+)
 const handleChange = () => {
   emits('input', { key: index, value: { value, index: data.index } })
 }
@@ -48,6 +52,7 @@ const handleDelete = () => {
 <style scoped lang="scss">
 .input-more-child {
   width: 100%;
+  margin-top: 10px;
 
   .input {
     display: inline-block;

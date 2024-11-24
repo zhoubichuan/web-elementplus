@@ -3,9 +3,15 @@
   <el-row v-else :gutter="20" class="transfer-cascader-panel">
     <el-col :span="12">
       <div class="select-part">
-        <web-select-options v-model="formData.type" placeholder="请选择类型" style="width: 200px" :options="scenariosData"
-          option-label="desc" @change="handleSelectChange" />
-        <el-button @click="handleAdd" :disabled="!preSelect.length">添加选择</el-button>
+        <web-select-options
+          v-model="formData.type"
+          placeholder="请选择类型"
+          style="width: 200px"
+          :options="scenariosData"
+          option-label="desc"
+          @change="handleSelectChange"
+        />
+        <el-button class="add-btn" @click="handleAdd" :disabled="!preSelect.length">添加选择</el-button>
       </div>
       <div class="cascader-part">
         <web-cascader-panel getCheckedNodes :options="treeData" :props="props" v-model="preSelect" />
@@ -13,7 +19,7 @@
     </el-col>
     <el-col :span="12">
       已选内容
-      <el-button @click="handleCancel" :disabled="!nextSelect.length">取消选中</el-button>
+      <el-button class="cancel-btn" @click="handleCancel" :disabled="!nextSelect.length">取消选中</el-button>
       <div class="cascader-part-disabled">
         <web-cascader-panel v-model="nextSelect" :props="{ ...props, disabled: true }" :options="treeData2" />
       </div>
@@ -27,10 +33,18 @@ import WebCascaderPanel from '../../cascader-panel/index'
 import { cloneDeep } from 'lodash'
 
 const emits = defineEmits(['update:modelValue'])
-const { modelValue, requestSelect, requestTree } = defineProps({
+const { modelValue, requestSelect, requestTree, selectData, data } = defineProps({
   view: {
     type: Boolean,
     default: false
+  },
+  data: {
+    type: Array,
+    default: () => []
+  },
+  selectData: {
+    type: Array,
+    default: () => []
   },
   modelValue: {
     type: String,
@@ -46,10 +60,15 @@ const { modelValue, requestSelect, requestTree } = defineProps({
   }
 })
 const formData = ref<any>({
-  type: modelValue[3] || '',
+  type: String(modelValue[3]) || ''
 })
 const props = {
   multiple: true,
+  expandTrigger: 'hover' as const,
+  label: 'name',
+  value: 'id'
+}
+const props2 = {
   expandTrigger: 'hover' as const,
   label: 'name',
   value: 'id'
@@ -59,19 +78,48 @@ const nextSelect = ref([])
 const treeData2 = ref([])
 
 const treeData = ref()
-const getRequestTree = async (params) => {
+const getRequestTree = async params => {
   const result = await requestTree(params)
   treeData.value = result
 }
 const scenariosData = ref([])
-const requestScenarios = async (params) => {
+const requestScenarios = async params => {
   const data = await requestSelect(params)
   scenariosData.value = data
-  formData.value.type = data[0].value
-  getRequestTree({ sceneType: data[0].value })
+  if (!formData.value.type) {
+    formData.value.type = data[0].value
+  }
+  await getRequestTree({ sceneType: formData.value.type })
 }
-onBeforeMount(() => {
-  requestScenarios()
+onBeforeMount(async () => {
+  await requestScenarios()
+  // if (selectData.length) {
+  //   preSelect.value = selectData
+  //   handleAdd()
+  // }
+
+  // if (data.length) {
+  //   const arr = []
+  //   for (let i = 0; i < data.length; i++) {
+  //     const data2 = data[i]?.children
+  //     if (data2) {
+  //       for (let j = 0; j < data2.length; j++) {
+  //         const data3 = data2[j]?.children
+  //         if (data3) {
+  //           for (let k = 0; k < data3.length; k++) {
+  //             arr.push([data[i].id, data2[j].id, data3[k].id])
+  //           }
+  //         } else {
+  //           arr.push([data[i].id, data2[j].id])
+  //         }
+  //       }
+  //     } else {
+  //       arr.push([data[i].id])
+  //     }
+  //   }
+  //   nextSelect.value = arr
+  //   treeData2.value = data
+  // }
 })
 const handleSelectChange = (id: string) => {
   getRequestTree({ sceneType: id })
@@ -92,15 +140,17 @@ const handleAdd = () => {
     }
   }
   treeData2.value = cloneDeep(treeData.value)
-    .filter((childs) => arr[0].includes(childs.id))
+    .filter(childs => arr[0].includes(childs.id))
     .map(item => ({
-      ...item, disabled: true, children:
-        item.children.filter((childs) => arr[1].includes(childs.id))
-          .map(childItem => ({
-            ...childItem, disabled: true, children:
-              childItem.children.filter((c) => arr[2].includes(c.id))
-                .map(l => ({ ...l, disabled: true, }))
-          }))
+      ...item,
+      disabled: true,
+      children: item.children
+        .filter(childs => arr[1].includes(childs.id))
+        .map(childItem => ({
+          ...childItem,
+          disabled: true,
+          children: childItem.children.filter(c => arr[2].includes(c.id)).map(l => ({ ...l, disabled: true }))
+        }))
     }))
   emits('update:modelValue', arr)
 }
@@ -109,12 +159,11 @@ const handleCancel = () => {
   preSelect.value = []
   emits('update:modelValue', [[], [], [], formData.value.type])
 }
-
-
 defineOptions({
   name: 'WebTransferCascaderPanel'
-});
+})
 </script>
+
 <style lang="scss" scoped>
 .transfer-cascader-panel {
   width: 100%;
@@ -122,15 +171,29 @@ defineOptions({
 
 .cascader-part {
   width: 100%;
+  margin-top: 10px;
+}
+
+.add-btn {
+  margin-left: 10px;
 }
 
 :deep(.el-cascader-menu) {
   min-width: 120px;
 }
 
+.cancel-btn {
+  margin-left: 10px;
+}
+
 .cascader-part-disabled {
+  margin-top: 10px;
   pointer-events: none;
 
-  :deep(.el-checkbox__inner) {}
+  :deep(.el-checkbox__input.is-checked) {
+    .el-checkbox__inner {
+      display: none;
+    }
+  }
 }
 </style>

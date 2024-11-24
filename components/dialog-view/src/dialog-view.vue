@@ -7,36 +7,37 @@
 </template>
 
 <script setup lang="ts">
-import {  reactive, defineProps, provide } from 'vue'
+import { reactive, defineProps, provide } from 'vue'
 import WebDialog from '../../dialog/index'
 import WebForm from '../../form/index'
 import WebFormItem from '../../form-item/index'
 const { close, creteForm } = defineProps({
   close: {
     type: Function,
-    default: () => { }
+    default: () => {}
   },
   creteForm: {
     type: Array,
     default: () => []
-  },
+  }
 })
 // 查询参数
 const formModel = reactive<Record<string, string | number | undefined>>({})
-const init = () => creteForm.forEach(child => {
-  child.forEach(item => {
-    if (item.prop) {
-      formModel[item.prop] = item.init || ''
-    }
+const init = () =>
+  creteForm.forEach(child => {
+    child.forEach(item => {
+      if (item.prop) {
+        formModel[item.prop] = item.init || ''
+      }
+    })
   })
-})
 init()
 
 provide('formModel', formModel)
 
 defineOptions({
   name: 'WebDialogView'
-});
+})
 </script>
 
 <style lang="scss"></style>

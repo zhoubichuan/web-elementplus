@@ -22,16 +22,20 @@ export default defineComponent({
   .el-step__title.is-success {
     color: var(--color-primary);
   }
+
   &.el-steps--simple {
     background: var(--color-white);
   }
+
   &.el-step.is-simple .el-step__icon {
     width: var(--steps-icon-width);
     height: var(--steps-icon-height);
   }
+
   .el-step__title.is-process {
     color: var(--color-text-primary);
   }
+
   .el-step__title.is-wait {
     color: var(--color-placeholder);
   }

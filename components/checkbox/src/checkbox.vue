@@ -12,7 +12,7 @@ import { useSlots } from 'vue'
 const slots = useSlots()
 defineOptions({
   name: 'WebCheckbox'
-});
+})
 </script>
 
 <style lang="scss">
@@ -32,7 +32,7 @@ defineOptions({
     border-color: var(--web-color-primary);
   }
 
-  .el-checkbox__input.is-checked:not(.is-disabled)+.el-checkbox__label {
+  .el-checkbox__input.is-checked:not(.is-disabled) + .el-checkbox__label {
     color: var(--web-color-primary);
   }
 
@@ -46,7 +46,6 @@ defineOptions({
   }
 
   .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner {
-
     // border: var(--web-radio-circle-checked-disabled-border);
     &::after {
       // display: none;
