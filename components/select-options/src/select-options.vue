@@ -6,9 +6,7 @@
 
 <script setup lang="ts" name="WebSelect">
 import { CaretTop } from '@element-plus/icons-vue'
-import { PropType, computed } from 'vue'
-import { useSlots } from 'vue'
-
+import { defineProps, PropType, computed } from 'vue'
 const { options } = defineProps({
   options: {
     type: Array as PropType<{ label: string; value: string }[]>,
@@ -24,12 +22,13 @@ const { options } = defineProps({
   }
 })
 const slots = useSlots()
+import { useSlots } from 'vue'
 defineOptions({
   name: 'WebSelectOptions'
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../../config.scss';
 @import '../../common.scss';
 

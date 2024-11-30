@@ -38,7 +38,7 @@ const { view, options, optionLabel, optionValue, imageSrc } = defineProps({
 })
 const image = ref('')
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .web-select-image {
   width: 100%;
 

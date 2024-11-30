@@ -13,7 +13,7 @@
   >
     <el-button :icon="Upload">上传文件</el-button>
     <template #tip>
-      <el-button link @click="handleDown">下载模板</el-button>
+      <el-button class="download" link @click="handleDown">下载模板</el-button>
     </template>
   </el-upload>
 </template>
@@ -36,35 +36,21 @@ const { requestDownload, templateUrl, requestUpload } = defineProps({
     default: () => {}
   }
 })
+const emits = defineEmits(['update:modelValue'])
 const MAX_FILE_SIZE = 5 * 1024 * 1024 // 5MB
-
 const uploadSubmit = async (options: any) => {
   const { file, onSuccess, onError } = options
-
+  emits('update:modelValue', file)
   if (file.size > MAX_FILE_SIZE) {
     onError(new Error('文件大小超过限制，请上传小于5MB的图片'))
     return
   }
-  console.log(file)
-
   try {
     const formData = new FormData()
     formData.append('file', file) // 文件对象
-
     const { c, m } = await requestUpload(formData)
     if (c === 200) {
       ElMessage.success('上传成功！')
-      // response.data.text().then((text: any) => {
-      //   const jsonData = JSON.parse(text);
-      //   upload.value = jsonData.data;
-      //   if (jsonData.code === 0) {
-      //     ElMessage.success('图片上传成功！');
-      //     onSuccess(jsonData.data);
-      //   } else {
-      //     ElMessage.error(jsonData.message);
-      //     onError(new Error(jsonData.message));
-      //   }
-      // });
     } else {
       ElMessage.error(m)
     }
@@ -108,3 +94,9 @@ const beforeRemove: UploadProps['beforeRemove'] = (uploadFile, uploadFiles) => {
   )
 }
 </script>
+
+<style scoped>
+.download {
+  margin-left: 10px;
+}
+</style>

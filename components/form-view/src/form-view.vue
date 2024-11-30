@@ -7,12 +7,13 @@
 </template>
 
 <script setup lang="ts">
-import { useAttrs } from 'vue'
+import { defineProps, useAttrs } from 'vue'
 const { data } = defineProps<{ data: [] }>()
 const { data: formData, ...attrs } = useAttrs()
-defineOptions({
-  name: 'WebFormView'
-})
 </script>
-
+<script lang="ts">
+export default {
+  name: 'WebFormView'
+}
+</script>
 <style lang="scss" scoped></style>

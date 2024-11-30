@@ -1,5 +1,5 @@
 <template>
-  <web-form ref="formRef" :rules="rules" :model="formModel" label-width="80px">
+  <web-form ref="formRef" :model="formModel" label-width="80px" v-bind="$attrs">
     <web-form-item v-for="(formItem, formItemIndex) in formData" :formData="formItem" :key="formItemIndex" />
   </web-form>
 </template>
@@ -9,16 +9,12 @@ import { ref, reactive, provide, unref, defineEmits } from 'vue'
 import WebForm from '../../form/index'
 import WebFormItem from '../../form-item/index'
 
-const { request, formData, rules } = defineProps({
+const { request, formData } = defineProps({
   request: {
     type: Function,
     default: () => {}
   },
   formData: {
-    type: Array,
-    default: () => []
-  },
-  rules: {
     type: Array,
     default: () => []
   }

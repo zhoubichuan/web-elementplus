@@ -27,7 +27,7 @@
   </el-row>
 </template>
 <script setup lang="ts">
-import { reactive, ref, toRefs, onBeforeMount } from 'vue'
+import { ref, onBeforeMount } from 'vue'
 import WebSelectOptions from '../../select-options/index'
 import WebCascaderPanel from '../../cascader-panel/index'
 import { cloneDeep } from 'lodash'

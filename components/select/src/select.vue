@@ -38,7 +38,7 @@
 <script setup lang="ts" name="WebSelect">
 import { onMounted, useSlots, ref } from 'vue'
 import { CaretTop } from '@element-plus/icons-vue'
-import { PropType, computed } from 'vue'
+import { defineProps, PropType, computed } from 'vue'
 const { options, request, optionsProps } = defineProps({
   options: {
     type: Array as PropType<{ label: string; value: string }[]>,
@@ -67,7 +67,7 @@ defineOptions({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../../index.scss';
 
 .web-select {

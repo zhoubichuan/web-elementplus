@@ -1,59 +1,34 @@
 <template>
-  <div>
+  <div class="web-from-item">
     <el-row v-if="formData.length" :gutter="20">
       <el-col :span="24 / formData.length" v-for="(item, index) in formData" :key="index">
-        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type">
+        <el-form-item v-if="JSON.stringify(item) !== '{}'" :label="item.label" :prop="item.prop">
           <template v-if="item.type === 'div'">
             <div class="rich" contenteditable="true" v-html="item.init"></div>
           </template>
           <template v-else>
             <component :is="item.type" v-bind="item.component" v-model="formModel[item.prop]" />
           </template>
-          <!-- <template v-else>
-            <Render v-if="typeof formData[0].render === 'function'" :render="formData[0].render"
-              :formItem="formData[0]"></Render>
-            <span v-else>{{ formData[0].render }}</span>
-          </template> -->
         </el-form-item>
       </el-col>
-      <!-- <el-col :span="12">
-        &nbsp;
-      </el-col>
-      <el-col :span="10">
-        <el-form-item :label="formData[1].label" :prop="formData[1].prop">
-          <Render v-if="typeof formData[1].render === 'function'" :render="formData[1].render" :formItem="formData[1]">
-          </Render>
-          <span v-else>{{ formData[1].render }}</span>
-        </el-form-item>
-      </el-col> -->
     </el-row>
-    <!-- <el-row v-else-if="formData.length === 1">
-      <el-col :span="24">
-        <el-form-item :label="formData[0].label" :prop="formData[0].prop">
-          <Render v-if="typeof formData[0].render === 'function'" :render="formData[0].render"
-            :formItem="formData[0]" />
-          <span v-else>{{ formData[0].render }}</span>
-        </el-form-item>
-      </el-col>
-    </el-row> -->
   </div>
 </template>
 
 <script lang="ts" setup>
-import Render from '../../Render.js'
 import { defineAsyncComponent, inject } from 'vue'
+import { FormData } from '../type'
 
-const formModel = inject('formModel')
+const formModel = inject<any>('formModel')
 const { formData } = defineProps({
   formData: {
-    type: Array,
+    type: Array as () => FormData,
     default: () => []
   }
 })
 defineOptions({
   name: 'WebFormItem',
   components: {
-    Render,
     input: defineAsyncComponent(() => import(`../../input/index`)),
     'input-more': defineAsyncComponent(() => import(`../../input-more/index`)),
     'input-button': defineAsyncComponent(() => import(`../../input-button/index`)),
@@ -69,7 +44,7 @@ defineOptions({
 })
 </script>
 
-<style>
+<style lang="scss" scoped>
 .rich {
   -webkit-user-modify: read-only;
 }

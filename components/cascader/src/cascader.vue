@@ -32,7 +32,7 @@ defineOptions({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../../index.scss';
 
 .web-cascader {

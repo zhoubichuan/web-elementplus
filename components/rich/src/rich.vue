@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="web-rich">
     <div id="text-container" class="text"></div>
     <div id="toolbar-container" class="toolbar"></div>
   </div>
@@ -16,7 +16,32 @@ const props = defineProps({
   },
   menus: {
     type: Array as PropType<string[]>,
-    default: []
+    default: [
+      'head',
+      'bold',
+      'fontSize',
+      // 'fontName',
+      // 'italic',
+      // 'underline',
+      // 'strikeThrough',
+      // 'indent',
+      // 'lineHeight',
+      // 'foreColor',
+      // 'backColor',
+      // 'link',
+      'list',
+      // 'todo',
+      // 'justify',
+      // 'quote',
+      // 'emoticon',
+      'image'
+      // 'video',
+      // 'table',
+      // 'code',
+      // 'splitLine',
+      // 'undo',
+      // 'redo',
+    ]
   }
 })
 const emit = defineEmits(['update:modelValue', 'change'])
@@ -42,7 +67,6 @@ defineOptions({
 // 富文本样式
 .toolbar {
   min-height: 200px;
-  margin-bottom: 30px;
   border: 1px solid #ccc;
   border-top: none;
 

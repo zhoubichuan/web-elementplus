@@ -97,7 +97,6 @@ export * from './cascader-panel/index'
 // import DescriptionsItem from './descriptions-item/index'
 // import Result from './result/index'
 
-
 //   Vue.use(InfiniteScroll)
 //   Vue.use(Loading.directive)
 
@@ -111,5 +110,5 @@ export * from './cascader-panel/index'
 //   Vue.prototype.$alert = MessageBox.alert
 //   Vue.prototype.$confirm = MessageBox.confirm
 //   Vue.prototype.$prompt = MessageBox.prompt
-  // Vue.prototype.$notify = WebNotification
+// Vue.prototype.$notify = WebNotification
 //   Vue.prototype.$message = Message

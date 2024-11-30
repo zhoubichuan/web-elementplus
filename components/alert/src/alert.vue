@@ -2,12 +2,12 @@
   <el-alert class="web-alert" show-icon v-bind="$attrs" />
 </template>
 
-<script lang='ts' setup name="WebAlter">
+<script lang="ts" setup name="WebAlter">
 import { ElAlert } from 'element-plus'
 
 defineOptions({
   name: 'WebAlert'
-});
+})
 </script>
 
 <style lang="scss">
