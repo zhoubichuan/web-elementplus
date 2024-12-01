@@ -1,4 +1,5 @@
 export default [
+  { text: "组件问题", link: "/question/a" },
   {
     text: '组件源码',
     items: [

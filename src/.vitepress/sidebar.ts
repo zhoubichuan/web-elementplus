@@ -1,4 +1,12 @@
 export default {
+  '/question/': [
+    {
+      text: "组件问题",
+      items: [
+        { text: "问题记录1", link: "/question/a/" },
+      ],
+    },
+  ],
   '/element-plus/base/': [
     {
       text: "基础组件",
