@@ -1,14 +1,18 @@
 <template>
-  <web-dialog-create :rules="rules" size="big" title="编辑xx" v-model="show" :close="handleClose" @reloadList="reloadData"
-    :creteForm="formData" :request="handleRequest" />
-  <web-button @click="handleCreate">编辑</web-button>
+  <web-dialog-create :rules="rules" :size="size" title="编辑xx" v-model="show" :close="handleClose"
+    @reloadList="reloadData" :creteForm="formData" :request="handleRequest" />
+  <web-button @click="handleCreate('big')">编辑大尺寸</web-button>
+  <web-button @click="handleCreate('middle')">编辑中尺寸</web-button>
+  <web-button @click="handleCreate('small')">编辑小尺寸</web-button>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 const show = ref(false)
 const create = ref(false)
-const handleCreate = () => {
+const size = ref('')
+const handleCreate = (s) => {
+  size.value = s
   show.value = true
   create.value = true
 }
@@ -59,7 +63,7 @@ const baseFormData = [
       prop: 'relatedId',
       label: 'xxx',
       type: 'input',
-      init:55,
+      init: 55,
       component: {
         placeholder: '请输入sssddsid'
       }
@@ -71,7 +75,7 @@ const baseFormData = [
       prop: 'name',
       label: '名称',
       type: 'input',
-      init:'李白',
+      init: '李白',
       component: {
         placeholder: '请输入名称'
       }
@@ -80,7 +84,7 @@ const baseFormData = [
       prop: 'count',
       label: 'saddd',
       type: 'input',
-      init:'1111',
+      init: '1111',
       component: {
         placeholder: '请输入ss'
       }
@@ -91,7 +95,7 @@ const baseFormData = [
       prop: 'remark',
       label: '说明',
       type: 'rich',
-      init:`什么是纯文本 什么是富文本 – PingCode
+      init: `什么是纯文本 什么是富文本 – PingCode
 
 
 

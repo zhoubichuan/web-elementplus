@@ -1,6 +1,5 @@
 <template>
-  <!-- 表格区域 -->
-  <web-table-operation :data="data" :column="column"  @operation="handleOperation"/>
+  <web-table-operation :data="data" :column="column" @operation="handleOperation" />
 </template>
 
 <script setup lang="ts">
@@ -30,7 +29,7 @@ const data = ref([
     address: 'No. 189, Grove St, Los Angeles',
   },
 ])
-const column = ref([
+const column = [
   {
     prop: "date",
     label: "date",
@@ -45,7 +44,5 @@ const column = ref([
     prop: "address",
     label: "address",
   },
-])
+]
 </script>
-
-<style lang="scss" scoped></style>

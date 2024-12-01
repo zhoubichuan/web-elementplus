@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts" name="WebRich">
-import { onMounted, computed, PropType, defineProps } from 'vue'
+import { onMounted, PropType } from 'vue'
 import E from 'wangeditor'
 
 const props = defineProps({

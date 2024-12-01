@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, useAttrs, defineProps } from 'vue'
+import { ref, useAttrs } from 'vue'
 import { ElMessage } from 'element-plus'
 import { ElButton, ElInput } from 'element-plus'
 

@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, defineProps, provide, defineEmits, onBeforeMount } from 'vue'
+import { ref, reactive, provide, onBeforeMount } from 'vue'
 import { ElForm, ElMessage } from 'element-plus'
 import WebDialog from '../../dialog/index'
 import WebForm from '../../form/index'

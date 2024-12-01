@@ -4,8 +4,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-const handleOperation = () => {
-  alert(1)
+const handleOperation = (row) => {
+  alert(row.name)
 }
 const data = ref([
   {
@@ -29,7 +29,7 @@ const data = ref([
     address: 'No. 189, Grove St, Los Angeles',
   },
 ])
-const column = ref([
+const column = [
   {
     type: 'index',
     label: '序号',
@@ -70,7 +70,5 @@ const column = ref([
       text: '查看'
     }
   }
-])
+]
 </script>
-
-<style lang="scss" scoped></style>

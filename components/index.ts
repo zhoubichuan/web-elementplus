@@ -22,9 +22,9 @@ import CheckboxGroup from './checkbox-group/index'
 import Switch from './switch/index'
 import Select from './select/index'
 import Option from './option/index'
-// import OptionGroup from './option-group/index'
+import OptionGroup from './option-group/index'
 import Button from './button/index'
-// import ButtonGroup from './button-group/index'
+import ButtonGroup from './button-group/index'
 import Search from './search/index'
 import Dialog from './dialog/index'
 import DialogCreate from './dialog-create/index'
@@ -35,14 +35,14 @@ import Table from './table/index'
 import WebTablePagination from './table-pagination/index'
 import WebTableOperation from './table-operation/index'
 // import TableColumn from './table-column/index'
-// import DatePicker from './date-picker/index'
+import DatePicker from './date-picker/index'
 import TimeSelect from './time-select/index'
 import TimePicker from './time-picker/index'
 // import Popover from './popover/index'
 import Tooltip from './tooltip/index'
 import MessageBox from './message-box/index'
-// import Breadcrumb from './breadcrumb/index'
-// import BreadcrumbItem from './breadcrumb-item/index'
+import Breadcrumb from './breadcrumb/index'
+import BreadcrumbItem from './breadcrumb-item/index'
 import Form from './form/index'
 import FormItem from './form-item/index'
 import formSearch from './form-search/index'
@@ -60,7 +60,7 @@ import Row from './row/index'
 import Col from './col/index'
 import Upload from './upload/index'
 import Progress from './progress/index'
-// import Spinner from './spinner/index'
+import Spinner from './spinner/index'
 // import Message from './message/index'
 import Badge from './badge/index'
 import Card from './card/index'
@@ -75,6 +75,7 @@ import CollapseItem from './collapse-item/index'
 import Cascader from './cascader/index'
 import ColorPicker from './color-picker/index'
 import Transfer from './transfer/index'
+import WebTransferCascaderPanel from './transfer-cascader-panel/index'
 import Container from './container/index'
 import Header from './header/index'
 import Aside from './aside/index'
@@ -87,7 +88,7 @@ import Divider from './divider/index'
 import Image from './image/index'
 import Calendar from './calendar/index'
 import Backtop from './backtop/index'
-// import InfiniteScroll from './infinite-scroll/index'
+import InfiniteScroll from './infinite-scroll/index'
 import PageHeader from './page-header/index'
 import CascaderPanel from './cascader-panel/index'
 import Avatar from './avatar/index'
@@ -126,7 +127,7 @@ const components = [
   Switch,
   Select,
   Option,
-  //   OptionGroup,
+  OptionGroup,
   Button,
   Dialog,
   DialogCreate,
@@ -134,19 +135,19 @@ const components = [
   Slider,
   Search,
   //   Modal,
-  //   ButtonGroup,
+  ButtonGroup,
   //   CommonForm,
   Table,
   WebTablePagination,
   WebTableOperation,
   //   TableColumn,
-  //   DatePicker,
+  DatePicker,
   TimeSelect,
   TimePicker,
   //   Popover,
   Tooltip,
-  //   Breadcrumb,
-  //   BreadcrumbItem,
+  Breadcrumb,
+  BreadcrumbItem,
   Form,
   FormItem,
   formSearch,
@@ -161,7 +162,7 @@ const components = [
   Col,
   Upload,
   Progress,
-  //   Spinner,
+  Spinner,
   Badge,
   Card,
   Rate,
@@ -175,6 +176,7 @@ const components = [
   Cascader,
   ColorPicker,
   Transfer,
+  WebTransferCascaderPanel,
   Container,
   Header,
   Aside,
@@ -252,9 +254,9 @@ export default {
   Switch,
   Select,
   Option,
-  //   OptionGroup,
+  OptionGroup,
   Button,
-  //   ButtonGroup,
+  ButtonGroup,
   Dialog,
   DialogCreate,
   DialogView,
@@ -266,14 +268,14 @@ export default {
   WebTablePagination,
   WebTableOperation,
   //   TableColumn,
-  //   DatePicker,
+  DatePicker,
   TimeSelect,
   TimePicker,
   //   Popover,
   Tooltip,
   MessageBox,
-  //   Breadcrumb,
-  //   BreadcrumbItem,
+  Breadcrumb,
+  BreadcrumbItem,
   Form,
   FormItem,
   formSearch,
@@ -289,7 +291,7 @@ export default {
   Col,
   Upload,
   Progress,
-  //   Spinner,
+  Spinner,
   //   Message,
   Badge,
   Card,
@@ -304,6 +306,7 @@ export default {
   Cascader,
   ColorPicker,
   Transfer,
+  WebTransferCascaderPanel,
   Container,
   Header,
   Aside,
@@ -316,7 +319,7 @@ export default {
   Image,
   Calendar,
   Backtop,
-  // InfiniteScroll,
+  InfiniteScroll,
   PageHeader,
   CascaderPanel,
   Avatar,

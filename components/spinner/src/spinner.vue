@@ -1,16 +1,16 @@
 <template>
-  <el-badge class="web-badge" v-bind="$attrs">
+  <el-spinner class="web-spinner" v-bind="$attrs">
     <template v-if="slots.default" #default>
       <slot name="default"></slot>
     </template>
-  </el-badge>
+  </el-spinner>
 </template>
 
-<script lang='ts' setup name="WebBadge">
+<script lang='ts' setup name="WebSpinner">
 import { useSlots } from 'vue'
 const slots = useSlots()
 
 defineOptions({
-  name: 'WebBadge'
+  name: 'WebSpinner'
 });
 </script>

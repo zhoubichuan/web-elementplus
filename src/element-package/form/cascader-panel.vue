@@ -1,13 +1,15 @@
 <template>
-  <div>
-    <web-select v-model="value1" :options="selectOptions"></web-select>
-    <web-button :disabled="!select.length">选择</web-button>
-    <web-cascader-panel v-model="select" :props="props" :options="cascaderOptions" @change="handleChange" />
-  </div>
-  <div>
-    <web-select v-model="value1" :options="selectOptions"></web-select>
-    <web-button :disabled="!select.length">取消</web-button>
-    <web-cascader-panel v-model="select" :props="props" :options="cascaderOptions" @change="handleChange" />
+  <div style="display: flex;overflow-x: auto;">
+    <div>
+      <web-select v-model="value1" :options="selectOptions"></web-select>
+      <web-button :disabled="!select.length">选择</web-button>
+      <web-cascader-panel v-model="select" :props="props" :options="cascaderOptions" @change="handleChange" />
+    </div>
+    <div>
+      <web-select v-model="value1" :options="selectOptions"></web-select>
+      <web-button :disabled="!select.length">取消</web-button>
+      <web-cascader-panel v-model="select" :props="props" :options="cascaderOptions" @change="handleChange" />
+    </div>
   </div>
 </template>
 

@@ -8,7 +8,7 @@
 
 <script lang="ts" setup>
 import { ElForm } from 'element-plus'
-import { defineExpose, ref } from 'vue'
+import { ref } from 'vue'
 import type { FormInstance } from 'element-plus'
 
 const formRef = ref<FormInstance>()

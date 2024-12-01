@@ -27,7 +27,7 @@
 </template>
 
 <script lang="ts" setup name="WebDialog">
-import { defineEmits, useSlots } from 'vue'
+import { useSlots } from 'vue'
 import WebButton from '../../button/index'
 const { mold, size } = defineProps({
   mold: {

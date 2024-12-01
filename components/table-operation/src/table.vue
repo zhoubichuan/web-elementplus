@@ -40,11 +40,7 @@ const handleOperation = (row: typeof ElTableColumn & component) => {
   emit('operation', row)
 }
 </script>
-<script lang="ts" setup name="WebTableOperation">
-defineOptions({
-  name: 'WebTableOperation'
-})
-</script>
+
 <style lang="scss" scoped>
 // @import '../../config.scss';
 

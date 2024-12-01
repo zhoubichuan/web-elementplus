@@ -1,21 +1,23 @@
 <template>
-  <div class="web-pagination-wrap">
-    <div class="total">共 {{ $attrs.total }} 条数据</div>
-    <el-pagination
-      class="web-pagination"
-      popper-class="web-pagination-popper"
-      background
-      layout="prev, pager, next, sizes, jumper"
-      v-bind="$attrs"
-    >
+  <el-config-provider :locale="zhCn">
+    <el-pagination class="web-pagination" :page-sizes="[10, 20, 50, 100]" popper-class="web-pagination-popper"
+      background layout="total,  prev, pager, next,sizes, jumper" v-bind="$attrs">
+      <template v-if="slots.default" #default>
+        <slot name="default"></slot>
+      </template>
     </el-pagination>
-  </div>
+  </el-config-provider>
+
 </template>
-<script lang="ts">
-export default {
+<script lang="ts" setup name="WebPagination">
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+import { useSlots } from 'vue'
+const slots = useSlots()
+defineOptions({
   name: 'WebPagination'
-}
+})
 </script>
+
 <style lang="scss">
 .web-pagination-wrap {
   display: flex;
@@ -30,6 +32,14 @@ export default {
 }
 
 .web-pagination {
+  position: relative;
+  justify-content: right;
+
+  .el-pagination__total {
+    position: absolute;
+    left: 0;
+  }
+
   .el-pagination__sizes {
     margin-left: 16px;
   }
@@ -81,6 +91,7 @@ export default {
 }
 
 .web-pagination-popper {
+
   .el-select-dropdown__item.hover,
   .el-select-dropdown__item:hover {
     background-color: var(--color-help);

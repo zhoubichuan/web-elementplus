@@ -11,12 +11,12 @@ defineOptions({
 <style lang="scss">
 .web-radio {
   .el-radio__inner {
-    border: var(--web-color-circle-not-checked-border);
+    border: var(--web-radio-circle-not-checked-border);
   }
 
   &:hover {
     .el-radio__input:not(.is-disabled) .el-radio__inner {
-      border: var(--web-color-circle-not-checked-border-hover);
+      border: var(--web-radio-circle-not-checked-border-hover);
     }
   }
 

@@ -1,14 +1,19 @@
 <template>
-  <web-dialog-create :rules="rules" size="big" title="创建xx" v-model="show" :close="handleClose" @reloadList="reloadData"
-    :creteForm="formData" :request="handleRequest"/>
-  <web-button @click="handleCreate">创建</web-button>
+  <web-dialog-create :rules="rules" :size="size" title="创建xx" v-model="show" :close="handleClose" :creteForm="formData"
+    :request="handleRequest" />
+  <web-button @click="handleCreate('big')">创建大尺寸</web-button>
+  <web-button @click="handleCreate('middle')">创建中尺寸</web-button>
+  <web-button @click="handleCreate('small')">创建小尺寸</web-button>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 const show = ref(false)
 const create = ref(false)
-const handleCreate = () => {
+const size = ref('')
+
+const handleCreate = (s) => {
+  size.value = s
   show.value = true
   create.value = true
 }
@@ -19,28 +24,20 @@ const handleClose = () => {
 const handleRequest = (val) => {
   debugger
 }
-const typeChange = (val: any) => {
-  if (val === 1) {
-    formData.value = baseFormData
-  } else {
-    formData.value = baseFormData2
-  }
-}
+
 const rules = {
   relatedId: [
     { required: true, message: '请输入sssdds/rtyrtyrt', trigger: 'blur' }
-    // { type: 'number', max: 1000, message: "sssdds/rtyrtyrt为数字" }
   ],
   type: [{ required: true, message: '请选择asdfasdf', trigger: 'blur' }],
   image: [{ required: true, message: '请选择展示图', trigger: 'blur' }],
   count: [
     { required: true, message: '请输入数量', trigger: 'blur' }
-    // { type: 'number', max: 1000, message: "数量为数字" }
   ],
   name: [{ required: true, message: '请输入名称', trigger: 'blur' }],
   remark: [{ required: true, message: '请输入说明', trigger: 'blur' }]
 }
-const baseFormData = [
+const formData = [
   [
     {
       prop: 'type',
@@ -48,7 +45,7 @@ const baseFormData = [
       type: 'select',
       component: {
         placeholder: '请选择类型',
-        onChange: typeChange,
+        onChange: () => { alert(1) },
         request: () => [{ value: 1, label: '1asdfaqwfsafa' }, { value: 2, label: 'asdf23asdfa2' }]
       }
     },
@@ -89,37 +86,9 @@ const baseFormData = [
       label: '说明',
       type: 'rich',
       component: {
-        menus: [
-          'head',
-          'bold',
-          'fontSize',
-          // 'fontName',
-          // 'italic',
-          // 'underline',
-          // 'strikeThrough',
-          // 'indent',
-          // 'lineHeight',
-          // 'foreColor',
-          // 'backColor',
-          // 'link',
-          'list',
-          // 'todo',
-          // 'justify',
-          // 'quote',
-          // 'emoticon',
-          'image'
-          // 'video',
-          // 'table',
-          // 'code',
-          // 'splitLine',
-          // 'undo',
-          // 'redo',
-        ],
         style: 'width: 100%'
       }
     }
   ]
 ]
-const formData = ref(baseFormData)
 </script>
-<style lang="scss" scoped></style>

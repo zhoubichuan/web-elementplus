@@ -1,6 +1,6 @@
-import Badge from './src/badge.vue'
+import InfiniteScroll from './src/infinite-scroll.vue'
 import type { App } from 'vue'
-Badge.install = function (app: App) {
-  app.component(Badge.name, Badge)
+InfiniteScroll.install = function (app: App) {
+  app.component(InfiniteScroll.name, InfiniteScroll)
 }
-export default Badge
+export default InfiniteScroll

@@ -9,7 +9,6 @@
   </el-row>
 </template>
 <script setup lang="ts" name="WebLayout">
-import { defineProps } from 'vue'
 const { data } = defineProps<{
   data: {
     type: Array

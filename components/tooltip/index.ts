@@ -1,6 +1,6 @@
 import Tooltip from './src/tooltip.vue';
-// @ts-ignore
-Tooltip.install = function (Vue) {
-    Vue.component(Tooltip.name, Tooltip);
+import type { App } from 'vue'
+Tooltip.install = function (app: App) {
+    app.component(Tooltip.name, Tooltip);
 };
 export default Tooltip;

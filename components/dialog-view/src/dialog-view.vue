@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, defineProps, provide } from 'vue'
+import { reactive, provide } from 'vue'
 import WebDialog from '../../dialog/index'
 import WebForm from '../../form/index'
 import WebFormItem from '../../form-item/index'

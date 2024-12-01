@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, defineEmits, defineProps } from 'vue'
+import { reactive } from 'vue'
 import WebInputMoreChild from './input-more-child.vue'
 
 const { modelValue } = defineProps({

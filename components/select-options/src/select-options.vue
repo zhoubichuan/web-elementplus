@@ -6,7 +6,7 @@
 
 <script setup lang="ts" name="WebSelect">
 import { CaretTop } from '@element-plus/icons-vue'
-import { defineProps, PropType, computed } from 'vue'
+import { PropType, computed } from 'vue'
 const { options } = defineProps({
   options: {
     type: Array as PropType<{ label: string; value: string }[]>,

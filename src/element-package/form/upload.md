@@ -10,4 +10,6 @@ meta:
 
 # 十四.Upload
 
-<preview path="./upload.vue"></preview>
+## 默认
+
+<preview path="./upload-default.vue"></preview>

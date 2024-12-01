@@ -10,4 +10,10 @@ meta:
 
 # 十七.Transfer
 
-<preview path="./transfer.vue"></preview>
+## 默认
+
+<preview path="./transfer-default.vue"></preview>
+
+## 级联面板
+
+<preview path="./transfer-cascader-panel.vue"></preview>

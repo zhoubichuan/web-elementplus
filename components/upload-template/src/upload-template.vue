@@ -18,7 +18,7 @@
   </el-upload>
 </template>
 <script lang="ts" setup>
-import { ref, defineProps } from 'vue'
+import { ref } from 'vue'
 import { Upload } from '@element-plus/icons-vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import type { UploadProps, UploadUserFile } from 'element-plus'

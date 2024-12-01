@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, defineProps } from 'vue'
+import { reactive, ref } from 'vue'
 import dayjs from 'dayjs'
 const time = ref(dayjs().valueOf())
 const chooseTime = (res: any) => {
