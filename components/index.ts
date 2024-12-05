@@ -1,5 +1,4 @@
 import Pagination from './pagination/index'
-// import Preview from './preview/index'
 import Layout from './layout/index'
 import Autocomplete from './autocomplete/index'
 import Dropdown from './dropdown/index'
@@ -29,8 +28,6 @@ import Search from './search/index'
 import Dialog from './dialog/index'
 import DialogCreate from './dialog-create/index'
 import DialogView from './dialog-view/index'
-// import Modal from './modal/index'
-// import CommonForm from './common-form/index'
 import Table from './table/index'
 import WebTablePagination from './table-pagination/index'
 import WebTableOperation from './table-operation/index'
@@ -104,7 +101,6 @@ import Result from './result/index'
 
 const components = [
   Pagination,
-  //   Preview,
   Layout,
   Autocomplete,
   Dropdown,
@@ -134,9 +130,7 @@ const components = [
   DialogView,
   Slider,
   Search,
-  //   Modal,
   ButtonGroup,
-  //   CommonForm,
   Table,
   WebTablePagination,
   WebTableOperation,
@@ -229,7 +223,6 @@ const install = function (app, opts = {}) {
 export default {
   version: '2.15.13',
   install,
-  //   Preview,
   Layout,
   //   Loading,
   Pagination,
@@ -262,8 +255,6 @@ export default {
   DialogView,
   Slider,
   Search,
-  //   Modal,
-  //   CommonForm,
   Table,
   WebTablePagination,
   WebTableOperation,
