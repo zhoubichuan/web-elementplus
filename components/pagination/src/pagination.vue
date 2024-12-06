@@ -7,8 +7,8 @@
       </template>
     </el-pagination>
   </el-config-provider>
-
 </template>
+
 <script lang="ts" setup name="WebPagination">
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import { useSlots } from 'vue'

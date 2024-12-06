@@ -229,5 +229,13 @@ export default {
         { text: "infinitescroll", link: "/element-package/others/infinitescroll" },
       ],
     },
-  ]
+  ],
+  '/template/': [
+    {
+      text: "页面模板",
+      items: [
+        { text: "页面模板1", link: "/template/page1/" },
+      ],
+    },
+  ],
 }

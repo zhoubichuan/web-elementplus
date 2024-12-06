@@ -58,4 +58,5 @@ export default [
       }
     ]
   },
+  { text: "页面模板", link: "/template/page1" },
 ]

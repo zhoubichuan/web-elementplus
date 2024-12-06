@@ -1,6 +1,6 @@
 <template>
   <el-card class="page-search" style="margin-top: 10px">
-    <web-form size="middle" ref="searchInfoRef" :model="formModel" label-width="120px">
+    <web-form size="middle" ref="searchInfoRef" :model="formModel">
       <template v-if="searchForm.length">
         <web-form-item
           v-for="(formItem, formItemIndex) in searchForm"

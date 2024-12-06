@@ -98,6 +98,7 @@ import Empty from './empty/index'
 import Descriptions from './descriptions/index'
 import DescriptionsItem from './descriptions-item/index'
 import Result from './result/index'
+import { App } from 'vue'
 
 const components = [
   Pagination,
@@ -197,7 +198,7 @@ const components = [
   Result
 ]
 
-const install = function (app, opts = {}) {
+const install = function (app: App, opts = {}) {
   components.forEach(component => {
     app.component(component.name, component)
   })
@@ -218,7 +219,6 @@ const install = function (app, opts = {}) {
   // Vue.prototype.$notify = WebNotification
   //   Vue.prototype.$message = Message
 }
-
 
 export default {
   version: '2.15.13',

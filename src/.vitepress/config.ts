@@ -23,6 +23,7 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
+        'web-components': fileURLToPath(new URL('../../components', import.meta.url)),
         'components': fileURLToPath(new URL('../../components', import.meta.url)),
         '@': fileURLToPath(new URL('../../src', import.meta.url))
       }
