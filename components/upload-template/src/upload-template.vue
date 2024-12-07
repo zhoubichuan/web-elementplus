@@ -38,7 +38,7 @@ const { requestDownload, templateUrl, requestUpload } = defineProps({
 })
 const emits = defineEmits(['update:modelValue'])
 const MAX_FILE_SIZE = 5 * 1024 * 1024 // 5MB
-const uploadSubmit = async (options: any) => {
+const uploadSubmit = async (options: { file: Blob; onSuccess: Function; onError: Function }) => {
   const { file, onSuccess, onError } = options
   emits('update:modelValue', file)
   if (file.size > MAX_FILE_SIZE) {

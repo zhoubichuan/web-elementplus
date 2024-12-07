@@ -30,7 +30,7 @@ const { rules, close, request, creteForm } = defineProps({
     default: () => []
   }
 })
-// 查询参数
+// 参数
 const formModel = reactive<Record<string, string | number | undefined>>({})
 const init = () =>
   creteForm.forEach(child => {

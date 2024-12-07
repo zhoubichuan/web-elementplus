@@ -21,7 +21,7 @@ defineOptions({
 </script>
 
 <style lang="scss">
-// @import '../../index.scss';
+@import '../../index.scss';
 
 .web-button {
   &.is-disabled {

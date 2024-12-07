@@ -1,5 +1,12 @@
 <template>
-  <web-cascader-panel v-if="view" v-model="nextSelect" :props="{ ...props, disabled: true }" :options="treeData2" />
+  <template v-if="view">
+    <web-cascader-panel
+      v-if="nextSelect.length"
+      v-model="nextSelect"
+      :props="{ ...props, disabled: true }"
+      :options="treeData2"
+    />
+  </template>
   <el-row v-else :gutter="20" class="transfer-cascader-panel">
     <el-col :span="12">
       <div class="select-part">
@@ -26,17 +33,21 @@
     </el-col>
   </el-row>
 </template>
-<script setup lang="ts">
-import { ref, onBeforeMount } from 'vue'
+<script setup lang="ts" name="WebTransferCascaderPanel">
+import { ref, onBeforeMount, nextTick } from 'vue'
 import WebSelectOptions from '../../select-options/index'
 import WebCascaderPanel from '../../cascader-panel/index'
 import { cloneDeep } from 'lodash'
 
 const emits = defineEmits(['update:modelValue'])
-const { modelValue, requestSelect, requestTree, selectData, data } = defineProps({
+const { view, editData, modelValue, requestSelect, requestTree, selectData, data } = defineProps({
   view: {
     type: Boolean,
     default: false
+  },
+  editData: {
+    type: Array,
+    default: () => []
   },
   data: {
     type: Array,
@@ -90,36 +101,61 @@ const requestScenarios = async params => {
     formData.value.type = data[0].value
   }
   await getRequestTree({ sceneType: formData.value.type })
+  if (editData.length === 3) {
+    const arr = []
+    for (let i = 0; i < treeData.value.length; i++) {
+      const data2 = treeData.value[i]?.children
+      if (data2) {
+        for (let j = 0; j < data2.length; j++) {
+          const data3 = data2[j]?.children
+          if (data3) {
+            for (let k = 0; k < data3.length; k++) {
+              editData[2].includes([data3[k].id]) && arr.push([treeData.value[i].id, data2[j].id, data3[k].id])
+            }
+          } else {
+            editData[1].includes([data2[j].id]) && arr.push([treeData.value[i].id, data2[j].id])
+          }
+        }
+      } else {
+        editData[0].includes([treeData.value[i].id]) && arr.push([treeData.value[i].id])
+      }
+    }
+    nextTick(() => {
+      preSelect.value = nextSelect.value = arr
+      treeData2.value = treeData.value
+    })
+  }
 }
 onBeforeMount(async () => {
   await requestScenarios()
-  // if (selectData.length) {
-  //   preSelect.value = selectData
-  //   handleAdd()
-  // }
+  if (selectData.length) {
+    // preSelect.value = selectData
+    handleAdd()
+  }
 
-  // if (data.length) {
-  //   const arr = []
-  //   for (let i = 0; i < data.length; i++) {
-  //     const data2 = data[i]?.children
-  //     if (data2) {
-  //       for (let j = 0; j < data2.length; j++) {
-  //         const data3 = data2[j]?.children
-  //         if (data3) {
-  //           for (let k = 0; k < data3.length; k++) {
-  //             arr.push([data[i].id, data2[j].id, data3[k].id])
-  //           }
-  //         } else {
-  //           arr.push([data[i].id, data2[j].id])
-  //         }
-  //       }
-  //     } else {
-  //       arr.push([data[i].id])
-  //     }
-  //   }
-  //   nextSelect.value = arr
-  //   treeData2.value = data
-  // }
+  if (data.length) {
+    const arr = []
+    for (let i = 0; i < data.length; i++) {
+      const data2 = data[i]?.children
+      if (data2) {
+        for (let j = 0; j < data2.length; j++) {
+          const data3 = data2[j]?.children
+          if (data3) {
+            for (let k = 0; k < data3.length; k++) {
+              arr.push([data[i].id, data2[j].id, data3[k].id])
+            }
+          } else {
+            arr.push([data[i].id, data2[j].id])
+          }
+        }
+      } else {
+        arr.push([data[i].id])
+      }
+    }
+
+    nextSelect.value = arr
+    treeData2.value = data
+  }
 })
 const handleSelectChange = (id: string) => {
   getRequestTree({ sceneType: id })
