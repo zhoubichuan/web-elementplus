@@ -3,7 +3,7 @@
     :class="{ 'web-dialog': true, [size]: true }"
     lock-scroll
     destroy-on-close
-    @close="handleCancel"
+    @close="handleCancel('icon')"
     v-bind="$attrs"
   >
     <template v-if="slots.header" #header>
@@ -18,7 +18,7 @@
     </slot>
     <template v-if="slots.footer || mold.includes('edit') || mold.includes('create')" #footer>
       <span v-if="mold.includes('edit') || mold.includes('create')" class="dialog-footer">
-        <web-button @click="handleCancel">取 消</web-button>
+        <web-button @click="handleCancel('button')">取 消</web-button>
         <web-button type="primary" @click="handleConfirm">确 定</web-button>
       </span>
       <slot v-else name="footer"> </slot>
@@ -40,8 +40,8 @@ const { mold, size } = defineProps({
   }
 })
 const emit = defineEmits(['handleCancel', 'handleConfirm'])
-const handleCancel = () => {
-  emit('handleCancel')
+const handleCancel = (type: string) => {
+  emit('handleCancel', type)
 }
 const slots = useSlots()
 

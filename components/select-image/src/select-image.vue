@@ -7,14 +7,14 @@
       :option-value="optionValue"
       v-bind="$attrs"
     />
-    <el-image :src="imageSrc || image" />
+    <el-image :src="modelValue" />
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
 import WebSelectOptions from '../../select-options/index'
-const { view, options, optionLabel, optionValue, imageSrc } = defineProps({
+const { view, options, optionLabel, optionValue, modelValue } = defineProps({
   view: {
     type: Boolean,
     default: false
@@ -31,12 +31,11 @@ const { view, options, optionLabel, optionValue, imageSrc } = defineProps({
     type: String,
     default: 'value'
   },
-  imageSrc: {
+  modelValue: {
     type: String,
     default: ''
   }
 })
-const image = ref('')
 </script>
 <style lang="scss" scoped>
 .web-select-image {

@@ -1,11 +1,6 @@
 <template>
   <template v-if="view">
-    <web-cascader-panel
-      v-if="nextSelect.length"
-      v-model="nextSelect"
-      :props="{ ...props, disabled: true }"
-      :options="treeData2"
-    />
+    <view-cascader-panel v-if="nextSelect.length" v-model="nextSelect" :options="treeData2" />
   </template>
   <el-row v-else :gutter="20" class="transfer-cascader-panel">
     <el-col :span="12">
@@ -28,7 +23,7 @@
       已选内容
       <el-button class="cancel-btn" @click="handleCancel" :disabled="!nextSelect.length">取消选中</el-button>
       <div class="cascader-part-disabled">
-        <web-cascader-panel v-model="nextSelect" :props="{ ...props, disabled: true }" :options="treeData2" />
+        <web-cascader-panel v-model="nextSelect" :props="props2" :options="treeData2" />
       </div>
     </el-col>
   </el-row>
@@ -37,17 +32,15 @@
 import { ref, onBeforeMount, nextTick } from 'vue'
 import WebSelectOptions from '../../select-options/index'
 import WebCascaderPanel from '../../cascader-panel/index'
+import ViewCascaderPanel from './view-cascader-panel.vue'
+
 import { cloneDeep } from 'lodash'
 
 const emits = defineEmits(['update:modelValue'])
-const { view, editData, modelValue, requestSelect, requestTree, selectData, data } = defineProps({
+const { view, modelValue, requestSelect, requestTree, selectData, data } = defineProps({
   view: {
     type: Boolean,
     default: false
-  },
-  editData: {
-    type: Array,
-    default: () => []
   },
   data: {
     type: Array,
@@ -58,8 +51,8 @@ const { view, editData, modelValue, requestSelect, requestTree, selectData, data
     default: () => []
   },
   modelValue: {
-    type: String,
-    default: ''
+    type: Array,
+    default: () => []
   },
   requestSelect: {
     type: Function,
@@ -101,7 +94,7 @@ const requestScenarios = async params => {
     formData.value.type = data[0].value
   }
   await getRequestTree({ sceneType: formData.value.type })
-  if (editData.length === 3) {
+  if (modelValue.length === 4 && modelValue[0]) {
     const arr = []
     for (let i = 0; i < treeData.value.length; i++) {
       const data2 = treeData.value[i]?.children
@@ -110,14 +103,14 @@ const requestScenarios = async params => {
           const data3 = data2[j]?.children
           if (data3) {
             for (let k = 0; k < data3.length; k++) {
-              editData[2].includes([data3[k].id]) && arr.push([treeData.value[i].id, data2[j].id, data3[k].id])
+              modelValue[2].includes([data3[k].id]) && arr.push([treeData.value[i].id, data2[j].id, data3[k].id])
             }
           } else {
-            editData[1].includes([data2[j].id]) && arr.push([treeData.value[i].id, data2[j].id])
+            modelValue[1].includes([data2[j].id]) && arr.push([treeData.value[i].id, data2[j].id])
           }
         }
       } else {
-        editData[0].includes([treeData.value[i].id]) && arr.push([treeData.value[i].id])
+        modelValue[0].includes([treeData.value[i].id]) && arr.push([treeData.value[i].id])
       }
     }
     nextTick(() => {
@@ -152,7 +145,6 @@ onBeforeMount(async () => {
         arr.push([data[i].id])
       }
     }
-
     nextSelect.value = arr
     treeData2.value = data
   }
@@ -179,13 +171,11 @@ const handleAdd = () => {
     .filter(childs => arr[0].includes(childs.id))
     .map(item => ({
       ...item,
-      disabled: true,
       children: item.children
         .filter(childs => arr[1].includes(childs.id))
         .map(childItem => ({
           ...childItem,
-          disabled: true,
-          children: childItem.children.filter(c => arr[2].includes(c.id)).map(l => ({ ...l, disabled: true }))
+          children: childItem.children.filter(c => arr[2].includes(c.id))
         }))
     }))
   emits('update:modelValue', arr)
@@ -224,7 +214,6 @@ defineOptions({
 
 .cascader-part-disabled {
   margin-top: 10px;
-  pointer-events: none;
 
   :deep(.el-checkbox__input.is-checked) {
     .el-checkbox__inner {
