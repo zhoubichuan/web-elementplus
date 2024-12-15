@@ -29,13 +29,17 @@
   </el-row>
 </template>
 <script setup lang="ts" name="WebTransferCascaderPanel">
-import { ref, onBeforeMount, nextTick } from 'vue'
+import { ref, onBeforeMount, nextTick, defineAsyncComponent } from 'vue'
 import WebSelectOptions from '../../select-options/index'
 import WebCascaderPanel from '../../cascader-panel/index'
-import ViewCascaderPanel from './view-cascader-panel.vue'
-
 import { cloneDeep } from 'lodash'
+import type { CascaderOption } from 'element-plus'
 
+interface TreeNode extends CascaderOption {
+  id: never
+  children?: TreeNode[]
+}
+const ViewCascaderPanel = defineAsyncComponent(() => import('./view-cascader-panel.vue'))
 const emits = defineEmits(['update:modelValue'])
 const { view, modelValue, requestSelect, requestTree, selectData, data } = defineProps({
   view: {
@@ -43,7 +47,7 @@ const { view, modelValue, requestSelect, requestTree, selectData, data } = defin
     default: false
   },
   data: {
-    type: Array,
+    type: Array as () => TreeNode[],
     default: () => []
   },
   selectData: {
@@ -51,16 +55,16 @@ const { view, modelValue, requestSelect, requestTree, selectData, data } = defin
     default: () => []
   },
   modelValue: {
-    type: Array,
+    type: Array as () => Array<string[]>,
     default: () => []
   },
   requestSelect: {
     type: Function,
-    default: () => []
+    default: () => {}
   },
   requestTree: {
     type: Function,
-    default: () => []
+    default: () => {}
   }
 })
 const formData = ref<any>({
@@ -77,44 +81,45 @@ const props2 = {
   label: 'name',
   value: 'id'
 }
-const preSelect = ref(modelValue ? modelValue.slice(-1) : [])
-const nextSelect = ref([])
+const preSelect = ref<Array<string[]>>(modelValue ? modelValue.slice(-1) : [])
+const nextSelect = ref<Array<[]>>([])
 const treeData2 = ref([])
 
-const treeData = ref()
-const getRequestTree = async params => {
+const treeData = ref<TreeNode[]>([])
+const getRequestTree = async (params: Record<string, unknown>) => {
   const result = await requestTree(params)
   treeData.value = result
 }
 const scenariosData = ref([])
-const requestScenarios = async params => {
-  const data = await requestSelect(params)
-  scenariosData.value = data
+const requestScenarios = async (params?: Record<string, unknown>) => {
+  const data: TreeNode[] = await requestSelect(params)
+  scenariosData.value = data as []
   if (!formData.value.type) {
     formData.value.type = data[0].value
   }
   await getRequestTree({ sceneType: formData.value.type })
   if (modelValue.length === 4 && modelValue[0]) {
-    const arr = []
+    const arr: Array<string[]> = []
     for (let i = 0; i < treeData.value.length; i++) {
-      const data2 = treeData.value[i]?.children
+      const data2 = treeData.value[i]?.children as Array<TreeNode>
       if (data2) {
         for (let j = 0; j < data2.length; j++) {
-          const data3 = data2[j]?.children
+          const data3 = data2[j]?.children as Array<TreeNode>
           if (data3) {
             for (let k = 0; k < data3.length; k++) {
-              modelValue[2].includes([data3[k].id]) && arr.push([treeData.value[i].id, data2[j].id, data3[k].id])
+              modelValue[2].includes([data3[k].id] as never) &&
+                arr.push([treeData.value[i].id, data2[j].id, data3[k].id])
             }
           } else {
-            modelValue[1].includes([data2[j].id]) && arr.push([treeData.value[i].id, data2[j].id])
+            modelValue[1].includes([data2[j].id] as never) && arr.push([treeData.value[i].id, data2[j].id])
           }
         }
       } else {
-        modelValue[0].includes([treeData.value[i].id]) && arr.push([treeData.value[i].id])
+        modelValue[0].includes([treeData.value[i].id] as never) && arr.push([treeData.value[i].id])
       }
     }
     nextTick(() => {
-      preSelect.value = nextSelect.value = arr
+      preSelect.value = nextSelect.value = arr as Array<[]>
       treeData2.value = treeData.value
     })
   }
@@ -145,7 +150,7 @@ onBeforeMount(async () => {
         arr.push([data[i].id])
       }
     }
-    nextSelect.value = arr
+    nextSelect.value = arr as Array<[]>
     treeData2.value = data
   }
 })
@@ -153,7 +158,7 @@ const handleSelectChange = (id: string) => {
   getRequestTree({ sceneType: id })
 }
 const handleAdd = () => {
-  nextSelect.value = preSelect.value
+  nextSelect.value = preSelect.value as Array<[]>
   const arr = [[], [], [], formData.value.type]
   for (let i = 0; i < preSelect.value.length; i++) {
     const [a, b, c] = preSelect.value[i]
@@ -172,10 +177,10 @@ const handleAdd = () => {
     .map(item => ({
       ...item,
       children: item.children
-        .filter(childs => arr[1].includes(childs.id))
+        ?.filter(childs => arr[1].includes(childs.id))
         .map(childItem => ({
           ...childItem,
-          children: childItem.children.filter(c => arr[2].includes(c.id))
+          children: childItem.children?.filter(c => arr[2].includes(c.id))
         }))
     }))
   emits('update:modelValue', arr)

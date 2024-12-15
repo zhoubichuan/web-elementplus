@@ -6,13 +6,18 @@ import { ref, onBeforeMount } from 'vue'
 import WebCascaderPanel from '../../cascader-panel/index'
 import { cloneDeep } from 'lodash'
 import type { CascaderOption } from 'element-plus'
+
+interface TreeNode extends CascaderOption {
+  id: never
+  children: TreeNode[]
+}
 const { options, modelValue } = defineProps({
   options: {
-    type: Array as () => CascaderOption[],
+    type: Array as () => TreeNode[],
     default: () => []
   },
   modelValue: {
-    type: Array,
+    type: Array as () => Array<never[]>,
     default: () => []
   }
 })
