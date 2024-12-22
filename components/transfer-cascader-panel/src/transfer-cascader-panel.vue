@@ -84,7 +84,6 @@ const props2 = {
 const preSelect = ref<Array<string[]>>(modelValue ? modelValue.slice(-1) : [])
 const nextSelect = ref<Array<[]>>([])
 const treeData2 = ref([])
-
 const treeData = ref<TreeNode[]>([])
 const getRequestTree = async (params: Record<string, unknown>) => {
   const result = await requestTree(params)
@@ -188,6 +187,7 @@ const handleAdd = () => {
 const handleCancel = () => {
   nextSelect.value = []
   preSelect.value = []
+  treeData2.value = []
   emits('update:modelValue', [[], [], [], formData.value.type])
 }
 defineOptions({

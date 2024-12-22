@@ -30,6 +30,7 @@ defineOptions({
   name: 'WebFormItem',
   components: {
     input: defineAsyncComponent(() => import(`../../input/index`)),
+    'input-number': defineAsyncComponent(() => import(`../../input-number/index`)),
     'input-more': defineAsyncComponent(() => import(`../../input-more/index`)),
     'input-button': defineAsyncComponent(() => import(`../../input-button/index`)),
     select: defineAsyncComponent(() => import(`../../select/index`)),

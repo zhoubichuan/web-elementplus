@@ -21,10 +21,11 @@
   "bugs": {
     "url": "https://github.com/zhoubichuan/web-elementplus/issues"
   },
-  "author": "Wang Yongcun",
+  "author": "zhoubichuan",
   "license": "MIT",
   "engines": {
-    "node": ">=14"
+    "node": "=20.0.0",
+    "npm": ">=6.9.0"
   },
   "scripts": {
     "dev": "vitepress dev src",

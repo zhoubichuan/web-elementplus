@@ -1,6 +1,6 @@
 <template>
   <div class="input-more-child">
-    <el-input class="input" v-model="value" @input="handleChange" />
+    <el-input class="input" v-bind="$attrs" v-model="value" @input="handleChange" />
     <el-button link @click="handleUp">上移</el-button>
     <el-button link @click="handleDown"> 下移</el-button>
     <el-button :icon="Delete" link @click="handleDelete"></el-button>

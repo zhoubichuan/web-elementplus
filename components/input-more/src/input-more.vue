@@ -4,6 +4,7 @@
       <el-button link @click="handleAdd">添加</el-button>
     </div>
     <web-input-more-child
+      v-bind="$attrs"
       v-for="(item, index) in items"
       :key="item.index"
       :data="item"

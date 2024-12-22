@@ -1,22 +1,17 @@
 <template>
-    <el-input-number :class="{ 'web-input-number': true }" v-bind="$attrs">
-    </el-input-number>
+  <el-input-number :class="{ 'web-input-number': true }" v-bind="$attrs"> </el-input-number>
 </template>
 
 <script setup lang="ts">
-import { useAttrs } from 'vue';
-import { ElInputNumber } from 'element-plus';
+import { ElInputNumber } from 'element-plus'
 
 defineOptions({
-    name: 'WebInputNumber'
-});
-
-
+  name: 'WebInputNumber'
+})
 </script>
 
 <style lang="scss" scoped>
-@import '../../config.scss';
-@import '../../common.scss';
-
-.#{$prefix}-input-number {}
+.web-input-number {
+  width: 100%;
+}
 </style>
