@@ -11,9 +11,9 @@ meta:
 # 三.Message
 
 :::tip 前言
-
+用于用户页面操作的各种提示信息
 :::
 
-## 基础用法
+## 默认
 
 <preview path="./message-default.vue"></preview>
