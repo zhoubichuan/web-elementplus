@@ -1,7 +1,7 @@
 <template>
   <el-upload
     v-model:file-list="fileList"
-    class="upload-part"
+    class="web-upload"
     action="/admin-api/admin/userDynamic/upload"
     :on-preview="handlePreview"
     :limit="1"
@@ -65,8 +65,8 @@ const handlePreview: UploadProps['onPreview'] = (file: any) => {
   console.log(file)
 }
 </script>
-<style>
-.upload-part {
+<style lang="scss">
+.web-upload {
   display: flex;
 }
 </style>

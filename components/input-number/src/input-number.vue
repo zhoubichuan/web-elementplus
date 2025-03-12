@@ -10,11 +10,12 @@ defineOptions({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../../index.scss';
 
 .web-input-number {
   width: 100%;
+
   .el-input {
     &__wrapper {
       &.is-focus {

@@ -1,5 +1,6 @@
 <template>
   <el-dialog
+    modal-class="web-modal"
     :class="{ 'web-dialog': true, [size]: true }"
     lock-scroll
     destroy-on-close
@@ -54,6 +55,12 @@ defineOptions({
 </script>
 
 <style lang="scss">
+.web-modal {
+  .el-overlay-dialog {
+    overflow: hidden;
+  }
+}
+
 .web-dialog {
   top: 50%;
   margin-top: 0;
@@ -88,10 +95,5 @@ defineOptions({
 
 .el-dialog__title {
   font-weight: bold;
-}
-</style>
-<style>
-.el-overlay-dialog {
-  overflow: hidden;
 }
 </style>

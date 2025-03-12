@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="web-container">
     <div class="header" v-if="header">
       <el-breadcrumb separator="/" v-if="header.breadcrumb">
         <el-breadcrumb-item
@@ -48,41 +48,40 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.container {
+.web-container {
   height: 100%;
   padding: 20px;
   padding-top: 0;
+
   // min-width: 1550px;
-}
+  .header {
+    position: relative;
+    padding: 32px 0 16px;
+    font-size: 16px;
 
-.header {
-  position: relative;
-  padding: 32px 0 16px;
-  font-size: 16px;
-
-  .options {
-    position: absolute;
-    top: 12px;
-    right: 20px;
+    .options {
+      position: absolute;
+      top: 12px;
+      right: 20px;
+    }
   }
-}
 
-.content {
-  box-sizing: border-box;
-  height: calc(100vh - 80px);
-  padding: 32px 24px;
-  background: #fff;
-  border-radius: 8px;
-}
-</style>
-<style>
-.el-breadcrumb__inner.is-link {
-  color: #86868b;
-  font-weight: 400;
-}
+  .content {
+    box-sizing: border-box;
+    height: calc(100vh - 80px);
+    padding: 32px 24px;
+    background: #fff;
+    border-radius: 8px;
+  }
 
-.el-breadcrumb__item:last-child .el-breadcrumb__inner {
-  color: #1d1d1f;
-  font-weight: 400;
+  .el-breadcrumb__inner.is-link {
+    color: #86868b;
+    font-weight: 400;
+  }
+
+  .el-breadcrumb__item:last-child .el-breadcrumb__inner {
+    color: #1d1d1f;
+    font-weight: 400;
+  }
 }
 </style>

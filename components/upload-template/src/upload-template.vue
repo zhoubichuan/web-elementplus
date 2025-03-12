@@ -1,17 +1,16 @@
 <template>
   <el-upload
     v-model:file-list="fileList"
-    class="upload-demo"
+    class="web-upload-template"
     action="#"
-    multiple
     :on-preview="handlePreview"
     :http-request="uploadSubmit"
     :on-remove="handleRemove"
-    :before-remove="beforeRemove"
-    :limit="3"
+    v-bind="$attrs"
+    :limit="1"
     :on-exceed="handleExceed"
   >
-    <el-button :icon="Upload">上传文件</el-button>
+    <el-button :disabled="fileList.length" :icon="Upload">上传文件</el-button>
     <template #tip>
       <el-button class="download" link @click="handleDown">下载模板</el-button>
     </template>
@@ -82,21 +81,13 @@ const handlePreview: UploadProps['onPreview'] = uploadFile => {
 }
 const handleExceed: UploadProps['onExceed'] = (files, uploadFiles) => {
   ElMessage.warning(
-    `The limit is 3, you selected ${files.length} files this time, add up to ${
-      files.length + uploadFiles.length
-    } totally`
-  )
-}
-const beforeRemove: UploadProps['beforeRemove'] = (uploadFile, uploadFiles) => {
-  return ElMessageBox.confirm(`Cancel the transfer of ${uploadFile.name} ?`).then(
-    () => true,
-    () => false
+    `The limit is 3, you selected ${files.length} files this time, add up to ${files.length + uploadFiles.length}`
   )
 }
 </script>
 
-<style scoped>
-.download {
+<style lang="scss" scoped>
+.web-upload-template {
   margin-left: 10px;
 }
 </style>

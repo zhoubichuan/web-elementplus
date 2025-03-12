@@ -12,9 +12,9 @@
       <el-row>
         <!-- 查询 重置按钮 -->
         <el-col :span="200" style="width: 100%">
-          <el-button @click="formCreate" type="primary">
-            <slot> 创建 </slot>
-          </el-button>
+          <slot>
+            <el-button @click="formCreate" type="primary"> 创建 </el-button>
+          </slot>
           <div v-if="searchForm.length" style="float: right">
             <el-button :icon="Refresh" @click="resetSearchForm">重置</el-button>
             <el-button :icon="Search" @click="handlerSearch" type="primary">查询</el-button>

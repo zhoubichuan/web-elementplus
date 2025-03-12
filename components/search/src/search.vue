@@ -1,5 +1,5 @@
 <template>
-  <el-collapse v-model="activeNames" @change="handleChange">
+  <el-collapse class="web-search" v-model="activeNames" @change="handleChange">
     <el-collapse-item name="1">
       <template v-slot:title>
         <i class="header-icon el-icon-info"></i>
@@ -119,5 +119,23 @@ export default {
 }
 </script>
 <style lang="scss">
-@import url('../index.scss');
+.web-search {
+  .el-collapse-item__wrap {
+    border-bottom: none;
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity .5s;
+  }
+
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+  }
+
+  .el-collapse-item__header {
+    border-bottom: none;
+  }
+}
 </style>
