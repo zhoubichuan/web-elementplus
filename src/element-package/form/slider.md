@@ -8,6 +8,6 @@ meta:
     content: vuepress,最新技术文档,vuepress语法,markdown语法
 ---
 
-# 九.Slider
+# 九.滑块
 
 <preview path="./slider.vue"></preview>

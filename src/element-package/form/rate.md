@@ -10,6 +10,10 @@ meta:
 
 # Rate 评分
 
+::: tip 前言
+组件ui修改，原功能不变，具体用法可以参考之前案例
+:::
+
 ## 默认
 
 <preview path="./rate.vue"></preview>

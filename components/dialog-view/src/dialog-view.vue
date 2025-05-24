@@ -1,6 +1,6 @@
 <template>
   <web-dialog v-bind="$attrs" mold="view" @handleCancel="close">
-    <web-form :model="formModel" label-width="80px">
+    <web-form :model="formModel" :label-width="labelWidth">
       <web-form-item v-for="(formItem, formItemIndex) in creteForm" :form-data="formItem" :key="formItemIndex" />
     </web-form>
   </web-dialog>
@@ -12,6 +12,10 @@ import WebDialog from '../../dialog/index'
 import WebForm from '../../form/index'
 import WebFormItem from '../../form-item/index'
 const { close, creteForm } = defineProps({
+  labelWidth: {
+    type: String,
+    default: '80px'
+  },
   close: {
     type: Function,
     default: () => {}

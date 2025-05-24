@@ -15,7 +15,7 @@
           <slot>
             <el-button @click="formCreate" type="primary"> 创建 </el-button>
           </slot>
-          <div v-if="searchForm.length" style="float: right">
+          <div v-if="searchForm.length" style="float: right" class="handle-btn">
             <el-button :icon="Refresh" @click="resetSearchForm">重置</el-button>
             <el-button :icon="Search" @click="handlerSearch" type="primary">查询</el-button>
           </div>
@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts" name="WebFormSearch">
-import { reactive, provide } from 'vue'
+import { reactive, provide, defineExpose } from 'vue'
 import WebFormItem from '../../form-item/index'
 import { Refresh, Search } from '@element-plus/icons-vue'
 import type { SearchFormData, FormItemData } from '../type'
@@ -65,8 +65,12 @@ const resetSearchForm = () => {
   reloadFn(formModel)
 }
 provide('formModel', formModel)
+
 defineOptions({
   name: 'WebFormSearch'
+})
+defineExpose({
+  getModel: () => formModel
 })
 </script>
 

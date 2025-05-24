@@ -9,9 +9,14 @@ meta:
 ---
 
 
-# 十二.DatePicker
-::: tip 前言
+# 十二.日期选择器
 
+::: tip 前言
+组件ui修改，原功能不变，具体用法可以参考之前案例
 :::
+
 ## 默认
+
 <preview path="./datepicker-default.vue"></preview>
+
+<preview path="./datepicker-show.vue"></preview>

@@ -1,5 +1,5 @@
 <template>
-  <web-radio-group v-model="value">
+  <web-radio-group v-model="value" size="large">
     <web-radio label="1">男生</web-radio>
     <web-radio label="2">女生</web-radio>
   </web-radio-group>

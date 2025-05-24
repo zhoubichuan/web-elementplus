@@ -7,7 +7,7 @@
             <div class="rich" contenteditable="true" v-html="item.init"></div>
           </template>
           <template v-else>
-            <component :is="item.type" v-bind="item.component" v-model="formModel[item.prop]" />
+            <component :is="item.type" v-bind="item.component" v-model="formModel[item.prop]" v-on="item.fn" />
           </template>
         </el-form-item>
       </el-col>

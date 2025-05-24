@@ -10,6 +10,10 @@ meta:
 
 # 十四.Upload
 
+::: tip 前言
+组件ui修改，原功能不变，具体用法可以参考之前案例
+:::
+
 ## 默认
 
 <preview path="./upload-default.vue"></preview>

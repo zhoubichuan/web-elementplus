@@ -96,7 +96,7 @@ const requestScenarios = async (params?: Record<string, unknown>) => {
   if (!formData.value.type) {
     formData.value.type = data[0].value
   }
-  await getRequestTree({ sceneType: formData.value.type })
+  await getRequestTree({ scene: formData.value.type })
   if (modelValue.length === 4 && modelValue[0]) {
     const arr: Array<string[]> = []
     for (let i = 0; i < treeData.value.length; i++) {
@@ -154,7 +154,7 @@ onBeforeMount(async () => {
   }
 })
 const handleSelectChange = (id: string) => {
-  getRequestTree({ sceneType: id })
+  getRequestTree({ scene: id })
 }
 const handleAdd = () => {
   nextSelect.value = preSelect.value as Array<[]>
