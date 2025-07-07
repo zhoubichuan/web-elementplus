@@ -85,7 +85,6 @@ defineOptions({
 }
 
 .el-dialog__header {
-  padding: 20px 32px;
   border-bottom: 1px solid #edeeef;
 }
 

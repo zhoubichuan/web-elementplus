@@ -37,7 +37,8 @@
     "gitee": "bash gitee.sh",
     "build:rollup": "rm -fr lib && npx rollup -c",
     "build:css": "npx gulp sass",
-    "build:all": "npm run build:js && npm run build:css"
+    "build:all": "npm run build:js && npm run build:css",
+    "scp:prod": "scp -r ./web-elementplus/* root@zhoubichuan.com:/usr/src/zhoubichuan/prod/web-elementplus/"
   },
   "keywords": [
     "web-elementplus",

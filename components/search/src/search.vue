@@ -6,19 +6,13 @@
         <span style="padding-left: 10px">搜索</span>
       </template>
       <transition>
-        <el-form size="mini" :inline="true" :model="value" class="demo-form-inline">
+        <el-form :inline="true" :model="value" class="demo-form-inline">
           <el-row :gutter="20" v-for="(row, rowIndex) in conditionItems" :key="rowIndex">
             <el-col :span="8" v-for="(col, colIndex) in row" :key="colIndex">
               <el-form-item :label="col.label" label-width="100px">
                 <keep-alive>
-                  <component
-                    :is="col.type"
-                    v-model="formInline[col.name]"
-                    :placeholder="col.placeholder"
-                    :multiple="col.multiple"
-                    :defaultValue="col.defaultValue"
-                    :options="col.options"
-                  >
+                  <component :is="col.type" v-model="formInline[col.name]" :placeholder="col.placeholder"
+                    :multiple="col.multiple" :defaultValue="col.defaultValue" :options="col.options">
                   </component>
                 </keep-alive>
               </el-form-item>
@@ -40,7 +34,7 @@ export default {
   props: {
     value: {
       type: Object,
-      default: () => {}
+      default: () => { }
     },
     condition: {
       type: Array,
@@ -85,7 +79,7 @@ export default {
   methods: {
     devideArr(arr, num) {
       let index = 0
-      let items = []
+      const items = []
       // if (arr.length % 2 === 1) {
       //   arr = arr.push({})
       // }

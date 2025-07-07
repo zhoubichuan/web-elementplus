@@ -63,7 +63,7 @@ const handleDown = async () => {
   if (templateUrl) {
     url = templateUrl
   } else {
-    let res = await requestDownload()
+    const res = await requestDownload()
     url = window.URL.createObjectURL(new Blob([res]))
   }
 

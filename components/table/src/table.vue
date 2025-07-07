@@ -15,9 +15,9 @@
       </template>
       <el-table-column v-if="config.hasSelection" type="selection" width="55" />
       <template v-for="item in config.tableItems" :key="item.label">
-        <el-table-column v-bind="item" :prop="item.prop" :label="item.label" :width="item?.width">
-          <template #default="scope">
-            <slot :name="item.prop" :row="scope.row"></slot>
+     <el-table-column v-bind="item" :prop="item.prop" :label="item.label" :width="item?.width">
+          <template v-if="!item.formatter" #default="scope">
+            <slot :name="item.prop" :row="scope.row">{{ scope.row[item.prop] }}</slot>
           </template>
         </el-table-column>
       </template>
@@ -43,8 +43,7 @@
         background
         v-model:currentPage="tablePageInfo.currentPage"
         v-model:page-size="tablePageInfo.pageSize"
-        :hide-on-single-page="true"
-        :page-sizes="[20, 50, 100, 200]"
+        :page-sizes="[10, 20, 50, 100]"
         layout="total, sizes, prev, pager, next, jumper"
         :total="tablePageInfo.totalCount"
         @size-change="handleSizeChange"
@@ -55,7 +54,7 @@
 </template>
 
 <script setup lang="ts" name="WebTable">
-import { ElTable, ElButton, ElTableColumn } from 'element-plus'
+import { ElTable, ElButton, ElTableColumn ,ElPagination} from 'element-plus'
 import { ref, watch } from 'vue'
 
 const { pageInfo, data } = defineProps({

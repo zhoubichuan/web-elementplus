@@ -39,7 +39,7 @@ const { leftOptions, rightOptions, modelValue } = defineProps({
   }
 })
 const leftVal = ref('')
-let rightVal = ref('')
+const rightVal = ref('')
 if (modelValue && modelValue.length) {
   leftVal.value = modelValue[0].token
   rightVal.value = modelValue[1].token

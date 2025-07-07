@@ -22,7 +22,7 @@ const handleInput = (val: string) => {
   emit('update:modelValue', val)
 }
 const handleClick = async () => {
-  let res = await request({ spuId: attrs.modelValue })
+  const res = await request({ spuId: attrs.modelValue })
   if (res) {
     ElMessage.success('spuId存在')
   } else {

@@ -52,7 +52,7 @@ onMounted(() => {
   // 配置菜单栏，删减菜单，调整顺序
   editor.config.menus = props.menus
   // 配置 onchange 回调函数
-  editor.config.onchange = function (newHtml: String) {
+  editor.config.onchange = function (newHtml: string) {
     emit('update:modelValue', newHtml)
   }
   editor.create()
