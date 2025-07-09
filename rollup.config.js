@@ -1,31 +1,51 @@
-// rollup.config.js
-import typescript from 'rollup-plugin-typescript2'
-import vuePlugin from 'rollup-plugin-vue'
-import css from 'rollup-plugin-css-only'
-// 如果依赖模块中存在 es 模块，需要使用 @rollup/plugin-node-resolve 插件进行转换
-import nodeResolve from '@rollup/plugin-node-resolve'
-
-const file = (type) => `lib/web-elementplus.${type}.js`
-
-export { // 这里将 file 方法 和 name 导出
-  file
-}
-
-const overrides = {
-  compilerOptions: { declaration: true }, // 是否创建 typescript 声明文件
-  exclude: [ // 排除项
-    'node_modules',
-    'src',
-  ]
-}
+import resolve from "@rollup/plugin-node-resolve";
+import vuePlugin from "rollup-plugin-vue";
+import postcss from "rollup-plugin-postcss";
+import autoprefixer from "autoprefixer";
+import copy from "rollup-plugin-copy";
+import url from "postcss-url";
 
 export default {
-  input: './components/index.ts',
-  output: {
-    name:'web-elementplus',
-    file: file('esm'),
-    format: 'es' // 编译模式
-  },
-  plugins: [nodeResolve(), typescript({ tsconfigOverride: overrides }), vuePlugin(), css({ output: 'bundle.css' })],
-  external: ['vue'] // 依赖模块
-}
+  input: "./components/index.ts",
+  output: [
+    {
+      file: "dist/es.js",
+      name: "TestUI",
+      format: "es",
+    },
+    {
+      file: "dist/cjs.js",
+      name: "TestUI",
+      format: "cjs",
+      exports: "named",
+    },
+    {
+      file: "dist/umd.js",
+      name: "TestUI",
+      format: "umd",
+      exports: "named",
+      globals: {
+        vue: "Vue",
+      },
+    },
+  ],
+  plugins: [
+    resolve(),
+    vuePlugin(),
+    postcss({
+      extract: "theme-chalk/style.css", // 将css提取到单独的文件中
+      plugins: [
+        autoprefixer(),
+        url({
+          url: "copy",
+          basePath: "fonts",
+          assetsPath: "fonts",
+        }),
+      ],
+    }),
+    copy({
+      targets: [{ src: "packages/theme-chalk/fonts/*", dest: "dist/theme-chalk/fonts/" }],
+    }),
+  ],
+  external: ["vue"], // 依赖模块
+};

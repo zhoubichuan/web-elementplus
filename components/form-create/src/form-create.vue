@@ -1,5 +1,14 @@
 <template>
-  <web-form ref="formRef" :model="formModel" label-width="80px" v-bind="$attrs">
+  <div class="form-create" v-if="arrow">
+    <web-collapse v-model="activeNames" @change="handleChange">
+      <web-collapse-item name="1">
+        <web-form ref="formRef" :model="formModel" label-width="80px" v-bind="$attrs">
+          <web-form-item v-for="(formItem, formItemIndex) in formData" :formData="formItem" :key="formItemIndex" />
+        </web-form>
+      </web-collapse-item>
+    </web-collapse>
+  </div>
+  <web-form v-else ref="formRef" :model="formModel" label-width="80px" v-bind="$attrs">
     <web-form-item v-for="(formItem, formItemIndex) in formData" :formData="formItem" :key="formItemIndex" />
   </web-form>
 </template>
@@ -8,18 +17,26 @@
 import { ref, reactive, provide } from 'vue'
 import WebForm from '../../form/index'
 import WebFormItem from '../../form-item/index'
-
-const { request, formData } = defineProps({
+import WebCollapse from '../../collapse/index'
+import WebCollapseItem from '../../collapse-item/index'
+const { arrow, request, formData } = defineProps({
+  arrow: {
+    type: Boolean,
+    default: false
+  },
   request: {
     type: Function,
-    default: () => {}
+    default: () => { }
   },
   formData: {
     type: Array,
     default: () => []
   }
 })
-
+const activeNames = ref(['1'])
+const handleChange = (val: string[]) => {
+  console.log(val)
+}
 const formRef = ref<InstanceType<typeof WebForm>>()
 
 // 查询参数
@@ -52,3 +69,27 @@ defineOptions({
   name: 'WebFormCreate'
 })
 </script>
+<style lang="scss">
+.form-create {
+  position: relative;
+
+  .el-collapse {
+    border: none;
+
+    .el-collapse-item__content {
+      padding-bottom: 0;
+    }
+  }
+
+  .el-collapse-item__header {
+    position: absolute;
+    height: auto;
+
+    .el-collapse-item__arrow {
+      left: -20px;
+      top: -16px;
+      position: absolute;
+    }
+  }
+}
+</style>
