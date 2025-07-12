@@ -32,9 +32,9 @@
 import { ref, onBeforeMount, nextTick, defineAsyncComponent } from 'vue'
 import WebSelectOptions from '../../select-options/index'
 import WebCascaderPanel from '../../cascader-panel/index'
-import { cloneDeep } from 'lodash'
 import type { CascaderOption } from 'element-plus'
-
+import pkg from 'lodash';
+const { cloneDeep } = pkg;
 interface TreeNode extends CascaderOption {
   id: never
   children?: TreeNode[]

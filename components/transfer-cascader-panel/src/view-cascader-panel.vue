@@ -4,9 +4,9 @@
 <script setup lang="ts" name="WebTransferCascaderPanel">
 import { ref, onBeforeMount } from 'vue'
 import WebCascaderPanel from '../../cascader-panel/index'
-import { cloneDeep } from 'lodash'
 import type { CascaderOption } from 'element-plus'
-
+import pkg from 'lodash';
+const { cloneDeep } = pkg;
 interface TreeNode extends CascaderOption {
   id: never
   children: TreeNode[]
