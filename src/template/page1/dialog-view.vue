@@ -1,201 +1,131 @@
 <template>
-  <web-dialog
-    mold="view"
-    size="big"
-    title="查看"
-    v-model="dialogShow"
-    v-bind="{ ...$attrs }"
-    @handleCancel="handleClose"
-    @handleConfirm="handleSubmit"
-  >
-    <web-form-create ref="modelRef" v-if="isModel" @handleChange="handleChange" :formData="baseFormData" />
-    <web-form-create ref="propertyRef" v-else @handleChange="handleChange" :formData="baseFormData2" />
+  <web-dialog mold="view" size="big" title="查看" v-model="dialogShow" v-bind="{ ...$attrs }" @handleCancel="handleClose"
+    @handleConfirm="handleSubmit">
+    <web-form-create v-if="isSingle" ref="modelRef" :formData="baseFormData" />
   </web-dialog>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { DetailApi, PropertyDetailApi, getNftTree, getNftScenarios } from '@/api/index'
+import { nextTick, ref } from 'vue'
 import WebDialog from 'web-components/dialog/index'
 import WebFormCreate from 'web-components/form-create/index'
-import type { FormData } from 'web-components/form-create/type'
-const baseFormData = ref<FormData>([])
-const baseFormData2 = ref<FormData>([])
-const modelRef = ref<InstanceType<typeof WebFormCreate>>()
-const propertyRef = ref<InstanceType<typeof WebFormCreate>>()
+import dayjs from 'dayjs'
+const mapRef = ref()
+const mapGfid = ref('')
+const isSingle = ref(true)
+const statrAddress = ref([])
+const baseFormData = ref<FormData[]>([])
 //弹框
 const dialogShow = ref(false)
 const handleClose = () => {
   dialogShow.value = false
 }
-const isModel = ref(true)
 
-const emit = defineEmits(['reloadList'])
-const handleChange = (val: any) => {
-  if (val === '1') {
-    isModel.value = true
-  } else {
-    isModel.value = false
-  }
-}
 const handleSubmit = () => {
-  if (isModel.value) {
-    modelRef.value?.validate()
-  } else {
-    propertyRef.value?.validate()
-  }
+
 }
 
 const singleView = async (params: Record<string, any>) => {
-  params.projectType = +params.projectType
-  let requestFn = DetailApi
-  if (params.projectType === 2) {
-    requestFn = PropertyDetailApi
-  }
-  const { d, m } = await requestFn({ id: params.id })
+  isSingle.value = true
   const {
-    id,
-    modelId,
-    projectType,
+    createtime,
+    desc,
+    gfid,
+    modifytime,
     name,
-    ntfNum,
-    description,
-    showPic,
-    cityIds,
-    routeIds,
-    mediaLocationIds,
-    assetSceneType
-  } = d
-  if (String(projectType) === '1') {
-    isModel.value = true
-    baseFormData.value = [
-      [
-        {
-          prop: 'projectType',
-          label: '关联项目',
-          init: '模型',
-          type: 'div'
-        },
-        {}
-      ],
-      [
-        {
-          prop: 'modelId',
-          label: '服装id',
-          type: 'div',
-          init: modelId
-        },
-        {}
-      ],
-      [
-        {
-          prop: 'name',
-          label: '名称',
-          type: 'div',
-          init: name
-        },
-        {
-          prop: 'ntfNum',
-          label: '铸造数量',
-          type: 'div',
-          init: ntfNum
-        }
-      ],
-      [
-        {
-          prop: 'description',
-          label: '说明',
-          type: 'div',
-          init: description
-        }
-      ]
+    shape
+  } = params
+  mapGfid.value = String(gfid)
+  statrAddress.value = shape.center ? shape.center.split(',') : shape.points.split(';')[0].split(',')
+  baseFormData.value = [
+    [
+      {
+        prop: 'gfid',
+        label: 'gfid',
+        init: gfid,
+        type: 'div'
+      },
+      {
+        prop: 'type',
+        label: '围栏类型',
+        init: shape.center ? '圆形' : '多边形',
+        type: 'div'
+      },
+    ],
+    [
+      {
+        prop: 'name',
+        label: '围栏名称',
+        type: 'div',
+        init: name
+      },
+      {
+        prop: 'desc',
+        label: '围栏描述',
+        type: 'div',
+        init: desc
+      },
+    ],
+    shape.center ? [
+      {
+        prop: 'center',
+        label: '中心点',
+        type: 'div',
+        init: shape.center
+      },
+      {
+        prop: 'radius',
+        label: '半径(米)',
+        type: 'div',
+        init: shape.radius
+      },
+    ] : [
+      {
+        prop: 'points',
+        label: '路径',
+        type: 'div',
+        init: shape.points
+      },
+    ],
+    [
+      {
+        prop: 'createtime',
+        label: '创建时间',
+        type: 'div',
+        init: dayjs(createtime).format('YYYY-MM-DD hh:mm:ss')
+      },
+      {
+        prop: 'createtime',
+        label: '更新时间',
+        type: 'div',
+        init: dayjs(modifytime).format('YYYY-MM-DD hh:mm:ss')
+      },
     ]
-  } else {
-    isModel.value = false
-    baseFormData2.value = [
-      [
-        {
-          prop: 'projectType',
-          label: '关联项目',
-          init: '资产',
-          type: 'div'
-        },
-        {}
-      ],
-      [
-        {
-          prop: 'relatedId',
-          label: '资产',
-          type: 'cascader-panel',
-          init: [
-            cityIds?.split(',') || [],
-            routeIds?.split(',') || [],
-            mediaLocationIds?.split(',') || [],
-            assetSceneType
-          ],
-          component: {
-            props: {
-              label: 'name',
-              value: 'id'
-            },
-            requestSelect: async () => {
-              const { c, d } = await getNftScenarios()
-              if (c == 200) {
-                const data = d.reverse()
-                return data
-              } else {
-                return []
-              }
-            },
-            requestTree: async params => {
-              const {
-                c,
-                d: { result }
-              } = await getNftTree(params)
-              if (c == 200) {
-                return result
-              } else {
-                return []
-              }
-            },
-            view: true
-          }
-        }
-      ],
-      [
-        {
-          prop: 'showPic',
-          label: '展示图',
-          init: showPic || '',
-          type: 'select-image',
-          component: {
-            options: [
-              {
-                value: 'https://zhoubichuan.com/meta/1.png',
-                label: '默认选项'
-              }
-            ],
-            view: true,
-            placeholder: '请输入模型id',
-            imageSrc: showPic
-          }
-        },
-        {}
-      ],
-      [
-        {
-          prop: 'description',
-          label: '说明',
-          type: 'div',
-          init: description
-        }
-      ]
-    ]
-  }
-
+  ]
   dialogShow.value = true
+  nextTick(() => {
+    mapRef.value?.getMapList({ gfids:gfid })
+  })
+}
+const batchView = async () => {
+  mapGfid.value = ''
+  statrAddress.value = [113.539333, 22.242564]
+  isSingle.value = false
+  dialogShow.value = true
+  nextTick(() => {
+    mapRef.value?.getMapList()
+  })
 }
 defineExpose({
-  singleView
+  singleView,
+  batchView
 })
 </script>
+<style lang="scss">
+.fence-container {
+  height: calc(100vh - 426px);
+  &.batch {
+    height: calc(100vh - 226px);
+  }
+}
+</style>

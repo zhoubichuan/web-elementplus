@@ -1,9 +1,10 @@
 <template>
-  <div>
+  <div class="table-page">
     <!-- 搜索部分 -->
-    <form-search @create="viewCreate?.handleCreate" @search="tableRef?.reloadData" />
+    <form-search class="search-part" @create="viewCreate?.handleCreate" @search="tableRef?.reloadData"
+      @batchDel="tableRef?.handleDel" @batchView="viewRef?.batchView" :ids="tableRef?.ids"/>
     <!-- 表格区域 -->
-    <table-show ref="tableRef" @view="viewRef?.singleView" @edit="viewEdit?.singleEdit" />
+    <table-show class="table-part" ref="tableRef" @view="viewRef?.singleView" @edit="viewEdit?.handleEdit" />
     <!-- 创建部分 -->
     <dialog-create ref="viewCreate" @reloadList="tableRef?.reloadData" />
     <!-- 编辑部分 -->
@@ -25,3 +26,29 @@ const viewCreate = ref<InstanceType<typeof dialogCreate>>()
 const viewEdit = ref<InstanceType<typeof dialogEdit>>()
 const viewRef = ref<InstanceType<typeof dialogView>>()
 </script>
+
+<style lang="scss">
+.table-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .search-part {}
+
+  .table-part {
+    height: calc(100% - 136px);
+
+    .el-card__body {
+      height: 100%;
+
+      .el-table {
+        height: calc(100% - 74px);
+
+        .el-scrollbar__view {
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+</style>

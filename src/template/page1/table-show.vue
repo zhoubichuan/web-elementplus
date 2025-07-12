@@ -1,37 +1,56 @@
 <template>
-  <web-table :table-config="Confit" :table-data="tableData ?? []" :page-info="pageInfo"
-    @changePageSize="handleSizeChange" @changeCurrentPage="handleCurrentChange">
+  <web-table :config="Confit" :data="tableData ?? []" :page-info="pageInfo" @changePageSize="handleSizeChange"
+    @changeCurrentPage="handleCurrentChange" @selectChange="handleSelectChange">
     <template #handler="scope">
       <div>
-        <el-button size="mini" type="text" @click="singleView(unref(scope.row))">查看</el-button>
-        <el-button :disabled="scope.row.ntfCreateStatus == 0" size="mini" type="text"
+        <el-button type="text" @click="singleView(unref(scope.row))">查看</el-button>
+        <el-button :disabled="scope.row.ntfCreateStatus == 0" type="text"
           @click="singleEdit(unref(scope.row))">编辑</el-button>
-        <el-button size="mini" type="text">
-          <RouterLink :to="'/admin//detail?id=' + scope.row.id">明细</RouterLink>
-        </el-button>
+        <el-button :disabled="scope.row.ntfCreateStatus == 0" type="text"
+          @click="handleDel(unref(scope.row))">删除</el-button>
       </div>
     </template>
   </web-table>
 </template>
 <script lang="ts" setup>
-import { defineExpose, unref } from 'vue'
+import { ElMessage } from 'element-plus'
+import WebTable from 'web-components/table/index'
+import { defineExpose, unref, ref } from 'vue'
 import { Confit } from './config/table.config'
 import { reactive } from 'vue'
-import { ListItem } from '@/api/type'
-const emits = defineEmits(['edit', 'view'])
-const singleEdit = (value: ListItem) => {
+import useRequest from './useRequest'
+import { queryFence, delFence } from '../service'
+const emits = defineEmits(['del', 'edit', 'view'])
+const ids = ref('')
+const handleSelectChange = (mapIds) => {
+  ids.value = mapIds.map(i => i.gfid).join(',')
+}
+// 删除/批量删除
+const handleDel = async (row) => {
+  const gfid = row ? row.gfid : ids.value
+  const res = await delFence({ gfid })
+  if (res?.errcode === 10000) {
+    ids.value = ''
+    ElMessage.success('删除成功')
+    reloadData()
+  } else {
+    ElMessage.error(res?.errdetail)
+  }
+}
+// 编辑
+const singleEdit = (value) => {
   emits('edit', value)
 }
-// 表单查看
-const singleView = async (value: ListItem) => {
+// 查看
+const singleView = async (value) => {
   emits('view', value)
 }
 // 查询参数
 const getSearchParams = reactive<Record<string, string | number | undefined>>({})
-const { tableData, pageInfo, reloadData, handleCurrentChange, handleSizeChange } = {
-  tableData: [], pageInfo: {}, reloadData:()=> [], handleCurrentChange: () => { }, handleSizeChange: () => { }
-}
+const { tableData, pageInfo, reloadData, handleCurrentChange, handleSizeChange } = useRequest(getSearchParams, queryFence)
 defineExpose({
+  ids,
+  handleDel,
   reloadData: val => {
     if (val) {
       Object.keys(val).forEach(key => {
