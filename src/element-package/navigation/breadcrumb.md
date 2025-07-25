@@ -7,7 +7,11 @@ meta:
   - name: keywords
     content: vuepress,最新技术文档,vuepress语法,markdown语法
 ---
-# 四.Breadcrumb
+# 四.面包屑
 
 - 组件介绍
   [Layout 布局](https://element-plus.gitee.io/#/zh-CN/component/layout)
+
+## 默认
+
+<preview path="./breadcrumb-default.vue"></preview>

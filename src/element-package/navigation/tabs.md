@@ -8,7 +8,11 @@ meta:
     content: vuepress,最新技术文档,vuepress语法,markdown语法
 ---
 
-# 三.Tabs
+# 三.标签页
 
 - 组件介绍
   [Layout 布局](https://element-plus.gitee.io/#/zh-CN/component/layout)
+
+## 默认
+
+<preview path="./tabs-default.vue"></preview>
