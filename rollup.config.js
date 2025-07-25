@@ -1,51 +1,44 @@
-import resolve from "@rollup/plugin-node-resolve";
-import vuePlugin from "rollup-plugin-vue";
-import postcss from "rollup-plugin-postcss";
-import autoprefixer from "autoprefixer";
-import copy from "rollup-plugin-copy";
-import url from "postcss-url";
+// 打包 vue 文件
+import vue from 'rollup-plugin-vue'
+// 打包 css
+import css from 'rollup-plugin-css-only'
+// 打包 ts 文件
+import ts from 'rollup-plugin-typescript2'
+// 打包依赖
+import { nodeResolve } from '@rollup/plugin-node-resolve'
+// 文件名称
+// import { name } from './package.json'
+const name = 'web-elementplus'
+
+// 文件
+const file = type => `dist/${name}.${type}.js`
+
+export { name, file }
+
+// 开启 ts 的类型声明文件打包
+const overrides = {
+  compilerOptions: {
+    declaration: true
+  },
+  exclude: ['src/main.ts', 'node_modules', 'src/App.vue','src']
+}
 
 export default {
-  input: "./components/index.ts",
-  output: [
-    {
-      file: "dist/es.js",
-      name: "TestUI",
-      format: "es",
-    },
-    {
-      file: "dist/cjs.js",
-      name: "TestUI",
-      format: "cjs",
-      exports: "named",
-    },
-    {
-      file: "dist/umd.js",
-      name: "TestUI",
-      format: "umd",
-      exports: "named",
-      globals: {
-        vue: "Vue",
-      },
-    },
-  ],
+  input: "components/index.ts",
+  output: {
+    name,
+    file: file('esm'),
+    format: "es"
+  },
   plugins: [
-    resolve(),
-    vuePlugin(),
-    postcss({
-      extract: "theme-chalk/style.css", // 将css提取到单独的文件中
-      plugins: [
-        autoprefixer(),
-        url({
-          url: "copy",
-          basePath: "fonts",
-          assetsPath: "fonts",
-        }),
-      ],
-    }),
-    copy({
-      targets: [{ src: "packages/theme-chalk/fonts/*", dest: "dist/theme-chalk/fonts/" }],
-    }),
+    nodeResolve(),
+    vue(),
+    css({ output: 'bundle.css' }),
+    ts({ tsconfigOverride: overrides })
   ],
-  external: ["vue"], // 依赖模块
-};
+  // 排除需要打包的第三方库
+  // external: (id) => {
+  //   return /^vue/.test(id)
+  // }
+  external: ['vue', 'lodash-es']
+}

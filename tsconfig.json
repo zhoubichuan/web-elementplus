@@ -15,7 +15,6 @@
         "moduleResolution": "Node",
         "allowSyntheticDefaultImports": true,
         "declaration": true,
-        "suppressImplicitAnyIndexErrors": true,
         "forceConsistentCasingInFileNames": true,
         "composite": true,
         "lib": [
