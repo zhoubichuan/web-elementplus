@@ -1,20 +1,15 @@
 <template>
   <el-steps class="web-steps" v-bind="$attrs" finish-status="success" simple>
-    <slot></slot>
+    <template v-if="slots.default" #default>
+      <slot name="default"></slot>
+    </template>
   </el-steps>
 </template>
 
-<script lang="ts">
+<script lang="ts"  setup name="WebSteps">
 import { defineComponent, ref, onMounted } from 'vue'
-
-export default defineComponent({
-  setup(props, context) {
-    const childrenRef = ref(null)
-    return {
-      childrenRef
-    }
-  }
-})
+import { useSlots } from 'vue'
+const slots = useSlots()
 </script>
 
 <style lang="scss">
